@@ -1,0 +1,469 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.17f1 (4fc78088f837) revision 5228416'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'ko' Physical Memory: 16309 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+D:\2022.3.17f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+C:/Users/gones/Desktop/Princess_Gourmet
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+55553
+Successfully changed project path to: C:/Users/gones/Desktop/Princess_Gourmet
+C:/Users/gones/Desktop/Princess_Gourmet
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [21684] Host "[IP] 192.168.45.229 [Port] 0 [Flags] 2 [Guid] 3554886554 [EditorId] 3554886554 [Version] 1048832 [Id] WindowsEditor(7,GYEOM_PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [21684] Host "[IP] 192.168.45.229 [Port] 0 [Flags] 2 [Guid] 3554886554 [EditorId] 3554886554 [Version] 1048832 [Id] WindowsEditor(7,GYEOM_PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
+Refreshing native plugins compatible for Editor in 1277.70 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.17f1 (4fc78088f837)
+[Subsystems] Discovering subsystems at path D:/2022.3.17f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/gones/Desktop/Princess_Gourmet/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 (ID=0x2504)
+    Vendor:   NVIDIA
+    VRAM:     12129 MB
+    Driver:   31.0.15.3598
+Initialize mono
+Mono path[0] = 'D:/2022.3.17f1/Editor/Data/Managed'
+Mono path[1] = 'D:/2022.3.17f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/2022.3.17f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56880
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/2022.3.17f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: D:/2022.3.17f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.201150 seconds.
+- Loaded All Assemblies, in  5.284 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.220 seconds
+Domain Reload Profiling: 5505ms
+	BeginReloadAssembly (3881ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (337ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (243ms)
+	LoadAllAssembliesAndSetupDomain (815ms)
+		LoadAssemblies (3880ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (813ms)
+			TypeCache.Refresh (812ms)
+				TypeCache.ScanAssembly (618ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (221ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (173ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (117ms)
+			ProcessInitializeOnLoadMethodAttributes (42ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  5.463 seconds
+Refreshing native plugins compatible for Editor in 3.29 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.664 seconds
+Domain Reload Profiling: 6124ms
+	BeginReloadAssembly (121ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (23ms)
+	RebuildCommonClasses (26ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (31ms)
+	LoadAllAssembliesAndSetupDomain (5273ms)
+		LoadAssemblies (4920ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (417ms)
+			TypeCache.Refresh (396ms)
+				TypeCache.ScanAssembly (343ms)
+			ScanForSourceGeneratedMonoScriptInfo (17ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (664ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (540ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (5ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (52ms)
+			ProcessInitializeOnLoadAttributes (449ms)
+			ProcessInitializeOnLoadMethodAttributes (29ms)
+			AfterProcessingInitializeOnLoad (2ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 3.80 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4018 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 70 unused Assets / (244.2 KB). Loaded Objects now: 4473.
+Memory consumption went from 144.8 MB to 144.6 MB.
+Total: 3.504300 ms (FindLiveObjects: 0.255000 ms CreateObjectMapping: 0.144800 ms MarkObjects: 2.921500 ms  DeleteObjects: 0.181500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 6d391050e5a25f67b0a2c618074f2cd9 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 355368.323181 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/fences.png
+  artifactKey: Guid(ab3707e074604fc4ba6d8e43ebd54cce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/fences.png using Guid(ab3707e074604fc4ba6d8e43ebd54cce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5841c0bd5555fb40d9346382da2166da') in 0.044230 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 21.479237 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/fences.png
+  artifactKey: Guid(ab3707e074604fc4ba6d8e43ebd54cce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/fences.png using Guid(ab3707e074604fc4ba6d8e43ebd54cce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3047e89ecdb580e259007d9851863575') in 0.063577 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 18
+========================================================================
+Received Import Request.
+  Time since last request: 33.688539 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains.png
+  artifactKey: Guid(38689d41d5320244e95a197953944514) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains.png using Guid(38689d41d5320244e95a197953944514) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd935d741f2c650488f46ee629b989150') in 0.013287 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 38.971705 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains.png
+  artifactKey: Guid(38689d41d5320244e95a197953944514) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains.png using Guid(38689d41d5320244e95a197953944514) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfccb7780fdb016138dfdf26721d647f') in 0.080865 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 70
+========================================================================
+Received Import Request.
+  Time since last request: 39.445211 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains.png
+  artifactKey: Guid(38689d41d5320244e95a197953944514) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains.png using Guid(38689d41d5320244e95a197953944514) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '308269ad06a7173b0f3b60006d3c4cb3') in 0.076035 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 70
+========================================================================
+Received Import Request.
+  Time since last request: 56.154881 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_0.asset
+  artifactKey: Guid(1e8e789e8137c70448a529fb96553286) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_0.asset using Guid(1e8e789e8137c70448a529fb96553286) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41310d260d8dee182f2284a2e7f793ab') in 0.016595 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.001299 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_4.asset
+  artifactKey: Guid(a8e829e2963d25e4fa63460d7741f3ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_4.asset using Guid(a8e829e2963d25e4fa63460d7741f3ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '535fb86e7199cecc1557d9fa6f632930') in 0.012206 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_26.asset
+  artifactKey: Guid(abe979dc639e26b49bf54baa71969fd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_26.asset using Guid(abe979dc639e26b49bf54baa71969fd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d1683253aa9d86ece238623ac334a50') in 0.013777 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000062 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_12.asset
+  artifactKey: Guid(f6930448af81c454fbba5dd9faa3ba9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_12.asset using Guid(f6930448af81c454fbba5dd9faa3ba9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98b2793fb8262e687c16767b6306a907') in 0.014600 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_8.asset
+  artifactKey: Guid(480f70fae8dfcd544bc991d5614bd9a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_8.asset using Guid(480f70fae8dfcd544bc991d5614bd9a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79afd04c1d86b7d4b833e887ec55ef6e') in 0.017572 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_6.asset
+  artifactKey: Guid(32efa674afffa5840914c3c4f2733dac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_6.asset using Guid(32efa674afffa5840914c3c4f2733dac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2088f4fa178b29f9b1946e03515db41') in 0.008747 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_9.asset
+  artifactKey: Guid(4dfe9bb2f97acc442b221c87de80a58e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_9.asset using Guid(4dfe9bb2f97acc442b221c87de80a58e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2fabaf62df1d6c7d4835222246198911') in 0.012019 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_2.asset
+  artifactKey: Guid(c26dc70978c6cda4d918fab780317e56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_2.asset using Guid(c26dc70978c6cda4d918fab780317e56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac91546dec1690ccd81eb912f4d6a765') in 0.007935 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_3.asset
+  artifactKey: Guid(575f30184889b164fbc386c6bacb3434) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_3.asset using Guid(575f30184889b164fbc386c6bacb3434) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd46c7d940cd1508ab6a288201699cab1') in 0.012868 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_16.asset
+  artifactKey: Guid(9465acbc71faced4d93f2cd1b75a50c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_16.asset using Guid(9465acbc71faced4d93f2cd1b75a50c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e068638396b9654264725373ff4ce63') in 0.012640 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_21.asset
+  artifactKey: Guid(b4c98228bb2f9264b823bb126190cff8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_21.asset using Guid(b4c98228bb2f9264b823bb126190cff8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68923bb454dccc8f7e605bc0c8e91d6e') in 0.012391 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_23.asset
+  artifactKey: Guid(313f934a8d0327a4283f522cbae55781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_23.asset using Guid(313f934a8d0327a4283f522cbae55781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '430dc52d6999606cd4e5a40d4aa8868b') in 0.009576 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_15.asset
+  artifactKey: Guid(67cdba18b781a5945aa145c839b6f76d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_15.asset using Guid(67cdba18b781a5945aa145c839b6f76d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab27f4b72a3d924988cbcb087c199fb8') in 0.013849 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_5.asset
+  artifactKey: Guid(53ed07cfe1209a047b15124dbbd8ea66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_5.asset using Guid(53ed07cfe1209a047b15124dbbd8ea66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cad32f3a073d4f879926f6c143720fd0') in 0.014370 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_17.asset
+  artifactKey: Guid(73cb98cf83d964a48b36bc0825f40e18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_17.asset using Guid(73cb98cf83d964a48b36bc0825f40e18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8cfc249b9362d60df6ed93820c4da7e8') in 0.010271 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 2.483585 seconds.
+  path: Assets/0_TileMap/TestMap.prefab
+  artifactKey: Guid(13578297bd1f8c447b8bd0163044b8fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_TileMap/TestMap.prefab using Guid(13578297bd1f8c447b8bd0163044b8fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2013552be05f2ef10468b213ac65fd54') in 0.055477 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 147
+========================================================================
+Received Import Request.
+  Time since last request: 21.220761 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/grass.asset
+  artifactKey: Guid(30f0a06be59c6c644a17ae022d4d7b97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/grass.asset using Guid(30f0a06be59c6c644a17ae022d4d7b97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef26596b6b93436263c96f03dea3cd62') in 0.015553 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 7.029532 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_29.asset
+  artifactKey: Guid(367dc08dfa728c44bae67ef47d3bfce2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_29.asset using Guid(367dc08dfa728c44bae67ef47d3bfce2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b14f1eed80cf55e324afbddb5e514798') in 0.013234 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_34.asset
+  artifactKey: Guid(c3cb66b79d0c38d46b8311777cc3102b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_34.asset using Guid(c3cb66b79d0c38d46b8311777cc3102b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e94a881c08ede4015c2d00c9b01edc5e') in 0.012093 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_32.asset
+  artifactKey: Guid(cd9022402184cde499a0ba8c40671fe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_32.asset using Guid(cd9022402184cde499a0ba8c40671fe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7c2da3c7a75999de89bf5f9d4f0ce31') in 0.012591 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.046844 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_35.asset
+  artifactKey: Guid(f669bbb7903d327438a4c6e9acdacc8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_35.asset using Guid(f669bbb7903d327438a4c6e9acdacc8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77b194debe1c46fc05854abc687f6c3a') in 0.010638 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_41.asset
+  artifactKey: Guid(1bbed459f43e10e4ba29f9126759b2b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_41.asset using Guid(1bbed459f43e10e4ba29f9126759b2b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5f5a48b0caa20d6e9de279f3f47fc1d') in 0.013604 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.316254 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_42.asset
+  artifactKey: Guid(6e88fc609c9bede4394aa106fe5d6011) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_42.asset using Guid(6e88fc609c9bede4394aa106fe5d6011) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '741755d2d6149d897050fd2d74926611') in 0.019598 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_46.asset
+  artifactKey: Guid(4f88c8b558cd00c4187cfa38fe5eb2b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_46.asset using Guid(4f88c8b558cd00c4187cfa38fe5eb2b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffb9b89f06b03821ed88fa683d7c42f6') in 0.015957 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 29.559319 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_49.asset
+  artifactKey: Guid(e8776a7f8d13b984aaab77997c6b60e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_49.asset using Guid(e8776a7f8d13b984aaab77997c6b60e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e657bc78f4d3a563c3e6cf8a1a3a34cd') in 0.015710 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_54.asset
+  artifactKey: Guid(4b910e6ad214ee64484fd30d9b7963d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_54.asset using Guid(4b910e6ad214ee64484fd30d9b7963d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10ac3fa24bb347b4b56d749c13263975') in 0.011601 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.225965 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_55.asset
+  artifactKey: Guid(ee41a38547ba0664e9a25f4e5ea2005f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_55.asset using Guid(ee41a38547ba0664e9a25f4e5ea2005f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2068cc5af9b9181abc8187a2da4e0667') in 0.011630 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_60.asset
+  artifactKey: Guid(f8f339c0d80d7bf4ea51053c56ce47a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_60.asset using Guid(f8f339c0d80d7bf4ea51053c56ce47a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0a242bf09b3a1d1faec15d5db716d83') in 0.012732 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_61.asset
+  artifactKey: Guid(e14b190066d560b4aa3cdc30fb3585b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_61.asset using Guid(e14b190066d560b4aa3cdc30fb3585b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '198c1ee66807f2939ec36942adbf601a') in 0.009275 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/0_Source/MysticWood/tilesets/plains_63.asset
+  artifactKey: Guid(5b7001e52e45c514abd2a6b1cf470566) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/MysticWood/tilesets/plains_63.asset using Guid(5b7001e52e45c514abd2a6b1cf470566) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc0c1efee78f50ad4ccce21e5511aa6f') in 0.012013 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: 스레드 종료 또는 응용 프로그램 요청 때문에 I/O 작업이 취소되었습니다.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
