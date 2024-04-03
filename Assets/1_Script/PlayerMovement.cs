@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public enum PlayerState
 {
     walk,
+    run,
     attack,
     interact
 }
@@ -12,15 +14,18 @@ public enum PlayerState
 
 public class PlayerMovement : MonoBehaviour
 {
-    public PlayerState currentState;
-    public float speed;
+    public float walkSpeed;
+    public float runSpeed;
+
+    private float speed;
+    private PlayerState currentState;
     private Rigidbody2D myRigidbody;
     private Vector3 change;
     private Animator animator;
 
     void Start()
     {
-        currentState = PlayerState.walk;
+        SetCurrentState(PlayerState.walk);
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
         animator.SetFloat("moveX", 0);
@@ -36,7 +41,16 @@ public class PlayerMovement : MonoBehaviour
         {   
             StartCoroutine(AttackCo());
         }
-        else if(currentState == PlayerState.walk)
+        else if(Input.GetButtonDown("run") && currentState == PlayerState.walk)
+        {
+            SetCurrentState(PlayerState.run);
+        }
+        else if(Input.GetButtonUp("run") && currentState == PlayerState.run)
+        {
+            SetCurrentState(PlayerState.walk);
+        }
+
+        if(currentState == PlayerState.walk || currentState == PlayerState.run)
         {
             UpdateAnimationAndMove();
         }
@@ -44,12 +58,13 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator AttackCo()
     {
+        PlayerState prevState = currentState;
         animator.SetBool("attacking", true);
-        currentState = PlayerState.attack;
+        SetCurrentState(PlayerState.attack);
         yield return null;
         animator.SetBool("attacking", false);
         yield return new WaitForSeconds(.3f);
-        currentState = PlayerState.walk;
+        SetCurrentState(prevState);
     }
 
     void UpdateAnimationAndMove()
@@ -75,5 +90,29 @@ public class PlayerMovement : MonoBehaviour
         (
             transform.position + change * speed * Time.deltaTime
         );
+    }
+
+    //run 기능을 만들기 위해 새로 만든
+    private void SetCurrentState(PlayerState newState)
+    {
+        switch (newState)
+        {
+            case PlayerState.walk:
+            speed = walkSpeed;
+            break;
+            case PlayerState.run:
+            speed = runSpeed;
+            break;
+            case PlayerState.attack:
+            speed = 0;
+            break;
+            case PlayerState.interact:
+            speed = 0;
+            break;
+            default:
+            Assert.IsTrue(false);
+            break;
+        }
+        currentState = newState;
     }
 }
