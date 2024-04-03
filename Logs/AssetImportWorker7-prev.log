@@ -1,0 +1,349 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.17f1 (4fc78088f837) revision 5228416'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22631) 64bit Core' Language: 'ko' Physical Memory: 16309 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+D:\2022.3.17f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker7
+-projectPath
+C:/Users/gones/Desktop/Princess_Gourmet
+-logFile
+Logs/AssetImportWorker7.log
+-srvPort
+50495
+Successfully changed project path to: C:/Users/gones/Desktop/Princess_Gourmet
+C:/Users/gones/Desktop/Princess_Gourmet
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [3720] Host "[IP] 192.168.45.229 [Port] 0 [Flags] 2 [Guid] 3193722331 [EditorId] 3193722331 [Version] 1048832 [Id] WindowsEditor(7,GYEOM_PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [3720] Host "[IP] 192.168.45.229 [Port] 0 [Flags] 2 [Guid] 3193722331 [EditorId] 3193722331 [Version] 1048832 [Id] WindowsEditor(7,GYEOM_PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
+Refreshing native plugins compatible for Editor in 98.63 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.17f1 (4fc78088f837)
+[Subsystems] Discovering subsystems at path D:/2022.3.17f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/gones/Desktop/Princess_Gourmet/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 (ID=0x2504)
+    Vendor:   NVIDIA
+    VRAM:     12129 MB
+    Driver:   31.0.15.3598
+Initialize mono
+Mono path[0] = 'D:/2022.3.17f1/Editor/Data/Managed'
+Mono path[1] = 'D:/2022.3.17f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/2022.3.17f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56348
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/2022.3.17f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: D:/2022.3.17f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002899 seconds.
+- Loaded All Assemblies, in  0.804 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.237 seconds
+Domain Reload Profiling: 1041ms
+	BeginReloadAssembly (88ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (156ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (507ms)
+		LoadAssemblies (87ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (505ms)
+			TypeCache.Refresh (504ms)
+				TypeCache.ScanAssembly (494ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (237ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (191ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (131ms)
+			ProcessInitializeOnLoadMethodAttributes (47ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.592 seconds
+Refreshing native plugins compatible for Editor in 3.28 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.676 seconds
+Domain Reload Profiling: 1266ms
+	BeginReloadAssembly (127ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (20ms)
+	RebuildCommonClasses (28ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (34ms)
+	LoadAllAssembliesAndSetupDomain (391ms)
+		LoadAssemblies (269ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (193ms)
+			TypeCache.Refresh (172ms)
+				TypeCache.ScanAssembly (120ms)
+			ScanForSourceGeneratedMonoScriptInfo (17ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (676ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (558ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (51ms)
+			ProcessInitializeOnLoadAttributes (465ms)
+			ProcessInitializeOnLoadMethodAttributes (33ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 4.23 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4447 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 76 unused Assets / (218.8 KB). Loaded Objects now: 4906.
+Memory consumption went from 157.2 MB to 157.0 MB.
+Total: 4.215500 ms (FindLiveObjects: 0.369500 ms CreateObjectMapping: 0.215300 ms MarkObjects: 3.358100 ms  DeleteObjects: 0.271500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 6d391050e5a25f67b0a2c618074f2cd9 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 678236.474149 seconds.
+  path: Assets/2_Tile Palettes/inner_princessRoom/tile_inner_princessRoom_1_286.asset
+  artifactKey: Guid(9930e2c8012fbc540b65e9aa02883619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/inner_princessRoom/tile_inner_princessRoom_1_286.asset using Guid(9930e2c8012fbc540b65e9aa02883619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '766ee63e30d1afe807d1907c43b0d51a') in 0.021536 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.010951 seconds.
+  path: Assets/2_Tile Palettes/inner_princessRoom/tile_inner_princessRoom_1_297.asset
+  artifactKey: Guid(fe4c851ced4e5e04aa935340bac23e08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/inner_princessRoom/tile_inner_princessRoom_1_297.asset using Guid(fe4c851ced4e5e04aa935340bac23e08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f85ecbf34958763c7edd7da4f5562f8') in 0.001654 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/2_Tile Palettes/inner_princessRoom/tile_inner_princessRoom_1_301.asset
+  artifactKey: Guid(31d0d37b879278e469c9a3149eb096f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/inner_princessRoom/tile_inner_princessRoom_1_301.asset using Guid(31d0d37b879278e469c9a3149eb096f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc54decffe41199d02e9973fec5f336f') in 0.001405 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/2_Tile Palettes/inner_princessRoom/tile_inner_princessRoom_1_303.asset
+  artifactKey: Guid(7d6eaf203509acb4fa6d989600a91699) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/inner_princessRoom/tile_inner_princessRoom_1_303.asset using Guid(7d6eaf203509acb4fa6d989600a91699) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19002247dc12f02d544165be03877a98') in 0.001193 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 6.965809 seconds.
+  path: Assets/2_Tile Palettes/gfx/Overworld_265.asset
+  artifactKey: Guid(ee7d62aca7a021741932d89de17de277) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/gfx/Overworld_265.asset using Guid(ee7d62aca7a021741932d89de17de277) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '749c9ebd3cd75ab296281698d7ec335c') in 0.057823 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/2_Tile Palettes/gfx/Overworld_296.asset
+  artifactKey: Guid(9d3e9b6a6cc5b084ebc5f7bd1725bcae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/gfx/Overworld_296.asset using Guid(9d3e9b6a6cc5b084ebc5f7bd1725bcae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a4d8ef29725030c9e9760775995ba22') in 0.012334 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/2_Tile Palettes/gfx/Overworld_306.asset
+  artifactKey: Guid(b759087fdf0dd4a40820e603bde194e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/gfx/Overworld_306.asset using Guid(b759087fdf0dd4a40820e603bde194e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e65a0409397e5578bbe4599acde55a49') in 0.010337 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/2_Tile Palettes/gfx/Overworld_267.asset
+  artifactKey: Guid(34bf03284b4457c41a2323f555de3e47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/gfx/Overworld_267.asset using Guid(34bf03284b4457c41a2323f555de3e47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f57ce67a4ad0b38e8cd57de5fb739793') in 0.013491 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/2_Tile Palettes/gfx/Overworld_270.asset
+  artifactKey: Guid(7acc876da65e66140aa30b1290d612ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/gfx/Overworld_270.asset using Guid(7acc876da65e66140aa30b1290d612ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81b5bb71428ad2b13a41df29e93326d9') in 0.012442 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/2_Tile Palettes/gfx/Overworld_285.asset
+  artifactKey: Guid(f5f8ac6a89abae14bb160a240687728e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/gfx/Overworld_285.asset using Guid(f5f8ac6a89abae14bb160a240687728e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6f47486e31e19167a496ea404a1c638') in 0.011088 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/2_Tile Palettes/gfx/Overworld_305.asset
+  artifactKey: Guid(483b0c53722343345ab7031357c907ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/gfx/Overworld_305.asset using Guid(483b0c53722343345ab7031357c907ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef517f58235112750f6f2e5cab8066a0') in 0.011772 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/2_Tile Palettes/gfx/Overworld_277.asset
+  artifactKey: Guid(35eb1e060d8bae14a93b473dd212a747) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/gfx/Overworld_277.asset using Guid(35eb1e060d8bae14a93b473dd212a747) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '899cc3f361840f4567120e9805b2b571') in 0.012394 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/2_Tile Palettes/gfx/Overworld_282.asset
+  artifactKey: Guid(06f7c683b4098b54a9c0c941e5b0850f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/gfx/Overworld_282.asset using Guid(06f7c683b4098b54a9c0c941e5b0850f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dbb84fb81605f24b528c465113bcc3dd') in 0.012202 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/2_Tile Palettes/gfx/Overworld_301.asset
+  artifactKey: Guid(ca8f232b90735734887cef1ea7b3b27f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/gfx/Overworld_301.asset using Guid(ca8f232b90735734887cef1ea7b3b27f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ded173ec76248a12aeb1e183f5726fae') in 0.012855 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/2_Tile Palettes/gfx/Overworld_295.asset
+  artifactKey: Guid(8ec741c162e6fc44aa6b36848cd43a79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/gfx/Overworld_295.asset using Guid(8ec741c162e6fc44aa6b36848cd43a79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7e854c2357dfa2b81dab703625a8d04') in 0.012822 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/2_Tile Palettes/gfx/Overworld_274.asset
+  artifactKey: Guid(c156b853f3b4e8d4abeb4ee5ffb7ad26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/gfx/Overworld_274.asset using Guid(c156b853f3b4e8d4abeb4ee5ffb7ad26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b5608250b4e72beefa125c7ee9a1634') in 0.012194 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/2_Tile Palettes/gfx/Overworld_284.asset
+  artifactKey: Guid(408f4ed779d159245a28bfd5fa163900) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/gfx/Overworld_284.asset using Guid(408f4ed779d159245a28bfd5fa163900) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f3aa2c0c704969ce99ac530c93ba0d4') in 0.012760 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/2_Tile Palettes/gfx/Overworld_283.asset
+  artifactKey: Guid(38d9e207eb1e5944ea61ba1e93e20b28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/gfx/Overworld_283.asset using Guid(38d9e207eb1e5944ea61ba1e93e20b28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01a68d91ba504742f1a340516b03181a') in 0.011017 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 1.929512 seconds.
+  path: Assets/2_Tile Palettes/inner_princessRoom/tile_inner_princessRoom_1_308.asset
+  artifactKey: Guid(f6e1561ad43309548aaea3d0e40e1309) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/inner_princessRoom/tile_inner_princessRoom_1_308.asset using Guid(f6e1561ad43309548aaea3d0e40e1309) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c5c3d54d7da84f9a59d4c266a68c1fa') in 0.001997 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/2_Tile Palettes/inner_princessRoom/tile_inner_princessRoom_1_313.asset
+  artifactKey: Guid(7182c5d1a7a81e54db16d19074287cb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/inner_princessRoom/tile_inner_princessRoom_1_313.asset using Guid(7182c5d1a7a81e54db16d19074287cb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e79a053140f64740cd73bf558261d4e8') in 0.001543 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: 스레드 종료 또는 응용 프로그램 요청 때문에 I/O 작업이 취소되었습니다.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

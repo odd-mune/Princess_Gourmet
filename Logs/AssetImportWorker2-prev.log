@@ -1,0 +1,1941 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.17f1 (4fc78088f837) revision 5228416'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22631) 64bit Core' Language: 'ko' Physical Memory: 16309 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+D:\2022.3.17f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+C:/Users/gones/Desktop/Princess_Gourmet
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+50495
+Successfully changed project path to: C:/Users/gones/Desktop/Princess_Gourmet
+C:/Users/gones/Desktop/Princess_Gourmet
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [22300] Host "[IP] 192.168.45.229 [Port] 0 [Flags] 2 [Guid] 2121554348 [EditorId] 2121554348 [Version] 1048832 [Id] WindowsEditor(7,GYEOM_PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [22300] Host "[IP] 192.168.45.229 [Port] 0 [Flags] 2 [Guid] 2121554348 [EditorId] 2121554348 [Version] 1048832 [Id] WindowsEditor(7,GYEOM_PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
+Refreshing native plugins compatible for Editor in 11.07 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.17f1 (4fc78088f837)
+[Subsystems] Discovering subsystems at path D:/2022.3.17f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/gones/Desktop/Princess_Gourmet/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 (ID=0x2504)
+    Vendor:   NVIDIA
+    VRAM:     12129 MB
+    Driver:   31.0.15.3598
+Initialize mono
+Mono path[0] = 'D:/2022.3.17f1/Editor/Data/Managed'
+Mono path[1] = 'D:/2022.3.17f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/2022.3.17f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56556
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/2022.3.17f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: D:/2022.3.17f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003785 seconds.
+- Loaded All Assemblies, in  0.339 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.249 seconds
+Domain Reload Profiling: 587ms
+	BeginReloadAssembly (108ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (140ms)
+		LoadAssemblies (107ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (138ms)
+			TypeCache.Refresh (137ms)
+				TypeCache.ScanAssembly (125ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (249ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (199ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (140ms)
+			ProcessInitializeOnLoadMethodAttributes (46ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.599 seconds
+Refreshing native plugins compatible for Editor in 3.70 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.719 seconds
+Domain Reload Profiling: 1317ms
+	BeginReloadAssembly (122ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (22ms)
+	RebuildCommonClasses (31ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (34ms)
+	LoadAllAssembliesAndSetupDomain (402ms)
+		LoadAssemblies (284ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (187ms)
+			TypeCache.Refresh (160ms)
+				TypeCache.ScanAssembly (142ms)
+			ScanForSourceGeneratedMonoScriptInfo (22ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (719ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (571ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (58ms)
+			ProcessInitializeOnLoadAttributes (467ms)
+			ProcessInitializeOnLoadMethodAttributes (35ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 4.77 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4447 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 76 unused Assets / (218.8 KB). Loaded Objects now: 4906.
+Memory consumption went from 157.2 MB to 157.0 MB.
+Total: 6.129700 ms (FindLiveObjects: 0.466900 ms CreateObjectMapping: 0.263000 ms MarkObjects: 5.119800 ms  DeleteObjects: 0.279100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 6d391050e5a25f67b0a2c618074f2cd9 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 668185.952198 seconds.
+  path: Assets/0_Source/-walkb-Sheet.png
+  artifactKey: Guid(41cd23dc686e554419bb7f527f7afb0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/-walkb-Sheet.png using Guid(41cd23dc686e554419bb7f527f7afb0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe8cad61e4078da365ea0d936aaf7ad9') in 0.080041 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 0.000107 seconds.
+  path: Assets/0_Source/-idlef-Sheet.png
+  artifactKey: Guid(80681d5b7adbb544cb16d0c51f80586b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/-idlef-Sheet.png using Guid(80681d5b7adbb544cb16d0c51f80586b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af1503d4dcb383da8b155ceda41b0173') in 0.020651 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 380.866100 seconds.
+  path: Assets/0_Source/Inner_princessRooom.png
+  artifactKey: Guid(eed420dc01956d14bb2b38963bb1b6b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/Inner_princessRooom.png using Guid(eed420dc01956d14bb2b38963bb1b6b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1039c5b27a1b8aab702caee07e1f83e5') in 0.028562 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 14.197268 seconds.
+  path: Assets/0_Source/idle_front.png
+  artifactKey: Guid(80681d5b7adbb544cb16d0c51f80586b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/idle_front.png using Guid(80681d5b7adbb544cb16d0c51f80586b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57dac2b724de6c43475348f6302272b2') in 0.015642 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 7.468009 seconds.
+  path: Assets/0_Source/walk_back.png
+  artifactKey: Guid(41cd23dc686e554419bb7f527f7afb0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/walk_back.png using Guid(41cd23dc686e554419bb7f527f7afb0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10535bcad4b4b76a8357ce414ed3e756') in 0.010855 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 6.599492 seconds.
+  path: Assets/0_Source/walk_front.png
+  artifactKey: Guid(f395725506cda204489843763a2e9d25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/walk_front.png using Guid(f395725506cda204489843763a2e9d25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b3a56f84c49af5d73f4e1ebfa164420') in 0.019730 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 7.156620 seconds.
+  path: Assets/0_Source/walk_left.png
+  artifactKey: Guid(0bb09170dcc0464498f3cdcdad2734d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/walk_left.png using Guid(0bb09170dcc0464498f3cdcdad2734d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd17f74b030e15f19dbb931ec1d9f0c3') in 0.013612 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 4.669556 seconds.
+  path: Assets/0_Source/walk_right.png
+  artifactKey: Guid(5ae0e90d1d151c44bb777c3cda8f5e5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/walk_right.png using Guid(5ae0e90d1d151c44bb777c3cda8f5e5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec86811feaf3848dbbdac328d6b272b5') in 0.016149 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 20.524459 seconds.
+  path: Assets/0_Source/Inner_princessRooom.png
+  artifactKey: Guid(eed420dc01956d14bb2b38963bb1b6b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/Inner_princessRooom.png using Guid(eed420dc01956d14bb2b38963bb1b6b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc6dd1a064c7c29c08110ce6befe1a0f') in 0.014242 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 8.397213 seconds.
+  path: Assets/0_Source/Inner_princessRooom.png
+  artifactKey: Guid(eed420dc01956d14bb2b38963bb1b6b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/Inner_princessRooom.png using Guid(eed420dc01956d14bb2b38963bb1b6b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '873952324466e1eccefb0ad6e77eb31a') in 0.015230 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 89.744705 seconds.
+  path: Assets/0_Source/Inner_princessRooom.png
+  artifactKey: Guid(eed420dc01956d14bb2b38963bb1b6b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/Inner_princessRooom.png using Guid(eed420dc01956d14bb2b38963bb1b6b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3df99b2be8b198e5295243541585225') in 0.110548 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 56
+========================================================================
+Received Import Request.
+  Time since last request: 153.018224 seconds.
+  path: Assets/0_Source/Inner_princessRooom.png
+  artifactKey: Guid(eed420dc01956d14bb2b38963bb1b6b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/Inner_princessRooom.png using Guid(eed420dc01956d14bb2b38963bb1b6b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f453ce3cf3a9d9dcd1c2dff26899ef8') in 0.094130 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 56
+========================================================================
+Received Import Request.
+  Time since last request: 642.282644 seconds.
+  path: Assets/0_Source/princess_idle_down.png
+  artifactKey: Guid(80681d5b7adbb544cb16d0c51f80586b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/princess_idle_down.png using Guid(80681d5b7adbb544cb16d0c51f80586b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c3315cab1f9f791801aefe163641782') in 0.019186 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 18.895823 seconds.
+  path: Assets/0_Source/princess_walk_up.png
+  artifactKey: Guid(41cd23dc686e554419bb7f527f7afb0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/princess_walk_up.png using Guid(41cd23dc686e554419bb7f527f7afb0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65c2e482c5acf7b1a4543da1007cc329') in 0.010438 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 29.057374 seconds.
+  path: Assets/0_Source/princess_walk_down.png
+  artifactKey: Guid(f395725506cda204489843763a2e9d25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/princess_walk_down.png using Guid(f395725506cda204489843763a2e9d25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57d14fbee485633a91288f084d0340c7') in 0.018435 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 7.379792 seconds.
+  path: Assets/0_Source/princess_walk_left.png
+  artifactKey: Guid(0bb09170dcc0464498f3cdcdad2734d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/princess_walk_left.png using Guid(0bb09170dcc0464498f3cdcdad2734d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c7ce13e395dd1850a62d2cb1535827c') in 0.014988 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 6.402329 seconds.
+  path: Assets/0_Source/princess_walk_right.png
+  artifactKey: Guid(5ae0e90d1d151c44bb777c3cda8f5e5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/princess_walk_right.png using Guid(5ae0e90d1d151c44bb777c3cda8f5e5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e09c33bb4415427fa5ee3be23268de63') in 0.015501 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 313.077633 seconds.
+  path: Assets/0_Source/princess_idle_down.png
+  artifactKey: Guid(80681d5b7adbb544cb16d0c51f80586b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/princess_idle_down.png using Guid(80681d5b7adbb544cb16d0c51f80586b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ef2e8be60ed6a71daa48853b31e8d60') in 0.020282 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.029571 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom.png
+  artifactKey: Guid(5fdd8c1d4e82c804aaf1da20fc5c06e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom.png using Guid(5fdd8c1d4e82c804aaf1da20fc5c06e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f05569a11dd7337474abbab57d3c0a12') in 0.030079 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 25.255549 seconds.
+  path: Assets/0_Source/princess_idle_down.png
+  artifactKey: Guid(80681d5b7adbb544cb16d0c51f80586b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/princess_idle_down.png using Guid(80681d5b7adbb544cb16d0c51f80586b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1148c350ed0277c06ea5fa7560b35e0e') in 0.011805 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.007540 seconds.
+  path: Assets/0_Source/princess_idle_left.png
+  artifactKey: Guid(249360039eb7c544abad638a94953650) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/princess_idle_left.png using Guid(249360039eb7c544abad638a94953650) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd32092e437acec0415d4046699a8f45d') in 0.013466 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 9.620351 seconds.
+  path: Assets/0_Source/princess_idle_down.png
+  artifactKey: Guid(80681d5b7adbb544cb16d0c51f80586b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/princess_idle_down.png using Guid(80681d5b7adbb544cb16d0c51f80586b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71a7783564dfce92b96a4ec24344f8ac') in 0.022163 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 10.412095 seconds.
+  path: Assets/0_Source/princess_idle_left.png
+  artifactKey: Guid(249360039eb7c544abad638a94953650) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/princess_idle_left.png using Guid(249360039eb7c544abad638a94953650) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f802ea33112d8e45e7b8b9b20225ee3f') in 0.019954 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 7.618292 seconds.
+  path: Assets/0_Source/princess_idle_right.png
+  artifactKey: Guid(5ea8961b32b24fe46a8991417727bcab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/princess_idle_right.png using Guid(5ea8961b32b24fe46a8991417727bcab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10951cd4a8e84cdc42d9154416fcd33c') in 0.017315 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 6.887550 seconds.
+  path: Assets/0_Source/princess_idle_up.png
+  artifactKey: Guid(862df06040d02c843863b85ec37469fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/princess_idle_up.png using Guid(862df06040d02c843863b85ec37469fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c72c6238735ca1c2dc4845a152cb068') in 0.019049 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 10.832839 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom.png
+  artifactKey: Guid(5fdd8c1d4e82c804aaf1da20fc5c06e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom.png using Guid(5fdd8c1d4e82c804aaf1da20fc5c06e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb8bfd4b8f26a5dc51e98b4d3769ee5c') in 0.016002 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 14.264326 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom.png
+  artifactKey: Guid(5fdd8c1d4e82c804aaf1da20fc5c06e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom.png using Guid(5fdd8c1d4e82c804aaf1da20fc5c06e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c728a717edc2ad03978ef945dc536ff') in 0.311067 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 315
+========================================================================
+Received Import Request.
+  Time since last request: 17.893984 seconds.
+  path: Assets/2_Tile Palettes/gfx
+  artifactKey: Guid(079c822aefba8d749b86c27bf75715c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/gfx using Guid(079c822aefba8d749b86c27bf75715c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd14abbe27671428e9e696a96c6abd67f') in 0.000837 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 29.407907 seconds.
+  path: Assets/2_Tile Palettes/Inner.prefab
+  artifactKey: Guid(8f08ad83f1c9a4a479aa03f8601a628b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/Inner.prefab using Guid(8f08ad83f1c9a4a479aa03f8601a628b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27b6891484a0bec26af5beb952376b44') in 0.034018 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 23.553645 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_0.asset
+  artifactKey: Guid(129f46d35401dce41aafdd1699308a39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_0.asset using Guid(129f46d35401dce41aafdd1699308a39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5750605a191d0c0cdbdfc16473a7fbf9') in 0.013830 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000089 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_4.asset
+  artifactKey: Guid(4cceb8748278cf84ea014002e9dd7325) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_4.asset using Guid(4cceb8748278cf84ea014002e9dd7325) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bbf83ad072c1cbc856cd9adaed33a8a') in 0.015643 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000066 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_25.asset
+  artifactKey: Guid(45e95f5f76159304ab1ecb62a40c7fa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_25.asset using Guid(45e95f5f76159304ab1ecb62a40c7fa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f086e11339cbe6226473459f1627e6d') in 0.011638 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_20.asset
+  artifactKey: Guid(9202fa7880f53144baf306eaf65193c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_20.asset using Guid(9202fa7880f53144baf306eaf65193c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8de78dd8b5996391e1b67e8fe8d927c') in 0.013469 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_17.asset
+  artifactKey: Guid(342053f394b13d44f8f2d0a959858ced) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_17.asset using Guid(342053f394b13d44f8f2d0a959858ced) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31e3b05abcb97e60d2926d42d1ec89d5') in 0.011517 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_5.asset
+  artifactKey: Guid(84e87307e6e3c7e4d9e5ad990ca97fa6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_5.asset using Guid(84e87307e6e3c7e4d9e5ad990ca97fa6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b35f0fc41ce3fc42930c06ddfb6a8d1') in 0.009293 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_22.asset
+  artifactKey: Guid(9b43c355c085ec84aa19aa2094aaec28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_22.asset using Guid(9b43c355c085ec84aa19aa2094aaec28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd80d22628a743f3f9193d861325a71cf') in 0.011950 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_23.asset
+  artifactKey: Guid(6792a701151a7ea4eaff0f6d578dbc9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_23.asset using Guid(6792a701151a7ea4eaff0f6d578dbc9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2656bb57129f96db91e1d83e99b3c74c') in 0.011400 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_16.asset
+  artifactKey: Guid(e0c5641057b357944862b46b5cb14087) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_16.asset using Guid(e0c5641057b357944862b46b5cb14087) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2fe540df4e8b46e7a916d8c934773891') in 0.011269 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_9.asset
+  artifactKey: Guid(ec72c1a1fa7347d438ffc6710ee532f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_9.asset using Guid(ec72c1a1fa7347d438ffc6710ee532f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4bef7ee30aa8610f9d60d1499100bca8') in 0.007519 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_12.asset
+  artifactKey: Guid(5da6f54b42aed9947a6c21b5ad34db89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_12.asset using Guid(5da6f54b42aed9947a6c21b5ad34db89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60176ea03acd2bd749fc5b44f7124610') in 0.010022 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_21.asset
+  artifactKey: Guid(eb462ee858ad9c14295e84509f7e472e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_21.asset using Guid(eb462ee858ad9c14295e84509f7e472e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02361c6ac272eb9a681effac2612b307') in 0.010130 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_6.asset
+  artifactKey: Guid(98dd97136e58c0742af198305d30e85b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_6.asset using Guid(98dd97136e58c0742af198305d30e85b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e9be084fad73ea3c021b62130e94b13') in 0.008955 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 2.168098 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_26.asset
+  artifactKey: Guid(4b444af5cd206b14483ac61adde1bc14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_26.asset using Guid(4b444af5cd206b14483ac61adde1bc14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f923c22b0c3ee8571edb1135377113f3') in 0.019069 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_30.asset
+  artifactKey: Guid(83778de3df78d0842a9f00c2401293cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_30.asset using Guid(83778de3df78d0842a9f00c2401293cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72cc54c8b3a3eb4b40376feb19eb5bc5') in 0.010990 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_28.asset
+  artifactKey: Guid(b802cf5ed45f94142894096640d11afa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_28.asset using Guid(b802cf5ed45f94142894096640d11afa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8851cc7e1857d34a6b7016af78b8399') in 0.016259 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.047414 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_33.asset
+  artifactKey: Guid(3b40d7e8213428e4ead1bcea62075b25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_33.asset using Guid(3b40d7e8213428e4ead1bcea62075b25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bbe338901bc1bb842540ccc4a02e7e3') in 0.010558 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_39.asset
+  artifactKey: Guid(868cddba1c4a05f448a22f46102e520d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_39.asset using Guid(868cddba1c4a05f448a22f46102e520d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edfd6a4a14aca50190143486a66be383') in 0.008754 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_35.asset
+  artifactKey: Guid(33f147f6b74622543b5e5675136b0e20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_35.asset using Guid(33f147f6b74622543b5e5675136b0e20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a015d7d37a4104fc3a50a8ad619c0294') in 0.011058 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_37.asset
+  artifactKey: Guid(b757500eab0285f40b54a615b6e3ad71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_37.asset using Guid(b757500eab0285f40b54a615b6e3ad71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6327aa718013a6b31730053f18ebadb8') in 0.010213 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.176511 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_40.asset
+  artifactKey: Guid(a3ff3cf047a79b947906dcfb004854ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_40.asset using Guid(a3ff3cf047a79b947906dcfb004854ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c7040260d4876c217f36b6d9441be59') in 0.012414 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_44.asset
+  artifactKey: Guid(da0735eca4fdd164c83c58485a4274e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_44.asset using Guid(da0735eca4fdd164c83c58485a4274e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '157f28cecfc62fcb8a7cca0acd485ff2') in 0.010809 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_46.asset
+  artifactKey: Guid(f84b0a87f6041534bab5e9c8a5c8358e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_46.asset using Guid(f84b0a87f6041534bab5e9c8a5c8358e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff07e3e9b66ee9fa4227c6db0a179b81') in 0.011369 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_42.asset
+  artifactKey: Guid(ff45594fade89ea498881858fa8e775d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_42.asset using Guid(ff45594fade89ea498881858fa8e775d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d1f5c36b3f5fbce2edc8620cf5bdcc8') in 0.009153 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_49.asset
+  artifactKey: Guid(e0ee5c3b136112a4c903c751dd8c562b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_49.asset using Guid(e0ee5c3b136112a4c903c751dd8c562b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63b7f2d987e39153d66906f40c89716a') in 0.010605 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_48.asset
+  artifactKey: Guid(eb6212c436b986c418b921fac7f9a10b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_48.asset using Guid(eb6212c436b986c418b921fac7f9a10b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5dbf56cd1b8c16c4410516dd28c2c9c5') in 0.009751 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_52.asset
+  artifactKey: Guid(6baf53d4e945625479d2f323f3c847c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_52.asset using Guid(6baf53d4e945625479d2f323f3c847c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14e2840e46d8cf4b91ab8787a9715583') in 0.008808 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.167081 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_54.asset
+  artifactKey: Guid(51d2f35e3cb7468438be36f10e606969) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_54.asset using Guid(51d2f35e3cb7468438be36f10e606969) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95c2ec3e415f51da89c2e75bf3c2c180') in 0.011341 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_60.asset
+  artifactKey: Guid(fa0fc657cf4239e4d8be85e07807323d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_60.asset using Guid(fa0fc657cf4239e4d8be85e07807323d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5749b13887f738c39223cc100ae410ec') in 0.009778 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_58.asset
+  artifactKey: Guid(9a7d3b65229c27e4ba903dc621921b52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_58.asset using Guid(9a7d3b65229c27e4ba903dc621921b52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06e8664ed45cd91d3fc37e16cbcaedac') in 0.009301 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.010128 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_61.asset
+  artifactKey: Guid(aa2102af1eb29d841a9aa19c0a4ad5dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_61.asset using Guid(aa2102af1eb29d841a9aa19c0a4ad5dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af7d8b90b6a486ff5754dc1c2a6dae87') in 0.012780 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_67.asset
+  artifactKey: Guid(c9e4ccfcec697c049b16186b58ee662e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_67.asset using Guid(c9e4ccfcec697c049b16186b58ee662e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0234dfb9bc6609f865f746e0d32a04f') in 0.009583 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_65.asset
+  artifactKey: Guid(fca0355d30f93204d800da7587c493bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_65.asset using Guid(fca0355d30f93204d800da7587c493bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90adb1c7da04c2b73bed00c760889b8d') in 0.012125 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.241690 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_68.asset
+  artifactKey: Guid(ca8c936dea8e75449afb9191f0e8a4a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_68.asset using Guid(ca8c936dea8e75449afb9191f0e8a4a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b370f5cfbebd1320f0e8e2d1c139d7d') in 0.019891 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_72.asset
+  artifactKey: Guid(f2c340394621025418d9dd209d78408b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_72.asset using Guid(f2c340394621025418d9dd209d78408b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bd49b18d76962a2e48cf1b9bfe96641') in 0.009900 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_73.asset
+  artifactKey: Guid(cc567a112ab698e46820b5c0256b6f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_73.asset using Guid(cc567a112ab698e46820b5c0256b6f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe95436735aec553e761cfe6b0460197') in 0.010684 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_75.asset
+  artifactKey: Guid(2fe3773abfd50574487e05fb6cc7f313) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_75.asset using Guid(2fe3773abfd50574487e05fb6cc7f313) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98f3e2fea101e46d7fef6331fb031ab0') in 0.010676 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_77.asset
+  artifactKey: Guid(bcd18558e4522e34184bdffeff55888f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_77.asset using Guid(bcd18558e4522e34184bdffeff55888f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a303a53e6979c5ac42656cc4de13b4c1') in 0.011306 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_82.asset
+  artifactKey: Guid(2ac7b230f58e44847804f83403e2827e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_82.asset using Guid(2ac7b230f58e44847804f83403e2827e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da7af13da168dcddae30ac910592cdcf') in 0.009245 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_88.asset
+  artifactKey: Guid(04c7e6591ceeee442863ee621062a24b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_88.asset using Guid(04c7e6591ceeee442863ee621062a24b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b6b5e99f2e94861e50f1be6494fb6ad') in 0.011366 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_84.asset
+  artifactKey: Guid(85526a340a08df44d9bf324541d25d75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_84.asset using Guid(85526a340a08df44d9bf324541d25d75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebefa087fc7ebf415a2dac1121608cd5') in 0.011374 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_87.asset
+  artifactKey: Guid(6b9ffdfd124d26e4ba3b7d38b5de363d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_87.asset using Guid(6b9ffdfd124d26e4ba3b7d38b5de363d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea27fe6322ce722225354af9697c9978') in 0.009691 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_80.asset
+  artifactKey: Guid(9a2233803ce3df042a148666617bfca7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_80.asset using Guid(9a2233803ce3df042a148666617bfca7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5664a377810ff7f8727821db86543fca') in 0.012800 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 3.611255 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_90.asset
+  artifactKey: Guid(187fbf0f40283214c9eef2fb5848b0df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_90.asset using Guid(187fbf0f40283214c9eef2fb5848b0df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50ecab59b63e06ca504f1c00b2074ffc') in 0.009489 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.207429 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_92.asset
+  artifactKey: Guid(d8e8a66fad012aa4b952569e9efff40a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_92.asset using Guid(d8e8a66fad012aa4b952569e9efff40a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cb9077ba326d0b702eebb337afd21bf') in 0.010987 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_110.asset
+  artifactKey: Guid(c6e27302e9ad6164fb0ef73a3b9ec974) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_110.asset using Guid(c6e27302e9ad6164fb0ef73a3b9ec974) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c65f287012b2e690dba1db5ac4716b0c') in 0.008849 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_108.asset
+  artifactKey: Guid(0be35af64b80be9448dab7daf9c83c34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_108.asset using Guid(0be35af64b80be9448dab7daf9c83c34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1692b12777e5f944b1af234a12f8a4d4') in 0.011323 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_105.asset
+  artifactKey: Guid(b2af6a8b12a462046b042d9f2a5abaf4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_105.asset using Guid(b2af6a8b12a462046b042d9f2a5abaf4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75ff269d3730bd0639468de518a3cb1b') in 0.011426 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_120.asset
+  artifactKey: Guid(64f57444b9d3409449a90dbfdd525dd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_120.asset using Guid(64f57444b9d3409449a90dbfdd525dd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f7b57a66a10425ffa80bc4299f1e72a') in 0.010873 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_115.asset
+  artifactKey: Guid(a06c758dcc361bf4fbf385ec65887684) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_115.asset using Guid(a06c758dcc361bf4fbf385ec65887684) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '333781e3867df8c6e7409ba45d81cb6e') in 0.009886 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_112.asset
+  artifactKey: Guid(8b51eb7980e797a438685a314b0b753b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_112.asset using Guid(8b51eb7980e797a438685a314b0b753b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9abd4d85a73f02d93aa45e966af9657c') in 0.010797 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_138.asset
+  artifactKey: Guid(5fcbffbc03755354490694056c956276) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_138.asset using Guid(5fcbffbc03755354490694056c956276) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e53ce1cb342b4b72b95299e1e448e9db') in 0.009421 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_166.asset
+  artifactKey: Guid(329d0176f3f6ae041a107a1813d8a38e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_166.asset using Guid(329d0176f3f6ae041a107a1813d8a38e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6c162404f5684411006c61bd80c23e9') in 0.009759 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_152.asset
+  artifactKey: Guid(41f184f9c7a247f42950fb5fbaead2e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_152.asset using Guid(41f184f9c7a247f42950fb5fbaead2e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a3bef9035dfbd1fcfcc68a294d8e2cb') in 0.010356 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_161.asset
+  artifactKey: Guid(65cc9662365440440a83853e62a0ecaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_161.asset using Guid(65cc9662365440440a83853e62a0ecaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '298b86a193a618fc81ba97792f36bd83') in 0.008745 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_183.asset
+  artifactKey: Guid(4acc409fe2bd3a24dad32c3bbbdc8cb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_183.asset using Guid(4acc409fe2bd3a24dad32c3bbbdc8cb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c091ac9ca0ddb64d5c776ed3802b3c0') in 0.009428 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_190.asset
+  artifactKey: Guid(96756d4446b93c143a66c5f4a56b5584) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_190.asset using Guid(96756d4446b93c143a66c5f4a56b5584) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81593e30ee7f05114e7e6a9648cb646a') in 0.010053 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_147.asset
+  artifactKey: Guid(c4c5bfe7253a8ab4cadc1c435761d54e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_147.asset using Guid(c4c5bfe7253a8ab4cadc1c435761d54e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe702c1cf96860d84d5c2a6c5f3baa8a') in 0.009117 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_124.asset
+  artifactKey: Guid(61364455a71776a4abc65489997b0d3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_124.asset using Guid(61364455a71776a4abc65489997b0d3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f61e8c2c0badf513095111db344027e2') in 0.010826 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_117.asset
+  artifactKey: Guid(3e82889a5db5df141b666ebfd1495e57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_117.asset using Guid(3e82889a5db5df141b666ebfd1495e57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01abdee74df2ad5d127167b69be61a2f') in 0.009426 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_145.asset
+  artifactKey: Guid(522c62cf5d51fc3488ee4c48b9688202) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_145.asset using Guid(522c62cf5d51fc3488ee4c48b9688202) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '693162914af95f53394fac393951caaf') in 0.009130 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_114.asset
+  artifactKey: Guid(62a0d342976a7cb4b839fcad3f22579d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_114.asset using Guid(62a0d342976a7cb4b839fcad3f22579d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd04768453d1980039a8d3ef7437573c4') in 0.011698 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_174.asset
+  artifactKey: Guid(8d08cb8cd73d3264ab1c8e82532ce71d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_174.asset using Guid(8d08cb8cd73d3264ab1c8e82532ce71d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de701a811a782c84cbc046d8b7ce033e') in 0.009979 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_195.asset
+  artifactKey: Guid(5cc99a3a32161d94cad96e45219f077e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_195.asset using Guid(5cc99a3a32161d94cad96e45219f077e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a333036dc8589ac64defe21af828addd') in 0.009115 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_171.asset
+  artifactKey: Guid(37ba8944e0b661e4fac7d46ae54641bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_171.asset using Guid(37ba8944e0b661e4fac7d46ae54641bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1ca9d515d8ff6c793e6f3e128f313bf') in 0.010493 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_156.asset
+  artifactKey: Guid(cc7aa7f07fd680f438bb319a0446f716) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_156.asset using Guid(cc7aa7f07fd680f438bb319a0446f716) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '793883fdd82fd07c95170024b6672fa4') in 0.009265 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_170.asset
+  artifactKey: Guid(eed0168826b019f439a7d2d3bcce2d8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_170.asset using Guid(eed0168826b019f439a7d2d3bcce2d8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea0f731d2be102906e2ba7c4418f7288') in 0.008851 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_126.asset
+  artifactKey: Guid(6e8df53060e0dcd439eba2a8fe28ccb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_126.asset using Guid(6e8df53060e0dcd439eba2a8fe28ccb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd69b2b2167d441cb7673871887e7edf0') in 0.010266 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_146.asset
+  artifactKey: Guid(94244b15fac754d448d1d354b5cf8780) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_146.asset using Guid(94244b15fac754d448d1d354b5cf8780) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46d0cdb4d6f2a9067245c5be3eaa2f88') in 0.008306 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_205.asset
+  artifactKey: Guid(6c92efbcda3ffb541ad295568abf91a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_205.asset using Guid(6c92efbcda3ffb541ad295568abf91a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0b636709e733db3e8bfb8a5c567dc95') in 0.012718 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_178.asset
+  artifactKey: Guid(2fda7c0c385754140bc21308e0507d7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_178.asset using Guid(2fda7c0c385754140bc21308e0507d7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0f8d2f4002066906e9826cf754b98d6') in 0.011537 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_179.asset
+  artifactKey: Guid(f69a8c7d9027d56499ca321be528e9c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_179.asset using Guid(f69a8c7d9027d56499ca321be528e9c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0aa4ee1c5cd79c5df5a35310e02f4357') in 0.010609 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_99.asset
+  artifactKey: Guid(ca917d0d35b85a444ae9ee7939c7e8a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_99.asset using Guid(ca917d0d35b85a444ae9ee7939c7e8a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b09c02e0a295101c08a0edf5ce5c2b16') in 0.008379 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_116.asset
+  artifactKey: Guid(3d730c8989b1c2d4fa791b2f741ffd5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_116.asset using Guid(3d730c8989b1c2d4fa791b2f741ffd5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4785fbe54276c889e8110bb087513358') in 0.011286 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_143.asset
+  artifactKey: Guid(3e22012157da41349a0a5cdf2fa7efc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_143.asset using Guid(3e22012157da41349a0a5cdf2fa7efc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e0514605b25b5d61cbeb9ef7e7b5764') in 0.011160 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_109.asset
+  artifactKey: Guid(80c8c7218c92b3f44aa0524893f76b90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_109.asset using Guid(80c8c7218c92b3f44aa0524893f76b90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c63975f0f4991a7aa91ef23f640198d') in 0.008803 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_182.asset
+  artifactKey: Guid(dd9c581d47968834f83d8cc2e30aa79b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_182.asset using Guid(dd9c581d47968834f83d8cc2e30aa79b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc5f029366b4314187dd9e9c29c55136') in 0.010377 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_134.asset
+  artifactKey: Guid(623ca10dca8eb4949a5096735638fd06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_134.asset using Guid(623ca10dca8eb4949a5096735638fd06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '501ea2f80542002a033884177947e977') in 0.011384 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_207.asset
+  artifactKey: Guid(4fb970ab22b832949977613297a13a27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_207.asset using Guid(4fb970ab22b832949977613297a13a27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf31547d07eb65bebb4f703d06525d49') in 0.009485 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_204.asset
+  artifactKey: Guid(44096d942a0efa643baecf416f7808d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_204.asset using Guid(44096d942a0efa643baecf416f7808d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db8fa252876a681e2dd52b86efcf255a') in 0.011380 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_199.asset
+  artifactKey: Guid(1839a0528b9f8954bbe985c6173478da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_199.asset using Guid(1839a0528b9f8954bbe985c6173478da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1fbb75347962fb1abd0ed85910ea693c') in 0.010983 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_203.asset
+  artifactKey: Guid(47e30a780313bcd468dd10f99efd2452) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_203.asset using Guid(47e30a780313bcd468dd10f99efd2452) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ace79c85a76a1822eaf8c4dffbb0afe') in 0.008822 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_128.asset
+  artifactKey: Guid(5f2ee2c48b0654a45a0ad6710758d84a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_128.asset using Guid(5f2ee2c48b0654a45a0ad6710758d84a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec2f752ad55f0217cbc7890108210227') in 0.011573 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/0_Source/tile_inner_princessRoom_184.asset
+  artifactKey: Guid(5a5ed4d0abd16a34cab44fdcc4c4c248) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_Source/tile_inner_princessRoom_184.asset using Guid(5a5ed4d0abd16a34cab44fdcc4c4c248) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '103d325bfe59e93a8f7cbb2238e553a7') in 0.009877 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 45.011623 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_1.asset
+  artifactKey: Guid(02457e742fabee14bbc8661e533402b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_1.asset using Guid(02457e742fabee14bbc8661e533402b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c22e4656b276078190011e6a05a7475f') in 0.018996 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_5.asset
+  artifactKey: Guid(66e568aae41c23b4f9ac5306f79da2c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_5.asset using Guid(66e568aae41c23b4f9ac5306f79da2c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ad767f9442c2dc9373f0ead1285b598') in 0.004722 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_28.asset
+  artifactKey: Guid(67fe73cf06b8b404488a20ceb46ae395) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_28.asset using Guid(67fe73cf06b8b404488a20ceb46ae395) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32d1fa8893e8b5d59c2acdef6989a483') in 0.008997 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_88.asset
+  artifactKey: Guid(936917d36baf87245862695f4dc4c126) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_88.asset using Guid(936917d36baf87245862695f4dc4c126) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b61f1bd06d0eb0ef47a878a931a0cfe') in 0.007219 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_99.asset
+  artifactKey: Guid(f05946c00702a3547acb33fbdb5e40aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_99.asset using Guid(f05946c00702a3547acb33fbdb5e40aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3637bfd6964a9644ab8e2fd7c66d50a7') in 0.008758 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_53.asset
+  artifactKey: Guid(d3f1e50ec07e6044cbc6ede74623e2bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_53.asset using Guid(d3f1e50ec07e6044cbc6ede74623e2bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e521b81d40b9c9cbcef96f3b67292319') in 0.007747 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_77.asset
+  artifactKey: Guid(da62e7f3fa59b904a9262451824ecac3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_77.asset using Guid(da62e7f3fa59b904a9262451824ecac3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cef4c784a558af10ec07527f665555d') in 0.008924 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_129.asset
+  artifactKey: Guid(07e31dd051496304795a8ef08562da58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_129.asset using Guid(07e31dd051496304795a8ef08562da58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a44885a0753ec0e90c1e07ef97736529') in 0.009595 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_40.asset
+  artifactKey: Guid(94fc6168dba9b4144acc7bc796c1ae98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_40.asset using Guid(94fc6168dba9b4144acc7bc796c1ae98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '377180685f2b5bcfcc3880c532368511') in 0.009595 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_92.asset
+  artifactKey: Guid(81f136d4046753346afdc1aa06f72270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_92.asset using Guid(81f136d4046753346afdc1aa06f72270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '601232e61f2135d32bccebac990ce216') in 0.010956 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_32.asset
+  artifactKey: Guid(23b27227e6d867d49ab1fceed8679457) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_32.asset using Guid(23b27227e6d867d49ab1fceed8679457) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '277474c05a3c382f18bc5708faab1e94') in 0.007420 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_10.asset
+  artifactKey: Guid(857c7dc1ae265a54f890a7fd9f5fd857) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_10.asset using Guid(857c7dc1ae265a54f890a7fd9f5fd857) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f68910f720dfe4d4e6a993080389e9f') in 0.012139 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_27.asset
+  artifactKey: Guid(289bdba381075d14d96976ac25b6eb76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_27.asset using Guid(289bdba381075d14d96976ac25b6eb76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecb6d9a36a0467db67861234967ccd82') in 0.011024 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_105.asset
+  artifactKey: Guid(158cf8f07a6a3e74c9138e1f675753d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_105.asset using Guid(158cf8f07a6a3e74c9138e1f675753d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e766e7447dffd6b62873e3daaef7e58') in 0.008983 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_14.asset
+  artifactKey: Guid(d2c101a0826257f4bb3bd3e43ec5e957) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_14.asset using Guid(d2c101a0826257f4bb3bd3e43ec5e957) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '504bd147be6b116ee5982757a428174c') in 0.011119 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_111.asset
+  artifactKey: Guid(6853a77075deabc4eb71e5994bbd6e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_111.asset using Guid(6853a77075deabc4eb71e5994bbd6e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c5564d9e01e8450321212b5159a88a2') in 0.008698 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_65.asset
+  artifactKey: Guid(ca1f91c5bf7e27e4e80d9a302f672231) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_65.asset using Guid(ca1f91c5bf7e27e4e80d9a302f672231) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be9c1c6161f5f240d5011dc46cbb6cc6') in 0.004579 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_12.asset
+  artifactKey: Guid(7d7c7df659bbcf24aaeb1379303b9e38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_12.asset using Guid(7d7c7df659bbcf24aaeb1379303b9e38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39defa684f08049782cddfde055be91f') in 0.008704 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_58.asset
+  artifactKey: Guid(6d37d1efab57556419c1804091badccf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_58.asset using Guid(6d37d1efab57556419c1804091badccf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05671d277b637084a47452cff24bd307') in 0.005583 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_86.asset
+  artifactKey: Guid(836d27d2251c305459568074a6b873c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_86.asset using Guid(836d27d2251c305459568074a6b873c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bf1afcf24be3e679e392f76d22517f6') in 0.004038 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_80.asset
+  artifactKey: Guid(1e40412ae4a20cc4dad66443c74be941) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_80.asset using Guid(1e40412ae4a20cc4dad66443c74be941) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c91343e45ec0cd9317ce56a92b836e7') in 0.009085 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_57.asset
+  artifactKey: Guid(1969883c3e0943d4b8fef54cbc24f6b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_57.asset using Guid(1969883c3e0943d4b8fef54cbc24f6b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44675abaf5ed172300e07e6faf4fe274') in 0.007204 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_103.asset
+  artifactKey: Guid(c54a27c6b1cbee543936465e82916229) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_103.asset using Guid(c54a27c6b1cbee543936465e82916229) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '900348854c731c73557d728cb23a8c52') in 0.012040 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_36.asset
+  artifactKey: Guid(5422bcc2445ce9d4bb3399fdc8179213) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_36.asset using Guid(5422bcc2445ce9d4bb3399fdc8179213) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5ccc5540976f955c39912bb57b2fd43') in 0.009259 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_134.asset
+  artifactKey: Guid(867733d25cdb09349a108635c24a168f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_134.asset using Guid(867733d25cdb09349a108635c24a168f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be6917d5ee238b56bd25c337ba883768') in 0.008873 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_133.asset
+  artifactKey: Guid(532670eec0a4e284caf407f4984a9be7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_133.asset using Guid(532670eec0a4e284caf407f4984a9be7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e98e7fa6cef6829e667f7bb7a073fc2e') in 0.012993 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_76.asset
+  artifactKey: Guid(d906eece66594494082bb21c5af96c9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_76.asset using Guid(d906eece66594494082bb21c5af96c9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5455331c3b73fe0c13ed6cea1f941123') in 0.004687 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_96.asset
+  artifactKey: Guid(9c910e622a24f07468735184a9a81913) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_96.asset using Guid(9c910e622a24f07468735184a9a81913) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '703c4d8272ce0edbf317d3ef34f41fe6') in 0.010019 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_39.asset
+  artifactKey: Guid(b64cc2ce76072224bae75885e3f93ca3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_39.asset using Guid(b64cc2ce76072224bae75885e3f93ca3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0ce1205be600ff769f8f0b0237a5531') in 0.011822 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_26.asset
+  artifactKey: Guid(b1b5011fef196324c94d495f17bf98e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_26.asset using Guid(b1b5011fef196324c94d495f17bf98e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '596cf9076813025eabb9238f2c35b8c7') in 0.008753 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_100.asset
+  artifactKey: Guid(13239b3ff0c111b47854a6651fb66c24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_100.asset using Guid(13239b3ff0c111b47854a6651fb66c24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44e19cca3be031e5a1933043c64c2f62') in 0.009716 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_89.asset
+  artifactKey: Guid(4d037f301973bf248bbbc27029446abd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_89.asset using Guid(4d037f301973bf248bbbc27029446abd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8efb8254e5f848fdef6f4ff4f0e83b69') in 0.009516 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_67.asset
+  artifactKey: Guid(9e52aa027bdc97c40bf32f77f2fc2902) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_67.asset using Guid(9e52aa027bdc97c40bf32f77f2fc2902) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f5fffe399c5f5a9dbac1fd8c3c313a8') in 0.010220 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_7.asset
+  artifactKey: Guid(18ef8c425c469224fb79d9d5765eb6c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_7.asset using Guid(18ef8c425c469224fb79d9d5765eb6c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'accf15d7c9681e71739e13e04a6257f9') in 0.011608 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_8.asset
+  artifactKey: Guid(1d9ee193ae72bdb4a809be4ba699a804) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_8.asset using Guid(1d9ee193ae72bdb4a809be4ba699a804) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a7d21c62d4a192bc402e2c6479d0672') in 0.012226 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_71.asset
+  artifactKey: Guid(0f360b91716a3c44385cd40b144c3329) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_71.asset using Guid(0f360b91716a3c44385cd40b144c3329) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce7104da0d550dd7749e092704bf8de8') in 0.005840 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_3.asset
+  artifactKey: Guid(d7e965a2c23a6af468e172cb48af44d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_3.asset using Guid(d7e965a2c23a6af468e172cb48af44d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2b2397f59a6f79f50897daa20f41534') in 0.007222 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_101.asset
+  artifactKey: Guid(48caaf3da3c16be4aa25dfb3d302a63a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_101.asset using Guid(48caaf3da3c16be4aa25dfb3d302a63a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8028fedfc32daf6e83b869d2c94287d8') in 0.016027 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000053 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_115.asset
+  artifactKey: Guid(3db6fcda0b5631346bdbb7eeab49d82a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_115.asset using Guid(3db6fcda0b5631346bdbb7eeab49d82a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5c59958ee3a850a9aa8b556904bd629') in 0.014348 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_104.asset
+  artifactKey: Guid(5b068afa4763f4242b654e8a29f56d7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_104.asset using Guid(5b068afa4763f4242b654e8a29f56d7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df84ce8568d9fac415c8264baa6c29ee') in 0.009998 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_29.asset
+  artifactKey: Guid(992486d0bb28bed489ccdd6731bc3d21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_29.asset using Guid(992486d0bb28bed489ccdd6731bc3d21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a1072e2be09e4c0fac749108af6fade') in 0.008538 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_78.asset
+  artifactKey: Guid(0344461d0ffe9cb4db16228f7a8c0900) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_78.asset using Guid(0344461d0ffe9cb4db16228f7a8c0900) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c13252f53609f5fa5fd98a1955d2d7f9') in 0.006043 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_74.asset
+  artifactKey: Guid(96340e71aaba2b049809b4f87e75b2aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_74.asset using Guid(96340e71aaba2b049809b4f87e75b2aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ba840608d0326e1b3c3c912fe5c6818') in 0.008238 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_69.asset
+  artifactKey: Guid(3d45af0532fc4074eb98ee75ac01f1eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_69.asset using Guid(3d45af0532fc4074eb98ee75ac01f1eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ef426ffb84969ec098b01c9ee64363f') in 0.005325 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_70.asset
+  artifactKey: Guid(49a111ad93b568d4d96a80713b6e352a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_70.asset using Guid(49a111ad93b568d4d96a80713b6e352a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a8215ed0c701ffb368fdabbcbcd1276') in 0.008491 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_11.asset
+  artifactKey: Guid(fb8b837beaaa5ff41a851dc2699e2763) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_11.asset using Guid(fb8b837beaaa5ff41a851dc2699e2763) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b57de1dd8577650af7e2dda710f4d9a') in 0.014171 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.511057 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_137.asset
+  artifactKey: Guid(81e26d2778b8cfa4bae492e697ab44bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_137.asset using Guid(81e26d2778b8cfa4bae492e697ab44bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b07c941fac6ca1959f33b01a23b5c5ff') in 0.008423 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_139.asset
+  artifactKey: Guid(9743c2d4bc280a446a9284482d3dc04d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_139.asset using Guid(9743c2d4bc280a446a9284482d3dc04d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7c8b4bf550851d34c2fc47b50a5ccd4') in 0.010688 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.192268 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_144.asset
+  artifactKey: Guid(14b815c99844c4b4185374e253afa1ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_144.asset using Guid(14b815c99844c4b4185374e253afa1ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50b1cb4f50b38223672cf1194cc0988a') in 0.009366 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_151.asset
+  artifactKey: Guid(2c4969c1e64fcc347bb254a1f48ab3e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_151.asset using Guid(2c4969c1e64fcc347bb254a1f48ab3e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a55dee92f3db4f9c1f36e099a0233ab') in 0.004048 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_150.asset
+  artifactKey: Guid(1704050672226dc43ae2fd6e94afe679) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_150.asset using Guid(1704050672226dc43ae2fd6e94afe679) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '702b4e66fb48376f9922f31350a4d945') in 0.011780 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_160.asset
+  artifactKey: Guid(954c885a789eb474a9e3783bd83e5385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_160.asset using Guid(954c885a789eb474a9e3783bd83e5385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d82e04b368b0cca96f83482ea76e220') in 0.006499 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_146.asset
+  artifactKey: Guid(5e1a03c210fb62641afee38018b88598) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_146.asset using Guid(5e1a03c210fb62641afee38018b88598) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e624b794b3742f2771162341d8131262') in 0.007736 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_192.asset
+  artifactKey: Guid(a5be6b776f235044692443423a1b46c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_192.asset using Guid(a5be6b776f235044692443423a1b46c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2a67f460ff239745bf6692e3cc5dac5') in 0.007838 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_183.asset
+  artifactKey: Guid(659cae66bd268814692cde230d82c61d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_183.asset using Guid(659cae66bd268814692cde230d82c61d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5f43439e99ac8ae4dc4e531750011a4') in 0.009768 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_174.asset
+  artifactKey: Guid(12893e3067addbe48b582081d3671ff2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_174.asset using Guid(12893e3067addbe48b582081d3671ff2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc043f2dc7f1ab685e9562f87a278804') in 0.011531 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_176.asset
+  artifactKey: Guid(ca396659f17b50f45ac57d506b3673aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_176.asset using Guid(ca396659f17b50f45ac57d506b3673aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6732537513cf5452cc33658b6ef3377b') in 0.010389 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_165.asset
+  artifactKey: Guid(89a144e40a8d4844ea54494f2e011d58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_165.asset using Guid(89a144e40a8d4844ea54494f2e011d58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5db697db7e9e901557d9b33da2d42453') in 0.008052 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_186.asset
+  artifactKey: Guid(b5407df074a27d94795f363251fafcab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_186.asset using Guid(b5407df074a27d94795f363251fafcab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '832726021b37809747f1ba61275313ae') in 0.007305 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_169.asset
+  artifactKey: Guid(2b41a2d17252f4747b4e48e4aec4935d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_169.asset using Guid(2b41a2d17252f4747b4e48e4aec4935d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '142f2c46f7c90c72b8f67214a6241e0c') in 0.005124 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_185.asset
+  artifactKey: Guid(122b0c3030a1645429ff6cee1aea7f74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_185.asset using Guid(122b0c3030a1645429ff6cee1aea7f74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d32815366e9d7ebe1f16f8986b6f8c1') in 0.009556 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_188.asset
+  artifactKey: Guid(4590805c949ddb341a18dd19e4db2365) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_188.asset using Guid(4590805c949ddb341a18dd19e4db2365) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd93f16da2dee9a6594168b991ef8d03') in 0.004165 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_167.asset
+  artifactKey: Guid(aabba9da989ff1d43802588a5719eafb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_167.asset using Guid(aabba9da989ff1d43802588a5719eafb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d96696fec99d256f7803e573b048351') in 0.009898 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_170.asset
+  artifactKey: Guid(1124f9919137f4f429a590cd31a9012e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_170.asset using Guid(1124f9919137f4f429a590cd31a9012e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd5f6e27b417094dabe3ab28ba3e8674') in 0.005185 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_157.asset
+  artifactKey: Guid(39d3d74dcc0d62b4f96d1a00f45e660d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_157.asset using Guid(39d3d74dcc0d62b4f96d1a00f45e660d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '178fee17f6f159ecb68cbb77dae73886') in 0.007414 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_166.asset
+  artifactKey: Guid(a17056e79423a5a4995b0e65dcc9f9c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_166.asset using Guid(a17056e79423a5a4995b0e65dcc9f9c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06aa3a2f227be1f3ce4acf279bda61d3') in 0.008011 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_182.asset
+  artifactKey: Guid(60dd1e98084dcb344990916a6ce0908f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_182.asset using Guid(60dd1e98084dcb344990916a6ce0908f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23a7ac553deb8e4efb0421f24ce02dee') in 0.008599 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.062727 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_196.asset
+  artifactKey: Guid(e68bdce22e10d42439ddb93f1e82e508) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_196.asset using Guid(e68bdce22e10d42439ddb93f1e82e508) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cd5e5388ac60d9c74f3a78d7e9f6016') in 0.009815 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_199.asset
+  artifactKey: Guid(38ebc00f8259c8a4888f24bf6bc5d39d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_199.asset using Guid(38ebc00f8259c8a4888f24bf6bc5d39d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d376b2c35ab1570219cb559df8a8408') in 0.009527 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_207.asset
+  artifactKey: Guid(7c98978463ad2fd409d37f18cc443e75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_207.asset using Guid(7c98978463ad2fd409d37f18cc443e75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43e0c385bc73948c419adf25b8494dae') in 0.008642 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_210.asset
+  artifactKey: Guid(d7a3218c8a3cb9a439ca5f331a48dba9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_210.asset using Guid(d7a3218c8a3cb9a439ca5f331a48dba9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f7e0bc359bc166cfbd1410c024702eb') in 0.010828 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_231.asset
+  artifactKey: Guid(7a6d44652f5499340a00975c09a2507d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_231.asset using Guid(7a6d44652f5499340a00975c09a2507d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60fec6a83c638eeabc1ddd66f6b05cd3') in 0.010190 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_201.asset
+  artifactKey: Guid(af634e28da92db043863f5361ff36480) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_201.asset using Guid(af634e28da92db043863f5361ff36480) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc70aecf288b627a906b33199f9a298f') in 0.005066 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_236.asset
+  artifactKey: Guid(15d811da0808ba149ba059cffea626ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_236.asset using Guid(15d811da0808ba149ba059cffea626ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e1b3e67b96a5d727f8d71ec70c0d0a8') in 0.009927 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_205.asset
+  artifactKey: Guid(2f1ca7b3c4a4e1340baf1e6a8b49feff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_205.asset using Guid(2f1ca7b3c4a4e1340baf1e6a8b49feff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c3b1a988359e0c2ae438794e059f27b') in 0.004955 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_204.asset
+  artifactKey: Guid(ed23012dc208936459afc8aa2281bd38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_204.asset using Guid(ed23012dc208936459afc8aa2281bd38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80e6a5b6016d1fb2c4802c6a0821a7bd') in 0.004185 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_220.asset
+  artifactKey: Guid(9ba8e44890cbb8940ad560900d5215b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_220.asset using Guid(9ba8e44890cbb8940ad560900d5215b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8da717f3d1a71f2cd0667e6703ba34ef') in 0.013166 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_232.asset
+  artifactKey: Guid(8ecc0b41a74e8464da9772bc1cc5429d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_232.asset using Guid(8ecc0b41a74e8464da9772bc1cc5429d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '750a008eb7fecaefa81eedfef70edbe1') in 0.010792 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_248.asset
+  artifactKey: Guid(11f18b2539d4391478cbecc1179224a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_248.asset using Guid(11f18b2539d4391478cbecc1179224a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e67ec4748589b0c5c19d307f471a938') in 0.009453 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_230.asset
+  artifactKey: Guid(5e0894098823fe34b9caf159da82c6da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_230.asset using Guid(5e0894098823fe34b9caf159da82c6da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71ad495376c2ec6ed857d916e1547f24') in 0.009534 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_256.asset
+  artifactKey: Guid(15462782300dc3f418a872c5ff9712d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_256.asset using Guid(15462782300dc3f418a872c5ff9712d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '376eb96793b0b7fd0b05636df58e24c3') in 0.011314 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_252.asset
+  artifactKey: Guid(c800653b82329814c877262345e65f9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_252.asset using Guid(c800653b82329814c877262345e65f9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd282df63d473209cc5651c0b234a1872') in 0.007930 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_251.asset
+  artifactKey: Guid(06053f97aa8d7cf48ba9f10f884d47e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_251.asset using Guid(06053f97aa8d7cf48ba9f10f884d47e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55bb86a0b3c00989f23cc3a77817c604') in 0.010319 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_233.asset
+  artifactKey: Guid(d7c40759fa3670f4b8cedb4a7fc8e9ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_233.asset using Guid(d7c40759fa3670f4b8cedb4a7fc8e9ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02391541f6c1a6a7dc76f8bf4dd60700') in 0.009822 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_259.asset
+  artifactKey: Guid(374a8f7037862974395bcf6b50fd98e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_259.asset using Guid(374a8f7037862974395bcf6b50fd98e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '177162405f829275dd8be7e5e705f794') in 0.009406 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_224.asset
+  artifactKey: Guid(3d5ec2d9a46ebfd429c20b193e7523d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_224.asset using Guid(3d5ec2d9a46ebfd429c20b193e7523d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '927694ee9be854d03a34dde93fff25c1') in 0.011321 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_208.asset
+  artifactKey: Guid(1bf8d567d0160764db8458da3b61b0d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_208.asset using Guid(1bf8d567d0160764db8458da3b61b0d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce6cfe2b63eb13bd04b6892ffa4b5a02') in 0.010686 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_240.asset
+  artifactKey: Guid(a61c5c0110dc846449f0d1d6cfe0f5d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_240.asset using Guid(a61c5c0110dc846449f0d1d6cfe0f5d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f44363ff0b766f45e5a6ee6bff532674') in 0.009920 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_203.asset
+  artifactKey: Guid(e7abfdf5e6d925440927ac9ed44b06f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_203.asset using Guid(e7abfdf5e6d925440927ac9ed44b06f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b8e458ec0c986f7ce8fd923901eddb4') in 0.010559 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_262.asset
+  artifactKey: Guid(3ce3b8c79aa9bc64d9889637c8cd2d9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_262.asset using Guid(3ce3b8c79aa9bc64d9889637c8cd2d9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf14bf9ce936fe8131cd44dd27071ed3') in 0.012309 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_267.asset
+  artifactKey: Guid(2e7626ee90741dd4dacb7587fb6f4b98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_267.asset using Guid(2e7626ee90741dd4dacb7587fb6f4b98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fc7c12b1a2dbdb7c31375ce477c7979') in 0.010009 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_270.asset
+  artifactKey: Guid(b89c6e06720794e4fae505e285169464) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_270.asset using Guid(b89c6e06720794e4fae505e285169464) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01df5b5d67c616ef843432debf8aac0b') in 0.010700 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_293.asset
+  artifactKey: Guid(c653a17fca6f64b40bfdb6f9d8a9815e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_293.asset using Guid(c653a17fca6f64b40bfdb6f9d8a9815e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '730bddd92a24018507d167d9c6233224') in 0.013476 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_282.asset
+  artifactKey: Guid(7eba2b3a777aec744af97196ca1297ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_282.asset using Guid(7eba2b3a777aec744af97196ca1297ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9611ce56d4c40557b40d8316420602e1') in 0.010561 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_281.asset
+  artifactKey: Guid(25840a270b32b3c4ba701d36d73bf9a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_281.asset using Guid(25840a270b32b3c4ba701d36d73bf9a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c18e460c4575a8ba868eed2185d378e6') in 0.010620 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_280.asset
+  artifactKey: Guid(01aa420e87183634485c9e554fb2af6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_280.asset using Guid(01aa420e87183634485c9e554fb2af6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbcfb910a21f3dc9e11eccb63daef04a') in 0.010358 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_309.asset
+  artifactKey: Guid(66b7aff9aa42ebd4a9cde76218edf1b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_309.asset using Guid(66b7aff9aa42ebd4a9cde76218edf1b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db106d11e35cce1369eaddd99b0504cb') in 0.011494 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_288.asset
+  artifactKey: Guid(bc9908b580a80a3489535eb406881b5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_288.asset using Guid(bc9908b580a80a3489535eb406881b5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a431b45d5ea30a582a4c199a54085d0') in 0.009649 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_290.asset
+  artifactKey: Guid(c2c7d75b0a197dc4cb2e17527b82b0d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_290.asset using Guid(c2c7d75b0a197dc4cb2e17527b82b0d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc10797b190c4648cbfa1e8657ed1c4f') in 0.008911 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_306.asset
+  artifactKey: Guid(9a7c190c3ec94c149a290be7297502cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_306.asset using Guid(9a7c190c3ec94c149a290be7297502cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ceef12dd3a038a912462cbec9ea0f63') in 0.010767 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_300.asset
+  artifactKey: Guid(bf5bc530607704b4a8ffaeea3b5cb08e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_300.asset using Guid(bf5bc530607704b4a8ffaeea3b5cb08e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92ff64fcc67b4020e0a7cba9c710e866') in 0.008820 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_311.asset
+  artifactKey: Guid(cc6e13f4e0a839943ad7bc36aaa1b36a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_311.asset using Guid(cc6e13f4e0a839943ad7bc36aaa1b36a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e597a4f54e4d832a5940100a8c8ecf51') in 0.009126 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_264.asset
+  artifactKey: Guid(118fca0c5fc02374e974ec645d0c11ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_264.asset using Guid(118fca0c5fc02374e974ec645d0c11ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '005d885111b4ebbe3437ad9acc792bf6') in 0.010248 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_274.asset
+  artifactKey: Guid(10c97d90ea458194e86f199fcc4a6b7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_274.asset using Guid(10c97d90ea458194e86f199fcc4a6b7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '833802a2c1bc146d1d9d706ab25f22f2') in 0.012265 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_285.asset
+  artifactKey: Guid(f8572326fae1a2d49a9b9f3f4ffdc3f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_285.asset using Guid(f8572326fae1a2d49a9b9f3f4ffdc3f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '182e03f31c9318e3284f095ca7c98192') in 0.005389 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/2_Tile Palettes/tile_inner_princessRoom_271.asset
+  artifactKey: Guid(d61a8c6167717254ab41ce741a346263) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2_Tile Palettes/tile_inner_princessRoom_271.asset using Guid(d61a8c6167717254ab41ce741a346263) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '532fd150ba102c1e9053b965d8c0f105') in 0.008582 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: 스레드 종료 또는 응용 프로그램 요청 때문에 I/O 작업이 취소되었습니다.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
