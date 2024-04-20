@@ -210,7 +210,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1497577188}
   - {fileID: 497006384}
   - {fileID: 1576195944}
   - {fileID: 1002599892}
@@ -540,10 +539,10 @@ MonoBehaviour:
   signalEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 397455593}
+        m_TargetAssemblyTypeName: HeartManager, Assembly-CSharp
+        m_MethodName: UpdateHearts
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1606,6 +1605,7 @@ MonoBehaviour:
   halfFullHeart: {fileID: -829082772, guid: f6f790222f42791499d0ac629c9a9397, type: 3}
   emptyHeart: {fileID: -57365843, guid: f6f790222f42791499d0ac629c9a9397, type: 3}
   heartContainers: {fileID: 11400000, guid: e6cdcf98e4fabbd42ba6242d26bc49df, type: 2}
+  playerCurrentHealth: {fileID: 11400000, guid: 195d3e5625593b643a2624059557e183, type: 2}
 --- !u!1 &497006383
 GameObject:
   m_ObjectHideFlags: 0
@@ -9695,7 +9695,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 278961798}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &1497577189
 AudioListener:
@@ -14403,9 +14403,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b0e8d4b7daf8e428b6e33916f5123e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 2.5
+  thrust: 2
   knockTime: 0.2
-  damage: 0
+  damage: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -14413,6 +14413,7 @@ SceneRoots:
   - {fileID: 1921838328}
   - {fileID: 519420032}
   - {fileID: 2020264627}
+  - {fileID: 1497577188}
   - {fileID: 278961798}
   - {fileID: 809204185}
   - {fileID: 544557484}
