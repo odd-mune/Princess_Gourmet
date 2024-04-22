@@ -25,10 +25,13 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 change;
     private Animator animator;
     public FloatValue currentHealth;
-    public Signal_ playerHealthSignal;
+    public Signal playerHealthSignal;
 
     void Start()
     {
+        // Limit the framerate to 30
+        Application.targetFrameRate = 30;
+
         SetCurrentState(PlayerState.walk);
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -37,6 +40,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Update()
+    {
+        
+    }
+
+    void FixedUpdate()
     {
         change = Vector3.zero;
         change.x = Input.GetAxisRaw ("Horizontal");
@@ -94,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
         change.Normalize();
         myRigidbody.MovePosition
         (
-            transform.position + change * speed * Time.deltaTime
+            transform.position + change * speed * Time.fixedDeltaTime
         );
     }
 

@@ -14,6 +14,11 @@ public class PlayerHit : MonoBehaviour
         
     }
 
+    void FixedUpdate()
+    {
+        
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("breakable"))

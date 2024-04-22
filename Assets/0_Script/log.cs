@@ -32,7 +32,7 @@ public class log : Enemy
             if(currentState == EnemyState.idle || currentState == EnemyState.walk
                 && currentState != EnemyState.stagger)
             {
-                Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+                Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.fixedDeltaTime);
                 myRigidbody.MovePosition(temp);
                 ChangeState(EnemyState.walk);
                 anim.SetBool("wakeUp", true);

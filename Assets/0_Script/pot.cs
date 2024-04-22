@@ -15,6 +15,11 @@ public class pot : MonoBehaviour
         
     }
 
+    void FixedUpdate()
+    {
+        
+    }
+
     public void Smash()
     {
         anim.SetBool("smash", true);

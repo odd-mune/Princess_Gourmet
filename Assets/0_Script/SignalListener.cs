@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class SignalListener : MonoBehaviour 
 {
-    public Signal_ signal;
+    public Signal signal;
     public UnityEvent signalEvent;
 
     public void OnSignalRaised()
