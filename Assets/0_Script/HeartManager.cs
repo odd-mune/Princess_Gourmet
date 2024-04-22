@@ -29,7 +29,6 @@ public class HeartManager : MonoBehaviour
 
     public void UpdateHearts()
     {
-        
         // 내가 결국에 하려는 것은, player의 health 값을 heart container에 그대로 반영(매핑)하려는 것!!
         // 근데 둘이 단위가 다르다!!
         // 단위를 통일하는 가장 간단한 방법? "비율"

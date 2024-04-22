@@ -13,17 +13,14 @@ public class Sign : MonoBehaviour
 
     void Start()
     {
-        
     }
 
     void Update()
     {
-        
     }
 
     void FixedUpdate()
     {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other) 
@@ -40,6 +37,5 @@ public class Sign : MonoBehaviour
         {
             Debug.Log("Player left range");
         }
-        
     }
 }

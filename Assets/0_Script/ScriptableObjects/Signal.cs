@@ -15,10 +15,12 @@ public class Signal : ScriptableObject
             listeners[i].OnSignalRaised();
         }
     }
+    
     public void RegisterListener(SignalListener listener)
     {
         listeners.Add(listener);
     }
+
     public void DeRegisterListener(SignalListener listener)
     {
         listeners.Remove(listener);

@@ -12,12 +12,10 @@ public class pot : MonoBehaviour
 
     void Update()
     {
-        
     }
 
     void FixedUpdate()
     {
-        
     }
 
     public void Smash()

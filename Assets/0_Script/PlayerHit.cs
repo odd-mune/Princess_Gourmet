@@ -6,17 +6,14 @@ public class PlayerHit : MonoBehaviour
 {
     void Start()
     {
-        
     }
 
     void Update()
     {
-        
     }
 
     void FixedUpdate()
     {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
