@@ -6,7 +6,7 @@ using TMPro;
 using System;
 using UnityEngine.EventSystems;
 
-public class UIInventoryItem : MonoBehaviour
+public class UIInventoryItem : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
 {
     [SerializeField]
     private Image itemImage;
@@ -50,33 +50,39 @@ public class UIInventoryItem : MonoBehaviour
         borderImage.enabled = true;
     }
 
-    public void OnBeginDrag()
-    {
-        OnItemBeginDrag?.Invoke(this);
-    }
-
-    public void OnDrop()
-    {
-        OnItemDroppedOn?.Invoke(this);
-    }
-
-    public void OnEndDrag()
-    {
-        OnItemEndDrag?.Invoke(this);
-    }
-
-    public void OnPointerClick(BaseEventData data)
-    {
-        if (empty)
-             return;
-        PointerEventData pointerData = (PointerEventData)data;
-        if (pointerData.button == PointerEventData.InputButton.Right)
+    public void OnPointerClick(PointerEventData pointerData)
         {
-            OnRightMouseBtnClick?.Invoke(this);
+            if (pointerData.button == PointerEventData.InputButton.Right)
+            {
+                OnRightMouseBtnClick?.Invoke(this);
+            }
+            else
+            {
+                OnItemClicked?.Invoke(this);
+            }
         }
-        else
+
+        public void OnEndDrag(PointerEventData eventData)
         {
-            OnItemClicked?.Invoke(this);
+            OnItemEndDrag?.Invoke(this);
         }
-    }
+
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            if (empty)
+                return;
+            OnItemBeginDrag?.Invoke(this);
+        }
+
+        public void OnDrop(PointerEventData eventData)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnDrag(PointerEventData eventData)
+        {
+            throw new NotImplementedException();
+        }
+
+        
 }
