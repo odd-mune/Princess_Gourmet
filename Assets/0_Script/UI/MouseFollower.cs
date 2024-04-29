@@ -6,9 +6,9 @@ public class MouseFollower : MonoBehaviour
 {
     [SerializeField]
     private Canvas canvas;
-
     [SerializeField]
     private UIInventoryItem item;
+
 
     public void Awake()
     {
@@ -32,6 +32,5 @@ public class MouseFollower : MonoBehaviour
     {
         Debug.Log($"Item toggled {val}");
         gameObject.SetActive(val);
-
     }
 }
