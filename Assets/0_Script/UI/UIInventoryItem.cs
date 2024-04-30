@@ -78,13 +78,14 @@ namespace Inventory.UI
 
         public void OnDrop(PointerEventData eventData)
         {
-            throw new NotImplementedException();
-            //OnItemDroppedOn?.Invoke(this);
+            //throw new NotImplementedException();
+            OnItemDroppedOn?.Invoke(this);
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            OnItemBeginDrag?.Invoke(this);
         }
     }
 }
