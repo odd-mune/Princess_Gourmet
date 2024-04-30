@@ -92,7 +92,7 @@ namespace Inventory.UI
                 return;
             }
             OnSwapItems?.Invoke(currentlyDraggedItemIndex, index);
-            //HandleItemSelection(inventoryItemUI);
+            HandleItemSelection(inventoryItemUI);
         }
 
         private void ResetDraggedItem()
@@ -122,7 +122,8 @@ namespace Inventory.UI
             int index = listOfUIItems.IndexOf(inventoryItemUI);
             if (index == -1)
                 return;
-            OnDescriptionRequested?.Invoke(index);    }
+            OnDescriptionRequested?.Invoke(index);    
+        }
 
         public void Show()
         {
