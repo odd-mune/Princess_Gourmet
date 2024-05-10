@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 3021734761244768711}
   - component: {fileID: 3469347510563058628}
   - component: {fileID: 2494237153077654892}
-  - component: {fileID: 9158130694567199631}
   - component: {fileID: 5489864487845524341}
   m_Layer: 0
   m_Name: torch
-  m_TagString: breakable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,21 +131,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.97758484, y: 2.5737467}
   m_EdgeRadius: 0
---- !u!111 &9158130694567199631
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3282702346703992650}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: d890ab710d698194b994731d49e0bfad, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!95 &5489864487845524341
 Animator:
   serializedVersion: 5
@@ -157,7 +141,7 @@ Animator:
   m_GameObject: {fileID: 3282702346703992650}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4243f1d2d3659ef46a80c43252def6ea, type: 2}
+  m_Controller: {fileID: 9100000, guid: 71bf4c9c1d4216f41a2981d12b1aa8c4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
