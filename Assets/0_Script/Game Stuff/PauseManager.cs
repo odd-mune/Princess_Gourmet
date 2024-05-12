@@ -28,15 +28,15 @@ public class PauseManager : MonoBehaviour
     {
         isPaused = !isPaused;
         if(isPaused)
-        {
-            pausePanel.SetActive(true);
-            Time.timeScale = 0f;
-        }
-        else
-        {
-            pausePanel.SetActive(false);
-            Time.timeScale = 1f;
-        }
+            {
+                pausePanel.SetActive(true);
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                pausePanel.SetActive(false);
+                Time.timeScale = 1f;
+            }
     }
 
     public void QuitToMain()
