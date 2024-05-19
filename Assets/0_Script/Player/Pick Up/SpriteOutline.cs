@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
+// 아이템 테두리 픽셀로 만들기 
 [ExecuteInEditMode]
 public class SpriteOutline : MonoBehaviour
 {

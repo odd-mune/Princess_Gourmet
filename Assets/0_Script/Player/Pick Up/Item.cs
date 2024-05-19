@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+//아이템 접근 시 특정키 누르라는 메세지 활성화 + 스페이스 누르면 아이템 삭제 
 public class Item : MonoBehaviour
 {
     [SerializeField] TMP_Text pickUpText;
@@ -11,7 +12,7 @@ public class Item : MonoBehaviour
 
     void Start()
     {
-        pickUpText.gameObject.SetActive(false);
+        //pickUpText.gameObject.SetActive(false);
     }
 
     void Update()
@@ -24,7 +25,7 @@ public class Item : MonoBehaviour
     {
         if (col.gameObject.tag.Equals("Player"))
         {
-            pickUpText.gameObject.SetActive(true);
+            //pickUpText.gameObject.SetActive(true);
             isPickUp = true;
         }
     }
@@ -33,7 +34,7 @@ public class Item : MonoBehaviour
     {
         if (col.gameObject.tag.Equals("Player"))
         {
-            pickUpText.gameObject.SetActive(false);
+            //pickUpText.gameObject.SetActive(false);
             isPickUp = false;
         }
     }   
