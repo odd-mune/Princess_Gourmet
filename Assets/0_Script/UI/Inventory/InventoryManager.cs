@@ -51,8 +51,9 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    void Start()
+    void OnEnable()
     {
+        ClearInventorySlots();
         MakeInventorySlots();
         SetTextAndButton("", false);
     }

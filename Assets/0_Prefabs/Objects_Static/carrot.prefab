@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4612209622967754777}
   - component: {fileID: 5844538213113215317}
   - component: {fileID: 5395802323079622066}
+  - component: {fileID: 3222058131605419509}
   m_Layer: 0
   m_Name: carrot
   m_TagString: Untagged
@@ -159,3 +160,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpText: {fileID: 0}
+--- !u!114 &3222058131605419509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8165447058115438438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd8dbc54e75efb64596b61b0ac50616e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInventory: {fileID: 11400000, guid: bc14e62c4e215604e9cac227700a7e72, type: 2}
+  thisItem: {fileID: 11400000, guid: cbd5a37b16af6314e83826696a4cfa02, type: 2}
