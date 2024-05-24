@@ -120,7 +120,7 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.CompareTag("item"))
         {
             mCurrentCollidingItems.Remove(other.gameObject);
-            Debug.Log($"Colliding with {mCurrentCollidingItems.Count} items");
+            //Debug.Log($"Colliding with {mCurrentCollidingItems.Count} items");
 
             if (mCurrentCollidingItems.Count == 0)
             {
