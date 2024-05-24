@@ -29,6 +29,7 @@ public class PlayerManager : MonoBehaviour
     public VectorValue startingPosition;
 
     private List<GameObject> mCurrentCollidingItems;
+    private List<GameObject> mCurrentPickUpObjects;
     private bool hasConsumedSpaceKey;
 
     void Start()
@@ -43,6 +44,7 @@ public class PlayerManager : MonoBehaviour
         animator.SetFloat("moveY", -1);
         transform.position = startingPosition.initialValue;
         mCurrentCollidingItems = new List<GameObject>();
+        mCurrentPickUpObjects = new List<GameObject>();
         hasConsumedSpaceKey = false;
     }
 
@@ -52,13 +54,22 @@ public class PlayerManager : MonoBehaviour
         change.x = Input.GetAxisRaw ("Horizontal");
         change.y = Input.GetAxisRaw ("Vertical"); 
 
-        
+        //당근 줍기
         if (mCurrentCollidingItems.Count > 0 && !hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
         {
             GameObject itemGameObjectToPickUp = mCurrentCollidingItems[0];
             itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>().PickUp();
             
-            mCurrentCollidingItems.RemoveAt(0);Destroy(itemGameObjectToPickUp);
+            mCurrentCollidingItems.RemoveAt(0);
+            Destroy(itemGameObjectToPickUp);
+            hasConsumedSpaceKey = true;
+        }
+        //시럽나무 줍기
+        if (mCurrentPickUpObjects.Count > 0 && !hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject itemGameObjectToPickUp = mCurrentPickUpObjects[0];
+            itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>().PickUp();
+            
             hasConsumedSpaceKey = true;
         }
 
@@ -98,6 +109,7 @@ public class PlayerManager : MonoBehaviour
         SetCurrentState(prevState);
     }
 
+    //당근 수집 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Collider2D collider = GetComponent<Collider2D>();
@@ -113,16 +125,43 @@ public class PlayerManager : MonoBehaviour
                 GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.9f);
             }
         }
+
+        //시럽 수집 
+        else if(collider.isTrigger == false && other.gameObject.CompareTag("PickUp Object"))
+        {
+            if (mCurrentPickUpObjects.Contains(other.gameObject) == false)
+            {
+                mCurrentPickUpObjects.Add(other.gameObject);
+            }
+
+            if (mCurrentPickUpObjects.Count == 1)
+            {
+                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.9f);
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        //당근 수집 
         if (other.gameObject.CompareTag("item"))
         {
             mCurrentCollidingItems.Remove(other.gameObject);
             //Debug.Log($"Colliding with {mCurrentCollidingItems.Count} items");
 
             if (mCurrentCollidingItems.Count == 0)
+            {
+                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            }
+        }
+
+        //시럽 나무
+        else if (other.gameObject.CompareTag("PickUp Object"))
+        {
+            mCurrentPickUpObjects.Remove(other.gameObject);
+            //Debug.Log($"Colliding with {mCurrentPickUpObjects.Count} items");
+
+            if (mCurrentPickUpObjects.Count == 0)
             {
                 GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             }
