@@ -11,6 +11,7 @@ public class Interactable : MonoBehaviour
     {
         if(other.CompareTag("Player") && !other.isTrigger)    
         {
+            Debug.Log("Interactable::onTriggerEnter2D");
             context.Raise();
             playerInRange = true;
         }

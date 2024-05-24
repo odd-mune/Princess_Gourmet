@@ -14,7 +14,7 @@ public enum PlayerState
 }
 
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     public float walkSpeed;
     public float runSpeed;
@@ -28,6 +28,9 @@ public class PlayerMovement : MonoBehaviour
     public Signal playerHealthSignal;
     public VectorValue startingPosition;
 
+    private List<GameObject> mCurrentCollidingItems;
+    private bool hasConsumedSpaceKey;
+
     void Start()
     {
         // Limit the framerate to 30
@@ -39,10 +42,8 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("moveX", 0);
         animator.SetFloat("moveY", -1);
         transform.position = startingPosition.initialValue;
-    }
-
-    void Update()
-    {
+        mCurrentCollidingItems = new List<GameObject>();
+        hasConsumedSpaceKey = false;
     }
 
     void FixedUpdate()
@@ -50,6 +51,21 @@ public class PlayerMovement : MonoBehaviour
         change = Vector3.zero;
         change.x = Input.GetAxisRaw ("Horizontal");
         change.y = Input.GetAxisRaw ("Vertical"); 
+
+        
+        if (mCurrentCollidingItems.Count > 0 && !hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject itemGameObjectToPickUp = mCurrentCollidingItems[0];
+            itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>().PickUp();
+            
+            mCurrentCollidingItems.RemoveAt(0);Destroy(itemGameObjectToPickUp);
+            hasConsumedSpaceKey = true;
+        }
+
+        if (hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space) == false)
+        {
+            hasConsumedSpaceKey = false;
+        }
 
         if(Input.GetButtonDown("attack") && currentState != PlayerState.attack
             && currentState != PlayerState.stagger)
@@ -80,6 +96,37 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("attacking", false);
         yield return new WaitForSeconds(.3f);
         SetCurrentState(prevState);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Collider2D collider = GetComponent<Collider2D>();
+        if(collider.isTrigger == false && other.gameObject.CompareTag("item"))
+        {
+            if (mCurrentCollidingItems.Contains(other.gameObject) == false)
+            {
+                mCurrentCollidingItems.Add(other.gameObject);
+            }
+
+            if (mCurrentCollidingItems.Count == 1)
+            {
+                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.9f);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("item"))
+        {
+            mCurrentCollidingItems.Remove(other.gameObject);
+            Debug.Log($"Colliding with {mCurrentCollidingItems.Count} items");
+
+            if (mCurrentCollidingItems.Count == 0)
+            {
+                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            }
+        }
     }
 
     void UpdateAnimationAndMove()
