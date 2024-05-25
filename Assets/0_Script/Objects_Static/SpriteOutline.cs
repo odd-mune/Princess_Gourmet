@@ -25,7 +25,7 @@ public class SpriteOutline : MonoBehaviour
         UpdateOutline(false);
     }
 
-    void Update() {
+    void FixedUpdate() {
         UpdateOutline(true);
     }
 

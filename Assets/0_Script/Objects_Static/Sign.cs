@@ -13,7 +13,7 @@ public class Sign : Interactable
     {
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if(Input.GetKeyDown(KeyCode.Space) && playerInRange)
         {

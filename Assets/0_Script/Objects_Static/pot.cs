@@ -10,10 +10,6 @@ public class pot : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    void Update()
-    {
-    }
-
     void FixedUpdate()
     {
     }

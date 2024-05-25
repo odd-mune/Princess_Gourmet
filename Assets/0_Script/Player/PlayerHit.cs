@@ -8,10 +8,6 @@ public class PlayerHit : MonoBehaviour
     {
     }
 
-    void Update()
-    {
-    }
-
     void FixedUpdate()
     {
     }

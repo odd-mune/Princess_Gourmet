@@ -10,7 +10,7 @@ public class DoorInteraction : MonoBehaviour
     public Vector2 playerPosition;
     public VectorValue playerStorage;
 
-    void Update()
+    void FixedUpdate()
     {
         if (isOpen && Input.GetKeyDown(KeyCode.Space))
             Open();
