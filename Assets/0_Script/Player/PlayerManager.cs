@@ -31,6 +31,7 @@ public class PlayerManager : MonoBehaviour
     private List<GameObject> mCurrentCollidingItems;
     private List<GameObject> mCurrentPickUpObjects;
     private bool hasConsumedSpaceKey;
+    private bool mIsKnockingBack;
 
     void Start()
     {
@@ -46,6 +47,7 @@ public class PlayerManager : MonoBehaviour
         mCurrentCollidingItems = new List<GameObject>();
         mCurrentPickUpObjects = new List<GameObject>();
         hasConsumedSpaceKey = false;
+        mIsKnockingBack = false;
     }
 
     void FixedUpdate()
@@ -91,6 +93,12 @@ public class PlayerManager : MonoBehaviour
         {
             SetCurrentState(PlayerState.walk);
         }
+        
+        if (mIsKnockingBack == false)
+        {
+            myRigidbody.velocity = Vector2.zero;
+        }
+
         if(currentState == PlayerState.walk || currentState == PlayerState.run
             || currentState == PlayerState.idle)
         {
@@ -199,6 +207,7 @@ public class PlayerManager : MonoBehaviour
         playerHealthSignal.Raise();
         if(currentHealth.RuntimeValue > 0)
         {
+            mIsKnockingBack = true;
             StartCoroutine(KnockCo(knockTime));
         }
         else
@@ -216,6 +225,7 @@ public class PlayerManager : MonoBehaviour
             currentState = PlayerState.walk;
                 //넉백을 받으면 공주가 자꾸 가만히 멈춰서서 idle 에서 walk로 고쳐봤음
             myRigidbody.velocity = Vector2.zero;
+            mIsKnockingBack = false;
         }
     }
   
