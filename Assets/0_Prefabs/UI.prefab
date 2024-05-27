@@ -52,7 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding:
     m_Left: 0
-    m_Right: 80
+    m_Right: 30
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 8
@@ -1710,6 +1710,7 @@ MonoBehaviour:
   blankInventorySlot: {fileID: 4147856931539438256, guid: 639a59d6d9020164db384fad48340335, type: 3}
   inventoryPanel: {fileID: 1057074940358304640}
   descriptionText: {fileID: 3571770647838856069}
+  nameText: {fileID: 7624904822928146012}
   useButton: {fileID: 2565376694369925715}
   discardButton: {fileID: 3381356027130893390}
   currentItem: {fileID: 0}
@@ -3885,7 +3886,7 @@ GameObject:
   - component: {fileID: 3159188882310069691}
   - component: {fileID: 7624904822928146012}
   m_Layer: 5
-  m_Name: Name
+  m_Name: Name Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5544,7 +5545,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 80
   m_ChildAlignment: 8
-  m_Spacing: -600
+  m_Spacing: -630
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0

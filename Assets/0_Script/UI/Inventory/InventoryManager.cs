@@ -10,6 +10,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject blankInventorySlot;
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private TextMeshProUGUI descriptionText;
+    [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private GameObject useButton;
     [SerializeField] private GameObject discardButton;
     public InventoryItem currentItem;
@@ -17,6 +18,19 @@ public class InventoryManager : MonoBehaviour
     public void SetTextAndButton(string description, bool buttonActive)
     {
         descriptionText.text = description;
+        if (buttonActive)
+        {
+            useButton.SetActive(true);
+        }
+        else
+        {
+            useButton.SetActive(false);
+        }
+    }
+
+    public void SetNameAndButton(string name, bool buttonActive)
+    {
+        nameText.text = name;
         if (buttonActive)
         {
             useButton.SetActive(true);
@@ -56,12 +70,20 @@ public class InventoryManager : MonoBehaviour
         ClearInventorySlots();
         MakeInventorySlots();
         SetTextAndButton("", false);
+        SetNameAndButton("", false);
     }
 
     public void SetupDescriptionAndButton(string newDescriptionString, bool isButtonUsable, InventoryItem newItem)
     {
         currentItem = newItem;
         descriptionText.text = newDescriptionString;
+        useButton.SetActive(isButtonUsable);
+    }
+
+    public void SetupNameAndButton(string newNameString, bool isButtonUsable, InventoryItem newItem)
+    {
+        currentItem = newItem;
+        nameText.text = newNameString;
         useButton.SetActive(isButtonUsable);
     }
 
@@ -85,6 +107,7 @@ public class InventoryManager : MonoBehaviour
             if (currentItem.numberHeld == 0)
             {
                 SetTextAndButton("", false);
+                SetNameAndButton("", false);
             }
         }
     }
