@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class InventoryToolTip : MonoBehaviour
+public class FieldToolTip : MonoBehaviour
 {
     [SerializeField] TMP_Text pickUpText;
 }
