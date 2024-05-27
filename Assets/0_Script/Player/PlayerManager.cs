@@ -57,14 +57,18 @@ public class PlayerManager : MonoBehaviour
         change.y = Input.GetAxisRaw ("Vertical"); 
 
         //당근 줍기
-        if (mCurrentCollidingItems.Count > 0 && !hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
+        if (mCurrentCollidingItems.Count > 0)
         {
-            GameObject itemGameObjectToPickUp = mCurrentCollidingItems[0];
-            itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>().PickUp();
-            
-            mCurrentCollidingItems.RemoveAt(0);
-            Destroy(itemGameObjectToPickUp);
-            hasConsumedSpaceKey = true;
+            if (!hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
+            {
+                GameObject itemGameObjectToPickUp = mCurrentCollidingItems[0];
+                PhysicalInventoryItem physicalInventoryItem = itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>();
+                physicalInventoryItem.PickUp();
+                
+                mCurrentCollidingItems.RemoveAt(0);
+                Destroy(itemGameObjectToPickUp);
+                hasConsumedSpaceKey = true;
+            }
         }
         //시럽나무 줍기
         if (mCurrentPickUpObjects.Count > 0 && !hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
@@ -262,5 +266,15 @@ public class PlayerManager : MonoBehaviour
         }
         currentState = newState;
         return currentState;
+    }
+
+    public List<GameObject> GetCurrentCollidingItems()
+    {
+        return mCurrentCollidingItems;
+    }
+
+    public List<GameObject> GetCurrentPickUpObjects()
+    {
+        return mCurrentPickUpObjects;
     }
 }
