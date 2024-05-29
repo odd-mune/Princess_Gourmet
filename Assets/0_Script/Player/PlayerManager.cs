@@ -84,6 +84,9 @@ public class PlayerManager : MonoBehaviour
             hasConsumedSpaceKey = false;
         }
 
+
+
+
         if(Input.GetButtonDown("attack") && currentState != PlayerState.attack
             && currentState != PlayerState.stagger)
         {   
