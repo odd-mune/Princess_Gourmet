@@ -6,7 +6,7 @@ public class PhysicalInventoryItem : MonoBehaviour
     [SerializeField] private PlayerInventory playerInventory;
     [SerializeField] private InventoryItem thisItem;
     [SerializeField] TMP_Text pickUpText;   // from Item
-    private bool isPickable;                          // from Item
+    private bool isPickable;                // from Item
 
     void Start()
     {

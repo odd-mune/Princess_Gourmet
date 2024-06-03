@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
  
-public class checkToday : MonoBehaviour
+public class CheckToday : MonoBehaviour
 {
     public static int Today;
     // Start is called before the first frame update
@@ -16,7 +16,7 @@ public class checkToday : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Today += 5;
+            Today += 1;
             KeyDown_Space();
         }
     }

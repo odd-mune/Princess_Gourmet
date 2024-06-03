@@ -13,6 +13,8 @@ public class Pet : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         player = GameObject.Find("Player").transform;
+
+        // 플레이어와 충돌 방지 
         Physics2D.IgnoreLayerCollision(6, 7);
     }
 
@@ -21,7 +23,13 @@ public class Pet : MonoBehaviour
         // 가로
         if (Mathf.Abs(transform.position.x - player.position.x) > distance)
         {
-            transform.Translate(new Vector2(-1, 0) * Time.deltaTime * speed);
+            transform.Translate(new Vector3(-1, 0, 0) * Time.deltaTime * speed);
+            anim.SetBool("IsWalk", true);
+            DirectionPet();
+        }
+        else if (Mathf.Abs(transform.position.x - player.position.x) > distance)
+        {
+            transform.Translate(new Vector3(-1, 0, 0) * Time.deltaTime * speed);
             anim.SetBool("IsWalk", true);
             DirectionPet();
         }
@@ -33,7 +41,7 @@ public class Pet : MonoBehaviour
         // 세로 
         if (Mathf.Abs(transform.position.y - player.position.y) > distance)
         {
-            transform.Translate(new Vector2(0, -1) * Time.deltaTime * speed);
+            transform.Translate(new Vector3(0, -1, 0) * Time.deltaTime * speed);
             anim.SetBool("IsWalk", true);
             DirectionPet();
         }
@@ -59,6 +67,7 @@ public class Pet : MonoBehaviour
 
     void DirectionPet()
     {
+        // 가로 
         if (transform.position.x - player.position.x < 0)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
