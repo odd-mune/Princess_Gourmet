@@ -6,50 +6,22 @@ public class Pet : MonoBehaviour
 {
     public float speed;
     public float distance;
-    Transform player;
-    Animator anim;
+    private Transform target;
 
-    void Start()
+    private void Start()
     {
-        anim = GetComponent<Animator>();
-        player = GameObject.Find("Player").transform;
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
         // 플레이어와 충돌 방지 
         Physics2D.IgnoreLayerCollision(6, 7);
     }
 
-    void Update()
+    private void Update()
     {
-        // 가로
-        if (Mathf.Abs(transform.position.x - player.position.x) > distance)
+        if (Vector2.Distance(transform.position, target.position) > distance)
         {
-            transform.Translate(new Vector3(-1, 0, 0) * Time.deltaTime * speed);
-            anim.SetBool("IsWalk", true);
-            DirectionPet();
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
-        else if (Mathf.Abs(transform.position.x - player.position.x) > distance)
-        {
-            transform.Translate(new Vector3(-1, 0, 0) * Time.deltaTime * speed);
-            anim.SetBool("IsWalk", true);
-            DirectionPet();
-        }
-        else
-        {
-            anim.SetBool("IsWalk", false);
-        }
-
-        // 세로 
-        if (Mathf.Abs(transform.position.y - player.position.y) > distance)
-        {
-            transform.Translate(new Vector3(0, -1, 0) * Time.deltaTime * speed);
-            anim.SetBool("IsWalk", true);
-            DirectionPet();
-        }
-        else
-        {
-            anim.SetBool("IsWalk", false);
-        }
-
 
         // 플레이어와 일정 거리 이상 떨어지면 자동 텔레포트 기능 
         // if (Vector2.Distance(player.position, transform.position) > teldistance)
@@ -64,27 +36,4 @@ public class Pet : MonoBehaviour
         // }
     }
     //public ParticleSystem tel;
-
-    void DirectionPet()
-    {
-        // 가로 
-        if (transform.position.x - player.position.x < 0)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
-        else
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-
-        // 세로
-        if (transform.position.y - player.position.y < 0)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
-        else
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-    }
 }

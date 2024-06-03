@@ -9585,8 +9585,8 @@ GameObject:
   - component: {fileID: 1545277115}
   - component: {fileID: 1545277114}
   - component: {fileID: 1545277113}
-  - component: {fileID: 1545277118}
   - component: {fileID: 1545277119}
+  - component: {fileID: 1545277120}
   m_Layer: 7
   m_Name: Pet
   m_TagString: Untagged
@@ -9733,20 +9733,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1545277118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545277112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 223791c908881df4d9a9cd8882518f09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  distance: 3
 --- !u!95 &1545277119
 Animator:
   serializedVersion: 5
@@ -9768,6 +9754,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1545277120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545277112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223791c908881df4d9a9cd8882518f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  distance: 2.8
 --- !u!1 &1575710498
 GameObject:
   m_ObjectHideFlags: 0
@@ -10179,7 +10179,6 @@ GameObject:
   - component: {fileID: 3919776201035972270}
   - component: {fileID: 3942924933919554611}
   - component: {fileID: 4466766465001598014}
-  - component: {fileID: 4466766465001598015}
   - component: {fileID: 4466766465001598016}
   m_Layer: 0
   m_Name: saltSnail
@@ -10233,25 +10232,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0881038, y: 1.2708406}
   m_EdgeRadius: 0
---- !u!114 &4466766465001598015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4466766465001598013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69b299e57c9e1214380f6cdfbf730801, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentState: 0
-  AnimalName: saltSnail
-  moveSpeed: 0
-  target: {fileID: 0}
-  hideRadius: 0.5
-  homePosition: {fileID: 0}
-  anim: {fileID: 0}
 --- !u!114 &4466766465001598016
 MonoBehaviour:
   m_ObjectHideFlags: 0
