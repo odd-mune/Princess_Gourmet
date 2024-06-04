@@ -6,10 +6,17 @@ public class PhysicalInventoryItem : MonoBehaviour
     [SerializeField] private PlayerInventory playerInventory;
     [SerializeField] private InventoryItem thisItem;
     [SerializeField] TMP_Text pickUpText;   // from Item
-    private bool isPickable;                // from Item
+    protected bool mIsPickUpable;
+
+    public bool isPickUpable
+    {
+        get { return mIsPickUpable; }
+        protected set { mIsPickUpable = value; }
+    }
 
     void Start()
     {
+        mIsPickUpable = true;
     }
 
     private void AddItemToInventory()
@@ -28,9 +35,12 @@ public class PhysicalInventoryItem : MonoBehaviour
         }
     }
 
-    public void PickUp()
+    public virtual void PickUp()
     {
-        AddItemToInventory();
+        if (isPickUpable == true)
+        {
+            AddItemToInventory();
+        }
     }
 
     public string GetName()

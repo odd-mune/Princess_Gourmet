@@ -50,6 +50,11 @@ public class PlayerManager : MonoBehaviour
         mIsKnockingBack = false;
     }
 
+    private void OnDestroy()
+    {
+        
+    }
+
     void FixedUpdate()
     {
         change = Vector3.zero;
@@ -70,13 +75,17 @@ public class PlayerManager : MonoBehaviour
                 hasConsumedSpaceKey = true;
             }
         }
+        
         //시럽나무 줍기
-        if (mCurrentPickUpObjects.Count > 0 && !hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
+        if (mCurrentPickUpObjects.Count > 0) 
         {
-            GameObject itemGameObjectToPickUp = mCurrentPickUpObjects[0];
-            itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>().PickUp();
-            
-            hasConsumedSpaceKey = true;
+            if (!hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
+            {
+                GameObject itemGameObjectToPickUp = mCurrentPickUpObjects[0];
+                itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>().PickUp();
+                
+                hasConsumedSpaceKey = true;
+            }
         }
 
         if (hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space) == false)

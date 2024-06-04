@@ -4,24 +4,17 @@ using UnityEngine;
  
 public class CheckToday : MonoBehaviour
 {
-    public static int Today;
+    public static float elapsedSeconds;
+
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Today: " + Today);
+        Debug.Log("Elapsed seconds: " + elapsedSeconds);
     }
  
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Today += 1;
-            KeyDown_Space();
-        }
-    }
-    private void KeyDown_Space()
-    {
-        Debug.Log("Today: " + Today);
+        elapsedSeconds += Time.fixedDeltaTime;
     }
 }

@@ -10,6 +10,7 @@ public class saltSnail : Animal
     //public float attackRadius;
     public Transform homePosition;
     public Animator anim;
+    private Vector3 mCurrentRoamDirection;
 
     void Start()
     {
@@ -31,7 +32,8 @@ public class saltSnail : Animal
             if(currentState == AnimalState.idle || currentState == AnimalState.walk
                 && currentState != AnimalState.hide)
             {
-                Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.fixedDeltaTime);
+                Vector3 directionAwayFromTarget = Vector3.Normalize(transform.position - target.position);
+                Vector3 temp = transform.position + moveSpeed * Time.fixedDeltaTime * directionAwayFromTarget;
                 myRigidbody.MovePosition(temp);
                 ChangeState(AnimalState.walk);
                 anim.SetBool("wakeUp", true);
@@ -40,6 +42,13 @@ public class saltSnail : Animal
         else if(Vector3.Distance(target.position, transform.position) > hideRadius)
         {
             anim.SetBool("wakeUp", false);
+
+            GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
+            if (currentState == AnimalState.walk)
+            {
+                Vector3 temp = transform.position + moveSpeed * Time.fixedDeltaTime * mCurrentRoamDirection;
+                myRigidbody.MovePosition(temp);
+            }
         }
     }
 
@@ -82,6 +91,11 @@ public class saltSnail : Animal
         if(currentState != newState)
         {
             currentState = newState;
+            if (currentState == AnimalState.walk)
+            {
+                mCurrentRoamDirection.x = Random.Range(0.0f, 1.0f);
+                mCurrentRoamDirection.y = Random.Range(0.0f, 1.0f);
+            }
         }
     }
 }

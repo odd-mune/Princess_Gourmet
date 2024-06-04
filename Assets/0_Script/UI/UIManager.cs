@@ -26,12 +26,12 @@ public class UIManager : MonoBehaviour
         if (currentCollidingItems.Count > 0)
         {
             Debug.Log($"Collid?ing {currentCollidingItems.Count}");
-            SetGameObjectToShowTooptip(currentCollidingItems);
+            SetGameObjectToShowTooltip(currentCollidingItems);
         }
         else if (currentPickUpObjects.Count > 0)
         {
             Debug.Log($"Pick?up {currentPickUpObjects.Count}");
-            SetGameObjectToShowTooptip(currentPickUpObjects);
+            SetGameObjectToShowTooltip(currentPickUpObjects);
         }
         else
         {
@@ -40,33 +40,54 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void SetGameObjectToShowTooptip(List<GameObject> objects)
+    private void SetGameObjectToShowTooltip(List<GameObject> objects)
     {
-        GameObject gameObjectToShowTooltip = objects[0];
-        if (mGameObjectToShowTooltipOrNull != gameObjectToShowTooltip)
-        {
-            if (mGameObjectToShowTooltipOrNull != null)
-            {
-                Tooltip.gameObject.SetActive(false);
-            }
-            mGameObjectToShowTooltipOrNull = gameObjectToShowTooltip;
-            PhysicalInventoryItem itemToShowTooltip = mGameObjectToShowTooltipOrNull.GetComponent<PhysicalInventoryItem>();
-            Tooltip.SetName(itemToShowTooltip.GetName());
-            Tooltip.SetDescription(itemToShowTooltip.GetDescription());
-            Tooltip.gameObject.SetActive(true);
-        }
-
         if (mGameObjectToShowTooltipOrNull != null)
         {
-            Vector3 playerPosition = Player.transform.position;
-            Vector3 itemPosition = mGameObjectToShowTooltipOrNull.transform.position;
-            //Vector3 tooltipPosition = mTooltipRootPosition + Vector3.Scale((itemPosition - playerPosition), new Vector3((Screen.width / 64), (Screen.height / 64),  1.0f));
-            //Debug.Log($"{Tooltip.transform.position} {playerPosition} {itemPosition} diff: {itemPosition - playerPosition} {tooltipPosition}");
-            Vector3 playerScreenSpacePosition = mPlayerCamera.WorldToScreenPoint(playerPosition);
-            Vector3 itemScreenSpacePosition = mPlayerCamera.WorldToScreenPoint(itemPosition);
-            float y = Mathf.Max(playerScreenSpacePosition.y, itemScreenSpacePosition.y);
-            Vector3 tooltipPosition = new Vector3(itemScreenSpacePosition.x, y + ((RectTransform)Tooltip.transform).rect.height, Tooltip.transform.position.z);
-            Tooltip.transform.position = tooltipPosition;
+            PhysicalInventoryItem itemOrNull = mGameObjectToShowTooltipOrNull.GetComponent<PhysicalInventoryItem>();
+            if (itemOrNull != null && itemOrNull.isPickUpable == false)
+            {
+                Tooltip.gameObject.SetActive(false);
+                mGameObjectToShowTooltipOrNull = null;
+            }
+        }
+
+        int numObjects = objects.Count;
+        for (int i = 0; i < numObjects; ++i)
+        {
+            GameObject gameObjectToShowTooltip = objects[i];
+            PhysicalInventoryItem itemOrNull = gameObjectToShowTooltip.GetComponent<PhysicalInventoryItem>();
+            if (itemOrNull != null && itemOrNull.isPickUpable == false)
+            {
+                continue;
+            }
+
+            if (mGameObjectToShowTooltipOrNull != gameObjectToShowTooltip)
+            {
+                if (mGameObjectToShowTooltipOrNull != null)
+                {
+                    Tooltip.gameObject.SetActive(false);
+                }
+                mGameObjectToShowTooltipOrNull = gameObjectToShowTooltip;
+                PhysicalInventoryItem itemToShowTooltip = mGameObjectToShowTooltipOrNull.GetComponent<PhysicalInventoryItem>();
+                Tooltip.SetName(itemToShowTooltip.GetName());
+                Tooltip.SetDescription(itemToShowTooltip.GetDescription());
+                Tooltip.gameObject.SetActive(true);
+            }
+
+            if (mGameObjectToShowTooltipOrNull != null)
+            {
+                Vector3 playerPosition = Player.transform.position;
+                Vector3 itemPosition = mGameObjectToShowTooltipOrNull.transform.position;
+                //Vector3 tooltipPosition = mTooltipRootPosition + Vector3.Scale((itemPosition - playerPosition), new Vector3((Screen.width / 64), (Screen.height / 64),  1.0f));
+                //Debug.Log($"{Tooltip.transform.position} {playerPosition} {itemPosition} diff: {itemPosition - playerPosition} {tooltipPosition}");
+                Vector3 playerScreenSpacePosition = mPlayerCamera.WorldToScreenPoint(playerPosition);
+                Vector3 itemScreenSpacePosition = mPlayerCamera.WorldToScreenPoint(itemPosition);
+                float y = Mathf.Max(playerScreenSpacePosition.y, itemScreenSpacePosition.y);
+                Vector3 tooltipPosition = new Vector3(itemScreenSpacePosition.x, y + ((RectTransform)Tooltip.transform).rect.height, Tooltip.transform.position.z);
+                Tooltip.transform.position = tooltipPosition;
+            }
+            break;
         }
     }
 }
