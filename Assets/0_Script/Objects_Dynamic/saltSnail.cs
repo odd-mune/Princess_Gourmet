@@ -5,9 +5,8 @@ using UnityEngine;
 public class saltSnail : Animal
 {
     private Rigidbody2D myRigidbody;
-    public Transform target; //이건 뭐지 ?
+    public Transform target; 
     public float hideRadius;
-    //public float attackRadius;
     public Transform homePosition;
     public Animator anim;
     private Vector3 mCurrentRoamDirection;
@@ -27,31 +26,21 @@ public class saltSnail : Animal
 
     void CheckDistance()
     {
+        // 숨는 범위 안으로 플레이어가 들어오면
         if(Vector3.Distance(target.position, transform.position) <= hideRadius)
         {
-            if(currentState == AnimalState.idle || currentState == AnimalState.walk
-                && currentState != AnimalState.hide)
-            {
-                Vector3 directionAwayFromTarget = Vector3.Normalize(transform.position - target.position);
-                Vector3 temp = transform.position + moveSpeed * Time.fixedDeltaTime * directionAwayFromTarget;
-                myRigidbody.MovePosition(temp);
-                ChangeState(AnimalState.walk);
-                anim.SetBool("wakeUp", true);
-            }
-        }
-        else if(Vector3.Distance(target.position, transform.position) > hideRadius)
-        {
+            ChangeState(AnimalState.hide);
             anim.SetBool("wakeUp", false);
-
-            GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
-            if (currentState == AnimalState.walk)
-            {
-                Vector3 temp = transform.position + moveSpeed * Time.fixedDeltaTime * mCurrentRoamDirection;
-                myRigidbody.MovePosition(temp);
-            }
+        }
+        // 범위 밖 
+        if(Vector3.Distance(target.position, transform.position) > hideRadius)
+        {
+            ChangeState(AnimalState.idle);
         }
     }
 
+
+    // 걸어다니는 것 기본 설정 
     private void SetAnimFloat(Vector2 setVector)
     {
         anim.SetFloat("moveX", setVector.x);
@@ -86,6 +75,7 @@ public class saltSnail : Animal
 
     }
 
+    // 상태 설정 
     private void ChangeState(AnimalState newState)
     {
         if(currentState != newState)

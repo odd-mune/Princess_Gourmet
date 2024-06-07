@@ -6,8 +6,9 @@ public enum AnimalState
 {
     idle,
     walk,
-    hide, //attack
-    wakeUp //stagger 
+    hide, 
+    wakeUp,
+    stop
 
 }
 
