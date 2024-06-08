@@ -12097,6 +12097,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+--- !u!1 &647388786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8597185350597085832, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+  m_PrefabInstance: {fileID: 647388785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &725014236
 GameObject:
   m_ObjectHideFlags: 0
@@ -12126,6 +12131,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 254277472}
   - {fileID: 376742669}
   - {fileID: 275593678}
   - {fileID: 1404690082}
@@ -17816,7 +17822,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 304874196}
-  - {fileID: 254277472}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1017630378
@@ -56870,8 +56875,20 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 956912505}
+    m_TransformParent: {fileID: 725014237}
     m_Modifications:
+    - target: {fileID: 135914126557789930, guid: 509585d59c6b7004ebd523a638097152, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 647388786}
+    - target: {fileID: 135914126557789930, guid: 509585d59c6b7004ebd523a638097152, type: 3}
+      propertyPath: needText
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 135914126557789930, guid: 509585d59c6b7004ebd523a638097152, type: 3}
+      propertyPath: placeName
+      value: "\uAD81\uC804 \uBCF5\uB3C4"
+      objectReference: {fileID: 0}
     - target: {fileID: 135914126557789930, guid: 509585d59c6b7004ebd523a638097152, type: 3}
       propertyPath: sceneToLoad
       value: Hallway

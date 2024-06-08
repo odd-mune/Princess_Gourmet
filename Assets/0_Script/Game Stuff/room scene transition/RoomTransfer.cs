@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomMove : MonoBehaviour
+public class RoomTransfer : MonoBehaviour
 {
     public Vector2 cameraChange;
     public Vector3 playerChange;
     private CameraMovement cam;
+
 
     void Start ()
     {
