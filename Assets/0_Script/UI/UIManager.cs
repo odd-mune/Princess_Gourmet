@@ -68,9 +68,12 @@ public class UIManager : MonoBehaviour
                 }
                 mGameObjectToShowTooltipOrNull = gameObjectToShowTooltip;
                 PhysicalInventoryItem itemToShowTooltip = mGameObjectToShowTooltipOrNull.GetComponent<PhysicalInventoryItem>();
-                Tooltip.SetName(itemToShowTooltip.GetName());
-                Tooltip.SetDescription(itemToShowTooltip.GetDescription());
-                Tooltip.gameObject.SetActive(true);
+                if (itemToShowTooltip.isPickUpable)
+                {
+                    Tooltip.SetName(itemToShowTooltip.GetName());
+                    Tooltip.SetDescription(itemToShowTooltip.GetDescription());
+                    Tooltip.gameObject.SetActive(true);
+                }
             }
 
             if (mGameObjectToShowTooltipOrNull != null)

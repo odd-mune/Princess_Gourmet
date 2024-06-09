@@ -88,9 +88,9 @@ GameObject:
   - component: {fileID: 7938526264626312961}
   - component: {fileID: 4038518884166445742}
   - component: {fileID: 112920136727221128}
-  - component: {fileID: 5806083419429749394}
   - component: {fileID: 2695735043165154320}
   - component: {fileID: 8279773925988833176}
+  - component: {fileID: 4865585520094459354}
   m_Layer: 0
   m_Name: syrupTree
   m_TagString: PickUp Object
@@ -187,21 +187,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5806083419429749394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071655814072003282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd8dbc54e75efb64596b61b0ac50616e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInventory: {fileID: 11400000, guid: bc14e62c4e215604e9cac227700a7e72, type: 2}
-  thisItem: {fileID: 11400000, guid: 2f9a6542bfcd95045bae1cd0ea3ace46, type: 2}
-  pickUpText: {fileID: 0}
 --- !u!60 &2695735043165154320
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -278,3 +263,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725299d598f1ba045b0ddd11fc9a3c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4865585520094459354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071655814072003282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075ea6d0a9def1f4489e11af9c8c1d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInventory: {fileID: 11400000, guid: bc14e62c4e215604e9cac227700a7e72, type: 2}
+  thisItem: {fileID: 11400000, guid: 2f9a6542bfcd95045bae1cd0ea3ace46, type: 2}
+  pickUpText: {fileID: 0}
+  stages:
+  - sprite: {fileID: 989860364, guid: 409cc5887ea33f0408149e226d376d30, type: 3}
+    secondsInThisStage: 5
+    isPickUpable: 0
+    runAnimation: 0
+  - sprite: {fileID: 989860364, guid: 409cc5887ea33f0408149e226d376d30, type: 3}
+    secondsInThisStage: 0
+    isPickUpable: 1
+    runAnimation: 1

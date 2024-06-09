@@ -161,7 +161,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2472691776460775173}
-  - component: {fileID: 1268548419454051040}
   - component: {fileID: 2676579104503921749}
   - component: {fileID: 8520214701388539941}
   - component: {fileID: 8291092185989769354}
@@ -189,18 +188,6 @@ Transform:
   - {fileID: 5837585178574428854}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1268548419454051040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511919651426208083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d0bea850cdb1bb40a050bb59ac5f8d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2676579104503921749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,9 +207,11 @@ MonoBehaviour:
   - sprite: {fileID: -1625760457, guid: 028b4fb6c87a3ba4d8efb771fb126b1f, type: 3}
     secondsInThisStage: 5
     isPickUpable: 0
+    runAnimation: 0
   - sprite: {fileID: 1510969144, guid: 028b4fb6c87a3ba4d8efb771fb126b1f, type: 3}
     secondsInThisStage: 0
     isPickUpable: 1
+    runAnimation: 0
 --- !u!212 &8520214701388539941
 SpriteRenderer:
   m_ObjectHideFlags: 0

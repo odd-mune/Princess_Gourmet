@@ -206,6 +206,50 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9040874183550378752, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
   m_PrefabInstance: {fileID: 647388785}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &637628206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 637628207}
+  - component: {fileID: 637628208}
+  m_Layer: 0
+  m_Name: GlobalTimer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &637628207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637628206}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 956912505}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &637628208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637628206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0bea850cdb1bb40a050bb59ac5f8d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &647388785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -667,6 +711,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 304874196}
+  - {fileID: 637628207}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1042277389
@@ -10039,11 +10084,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b299e57c9e1214380f6cdfbf730801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInventory: {fileID: 11400000, guid: bc14e62c4e215604e9cac227700a7e72, type: 2}
+  thisItem: {fileID: 11400000, guid: 65524695b7118a44cbbdb0f86fa73cb3, type: 2}
+  pickUpText: {fileID: 0}
   currentState: 0
   AnimalName: Snail
   moveSpeed: 1.5
   target: {fileID: 1719517074}
-  hideRadius: 10
+  hideRadius: 5
   homePosition: {fileID: 0}
   anim: {fileID: 6821855724404429321}
 --- !u!95 &6821855724404429321
@@ -10075,9 +10123,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 112920136727221128, guid: 518e7fc7bf1a69e438a138433e9f7cb3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2071655814072003282, guid: 518e7fc7bf1a69e438a138433e9f7cb3, type: 3}
       propertyPath: m_Name
       value: syrupTree
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038518884166445742, guid: 518e7fc7bf1a69e438a138433e9f7cb3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5806083419429749394, guid: 518e7fc7bf1a69e438a138433e9f7cb3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7938526264626312961, guid: 518e7fc7bf1a69e438a138433e9f7cb3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10124,21 +10184,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 518e7fc7bf1a69e438a138433e9f7cb3, type: 3}
---- !u!114 &7952834968516755073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9104984789410395055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd8dbc54e75efb64596b61b0ac50616e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInventory: {fileID: 11400000, guid: bc14e62c4e215604e9cac227700a7e72, type: 2}
-  thisItem: {fileID: 11400000, guid: 65524695b7118a44cbbdb0f86fa73cb3, type: 2}
-  pickUpText: {fileID: 0}
 --- !u!1 &9104984789410395055
 GameObject:
   m_ObjectHideFlags: 0
@@ -10152,11 +10197,10 @@ GameObject:
   - component: {fileID: 6821855724404429321}
   - component: {fileID: 3916230492578039073}
   - component: {fileID: 2631650388238897524}
-  - component: {fileID: 7952834968516755073}
   - component: {fileID: 5567414272628472263}
   m_Layer: 0
   m_Name: saltSnail
-  m_TagString: enemy
+  m_TagString: PickUp Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

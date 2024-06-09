@@ -10,8 +10,9 @@ public class Growable : PhysicalInventoryItem
         public Sprite sprite;
         public float secondsInThisStage;
         public bool isPickUpable;
+        public bool runAnimation;
     };
-
+    
     private float seconds;
     private float mElapsedSeconds;
     public List<StageInfo> stages;
@@ -22,9 +23,7 @@ public class Growable : PhysicalInventoryItem
     {
         seconds = 0;
         mCurrentStageIndex = 0;
-        StageInfo currentStageInfo = stages[mCurrentStageIndex];
-        GetComponent<SpriteRenderer>().sprite = currentStageInfo.sprite;
-        mIsPickUpable = currentStageInfo.isPickUpable;
+        setStage(mCurrentStageIndex);
     }
  
     // Update is called once per frame
@@ -45,9 +44,7 @@ public class Growable : PhysicalInventoryItem
             base.PickUp();
             seconds = 0.0f;
             mCurrentStageIndex = 0;
-            StageInfo currentStageInfo = stages[mCurrentStageIndex];
-            GetComponent<SpriteRenderer>().sprite = currentStageInfo.sprite;
-            mIsPickUpable = currentStageInfo.isPickUpable;
+            setStage(mCurrentStageIndex);
         }
     }
  
@@ -58,10 +55,21 @@ public class Growable : PhysicalInventoryItem
         {
             seconds -= currentStageInfo.secondsInThisStage;
             mCurrentStageIndex = (mCurrentStageIndex + 1) % stages.Count;
+            setStage(mCurrentStageIndex);
+        }
+    }
 
-            StageInfo newStageInfo = stages[mCurrentStageIndex];
-            GetComponent<SpriteRenderer>().sprite = newStageInfo.sprite;
-            mIsPickUpable = newStageInfo.isPickUpable;
+    private void setStage(int stageIndex)
+    {
+        StageInfo newStageInfo = stages[stageIndex];
+        GetComponent<SpriteRenderer>().sprite = newStageInfo.sprite;
+        mIsPickUpable = newStageInfo.isPickUpable;
+
+        Animator animatorOrNull = GetComponent<Animator>();
+        if (animatorOrNull != null)
+        {
+            animatorOrNull.enabled = newStageInfo.runAnimation;
+            Debug.Log($"{animatorOrNull.enabled}");
         }
     }
 }

@@ -12,7 +12,7 @@ public enum AnimalState
 
 }
 
-public class Animal : MonoBehaviour
+public class Animal : PhysicalInventoryItem
 {
     public AnimalState currentState;
     //public FloatValue maxHealth;

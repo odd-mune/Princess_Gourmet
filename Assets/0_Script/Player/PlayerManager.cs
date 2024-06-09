@@ -150,7 +150,7 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
-        //시럽 수집 
+        //시럽, 동물 수집 
         else if(collider.isTrigger == false && other.gameObject.CompareTag("PickUp Object"))
         {
             if (mCurrentPickUpObjects.Contains(other.gameObject) == false)
