@@ -25,12 +25,10 @@ public class UIManager : MonoBehaviour
         List<GameObject> currentPickUpObjects = Player.GetComponent<PlayerManager>().GetCurrentPickUpObjects();
         if (currentCollidingItems.Count > 0)
         {
-            Debug.Log($"Collid?ing {currentCollidingItems.Count}");
             SetGameObjectToShowTooltip(currentCollidingItems);
         }
         else if (currentPickUpObjects.Count > 0)
         {
-            Debug.Log($"Pick?up {currentPickUpObjects.Count}");
             SetGameObjectToShowTooltip(currentPickUpObjects);
         }
         else
@@ -79,8 +77,6 @@ public class UIManager : MonoBehaviour
             {
                 Vector3 playerPosition = Player.transform.position;
                 Vector3 itemPosition = mGameObjectToShowTooltipOrNull.transform.position;
-                //Vector3 tooltipPosition = mTooltipRootPosition + Vector3.Scale((itemPosition - playerPosition), new Vector3((Screen.width / 64), (Screen.height / 64),  1.0f));
-                //Debug.Log($"{Tooltip.transform.position} {playerPosition} {itemPosition} diff: {itemPosition - playerPosition} {tooltipPosition}");
                 Vector3 playerScreenSpacePosition = mPlayerCamera.WorldToScreenPoint(playerPosition);
                 Vector3 itemScreenSpacePosition = mPlayerCamera.WorldToScreenPoint(itemPosition);
                 float y = Mathf.Max(playerScreenSpacePosition.y, itemScreenSpacePosition.y);

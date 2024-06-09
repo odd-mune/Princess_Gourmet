@@ -9,7 +9,6 @@ public class CheckToday : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Elapsed seconds: " + elapsedSeconds);
     }
  
     // Update is called once per frame

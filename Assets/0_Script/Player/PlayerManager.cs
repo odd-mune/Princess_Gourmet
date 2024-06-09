@@ -171,7 +171,6 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.CompareTag("item"))
         {
             mCurrentCollidingItems.Remove(other.gameObject);
-            //Debug.Log($"Colliding with {mCurrentCollidingItems.Count} items");
 
             if (mCurrentCollidingItems.Count == 0)
             {
@@ -183,7 +182,6 @@ public class PlayerManager : MonoBehaviour
         else if (other.gameObject.CompareTag("PickUp Object"))
         {
             mCurrentPickUpObjects.Remove(other.gameObject);
-            //Debug.Log($"Colliding with {mCurrentPickUpObjects.Count} items");
 
             if (mCurrentPickUpObjects.Count == 0)
             {
