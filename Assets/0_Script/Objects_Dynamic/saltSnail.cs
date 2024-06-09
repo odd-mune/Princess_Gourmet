@@ -26,16 +26,26 @@ public class saltSnail : Animal
 
     void CheckDistance()
     {
+        float distance = Vector3.Distance(target.position, transform.position);
         // 숨는 범위 안으로 플레이어가 들어오면
-        if(Vector3.Distance(target.position, transform.position) <= hideRadius)
+        if(distance <= hideRadius)
         {
+            float moveX = anim.GetFloat("moveX");
+            float moveY = anim.GetFloat("moveY");
+            bool prevWakepUp = anim.GetBool("wakeUp");
             ChangeState(AnimalState.hide);
             anim.SetBool("wakeUp", false);
+            Debug.Log($"{distance} <= {hideRadius} HIDE!!! ({moveX}, {moveY}) {prevWakepUp} -> {anim.GetBool("wakeUp")}");
         }
         // 범위 밖 
-        if(Vector3.Distance(target.position, transform.position) > hideRadius)
+        else
         {
+            float moveX = anim.GetFloat("moveX");
+            float moveY = anim.GetFloat("moveY");
+            bool prevWakepUp = anim.GetBool("wakeUp");
             ChangeState(AnimalState.idle);
+            anim.SetBool("wakeUp", true);
+            Debug.Log($"{distance} > {hideRadius} RUN!!! ({moveX}, {moveY}) {prevWakepUp} -> {anim.GetBool("wakeUp")}");
         }
     }
 
