@@ -10,6 +10,9 @@ public class saltSnail : Animal
     public Transform homePosition;
     public Animator anim;
     private Vector3 mCurrentRoamDirection;
+    private float mRoamTimer;
+    private float mCurrentRoamTimer;
+    private float mCurrentWaitTimer;
 
     void Start()
     {
@@ -17,6 +20,7 @@ public class saltSnail : Animal
         myRigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform;
+        mCurrentWaitTimer = 5.0f;
     }
 
     void FixedUpdate()
@@ -30,22 +34,62 @@ public class saltSnail : Animal
         // 숨는 범위 안으로 플레이어가 들어오면
         if(distance <= hideRadius)
         {
+            anim.SetBool("isMoving", false);
+            mCurrentRoamTimer = 0.0f;
+            mRoamTimer = 0.0f;
+
             float moveX = anim.GetFloat("moveX");
             float moveY = anim.GetFloat("moveY");
-            bool prevWakepUp = anim.GetBool("wakeUp");
+            bool prevWakeUp = anim.GetBool("wakeUp");
             ChangeState(AnimalState.hide);
             anim.SetBool("wakeUp", false);
-            Debug.Log($"{distance} <= {hideRadius} HIDE!!! ({moveX}, {moveY}) {prevWakepUp} -> {anim.GetBool("wakeUp")}");
         }
         // 범위 밖 
-        else
+        
+        mCurrentWaitTimer -= Time.fixedDeltaTime;
+        if (mCurrentWaitTimer <= 0.0f)
         {
-            float moveX = anim.GetFloat("moveX");
-            float moveY = anim.GetFloat("moveY");
-            bool prevWakepUp = anim.GetBool("wakeUp");
-            ChangeState(AnimalState.idle);
-            anim.SetBool("wakeUp", true);
-            Debug.Log($"{distance} > {hideRadius} RUN!!! ({moveX}, {moveY}) {prevWakepUp} -> {anim.GetBool("wakeUp")}");
+            {
+                anim.SetBool("wakeUp", true);
+                mCurrentWaitTimer = 5.0f;
+            }
+
+            if (distance > hideRadius)
+            {
+                if (mCurrentRoamTimer <= 0.0f)
+                {
+                    float moveX = anim.GetFloat("moveX");
+                    float moveY = anim.GetFloat("moveY");
+                    bool prevWakeUp = anim.GetBool("wakeUp");
+                    ChangeState(AnimalState.idle);
+                    anim.SetBool("isMoving", false);
+                    
+                    if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+                    {
+                        bool roam = Random.value > 0.5;
+                        mRoamTimer = Random.Range( 3.0f, 5.0f);
+                        mCurrentRoamTimer = mRoamTimer - (0.0f - mCurrentRoamTimer);
+
+                        if (roam)
+                        {
+                            ChangeState(AnimalState.walk);
+                            anim.SetBool("isMoving", true);
+                        }
+                    }
+                }
+                
+                if (mCurrentRoamTimer > 0.0f)
+                {
+                    if (currentState == AnimalState.walk && anim.GetCurrentAnimatorStateInfo(0).IsName("Walking"))
+                    {
+                        Vector2 moveVelocity = new Vector2(mCurrentRoamDirection.x * moveSpeed, mCurrentRoamDirection.y * moveSpeed);
+                        changeAnim(moveVelocity);
+                        myRigidbody.MovePosition(transform.position + new Vector3(moveVelocity.x, moveVelocity.y, 1.0f) * Time.fixedDeltaTime);
+                    }
+
+                    mCurrentRoamTimer -= Time.fixedDeltaTime;
+                }
+            }
         }
     }
 
@@ -59,29 +103,30 @@ public class saltSnail : Animal
 
     private void changeAnim(Vector2 direction)
     {
-        if(Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
-        {
-            if(direction.x > 0)
-            {
-                SetAnimFloat(Vector2.right);
-            }
-            else if(direction.x < 0)
-            {
-                SetAnimFloat(Vector2.left);
-            }
+        SetAnimFloat(direction);
+        // if(Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        // {
+        //     if(direction.x > 0)
+        //     {
+        //         SetAnimFloat(Vector2.right);
+        //     }
+        //     else if(direction.x < 0)
+        //     {
+        //         SetAnimFloat(Vector2.left);
+        //     }
 
-        }
-        else if(Mathf.Abs(direction.x) < Mathf.Abs(direction.y))
-        {
-            if(direction.y > 0)
-            {
-                SetAnimFloat(Vector2.up);
-            }
-            else if(direction.y < 0)
-            {
-                SetAnimFloat(Vector2.down);
-            }
-        }
+        // }
+        // else if(Mathf.Abs(direction.x) < Mathf.Abs(direction.y))
+        // {
+        //     if(direction.y > 0)
+        //     {
+        //         SetAnimFloat(Vector2.up);
+        //     }
+        //     else if(direction.y < 0)
+        //     {
+        //         SetAnimFloat(Vector2.down);
+        //     }
+        // }
 
     }
 
@@ -93,8 +138,7 @@ public class saltSnail : Animal
             currentState = newState;
             if (currentState == AnimalState.walk)
             {
-                mCurrentRoamDirection.x = Random.Range(0.0f, 1.0f);
-                mCurrentRoamDirection.y = Random.Range(0.0f, 1.0f);
+                mCurrentRoamDirection = Random.insideUnitCircle.normalized;
             }
         }
     }
