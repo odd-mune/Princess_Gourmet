@@ -61,46 +61,46 @@ public class saltSnail : Animal
             // 일단 일어나고 timer 5초로 초기화
             anim.SetBool("wakeUp", true);
             mCurrentWaitTimer = 5.0f;
+        }
 
-            // 플레이어가 범위에 있어
-            if (distance > hideRadius)
+        // 플레이어가 범위에 없어
+        if (distance > hideRadius)
+        {
+            // 만약 움직/가만히 타이머가 끝났어
+            if (mCurrentRoamTimer <= 0.0f)
             {
-                // 만약 움직/가만히 타이머가 끝났어
-                if (mCurrentRoamTimer <= 0.0f)
-                {
-                    // 일단 멈춰
-                    ChangeState(AnimalState.idle);
-                    anim.SetBool("isMoving", false);
-                    
-                    // 지금 idle 상태면
-                    if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-                    {
-                        bool roam = Random.value > 0.5; // 다음에 움직일지, 가만히 있을 지?
-                        mRoamTimer = Random.Range( 3.0f, 5.0f); // 움직/가만히 있을 시간
-                        mCurrentRoamTimer = mRoamTimer - (0.0f - mCurrentRoamTimer);
-
-                        // 돌아다닐거면 walk로
-                        if (roam)
-                        {
-                            ChangeState(AnimalState.walk);
-                            anim.SetBool("isMoving", true);
-                        }
-                    }
-                }
+                // 일단 멈춰
+                ChangeState(AnimalState.idle);
+                anim.SetBool("isMoving", false);
                 
-                // 움직/가만히 타이머 돌아가는 중이라면
-                if (mCurrentRoamTimer > 0.0f)
+                // 지금 idle 상태면
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
                 {
-                    // 움직여
-                    if (currentState == AnimalState.walk && anim.GetCurrentAnimatorStateInfo(0).IsName("Walking"))
-                    {
-                        Vector2 moveVelocity = new Vector2(mCurrentRoamDirection.x * moveSpeed, mCurrentRoamDirection.y * moveSpeed);
-                        changeAnim(moveVelocity);
-                        myRigidbody.MovePosition(transform.position + new Vector3(moveVelocity.x, moveVelocity.y, 1.0f) * Time.fixedDeltaTime);
-                    }
+                    bool roam = Random.value > 0.5; // 다음에 움직일지, 가만히 있을 지?
+                    mRoamTimer = Random.Range( 3.0f, 5.0f); // 움직/가만히 있을 시간
+                    mCurrentRoamTimer = mRoamTimer - (0.0f - mCurrentRoamTimer);
 
-                    mCurrentRoamTimer -= Time.fixedDeltaTime;
+                    // 돌아다닐거면 walk로
+                    if (roam)
+                    {
+                        ChangeState(AnimalState.walk);
+                        anim.SetBool("isMoving", true);
+                    }
                 }
+            }
+            
+            // 움직/가만히 타이머 돌아가는 중이라면
+            if (mCurrentRoamTimer > 0.0f)
+            {
+                // 움직여
+                if (currentState == AnimalState.walk && anim.GetCurrentAnimatorStateInfo(0).IsName("Walking"))
+                {
+                    Vector2 moveVelocity = new Vector2(mCurrentRoamDirection.x * moveSpeed, mCurrentRoamDirection.y * moveSpeed);
+                    changeAnim(new Vector2(mCurrentRoamDirection.x, mCurrentRoamDirection.y));
+                    myRigidbody.MovePosition(transform.position + new Vector3(moveVelocity.x, moveVelocity.y, 1.0f) * Time.fixedDeltaTime);
+                }
+
+                mCurrentRoamTimer -= Time.fixedDeltaTime;
             }
         }
     }
@@ -127,6 +127,14 @@ public class saltSnail : Animal
             if (currentState == AnimalState.walk)
             {
                 mCurrentRoamDirection = Random.insideUnitCircle.normalized;
+                if(mCurrentRoamDirection.x < 0)
+                {
+                    transform.localScale = new Vector2(1.0f, 1.0f);
+                }
+                else
+                {
+                    transform.localScale = new Vector2(-1.0f, 1.0f);
+                }
             }
         }
     }
