@@ -64,7 +64,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07027984, y: -0.14744079}
+  m_Offset: {x: -0.084050894, y: -0.17238593}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -75,7 +75,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1967835, y: 0.6676352}
+  m_Size: {x: 1.1975284, y: 0.649076}
   m_EdgeRadius: 0
 --- !u!1 &2071655814072003282
 GameObject:
@@ -88,10 +88,9 @@ GameObject:
   - component: {fileID: 7938526264626312961}
   - component: {fileID: 4038518884166445742}
   - component: {fileID: 112920136727221128}
-  - component: {fileID: 8714267604575366750}
-  - component: {fileID: 5806083419429749394}
   - component: {fileID: 2695735043165154320}
   - component: {fileID: 8279773925988833176}
+  - component: {fileID: 4865585520094459354}
   m_Layer: 0
   m_Name: syrupTree
   m_TagString: PickUp Object
@@ -107,7 +106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071655814072003282}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.2, y: -30.3, z: 0.25668055}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -188,35 +187,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8714267604575366750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071655814072003282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 401daec6479139c45b0cc97b31b5f19a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: {r: 1, g: 0.8509804, b: 0.28627452, a: 1}
-  outlineSize: 1
---- !u!114 &5806083419429749394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071655814072003282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd8dbc54e75efb64596b61b0ac50616e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInventory: {fileID: 11400000, guid: bc14e62c4e215604e9cac227700a7e72, type: 2}
-  thisItem: {fileID: 11400000, guid: 2f9a6542bfcd95045bae1cd0ea3ace46, type: 2}
-  pickUpText: {fileID: 0}
 --- !u!60 &2695735043165154320
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -261,25 +231,25 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1, y: -0.875}
-      - {x: 1, y: -1.4375}
-      - {x: 1.1875, y: -1.5625}
-      - {x: 1.375, y: -1.5}
-      - {x: 1.5625, y: -0.3125}
-      - {x: 1.8125, y: 0.1875}
-      - {x: 1.75, y: 0.6875}
-      - {x: 1.125, y: 1.25}
-      - {x: 0.9375, y: 1.5}
-      - {x: 0.5, y: 1.9375}
-      - {x: -0.4375, y: 2.1875}
-      - {x: -0.875, y: 1.625}
-      - {x: -1.3125, y: 1.3125}
-      - {x: -1.5625, y: 0.875}
-      - {x: -1.75, y: -0.125}
-      - {x: -1.3125, y: -0.8125}
-      - {x: -0.8125, y: -0.875}
-      - {x: -0.1875, y: -0.875}
-      - {x: 0.25, y: -0.875}
+    - - {x: 0.46090698, y: -0.64450073}
+      - {x: 0.6452141, y: -0.61151505}
+      - {x: 0.74401855, y: -0.5036888}
+      - {x: 0.82619476, y: -0.4411888}
+      - {x: 0.97517776, y: -0.24252987}
+      - {x: 1.1568527, y: 0.21012545}
+      - {x: 1.1673183, y: 0.8039131}
+      - {x: 0.9032593, y: 1.2001076}
+      - {x: 0.8100014, y: 1.2727165}
+      - {x: 0.5110855, y: 1.4718437}
+      - {x: 0.039245605, y: 1.5610809}
+      - {x: -0.56455994, y: 1.5252151}
+      - {x: -0.83246994, y: 1.3718362}
+      - {x: -1.1849303, y: 0.8174677}
+      - {x: -1.0727906, y: -0.11046457}
+      - {x: -0.75260544, y: -0.47989273}
+      - {x: -0.45217133, y: -0.65880203}
+      - {x: -0.0904541, y: -0.63471603}
+      - {x: 0.15062332, y: -0.63313675}
   m_UseDelaunayMesh: 0
 --- !u!114 &8279773925988833176
 MonoBehaviour:
@@ -293,3 +263,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725299d598f1ba045b0ddd11fc9a3c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4865585520094459354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071655814072003282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075ea6d0a9def1f4489e11af9c8c1d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInventory: {fileID: 11400000, guid: bc14e62c4e215604e9cac227700a7e72, type: 2}
+  thisItem: {fileID: 11400000, guid: 2f9a6542bfcd95045bae1cd0ea3ace46, type: 2}
+  pickUpText: {fileID: 0}
+  stages:
+  - sprite: {fileID: 989860364, guid: 409cc5887ea33f0408149e226d376d30, type: 3}
+    secondsInThisStage: 5
+    isPickUpable: 0
+    runAnimation: 0
+  - sprite: {fileID: 989860364, guid: 409cc5887ea33f0408149e226d376d30, type: 3}
+    secondsInThisStage: 0
+    isPickUpable: 1
+    runAnimation: 1

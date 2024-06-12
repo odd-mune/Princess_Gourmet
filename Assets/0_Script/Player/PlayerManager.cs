@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
+using TMPro;
 
 public enum PlayerState
 {
@@ -16,6 +18,15 @@ public enum PlayerState
 
 public class PlayerManager : MonoBehaviour
 {
+    // 다이얼로그 매니저 
+    public DialogueManager manager;
+    // 오브젝트 조사
+    float h;
+    float v; 
+    Vector3 dirVec;
+    GameObject scanObject;
+
+
     public float walkSpeed;
     public float runSpeed;
 
@@ -50,60 +61,120 @@ public class PlayerManager : MonoBehaviour
         mIsKnockingBack = false;
     }
 
+    private void OnDestroy()
+    {
+        
+    }
+
+    // 다이얼로그 매니저, 오브젝트 조사 
+    void Update() 
+    {
+        // 오브젝트 조사 
+            //Move Value
+            h = manager.isAction ? 0 : Input.GetAxisRaw("Horizontal");
+            v = manager.isAction ? 0 : Input.GetAxisRaw("Vertical");
+
+            //Check Button Down & Up
+            bool hDown = manager.isAction ? false : Input.GetButtonDown("Horizontal");
+            bool vDown = manager.isAction ? false : Input.GetButtonDown("Vertical");
+            bool hUp = manager.isAction ? false : Input.GetButtonUp("Horizontal");
+            bool vUp = manager.isAction ? false : Input.GetButtonUp("Vertical");
+
+            //Direction 
+            if (vDown && v == 1)
+                dirVec = Vector3.up;
+            else if (vDown && v == -1)
+                dirVec = Vector3.down;
+            else if (hDown && v == -1)
+                dirVec = Vector3.left;
+            else if (hDown && h == 1)
+                dirVec = Vector3.right;
+
+            //scan object & Action
+            if (Input.GetKeyDown(KeyCode.Space) && scanObject != null)
+            {
+                manager.Action(scanObject);
+            }
+    }
+
     void FixedUpdate()
     {
+        // 오브젝트 조사
+            //Ray 
+            Debug.DrawRay(myRigidbody.position, dirVec * 2.0f, new Color(0,1,0));
+            RaycastHit2D rayHit = Physics2D.Raycast(myRigidbody.position, dirVec, 2.0f, LayerMask.GetMask("Object_goldmetal"));
+
+            if(rayHit.collider != null)
+            {
+                scanObject = rayHit.collider.gameObject;
+            }
+            else
+            {
+                scanObject = null;
+            }
+
         change = Vector3.zero;
         change.x = Input.GetAxisRaw ("Horizontal");
         change.y = Input.GetAxisRaw ("Vertical"); 
 
-        //당근 줍기
-        if (mCurrentCollidingItems.Count > 0 && !hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
-        {
-            GameObject itemGameObjectToPickUp = mCurrentCollidingItems[0];
-            itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>().PickUp();
+        // 아이템 줍기 
+            //당근 줍기
+            if (mCurrentCollidingItems.Count > 0)
+            {
+                if (!hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
+                {
+                    GameObject itemGameObjectToPickUp = mCurrentCollidingItems[0];
+                    PhysicalInventoryItem physicalInventoryItem = itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>();
+                    physicalInventoryItem.PickUp();
+                    
+                    mCurrentCollidingItems.RemoveAt(0);
+                    Destroy(itemGameObjectToPickUp);
+                    hasConsumedSpaceKey = true;
+                }
+            }
             
-            mCurrentCollidingItems.RemoveAt(0);
-            Destroy(itemGameObjectToPickUp);
-            hasConsumedSpaceKey = true;
-        }
-        //시럽나무 줍기
-        if (mCurrentPickUpObjects.Count > 0 && !hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
-        {
-            GameObject itemGameObjectToPickUp = mCurrentPickUpObjects[0];
-            itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>().PickUp();
+            //시럽나무 줍기
+            if (mCurrentPickUpObjects.Count > 0) 
+            {
+                if (!hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
+                {
+                    GameObject itemGameObjectToPickUp = mCurrentPickUpObjects[0];
+                    itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>().PickUp();
+                    
+                    hasConsumedSpaceKey = true;
+                }
+            }
+
+        // 젤다 튜토리얼 - 플레이어 기본 움직임 셋팅 
+            if (hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space) == false)
+            {
+                hasConsumedSpaceKey = false;
+            }
+
+            if(Input.GetButtonDown("attack") && currentState != PlayerState.attack
+                && currentState != PlayerState.stagger)
+            {   
+                StartCoroutine(AttackCo());
+            }
+            else if(Input.GetButtonDown("run") && currentState == PlayerState.walk)
+            {
+                SetCurrentState(PlayerState.run);
+            }
+            else if(Input.GetButtonUp("run") && currentState == PlayerState.run)
+            {
+                SetCurrentState(PlayerState.walk);
+            }
             
-            hasConsumedSpaceKey = true;
-        }
+            if (mIsKnockingBack == false)
+            {
+                myRigidbody.velocity = Vector2.zero;
+            }
 
-        if (hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space) == false)
-        {
-            hasConsumedSpaceKey = false;
-        }
-
-        if(Input.GetButtonDown("attack") && currentState != PlayerState.attack
-            && currentState != PlayerState.stagger)
-        {   
-            StartCoroutine(AttackCo());
-        }
-        else if(Input.GetButtonDown("run") && currentState == PlayerState.walk)
-        {
-            SetCurrentState(PlayerState.run);
-        }
-        else if(Input.GetButtonUp("run") && currentState == PlayerState.run)
-        {
-            SetCurrentState(PlayerState.walk);
-        }
-        
-        if (mIsKnockingBack == false)
-        {
-            myRigidbody.velocity = Vector2.zero;
-        }
-
-        if(currentState == PlayerState.walk || currentState == PlayerState.run
-            || currentState == PlayerState.idle)
-        {
-            UpdateAnimationAndMove();
-        }
+            if(currentState == PlayerState.walk || currentState == PlayerState.run
+                || currentState == PlayerState.idle)
+            {
+                UpdateAnimationAndMove();
+            }
     }
 
     private IEnumerator AttackCo()
@@ -117,9 +188,10 @@ public class PlayerManager : MonoBehaviour
         SetCurrentState(prevState);
     }
 
-    //당근 수집 
+    // 아이템 줍기 OnTrigger
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // 당근 줍기 
         Collider2D collider = GetComponent<Collider2D>();
         if(collider.isTrigger == false && other.gameObject.CompareTag("item"))
         {
@@ -134,7 +206,7 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
-        //시럽 수집 
+        //시럽, 동물 수집 
         else if(collider.isTrigger == false && other.gameObject.CompareTag("PickUp Object"))
         {
             if (mCurrentPickUpObjects.Contains(other.gameObject) == false)
@@ -148,14 +220,12 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
-
     private void OnTriggerExit2D(Collider2D other)
     {
         //당근 수집 
         if (other.gameObject.CompareTag("item"))
         {
             mCurrentCollidingItems.Remove(other.gameObject);
-            //Debug.Log($"Colliding with {mCurrentCollidingItems.Count} items");
 
             if (mCurrentCollidingItems.Count == 0)
             {
@@ -163,11 +233,10 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
-        //시럽 나무
+        //시럽, 동물 수집 
         else if (other.gameObject.CompareTag("PickUp Object"))
         {
             mCurrentPickUpObjects.Remove(other.gameObject);
-            //Debug.Log($"Colliding with {mCurrentPickUpObjects.Count} items");
 
             if (mCurrentPickUpObjects.Count == 0)
             {
@@ -262,5 +331,15 @@ public class PlayerManager : MonoBehaviour
         }
         currentState = newState;
         return currentState;
+    }
+
+    public List<GameObject> GetCurrentCollidingItems()
+    {
+        return mCurrentCollidingItems;
+    }
+
+    public List<GameObject> GetCurrentPickUpObjects()
+    {
+        return mCurrentPickUpObjects;
     }
 }

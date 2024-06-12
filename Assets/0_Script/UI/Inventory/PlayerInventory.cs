@@ -7,4 +7,9 @@ using UnityEngine;
 public class PlayerInventory : ScriptableObject 
 {
     public List<InventoryItem> myInventory = new List<InventoryItem>();
+
+    public void Clear()
+    {
+        myInventory.Clear();
+    }
 }

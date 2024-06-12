@@ -6,12 +6,13 @@ public enum AnimalState
 {
     idle,
     walk,
-    hide, //attack
-    wakeUp //stagger 
+    hide, 
+    wakeUp,
+    stop
 
 }
 
-public class Animal : MonoBehaviour
+public class Animal : PhysicalInventoryItem
 {
     public AnimalState currentState;
     //public FloatValue maxHealth;
