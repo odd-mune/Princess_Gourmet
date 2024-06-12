@@ -137,6 +137,7 @@ namespace MeadowGames.UINodeConnect4
         void AddLocalConnection(IElement obj)
         {
             Connection connection = obj as Connection;
+            Debug.Log("Add");
             if (connection != null && connection.graphManager == this)
             {
                 if (!localConnections.Contains(connection))
@@ -158,6 +159,7 @@ namespace MeadowGames.UINodeConnect4
         }
         void UpdateLocalConnections()
         {
+            Debug.Log("Update");
             localConnections.Clear();
             foreach (Connection connection in UICSystemManager.Connections)
             {

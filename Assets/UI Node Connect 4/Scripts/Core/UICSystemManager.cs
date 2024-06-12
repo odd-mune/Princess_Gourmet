@@ -74,6 +74,7 @@ namespace MeadowGames.UINodeConnect4
 
         public static void AddConnectionToList(Connection connection)
         {
+            Debug.Log($"AddConnectionToList: {Connections} {connection}");
             if (!Connections.Contains(connection))
             {
                 Connections.Add(connection);
@@ -153,6 +154,7 @@ namespace MeadowGames.UINodeConnect4
 
         void Update()
         {
+            //Debug.Log($"SystemManager update {e_OnUpdate == null}");
             e_OnUpdate.Invoke();
 
 #if UNITY_EDITOR

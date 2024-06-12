@@ -102,6 +102,7 @@ namespace MeadowGames.UINodeConnect4
             }
 
             Connection _connection = connectionTemplate.Clone();
+            Debug.Log($"connect: {_connection == null} template: {connectionTemplate}");
 
             if ((port1.Polarity == Port.PolarityType._out && (port0.Polarity == Port.PolarityType._in || port0.Polarity == Port.PolarityType._all))
                 || (port1.Polarity == Port.PolarityType._all && port0.Polarity == Port.PolarityType._in))
