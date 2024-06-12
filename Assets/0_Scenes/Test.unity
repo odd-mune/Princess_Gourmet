@@ -313,6 +313,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+--- !u!114 &647388786 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3747452017329394555, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+  m_PrefabInstance: {fileID: 647388785}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &704446170
 GameObject:
   m_ObjectHideFlags: 0
@@ -9367,8 +9378,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1138.6304, y: -255.81769, z: 3.0232973}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1042277390}
   m_Father: {fileID: 704446171}
@@ -9657,6 +9668,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 299786260890254493, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: portraitArr.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 299786260890254493, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: portraitArr.Array.data[0]
+      value: 
+      objectReference: {fileID: 1607304618, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
+    - target: {fileID: 299786260890254493, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: portraitArr.Array.data[1]
+      value: 
+      objectReference: {fileID: -1613780649, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
+    - target: {fileID: 299786260890254493, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: portraitArr.Array.data[2]
+      value: 
+      objectReference: {fileID: -1830845081, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
+    - target: {fileID: 299786260890254493, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: portraitArr.Array.data[3]
+      value: 
+      objectReference: {fileID: 1339436273, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
+    - target: {fileID: 299786260890254493, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: portraitArr.Array.data[4]
+      value: 
+      objectReference: {fileID: 1796013847, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
+    - target: {fileID: 299786260890254493, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: portraitArr.Array.data[5]
+      value: 
+      objectReference: {fileID: 1170867463, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
+    - target: {fileID: 299786260890254493, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: portraitArr.Array.data[6]
+      value: 
+      objectReference: {fileID: -2041237538, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
+    - target: {fileID: 299786260890254493, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: portraitArr.Array.data[7]
+      value: 
+      objectReference: {fileID: 565225835, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
     - target: {fileID: 2471415414521708977, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -9705,6 +9752,10 @@ PrefabInstance:
       propertyPath: talkPanel
       value: 
       objectReference: {fileID: 1442469159}
+    - target: {fileID: 5377259444424669668, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: portraitImg
+      value: 
+      objectReference: {fileID: 647388786}
     - target: {fileID: 8384161380897239843, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_Name
       value: Settings

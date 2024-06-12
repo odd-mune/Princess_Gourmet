@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour
 {
     public TalkManager talkManager;
     public GameObject talkPanel;
+    public Image portraitImg;
     public TMP_Text talkText;
     public GameObject scanObject;
     public bool isAction;
@@ -35,11 +36,16 @@ public class DialogueManager : MonoBehaviour
 
         if (isNpc)
         {
-            talkText.text = talkData;
+            talkText.text = talkData.Split(':')[0];
+
+            portraitImg.sprite = talkManager.GetPortrait(id, int.Parse(talkData.Split(':')[1]));
+            portraitImg.color = new Color(1, 1, 1, 1);
         }
         else
         {
             talkText.text = talkData;
+            
+            portraitImg.color = new Color(1, 1, 1, 0);
         }
 
         isAction = true;

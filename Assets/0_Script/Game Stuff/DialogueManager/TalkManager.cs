@@ -5,10 +5,14 @@ using UnityEngine;
 public class TalkManager : MonoBehaviour
 {
     Dictionary<int, string[]> talkData;
+    Dictionary<int, Sprite> portraitData;
+
+    public Sprite[] portraitArr;
 
     void Awake()
     {
         talkData = new Dictionary<int, string[]>();
+        portraitData = new Dictionary<int, Sprite>();
         GenerateData();
     }
 
@@ -23,7 +27,20 @@ public class TalkManager : MonoBehaviour
         talkData.Add(6, new string[] {"숲으로 가는 길"});
 
         // NPC 대화 
-        talkData.Add(1000, new string[] {"안녕하십니까! 공주님", "지금은 알현실에 들어가실 수 없으십니다."});
+            // 왕궁 경비병 1
+            talkData.Add(1000, new string[] {"안녕하십니까! 공주님:0", "지금은 알현실에 들어가실 수 없으십니다.:2"});
+            // 왕궁 하녀 1
+            talkData.Add(1100, new string[] {"안녕하세요 공주님! 좋은 하루입니다!:4", "오늘따라 일이 많네요:7"});
+
+        // 초상화 
+        portraitData.Add(1000 + 0, portraitArr[0]);
+        portraitData.Add(1000 + 1, portraitArr[1]);
+        portraitData.Add(1000 + 2, portraitArr[2]);
+        portraitData.Add(1000 + 3, portraitArr[3]);
+        portraitData.Add(1100 + 0, portraitArr[4]);
+        portraitData.Add(1100 + 1, portraitArr[5]);
+        portraitData.Add(1100 + 2, portraitArr[6]);
+        portraitData.Add(1100 + 3, portraitArr[7]);
     }
 
     public string GetTalk(int id, int talkIndex)
@@ -36,5 +53,10 @@ public class TalkManager : MonoBehaviour
         {
             return talkData[id][talkIndex];
         }
+    }
+
+    public Sprite GetPortrait(int id, int portraitIndex)
+    {
+        return portraitData[id + portraitIndex];
     }
 }
