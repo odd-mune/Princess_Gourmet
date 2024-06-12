@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using TMPro;
 
 public enum PlayerState
 {
@@ -16,6 +17,11 @@ public enum PlayerState
 
 public class PlayerManager : MonoBehaviour
 {
+    // 다이얼로그 매니저 
+    public DialogueManager manager;
+    GameObject scanObject;
+
+
     public float walkSpeed;
     public float runSpeed;
 
@@ -49,6 +55,15 @@ public class PlayerManager : MonoBehaviour
         hasConsumedSpaceKey = false;
         mIsKnockingBack = false;
     }
+
+    // 다이얼로그 매니저 
+    void Update() 
+    {
+        //scan object
+        if (Input.GetKeyDown(KeyCode.Space) && scanObject != null)
+            manager.Action(scanObject);
+    }
+
 
     private void OnDestroy()
     {
