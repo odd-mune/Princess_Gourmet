@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public enum ItemType
+{
+    Ingredient,
+    Tool,
+}
+
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Items")]
 public class InventoryItem : ScriptableObject
 {
     public string itemName;
     public string itemDescription;
+    public ItemType itemType;
     public Sprite itemImage;
     public int numberHeld;
     public bool usable;
