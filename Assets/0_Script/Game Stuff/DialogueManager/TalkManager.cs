@@ -30,7 +30,7 @@ public class TalkManager : MonoBehaviour
             // 왕궁 경비병 1
             talkData.Add(1000, new string[] {"안녕하십니까! 공주님:0", "지금은 알현실에 들어가실 수 없으십니다.:2"});
             // 왕궁 하녀 1
-            talkData.Add(2000, new string[] {"안녕하세요 공주님! 좋은 하루입니다!:4", "오늘따라 일이 많네요:7"});
+            talkData.Add(2000, new string[] {"안녕하세요 공주님! 좋은 하루입니다!:1", "오늘따라 일이 많네요:3"});
 
         // 초상화 
         portraitData.Add(1000 + 0, portraitArr[0]);
