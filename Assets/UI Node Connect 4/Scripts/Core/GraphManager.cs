@@ -159,7 +159,6 @@ namespace MeadowGames.UINodeConnect4
         }
         void UpdateLocalConnections()
         {
-            Debug.Log("Update");
             localConnections.Clear();
             foreach (Connection connection in UICSystemManager.Connections)
             {

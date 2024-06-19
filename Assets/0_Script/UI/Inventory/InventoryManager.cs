@@ -15,6 +15,8 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject discardButton;
     public InventoryItem currentItem;
 
+    public CookManager cookManager;
+
     public void SetTextAndButton(string description, bool buttonActive)
     {
         descriptionText.text = description;
@@ -41,7 +43,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    void MakeInventorySlots()
+    public void MakeInventorySlots()
     {
         if(playerInventory)
         {
@@ -87,7 +89,7 @@ public class InventoryManager : MonoBehaviour
         useButton.SetActive(isButtonUsable);
     }
 
-    void ClearInventorySlots()
+    public void ClearInventorySlots()
     {
         for(int i = 0; i < inventoryPanel.transform.childCount; i++)
         {

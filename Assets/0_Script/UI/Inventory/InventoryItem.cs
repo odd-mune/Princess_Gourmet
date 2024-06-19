@@ -9,6 +9,14 @@ public enum ItemType
     Tool,
 }
 
+public enum CookType
+{
+    StirFry,
+    Roast,
+    Boil,
+    
+}
+
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Items")]
 public class InventoryItem : ScriptableObject
 {
@@ -16,6 +24,7 @@ public class InventoryItem : ScriptableObject
     public string itemDescription;
     public ItemType itemType;
     public Sprite itemImage;
+    public List<CookType> cookTypes;
     public int numberHeld;
     public bool usable;
     public bool unique;

@@ -260,6 +260,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 16918979219625909, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+      propertyPath: _polarity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 16918979219625909, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+      propertyPath: maxConnections
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5258247973941502328, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
       propertyPath: m_Name
       value: UI
@@ -9715,6 +9723,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3186294386182932609, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: _nodes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3186294386182932609, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: _nodes.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4289624466796223010, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: graphManager
       value: 
@@ -9736,7 +9752,9 @@ PrefabInstance:
       value: Settings
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1403053458583052801, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+    - {fileID: 7132494286082530559, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
