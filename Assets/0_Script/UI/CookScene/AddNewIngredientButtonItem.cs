@@ -24,15 +24,17 @@ namespace MeadowGames.UINodeConnect4.UICContextMenu
         public Node nodeTemplate;
         // [SerializeField]
         public IngredientCreateInfo ingredientCreateInfo;
+        public PauseInvetoryManager PauseInventoryManager;
 
         // v4.1 - DuplicateNodeButtonItem now duplicates connections if they are connected to selected nodes
         public void CreateNode()
         {
-            Node nodeToInstantiate = ContextMenu.GraphManager.InstantiateNode(nodeTemplate, nodeTemplate.transform.position + new Vector3(10, 10, 0));
-            nodeToInstantiate.ports.Clear();
-            nodeToInstantiate.gameObject.SetActive(true);
+            PauseInventoryManager.ChangePause(true);
+            // Node nodeToInstantiate = ContextMenu.GraphManager.InstantiateNode(nodeTemplate, nodeTemplate.transform.position + new Vector3(10, 10, 0));
+            // nodeToInstantiate.ports.Clear();
+            // nodeToInstantiate.gameObject.SetActive(true);
 
-            ContextMenu.UpdateContextMenu();
+            // ContextMenu.UpdateContextMenu();
         }
 
         protected override void Awake()

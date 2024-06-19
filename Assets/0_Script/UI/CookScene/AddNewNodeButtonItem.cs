@@ -9,10 +9,13 @@ namespace MeadowGames.UINodeConnect4.UICContextMenu
     {
         Button _button;
         public Node nodeTemplate;
+        public PauseInvetoryManager PauseInventoryManager;
 
         // v4.1 - DuplicateNodeButtonItem now duplicates connections if they are connected to selected nodes
         public void CreateNode()
         {
+            PauseInventoryManager.ChangePause(true);
+
             // Dictionary<Port, Port> portMap = new Dictionary<Port, Port>();
 
             // for (int i = UICSystemManager.selectedElements.Count - 1; i >= 0; i--)
@@ -62,10 +65,10 @@ namespace MeadowGames.UINodeConnect4.UICContextMenu
             //     nodeTemplate.ports.Add()
             // }
 
-            Node nodeToInstantiate = ContextMenu.GraphManager.InstantiateNode(nodeTemplate, nodeTemplate.transform.position + new Vector3(10, 10, 0));
-            nodeToInstantiate.gameObject.SetActive(true);
-
-            ContextMenu.UpdateContextMenu();
+            // Node nodeToInstantiate = ContextMenu.GraphManager.InstantiateNode(nodeTemplate, nodeTemplate.transform.position + new Vector3(10, 10, 0));
+            // nodeToInstantiate.gameObject.SetActive(true);
+            // 
+            // ContextMenu.UpdateContextMenu();
         }
 
         // public override void OnChangeSelection()

@@ -3,33 +3,112 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using MeadowGames.UINodeConnect4;
+using TMPro;
+using System.Linq;
+using MeadowGames.UINodeConnect4.UICContextMenu;
+using UnityEditor.MemoryProfiler;
+
 public class CookManager : MonoBehaviour
 {
     public GraphManager graphManager;
+    public PlayerInventory playerInventory;
+    public Node toolTemplate;
+    public Node ingredientTemplate;
+    public PauseInvetoryManager PauseInventoryManager;
+    public Port toolPortInTemplate;
     // public Node pointNode;
+    public ContextMenuManager ContextMenu;
+    public PauseCookManager PauseCookManager;
 
     // [SerializeField] Toggle toggleMovePoints;
     // [SerializeField] Toggle toggleAddPoints;
     // [SerializeField] Toggle toggleHelp;
 
+    private List<InventoryItem> mInventoryItems;
+    private List<Node> mNodes;
+
+    private void Start()
+    {
+        mInventoryItems = new List<InventoryItem>();
+        mNodes = new List<Node>();
+    }
+
     void OnEnable()
     {
         UICSystemManager.AddToUpdate(OnUpdate);
+        if (ContextMenu == null)
+        {
+            ContextMenu = GetComponentInParent<ContextMenuManager>();
+        }
     }
 
     void OnDisable()
     {
+        foreach (InventoryItem item in mInventoryItems)
+        {
+            if (item.unique == false)
+            {
+                item.numberHeld += 1;
+            }
+
+            if (item.numberHeld == 1)
+            {
+                playerInventory.myInventory.Add(item);
+            }
+        }
+        mInventoryItems.Clear();
+
+        foreach (Node node in mNodes)
+        {
+            node.Remove();
+        }
+        mNodes.Clear();
+
+        while (graphManager.localConnections.Count > 0)
+        {
+            graphManager.localConnections[0].Remove();
+            graphManager.localConnections.RemoveAt(0);
+        }
+
         UICSystemManager.RemoveFromUpdate(OnUpdate);
     }
 
-    void Solve()
+    public void Solve()
     {
-    //     for (int i = 0; i < graphManager.localNodes.Count; i++)
-    //     {
-    //         SolveRecursive(graphManager.localNodes[i]);
-    //     }
+        //     for (int i = 0; i < graphManager.localNodes.Count; i++)
+        //     {
+        //         SolveRecursive(graphManager.localNodes[i]);
+        //     }
 
-        UpdateConnectionsState();
+        foreach (InventoryItem item in mInventoryItems)
+        {
+            if (item.itemType == ItemType.Ingredient)
+            {
+                continue;
+            }
+
+            if (item.unique == false)
+            {
+                item.numberHeld += 1;
+            }
+
+            if (item.numberHeld == 1)
+            {
+                playerInventory.myInventory.Add(item);
+            }
+        }
+        mInventoryItems.Clear();
+
+        foreach (Node node in mNodes)
+        {
+            node.Remove();
+        }
+        mNodes.Clear();
+
+        while (graphManager.localConnections.Count > 0)
+        {
+            graphManager.localConnections[0].Remove();
+        }
     }
 
     // // recursive solve allows gate loops and locks 
@@ -65,127 +144,88 @@ public class CookManager : MonoBehaviour
 
     void OnUpdate()
     {
-        Solve();
+        // Solve();
 
     //     HandleMovePoints();
 
     //     HandleCreateAndDestroyPoints();
     }
 
-    // public void SetMovePointsMode(bool value)
-    // {
-    //     if (value == true)
-    //     {
-    //         foreach (Node node in UICSystemManager.Nodes)
-    //         {
-    //             foreach (Port port in node.ports)
-    //             {
-    //                 port.DisableClick = true;
-    //             }
+    public void CreateNode(InventoryItem item)
+    {
+        PauseInventoryManager.ChangePause(true);
 
-    //             Gate gate = node.GetComponent<Gate>();
-    //             if (!(gate is PointGate))
-    //             {
-    //                 node.DisableClick = true;
-    //                 node.ElementColor = new Color(0.8f, 0.8f, 0.8f, 0.2f);
-    //             }
-    //         }
-    //         foreach (Connection connection in UICSystemManager.Connections)
-    //         {
-    //             connection.DisableClick = true;
-    //         }
-    //     }
-    //     else
-    //     {
-    //         foreach (Node node in UICSystemManager.Nodes)
-    //         {
-    //             foreach (Port port in node.ports)
-    //             {
-    //                 port.DisableClick = false;
-    //             }
+        mInventoryItems.Add(item);
 
-    //             Gate gate = node.GetComponent<Gate>();
-    //             if (!(gate is PointGate))
-    //             {
-    //                 node.DisableClick = false;
-    //                 node.ElementColor = node.defaultColor;
-    //             }
-    //         }
-    //         foreach (Connection connection in UICSystemManager.Connections)
-    //         {
-    //             connection.DisableClick = false;
-    //         }
-    //     }
-    // }
+        Node nodeTemplate = null;
+        switch (item.itemType)
+        {
+            case ItemType.Ingredient:
+            {
+                nodeTemplate = ingredientTemplate;
+            }
+            break;
+            case ItemType.Tool:
+            {
+                nodeTemplate = toolTemplate;
+            }
+            break;
+            default:
+            break;
+        }
 
-    // void HandleMovePoints()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
-    //     {
-    //         toggleMovePoints.isOn = true;
-    //     }
+        Node nodeToInstantiate = ContextMenu.GraphManager.InstantiateNode(nodeTemplate, nodeTemplate.transform.position + new Vector3(10, 10, 0));
+        Image image = nodeToInstantiate.GetComponent<Image>();
+        image.sprite = item.itemImage;
 
-    //     if (Input.GetKeyUp(KeyCode.LeftControl) || Input.GetKeyUp(KeyCode.RightControl))
-    //     {
-    //         toggleMovePoints.isOn = false;
-    //     }
-    // }
+        TextMeshProUGUI text = nodeToInstantiate.GetComponentInChildren<TextMeshProUGUI>();
+        // text.text = item.itemName;
+        text.text = item.itemName;
 
-    // void HandleCreateAndDestroyPoints()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt))
-    //     {
-    //         toggleAddPoints.isOn = true;
-    //     }
+        if (item.itemType == ItemType.Tool)
+        {
+            Port[] ports = nodeToInstantiate.GetComponentsInChildren<Port>();
+            uint portIndex = 0;
+            foreach (CookType cookType in item.cookTypes)
+            {
+                Port port = null;
+                do
+                {
+                    port = ports[portIndex++];
+                } while (port.Polarity == Port.PolarityType._out && (portIndex < ports.Length));
+                TextMeshProUGUI cookTypeText = port.GetComponentInChildren<TextMeshProUGUI>();
+                switch (cookType)
+                {
+                    case CookType.StirFry:
+                        {
+                            cookTypeText.text = "볶기";
+                        }
+                        break;
+                    case CookType.Roast:
+                        {
+                            cookTypeText.text = "굽기";
+                        }
+                        break;
+                    case CookType.Boil:
+                        {
+                            cookTypeText.text = "삶기";
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
 
-    //     if (Input.GetKeyUp(KeyCode.LeftAlt) || Input.GetKeyUp(KeyCode.RightAlt))
-    //     {
-    //         toggleAddPoints.isOn = false;
-    //     }
+            for (; portIndex < ports.Length; ++portIndex)
+            {
+                Port port = ports[portIndex++];
+                port.gameObject.SetActive(false);
+            }
+        }
 
-    //     if (Input.GetKeyDown(KeyCode.Mouse1) || (toggleAddPoints.isOn && Input.GetKeyDown(KeyCode.Mouse0)))
-    //     {
-    //         IElement element = graphManager.pointer.GetElementCloserToPointer();
-    //         if (element != null)
-    //         {
-    //             Connection connection = element as Connection;
-    //             if (connection != null)
-    //             {
-    //                 Node point = Instantiate(pointNode, InputManager.Instance.GetCanvasPointerPosition(graphManager), Quaternion.identity, graphManager.transform) as Node;
-    //                 Port p0 = connection.port0;
-    //                 Port p1 = connection.port1;
-    //                 connection.Remove();
-    //                 Connection.NewConnection(p0, point.ports[0]);
-    //                 Connection.NewConnection(point.ports[0], p1);
-    //             }
+        nodeToInstantiate.gameObject.SetActive(true);
 
-    //             Port port = element as Port;
-    //             if (port != null)
-    //             {
-    //                 if (port.node.ID == "POINT")
-    //                 {
-    //                     List<Port> outPorts = new List<Port>();
-    //                     List<Port> inPorts = new List<Port>();
-    //                     foreach (Connection conn in port.Connections)
-    //                     {
-    //                         if (conn.port1 == port)
-    //                             outPorts.Add(conn.port0);
-    //                         else
-    //                             inPorts.Add(conn.port1);
-    //                     }
-    //                     port.node.Remove();
-    //                     foreach (Port outPort in outPorts)
-    //                     {
-    //                         foreach (Port inPort in inPorts)
-    //                         {
-    //                             if (outPort.node != inPort.node)
-    //                                 Connection.NewConnection(outPort, inPort);
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-
+        mNodes.Add(nodeToInstantiate);
+        ContextMenu.UpdateContextMenu();
+    }
 }

@@ -87,10 +87,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7938526264626312961}
   - component: {fileID: 4038518884166445742}
+  - component: {fileID: 112920136727221128}
   - component: {fileID: 2695735043165154320}
   - component: {fileID: 8279773925988833176}
   - component: {fileID: 4865585520094459354}
-  - component: {fileID: 4457588520963323732}
   m_Layer: 0
   m_Name: syrupTree
   m_TagString: PickUp Object
@@ -153,7 +153,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2049829723
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 989860364, guid: 409cc5887ea33f0408149e226d376d30, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -166,6 +166,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &112920136727221128
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071655814072003282}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5cdf7752ee5cb7f4e965409a718baf5e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!60 &2695735043165154320
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -258,32 +279,11 @@ MonoBehaviour:
   thisItem: {fileID: 11400000, guid: 2f9a6542bfcd95045bae1cd0ea3ace46, type: 2}
   pickUpText: {fileID: 0}
   stages:
-  - sprite: {fileID: 334410290, guid: f9841727bee14b24fadd56730d7d121c, type: 3}
+  - sprite: {fileID: 989860364, guid: 409cc5887ea33f0408149e226d376d30, type: 3}
     secondsInThisStage: 5
     isPickUpable: 0
-    runAnimation: 1
+    runAnimation: 0
   - sprite: {fileID: 989860364, guid: 409cc5887ea33f0408149e226d376d30, type: 3}
     secondsInThisStage: 0
     isPickUpable: 1
     runAnimation: 1
---- !u!95 &4457588520963323732
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071655814072003282}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5cdf7752ee5cb7f4e965409a718baf5e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

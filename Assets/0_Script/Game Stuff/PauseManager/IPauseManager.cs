@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class IPauseManager : MonoBehaviour
 {
-    static private GameObject mCurrentActiveGameObjectOrNull = null;
+    static public GameObject mCurrentActiveGameObjectOrNull = null;
+    static public GameObject mCurrentActiveSubGameObjectOrNull = null;
 
     protected bool isPaused;
     public GameObject GameObjectToPause;
@@ -26,7 +27,7 @@ public class IPauseManager : MonoBehaviour
             if (Input.GetButtonDown(ButtonName))
             {
                 isInventoryPressed = true;
-                ChangePause();
+                ChangePause(mCurrentActiveSubGameObjectOrNull == GameObjectToPause);
             }
         }
         else if (Input.GetButtonDown(ButtonName) == false)
@@ -35,9 +36,11 @@ public class IPauseManager : MonoBehaviour
         }
     }
 
-    public void ChangePause()
+    public void ChangePause(bool bOpeningSubGameObject)
     {
-        if (mCurrentActiveGameObjectOrNull == null || mCurrentActiveGameObjectOrNull == GameObjectToPause)
+        GameObject currentActiveGameObject = bOpeningSubGameObject ? mCurrentActiveSubGameObjectOrNull : mCurrentActiveGameObjectOrNull;
+        GameObject currentSubGameObject = bOpeningSubGameObject == false ? mCurrentActiveSubGameObjectOrNull : mCurrentActiveGameObjectOrNull;
+        if (currentActiveGameObject == null || (currentActiveGameObject == GameObjectToPause && (bOpeningSubGameObject || currentSubGameObject == null)))
         {
             isPaused = !isPaused;
             if(isPaused)
@@ -45,13 +48,28 @@ public class IPauseManager : MonoBehaviour
                 isPaused = true;
                 GameObjectToPause.SetActive(true);
                 Time.timeScale = 0f;
-                mCurrentActiveGameObjectOrNull = GameObjectToPause;
+                if (bOpeningSubGameObject == true)
+                {
+                    mCurrentActiveSubGameObjectOrNull = GameObjectToPause;
+                }
+                else
+                {
+                    mCurrentActiveGameObjectOrNull = GameObjectToPause;
+                }
             }
             else
             {
                 GameObjectToPause.SetActive(false);
                 Time.timeScale = 1f;
-                mCurrentActiveGameObjectOrNull = null;
+                currentActiveGameObject = null;
+                if (bOpeningSubGameObject == true)
+                {
+                    mCurrentActiveSubGameObjectOrNull = null;
+                }
+                else
+                {
+                    mCurrentActiveGameObjectOrNull = null;
+                }
             }
         }
     }
