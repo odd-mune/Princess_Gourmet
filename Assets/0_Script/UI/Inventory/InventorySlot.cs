@@ -52,16 +52,14 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
                     thisManager.SetTextAndButton("", false);
                     thisManager.SetNameAndButton("", false);
 
-                    if (thisItem.numberHeld == 1)
+                    if (thisItem.unique == false)
+                    {
+                        thisItem.numberHeld -= 1;
+                    }
+
+                    if (thisItem.unique == true || thisItem.numberHeld == 0)
                     {
                         thisManager.playerInventory.myInventory.Remove(thisItem);
-                    }
-                    else
-                    {
-                        if (thisItem.unique == false)
-                        {
-                            thisItem.numberHeld += 1;
-                        }
                     }
 
                     thisManager.cookManager.CreateNode(thisItem);

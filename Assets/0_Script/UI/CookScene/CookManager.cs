@@ -67,6 +67,7 @@ public class CookManager : MonoBehaviour
         while (graphManager.localConnections.Count > 0)
         {
             graphManager.localConnections[0].Remove();
+            graphManager.localConnections.RemoveAt(0);
         }
 
         UICSystemManager.RemoveFromUpdate(OnUpdate);
