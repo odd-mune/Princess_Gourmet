@@ -44,6 +44,8 @@ public class PlayerManager : MonoBehaviour
     private bool hasConsumedSpaceKey;
     private bool mIsKnockingBack;
 
+    public AudioManager audioManager;
+
     void Start()
     {
         // Limit the framerate to 30
@@ -159,10 +161,18 @@ public class PlayerManager : MonoBehaviour
             else if(Input.GetButtonDown("run") && currentState == PlayerState.walk)
             {
                 SetCurrentState(PlayerState.run);
+                AudioRequest audioRequest; //오디오 신청 문자 내용 작성 
+                audioRequest.AudioName = "run";
+                audioRequest.Play = true;
+                audioManager.Request(audioRequest); //문자 보냄 
             }
             else if(Input.GetButtonUp("run") && currentState == PlayerState.run)
             {
                 SetCurrentState(PlayerState.walk);
+                AudioRequest audioRequest;
+                audioRequest.AudioName = "walk";
+                audioRequest.Play = true;
+                audioManager.Request(audioRequest);
             }
             
             if (mIsKnockingBack == false)
