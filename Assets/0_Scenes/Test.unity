@@ -312,12 +312,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6706600281352747715, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1719517065}
     - target: {fileID: 7797968745923896840, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 1719517064}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1697986979637988174, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
@@ -330,17 +335,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &647388787 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6706600281352747715, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
-  m_PrefabInstance: {fileID: 647388785}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea87f476e53945029ade50be0bd1a0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &704446170
@@ -9469,6 +9463,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3779406437340744730, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
   m_PrefabInstance: {fileID: 1719517063}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1719517065 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7263147962536810364, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+  m_PrefabInstance: {fileID: 1719517063}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1719517074 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7483605681497280575, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
@@ -9734,7 +9733,7 @@ PrefabInstance:
     - target: {fileID: 4289624466796223010, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: graphManager
       value: 
-      objectReference: {fileID: 647388787}
+      objectReference: {fileID: 0}
     - target: {fileID: 5377259444424669668, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: talkText
       value: 

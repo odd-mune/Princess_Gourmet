@@ -38,33 +38,6 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
                 thisManager.SetupDescriptionAndButton(thisItem.itemDescription, thisItem.usable, thisItem);
                 thisManager.SetupNameAndButton(thisItem.itemName, thisItem.usable, thisItem);
             }
-            else if (clickCount == 2)
-            {
-                if (thisManager.cookManager.PauseCookManager != null && IPauseManager.mCurrentActiveGameObjectOrNull == thisManager.cookManager.PauseCookManager.GameObjectToPause)
-                {
-                    thisManager.currentItem = thisItem;
-                    //thisManager.useButtonPressed();
-                    
-                    //clear all of the inventory slots
-                    thisManager.ClearInventorySlots();
-                    //refill all slots with new numbers
-                    thisManager.MakeInventorySlots();    
-                    thisManager.SetTextAndButton("", false);
-                    thisManager.SetNameAndButton("", false);
-
-                    if (thisItem.unique == false)
-                    {
-                        thisItem.numberHeld -= 1;
-                    }
-
-                    if (thisItem.unique == true || thisItem.numberHeld == 0)
-                    {
-                        thisManager.playerInventory.myInventory.Remove(thisItem);
-                    }
-
-                    thisManager.cookManager.CreateNode(thisItem);
-                }
-            }
         }
     }
 }

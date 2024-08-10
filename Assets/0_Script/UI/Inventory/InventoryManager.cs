@@ -15,8 +15,6 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject discardButton;
     public InventoryItem currentItem;
 
-    public CookManager cookManager;
-
     public void SetTextAndButton(string description, bool buttonActive)
     {
         descriptionText.text = description;
