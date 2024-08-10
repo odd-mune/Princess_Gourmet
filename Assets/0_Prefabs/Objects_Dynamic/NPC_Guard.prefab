@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6360555160748121100}
   - component: {fileID: 9000860668839596911}
   - component: {fileID: 546459973284404657}
-  - component: {fileID: 7111136331243923104}
   - component: {fileID: 3468329416529290818}
-  m_Layer: 10
+  - component: {fileID: 6853258527276242264}
+  m_Layer: 0
   m_Name: NPC_Guard
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -108,7 +108,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &7111136331243923104
+--- !u!114 &3468329416529290818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910273652457683992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87deee2356bdd148aef58e36f5b394e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1000
+  isNpc: 1
+--- !u!61 &6853258527276242264
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,10 +154,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0019035339, y: -0.6379466}
+  m_Offset: {x: 0.21899796, y: 0.79919434}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 2, y: 3}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
@@ -151,19 +165,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0166245, y: 0.626956}
+  m_Size: {x: 1.5035934, y: 0.5471802}
   m_EdgeRadius: 0
---- !u!114 &3468329416529290818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6910273652457683992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e87deee2356bdd148aef58e36f5b394e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 1000
-  isNpc: 1
