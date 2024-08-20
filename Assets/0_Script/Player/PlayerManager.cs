@@ -44,6 +44,11 @@ public class PlayerManager : MonoBehaviour
     private bool hasConsumedSpaceKey;
     private bool mIsKnockingBack;
 
+    //AudioManager 인스펙터 창에 추가
+    public string walkSound;
+    public string pickUpSound;
+    private AudioManager theAudio;
+
     void Start()
     {
         // Limit the framerate to 30
@@ -118,6 +123,7 @@ public class PlayerManager : MonoBehaviour
         change.y = Input.GetAxisRaw ("Vertical"); 
 
         // 아이템 줍기 
+        theAudio = FindObjectOfType<AudioManager>(); //AudioManager 추가 
             //당근 줍기
             if (mCurrentCollidingItems.Count > 0)
             {
@@ -130,6 +136,9 @@ public class PlayerManager : MonoBehaviour
                     mCurrentCollidingItems.RemoveAt(0);
                     Destroy(itemGameObjectToPickUp);
                     hasConsumedSpaceKey = true;
+                    
+                    //AudioManager pickUp sound
+                    theAudio.Play(pickUpSound);
                 }
             }
             
@@ -163,6 +172,7 @@ public class PlayerManager : MonoBehaviour
             else if(Input.GetButtonUp("run") && currentState == PlayerState.run)
             {
                 SetCurrentState(PlayerState.walk);
+                theAudio.Play(pickUpSound);
             }
             
             if (mIsKnockingBack == false)

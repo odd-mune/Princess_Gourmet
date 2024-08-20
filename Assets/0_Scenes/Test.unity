@@ -128,6 +128,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6360555160748121100, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
   m_PrefabInstance: {fileID: 866453441}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &94963253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 94963255}
+  - component: {fileID: 94963254}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &94963254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94963253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e923c4d07af234244a9f7e725417d08e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: player_pickUp
+    clip: {fileID: 8300000, guid: 920069d121644464886852dcfe1704db, type: 3}
+    Volumn: 1
+    loop: 0
+--- !u!4 &94963255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94963253}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -8.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &355787064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9276,7 +9325,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: carrot
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2506792762645523060, guid: 3e789c63bad4c1f4faf52764a8859d17, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -9410,6 +9460,14 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 4982403107013603103}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: pickUpSound
+      value: player_pickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: player_pickUp
+      value: player_pickUp
+      objectReference: {fileID: 0}
     - target: {fileID: 3779406437340744730, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
       propertyPath: m_Name
       value: Player
@@ -9913,3 +9971,4 @@ SceneRoots:
   - {fileID: 4982403107013603102}
   - {fileID: 1719517063}
   - {fileID: 647388785}
+  - {fileID: 94963255}

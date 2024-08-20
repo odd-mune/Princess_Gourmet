@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7898187383149824516}
   - component: {fileID: 7260753539211000502}
   - component: {fileID: 3222058131605419509}
-  - component: {fileID: 2506792762645523060}
+  - component: {fileID: 3772577556576318923}
   m_Layer: 0
   m_Name: carrot
   m_TagString: item
@@ -101,7 +101,7 @@ MonoBehaviour:
   playerInventory: {fileID: 11400000, guid: bc14e62c4e215604e9cac227700a7e72, type: 2}
   thisItem: {fileID: 11400000, guid: cbd5a37b16af6314e83826696a4cfa02, type: 2}
   pickUpText: {fileID: 0}
---- !u!61 &2506792762645523060
+--- !u!61 &3772577556576318923
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,7 +133,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000017881393, y: -0.21998405}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -142,7 +142,7 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 1
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.52465546, y: 0.4350319}
+  m_Size: {x: 0.875, y: 0.875}
   m_EdgeRadius: 0
