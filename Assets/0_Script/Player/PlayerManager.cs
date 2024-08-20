@@ -123,7 +123,6 @@ public class PlayerManager : MonoBehaviour
         change.y = Input.GetAxisRaw ("Vertical"); 
 
         // 아이템 줍기 
-        theAudio = FindObjectOfType<AudioManager>(); //AudioManager 추가 
             //당근 줍기
             if (mCurrentCollidingItems.Count > 0)
             {
@@ -137,6 +136,8 @@ public class PlayerManager : MonoBehaviour
                     Destroy(itemGameObjectToPickUp);
                     hasConsumedSpaceKey = true;
                     
+                    //AudioManager 추가 
+                    theAudio = FindObjectOfType<AudioManager>(); 
                     //AudioManager pickUp sound
                     theAudio.Play(pickUpSound);
                 }
@@ -172,7 +173,6 @@ public class PlayerManager : MonoBehaviour
             else if(Input.GetButtonUp("run") && currentState == PlayerState.run)
             {
                 SetCurrentState(PlayerState.walk);
-                theAudio.Play(pickUpSound);
             }
             
             if (mIsKnockingBack == false)
@@ -198,67 +198,72 @@ public class PlayerManager : MonoBehaviour
         SetCurrentState(prevState);
     }
 
-    // 아이템 줍기 OnTrigger
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        // 당근 줍기 
-        Collider2D collider = GetComponent<Collider2D>();
-        if(collider.isTrigger == false && other.gameObject.CompareTag("item"))
+    // 아이템 줍기 OnTrigger (채집 가능 아이콘 표시)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (mCurrentCollidingItems.Contains(other.gameObject) == false)
+            // 당근 줍기 
+            Collider2D collider = GetComponent<Collider2D>();
+            if(collider.isTrigger == false && other.gameObject.CompareTag("item"))
             {
-                mCurrentCollidingItems.Add(other.gameObject);
+                if (mCurrentCollidingItems.Contains(other.gameObject) == false)
+                {
+                    mCurrentCollidingItems.Add(other.gameObject);
+                }
+
+                if (mCurrentCollidingItems.Count == 1)
+                {
+                    GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.9f);
+                }
             }
 
-            if (mCurrentCollidingItems.Count == 1)
+            //시럽, 동물 수집 
+            else if(collider.isTrigger == false && other.gameObject.CompareTag("PickUp Object"))
             {
-                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.9f);
+                if (mCurrentPickUpObjects.Contains(other.gameObject) == false)
+                {
+                    mCurrentPickUpObjects.Add(other.gameObject);
+                }
+
+                if (mCurrentPickUpObjects.Count == 1)
+                {
+                    GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.9f);
+                }
             }
         }
-
-        //시럽, 동물 수집 
-        else if(collider.isTrigger == false && other.gameObject.CompareTag("PickUp Object"))
+        private void OnTriggerExit2D(Collider2D other)
         {
-            if (mCurrentPickUpObjects.Contains(other.gameObject) == false)
+            //당근 수집 
+            if (other.gameObject.CompareTag("item"))
             {
-                mCurrentPickUpObjects.Add(other.gameObject);
+                mCurrentCollidingItems.Remove(other.gameObject);
+
+                if (mCurrentCollidingItems.Count == 0)
+                {
+                    GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                }
             }
 
-            if (mCurrentPickUpObjects.Count == 1)
+            //시럽, 동물 수집 
+            else if (other.gameObject.CompareTag("PickUp Object"))
             {
-                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.9f);
+                mCurrentPickUpObjects.Remove(other.gameObject);
+
+                if (mCurrentPickUpObjects.Count == 0)
+                {
+                    GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                }
             }
         }
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        //당근 수집 
-        if (other.gameObject.CompareTag("item"))
-        {
-            mCurrentCollidingItems.Remove(other.gameObject);
-
-            if (mCurrentCollidingItems.Count == 0)
-            {
-                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            }
-        }
-
-        //시럽, 동물 수집 
-        else if (other.gameObject.CompareTag("PickUp Object"))
-        {
-            mCurrentPickUpObjects.Remove(other.gameObject);
-
-            if (mCurrentPickUpObjects.Count == 0)
-            {
-                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            }
-        }
-    }
 
     void UpdateAnimationAndMove()
     {
         if(change != Vector3.zero)
         {
+            //AudioManager - walk sound
+            theAudio = FindObjectOfType<AudioManager>(); 
+            theAudio.Play(walkSound);
+            theAudio.SetLoop(walkSound);
+
             MoveCharacter();
             animator.SetFloat("moveX", change.x);
             animator.SetFloat("moveY", change.y);
@@ -267,6 +272,7 @@ public class PlayerManager : MonoBehaviour
         else
         {
             animator.SetBool("moving", false);
+            theAudio.SetLoopCancel(walkSound);
         }
     }
 
@@ -328,7 +334,6 @@ public class PlayerManager : MonoBehaviour
             case PlayerState.interact:
             speed = 0;
             break;
-            //상태 두개 stagger, idle 새롭게 추가했음..위에도 추가했기 때문에 
             case PlayerState.stagger:
             speed = 0;
             break;
