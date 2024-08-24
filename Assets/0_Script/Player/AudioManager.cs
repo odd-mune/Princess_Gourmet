@@ -22,28 +22,43 @@ public class Sound
 
     public void SetVolumn()
     {
-        source.volume = Volumn;
+        if (source != null)
+        {
+            source.volume = Volumn;
+        }
     }
 
 
     public void Play()
     {
-        source.Play();
+        if (source != null)
+        {
+            source.Play();
+        }
     }
 
     public void Stop()
     {
-        source.Stop();
+        if (source != null)
+        {
+            source.Stop();
+        }
     }
 
     public void SetLoop()
     {
-        source.loop = true;
+        if (source != null)
+        {
+            source.loop = true;
+        }
     }
 
     public void SetLoopCancel()
     {
-        source.loop = false;
+        if (source != null)
+        {
+            source.loop = false;
+        }
     }
 }
 

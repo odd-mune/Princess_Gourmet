@@ -139,14 +139,16 @@ public class saltSnail : Animal
         }
     }
 
-    public override void PickUp()
+    public override bool PickUp()
     {
         if (mIsPickUpable == true)
         {
-            base.PickUp();  // 인벤토리에 넣기
+            return base.PickUp();  // 인벤토리에 넣기
             // 시작: 달팽이 pick up할 때 처리
             // ...
             // 끝
         }
+
+        return false;
     }
 }

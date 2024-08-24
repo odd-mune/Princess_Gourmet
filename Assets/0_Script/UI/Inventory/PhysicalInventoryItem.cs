@@ -19,28 +19,34 @@ public class PhysicalInventoryItem : MonoBehaviour
         mIsPickUpable = true;
     }
 
-    private void AddItemToInventory()
+    private bool AddItemToInventory()
     {
         if(playerInventory && thisItem)
         {
             if(playerInventory.myInventory.Contains(thisItem))
             {
                 thisItem.numberHeld += 1;
+                return true;
             }
             else
             {
                 playerInventory.myInventory.Add(thisItem);
                 thisItem.numberHeld = 1;
+                return true;
             }
         }
+
+        return false;
     }
 
-    public virtual void PickUp()
+    public virtual bool PickUp()
     {
         if (isPickUpable == true)
         {
-            AddItemToInventory();
+            return AddItemToInventory();
         }
+
+        return false;
     }
 
     public string GetName()

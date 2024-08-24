@@ -10,7 +10,7 @@ public enum PlayerState
     walk,
     run,
     attack,
-    interact,
+    // interact,
     stagger,
     idle
 }
@@ -31,7 +31,7 @@ public class PlayerManager : MonoBehaviour
     public float runSpeed;
 
     private float speed;
-    public PlayerState currentState;
+    public PlayerState currentState = PlayerState.idle;
     private Rigidbody2D myRigidbody;
     private Vector3 change;
     private Animator animator;
@@ -46,6 +46,7 @@ public class PlayerManager : MonoBehaviour
 
     //AudioManager 인스펙터 창에 추가
     public string walkSound;
+    public string runSound;
     public string pickUpSound;
     private AudioManager theAudio;
 
@@ -54,7 +55,7 @@ public class PlayerManager : MonoBehaviour
         // Limit the framerate to 30
         Application.targetFrameRate = 30;
 
-        SetCurrentState(PlayerState.walk);
+        SetCurrentState(PlayerState.idle);
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
         animator.SetFloat("moveX", 0);
@@ -130,16 +131,19 @@ public class PlayerManager : MonoBehaviour
                 {
                     GameObject itemGameObjectToPickUp = mCurrentCollidingItems[0];
                     PhysicalInventoryItem physicalInventoryItem = itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>();
-                    physicalInventoryItem.PickUp();
+                    bool hasPickedUpObject = physicalInventoryItem.PickUp();
                     
                     mCurrentCollidingItems.RemoveAt(0);
                     Destroy(itemGameObjectToPickUp);
                     hasConsumedSpaceKey = true;
                     
-                    //AudioManager 추가 
-                    theAudio = FindObjectOfType<AudioManager>(); 
-                    //AudioManager pickUp sound
-                    theAudio.Play(pickUpSound);
+                    if (hasPickedUpObject)
+                    {
+                        //AudioManager 추가 
+                        theAudio = FindObjectOfType<AudioManager>(); 
+                        //AudioManager pickUp sound
+                        theAudio.Play(pickUpSound);
+                    }
                 }
             }
             
@@ -149,9 +153,17 @@ public class PlayerManager : MonoBehaviour
                 if (!hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
                 {
                     GameObject itemGameObjectToPickUp = mCurrentPickUpObjects[0];
-                    itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>().PickUp();
+                    bool hasPickedUpObject = itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>().PickUp();
                     
                     hasConsumedSpaceKey = true;
+                    
+                    if (hasPickedUpObject)
+                    {
+                        //AudioManager 추가 
+                        theAudio = FindObjectOfType<AudioManager>(); 
+                        //AudioManager pickUp sound
+                        theAudio.Play(pickUpSound);
+                    }
                 }
             }
 
@@ -165,14 +177,6 @@ public class PlayerManager : MonoBehaviour
                 && currentState != PlayerState.stagger)
             {   
                 StartCoroutine(AttackCo());
-            }
-            else if(Input.GetButtonDown("run") && currentState == PlayerState.walk)
-            {
-                SetCurrentState(PlayerState.run);
-            }
-            else if(Input.GetButtonUp("run") && currentState == PlayerState.run)
-            {
-                SetCurrentState(PlayerState.walk);
             }
             
             if (mIsKnockingBack == false)
@@ -198,81 +202,99 @@ public class PlayerManager : MonoBehaviour
         SetCurrentState(prevState);
     }
 
-    // 아이템 줍기 OnTrigger (채집 가능 아이콘 표시)
-        private void OnTriggerEnter2D(Collider2D other)
+    // 아이템 줍기 OnCollision (채집 가능 아이콘 표시)
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        // 당근 줍기 
+        Collider2D collider = GetComponent<Collider2D>();
+        if(collider.isTrigger == false && other.gameObject.CompareTag("item"))
         {
-            // 당근 줍기 
-            Collider2D collider = GetComponent<Collider2D>();
-            if(collider.isTrigger == false && other.gameObject.CompareTag("item"))
+            if (mCurrentCollidingItems.Contains(other.gameObject) == false)
             {
-                if (mCurrentCollidingItems.Contains(other.gameObject) == false)
-                {
-                    mCurrentCollidingItems.Add(other.gameObject);
-                }
-
-                if (mCurrentCollidingItems.Count == 1)
-                {
-                    GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.9f);
-                }
+                mCurrentCollidingItems.Add(other.gameObject);
             }
 
-            //시럽, 동물 수집 
-            else if(collider.isTrigger == false && other.gameObject.CompareTag("PickUp Object"))
+            if (mCurrentCollidingItems.Count == 1)
             {
-                if (mCurrentPickUpObjects.Contains(other.gameObject) == false)
-                {
-                    mCurrentPickUpObjects.Add(other.gameObject);
-                }
-
-                if (mCurrentPickUpObjects.Count == 1)
-                {
-                    GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.9f);
-                }
+                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.9f);
             }
         }
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            //당근 수집 
-            if (other.gameObject.CompareTag("item"))
-            {
-                mCurrentCollidingItems.Remove(other.gameObject);
 
-                if (mCurrentCollidingItems.Count == 0)
-                {
-                    GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-                }
+        //시럽, 동물 수집 
+        else if(collider.isTrigger == false && other.gameObject.CompareTag("PickUp Object"))
+        {
+            if (mCurrentPickUpObjects.Contains(other.gameObject) == false)
+            {
+                mCurrentPickUpObjects.Add(other.gameObject);
             }
 
-            //시럽, 동물 수집 
-            else if (other.gameObject.CompareTag("PickUp Object"))
+            if (mCurrentPickUpObjects.Count == 1)
             {
-                mCurrentPickUpObjects.Remove(other.gameObject);
-
-                if (mCurrentPickUpObjects.Count == 0)
-                {
-                    GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-                }
+                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.9f);
             }
         }
+    }
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        //당근 수집 
+        if (other.gameObject.CompareTag("item"))
+        {
+            mCurrentCollidingItems.Remove(other.gameObject);
+
+            if (mCurrentCollidingItems.Count == 0)
+            {
+                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            }
+        }
+
+        //시럽, 동물 수집 
+        else if (other.gameObject.CompareTag("PickUp Object"))
+        {
+            mCurrentPickUpObjects.Remove(other.gameObject);
+
+            if (mCurrentPickUpObjects.Count == 0)
+            {
+                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            }
+        }
+    }
 
     void UpdateAnimationAndMove()
     {
         if(change != Vector3.zero)
         {
-            //AudioManager - walk sound
-            theAudio = FindObjectOfType<AudioManager>(); 
-            theAudio.Play(walkSound);
-            theAudio.SetLoop(walkSound);
-
             MoveCharacter();
             animator.SetFloat("moveX", change.x);
             animator.SetFloat("moveY", change.y);
             animator.SetBool("moving", true);
+            
+            if (Input.GetButton("run") == false)
+            {
+                if (currentState != PlayerState.walk)
+                {
+                    Debug.Log($"start walk {Input.GetButton("run")}");
+                    SetCurrentState(PlayerState.walk);
+                }
+            }
+            else
+            {
+                if (currentState != PlayerState.run && currentState != PlayerState.stagger && currentState != PlayerState.attack /*&& currentState != PlayerState.interact*/)
+                {
+                    SetCurrentState(PlayerState.run);
+                }
+            }
         }
         else
         {
+            if (currentState == PlayerState.walk)
+            {
+                SetCurrentState(PlayerState.idle);
+            }
+            if (currentState == PlayerState.run)
+            {
+                SetCurrentState(PlayerState.idle);
+            }
             animator.SetBool("moving", false);
-            theAudio.SetLoopCancel(walkSound);
         }
     }
 
@@ -305,9 +327,10 @@ public class PlayerManager : MonoBehaviour
     {
         if(myRigidbody != null)
         {
+            SetCurrentState(PlayerState.stagger);
             yield return new WaitForSeconds(knockTime);
             myRigidbody.velocity = Vector2.zero;
-            currentState = PlayerState.walk;
+            SetCurrentState(PlayerState.idle);
                 //넉백을 받으면 공주가 자꾸 가만히 멈춰서서 idle 에서 walk로 고쳐봤음
             myRigidbody.velocity = Vector2.zero;
             mIsKnockingBack = false;
@@ -320,20 +343,39 @@ public class PlayerManager : MonoBehaviour
     //넉백 스크립트에서 자꾸 player.currentstate 프로텍션 레벨 때문에 접근을 못한다고 해서
     //위에 playerstate 선언한거 퍼블릭으로 바꾸고 밑에 리턴을 주니까 해결했음. 맞나??
     {
+        theAudio = FindObjectOfType<AudioManager>();
+        if (currentState != newState)
+        {
+            if (currentState == PlayerState.walk)
+            {
+                theAudio.SetLoopCancel(walkSound);
+                theAudio.Stop(walkSound);
+            }
+            else if (currentState == PlayerState.run)
+            {
+                theAudio.SetLoopCancel(runSound);
+                theAudio.Stop(runSound);
+            }
+        }
+
         switch (newState)
         {
             case PlayerState.walk:
             speed = walkSpeed;
+            theAudio.Play(walkSound);
+            theAudio.SetLoop(walkSound);
             break;
             case PlayerState.run:
             speed = runSpeed;
+            theAudio.Play(runSound);
+            theAudio.SetLoop(runSound);
             break;
             case PlayerState.attack:
             speed = 0;
             break;
-            case PlayerState.interact:
-            speed = 0;
-            break;
+            // case PlayerState.interact:
+            // speed = 0;
+            // break;
             case PlayerState.stagger:
             speed = 0;
             break;

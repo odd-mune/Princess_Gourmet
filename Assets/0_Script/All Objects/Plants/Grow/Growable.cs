@@ -37,7 +37,7 @@ public class Growable : PhysicalInventoryItem
         }
     }
 
-    public override void PickUp()
+    public override bool PickUp()
     {
         if (mIsPickUpable == true)
         {
@@ -45,7 +45,11 @@ public class Growable : PhysicalInventoryItem
             seconds = 0.0f;
             mCurrentStageIndex = 0;
             setStage(mCurrentStageIndex);
+
+            return true;
         }
+
+        return false;
     }
  
     void growing_up()
