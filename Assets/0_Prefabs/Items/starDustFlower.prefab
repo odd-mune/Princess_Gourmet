@@ -74,14 +74,14 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 885861223
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1886020147, guid: 87fa376415970f0408f17171156409e1, type: 3}
+  m_Sprite: {fileID: -1908533278, guid: 92d296b6e2ee9b143af0a3d696c21453, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 3, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -124,11 +124,11 @@ MonoBehaviour:
   thisItem: {fileID: 11400000, guid: f26584fd55c24f9448b63f181e80ab3a, type: 2}
   pickUpText: {fileID: 0}
   stages:
-  - sprite: {fileID: -1886020147, guid: 87fa376415970f0408f17171156409e1, type: 3}
+  - sprite: {fileID: -1908533278, guid: 92d296b6e2ee9b143af0a3d696c21453, type: 3}
     secondsInThisStage: 5
     isPickUpable: 0
     runAnimation: 0
-  - sprite: {fileID: -1886020147, guid: 87fa376415970f0408f17171156409e1, type: 3}
+  - sprite: {fileID: -1908533278, guid: 92d296b6e2ee9b143af0a3d696c21453, type: 3}
     secondsInThisStage: 0
     isPickUpable: 1
     runAnimation: 1
@@ -169,7 +169,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
     oldSize: {x: 3, y: 3}
-    newSize: {x: 2, y: 2}
+    newSize: {x: 3, y: 3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
