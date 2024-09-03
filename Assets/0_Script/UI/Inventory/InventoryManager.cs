@@ -18,27 +18,34 @@ public class InventoryManager : MonoBehaviour
     public void SetTextAndButton(string description, bool buttonActive)
     {
         descriptionText.text = description;
-        if (buttonActive)
+        if (useButton != null)
         {
-            useButton.SetActive(true);
-        }
-        else
-        {
-            useButton.SetActive(false);
+            if (buttonActive)
+            {   
+                useButton.SetActive(true);
+            }
+            else
+            {
+                useButton.SetActive(false);
+            }
         }
     }
 
     public void SetNameAndButton(string name, bool buttonActive)
     {
         nameText.text = name;
-        if (buttonActive)
+        if (useButton != null)
         {
-            useButton.SetActive(true);
+            if (buttonActive)
+            {
+                useButton.SetActive(true);
+            }
+            else
+            {
+                useButton.SetActive(false);
+            }
         }
-        else
-        {
-            useButton.SetActive(false);
-        }
+        
     }
 
     public void MakeInventorySlots()
