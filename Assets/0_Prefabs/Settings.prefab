@@ -118,7 +118,11 @@ MonoBehaviour:
     Volumn: 1
     loop: 0
   - name: player_walk
-    clip: {fileID: 8300000, guid: 920069d121644464886852dcfe1704db, type: 3}
+    clip: {fileID: 8300000, guid: e65d8aeec5ede394397d484ab9e8262d, type: 3}
+    Volumn: 1
+    loop: 0
+  - name: player_run
+    clip: {fileID: 8300000, guid: 54cc90901569bc34f8719081c9749779, type: 3}
     Volumn: 1
     loop: 0
 --- !u!1 &6454370040049424550
@@ -269,6 +273,51 @@ MonoBehaviour:
   - {fileID: 1170867463, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
   - {fileID: -2041237538, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
   - {fileID: 565225835, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
+--- !u!1 &8301094880217652257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6677552386410358839}
+  - component: {fileID: 4726600137279161102}
+  m_Layer: 0
+  m_Name: CraftingManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6677552386410358839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8301094880217652257}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 755.6862, y: 536.8313, z: 1.0904334}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2471415414521708977}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4726600137279161102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8301094880217652257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62542c5feb0b82845b6130cc07ff7844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customCursor: {fileID: 0}
 --- !u!1 &8384161380897239843
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,5 +352,6 @@ Transform:
   - {fileID: 1452547952528351784}
   - {fileID: 8337646126469084020}
   - {fileID: 7406674028994786714}
+  - {fileID: 6677552386410358839}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
