@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 9000860668839596911}
   - component: {fileID: 546459973284404657}
   - component: {fileID: 3468329416529290818}
-  - component: {fileID: 6853258527276242264}
-  m_Layer: 0
+  - component: {fileID: 7568802460601392259}
+  m_Layer: 10
   m_Name: NPC_Guard
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 885861223
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 870880917, guid: 4764697a3a9a8a640b0f9a4bcad102fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1000
   isNpc: 1
---- !u!61 &6853258527276242264
+--- !u!61 &7568802460601392259
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,7 +154,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.21899796, y: 0.79919434}
+  m_Offset: {x: 0.13568115, y: 0.75991535}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -165,5 +165,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5035934, y: 0.5471802}
+  m_Size: {x: 1.6422958, y: 0.42204094}
   m_EdgeRadius: 0

@@ -38,7 +38,7 @@ public class DialogueManager : MonoBehaviour
         {
             talkText.text = talkData.Split(':')[0];
 
-            portraitImg.sprite = talkManager.GetPortrait(id, int.Parse(talkData.Split(':')[1]));
+            //초상화잠시지움portraitImg.sprite = talkManager.GetPortrait(id, int.Parse(talkData.Split(':')[1]));
             portraitImg.color = new Color(1, 1, 1, 1);
         }
         else
