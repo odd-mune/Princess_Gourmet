@@ -216,7 +216,7 @@ public class PlayerManager : MonoBehaviour
 
             if (mCurrentCollidingItems.Count == 1)
             {
-                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.9f);
+                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
             }
         }
 
@@ -230,7 +230,7 @@ public class PlayerManager : MonoBehaviour
 
             if (mCurrentPickUpObjects.Count == 1)
             {
-                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.9f);
+                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
             }
         }
     }
