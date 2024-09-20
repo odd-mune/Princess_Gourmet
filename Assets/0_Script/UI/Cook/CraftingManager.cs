@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class CraftingManager : MonoBehaviour
 {
-    private Item currentItem;
+    private InventoryItem currentItem;
     public Image customCursor;
 
     public Slot[] craftingSlots;
 
-    public List<Item> itemList;
+    public List<InventoryItem> itemList;
     public string[] recipes;
-    public Item[] recipeResults;
+    public InventoryItem[] recipeResults;
     public Slot resultSlot;
 
     private void Update()
@@ -36,20 +36,20 @@ public class CraftingManager : MonoBehaviour
                     }
                 }
                 nearestSlot.gameObject.SetActive(true);
-                nearestSlot.GetComponent<Image>().sprite = currentItem.GetComponent<Image>().sprite;
+                nearestSlot.GetComponent<Image>().sprite = currentItem.itemImage;
                 nearestSlot.item = currentItem;
                 currentItem = null;
             }
         }
     }
 
-    public void OnMouseDownItem(Item item)
+    public void OnMouseDownItem(InventoryItem item)
     {
         if(currentItem == null)
         {
             currentItem = item;
             customCursor.gameObject.SetActive(true);
-            customCursor.sprite = currentItem.GetComponent<Image>().sprite;
+            customCursor.sprite = currentItem.itemImage;
         }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using static UnityEditor.Progress;
 
-public class InventorySlot : MonoBehaviour, IPointerClickHandler
+public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerDownHandler
 {
     [Header("UI Stuff to change")]
     [SerializeField] private TextMeshProUGUI itemNumberText;
@@ -15,15 +15,25 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     [Header("Variables from the item")]
     public InventoryItem thisItem;
     public InventoryManager thisManager;
+    public CraftingManager craftingManager;
 
-    public void Setup(InventoryItem newItem, InventoryManager newManager)
+    public void Setup(InventoryItem newItem, InventoryManager newManager, CraftingManager inCraftingManager)
     {
         thisItem = newItem;
         thisManager = newManager;
+        craftingManager = inCraftingManager;
         if (thisItem)
         {
             itemImage.sprite = thisItem.itemImage;
             itemNumberText.text = "" + thisItem.numberHeld;
+        }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (thisItem)
+        {  
+            craftingManager.OnMouseDownItem(thisItem);
         }
     }
 

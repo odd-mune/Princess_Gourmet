@@ -14,6 +14,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject useButton;
     [SerializeField] private GameObject discardButton;
     public InventoryItem currentItem;
+    public CraftingManager craftingManager;
 
     public void SetTextAndButton(string description, bool buttonActive)
     {
@@ -65,7 +66,7 @@ public class InventoryManager : MonoBehaviour
                     InventorySlot newSlot = temp.GetComponent<InventorySlot>();
                     if (newSlot)
                     {
-                        newSlot.Setup(playerInventory.myInventory[i], this);
+                        newSlot.Setup(playerInventory.myInventory[i], this, craftingManager);
                     }
                 }
             }
@@ -84,14 +85,20 @@ public class InventoryManager : MonoBehaviour
     {
         currentItem = newItem;
         descriptionText.text = newDescriptionString;
-        useButton.SetActive(isButtonUsable);
+        if (useButton != null)
+        {
+            useButton.SetActive(isButtonUsable);
+        }
     }
 
     public void SetupNameAndButton(string newNameString, bool isButtonUsable, InventoryItem newItem)
     {
         currentItem = newItem;
         nameText.text = newNameString;
-        useButton.SetActive(isButtonUsable);
+        if (useButton != null)
+        {
+            useButton.SetActive(isButtonUsable);
+        }
     }
 
     public void ClearInventorySlots()
