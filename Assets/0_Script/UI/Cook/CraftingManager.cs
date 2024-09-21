@@ -5,21 +5,31 @@ using UnityEngine.UI;
 
 public class CraftingManager : MonoBehaviour
 {
-    private InventoryItem currentItem;
+    private InventorySlot currentItemSlot;
     public Image customCursor;
 
     public Slot[] craftingSlots;
 
-    public List<InventoryItem> itemList;
+    public List<InventorySlot> itemSlotList;
     public string[] recipes;
     public InventoryItem[] recipeResults;
     public Slot resultSlot;
+
+    private void Start()
+    {
+        itemSlotList = new List<InventorySlot>();
+        for(int i = 0; i < craftingSlots.Length; i++)
+        {
+            craftingSlots[i].index = i;
+            itemSlotList.Add(null);
+        }
+    }
 
     private void Update()
     {
         if(Input.GetMouseButtonUp(0))
         {
-            if(currentItem != null)
+            if(currentItemSlot != null)
             {
                 customCursor.gameObject.SetActive(false);
                 Slot nearestSlot = null;
@@ -36,12 +46,31 @@ public class CraftingManager : MonoBehaviour
                     }
                 }
                 nearestSlot.gameObject.SetActive(true);
-                nearestSlot.GetComponent<Image>().sprite = currentItem.itemImage;
-                nearestSlot.item = currentItem;
-                itemList[nearestSlot.index] = currentItem;
+                nearestSlot.GetComponent<Image>().sprite = currentItemSlot.thisItem.itemImage;
+                nearestSlot.item = currentItemSlot.thisItem;
+                itemSlotList[nearestSlot.index] = currentItemSlot;
 
-                currentItem = null;
+                //아이템 사용시 횟수 감소
+                currentItemSlot.thisItem.DecreaseAmount(1);
+                currentItemSlot.thisManager.ClearInventorySlots();
+                currentItemSlot.thisManager.MakeInventorySlots();
+                currentItemSlot = null;
             }
+        }
+    }
+
+    public void OnClose()
+    {
+        for(int slotIndex = 0; slotIndex < itemSlotList.Count; slotIndex++)
+        {
+            if(itemSlotList[slotIndex] != null)
+            {
+                itemSlotList[slotIndex].thisItem.numberHeld++;
+            }
+            itemSlotList[slotIndex] = null;
+
+            craftingSlots[slotIndex].GetComponent<Image>().sprite = null;
+            craftingSlots[slotIndex].item = null;
         }
     }
 
@@ -51,8 +80,9 @@ public class CraftingManager : MonoBehaviour
         resultSlot.item = null;
 
         string currentRecipeString = "";
-        foreach(InventoryItem item in itemList)
+        foreach(InventorySlot itemSlot in itemSlotList)
         {
+            InventoryItem item = itemSlot.thisItem;
             if(item != null)
             {
                 currentRecipeString += item.itemName;
@@ -77,18 +107,18 @@ public class CraftingManager : MonoBehaviour
     public void OnClickSlot(Slot slot)
     {
         slot.item = null;
-        itemList[slot.index] = null;
+        itemSlotList[slot.index] = null;
         slot.gameObject.SetActive(false);
         CheckForCreatedRecipes();
     }
 
-    public void OnMouseDownItem(InventoryItem item)
+    public void OnMouseDownItem(InventorySlot itemSlot)
     {
-        if(currentItem == null)
+        if(currentItemSlot == null)
         {
-            currentItem = item;
+            currentItemSlot = itemSlot;
             customCursor.gameObject.SetActive(true);
-            customCursor.sprite = currentItem.itemImage;
+            customCursor.sprite = currentItemSlot.thisItem.itemImage;
         }
     }
 }

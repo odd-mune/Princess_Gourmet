@@ -36,6 +36,10 @@ public class IPauseManager : MonoBehaviour
         }
     }
 
+    protected virtual void onChange(bool isActive)
+    {
+    }
+
     public void ChangePause(bool bOpeningSubGameObject)
     {
         GameObject currentActiveGameObject = bOpeningSubGameObject ? mCurrentActiveSubGameObjectOrNull : mCurrentActiveGameObjectOrNull;
@@ -47,6 +51,7 @@ public class IPauseManager : MonoBehaviour
             {
                 isPaused = true;
                 GameObjectToPause.SetActive(true);
+                onChange(true);
                 Time.timeScale = 0f;
                 if (bOpeningSubGameObject == true)
                 {
@@ -60,6 +65,7 @@ public class IPauseManager : MonoBehaviour
             else
             {
                 GameObjectToPause.SetActive(false);
+                onChange(false);
                 Time.timeScale = 1f;
                 currentActiveGameObject = null;
                 if (bOpeningSubGameObject == true)

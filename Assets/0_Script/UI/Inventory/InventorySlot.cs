@@ -32,8 +32,11 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerDownHa
     public void OnPointerDown(PointerEventData eventData)
     {
         if (thisItem)
-        {  
-            craftingManager.OnMouseDownItem(thisItem);
+        {
+            if (craftingManager.isActiveAndEnabled)
+            {
+                craftingManager.OnMouseDownItem(this);
+            }
         }
     }
 
