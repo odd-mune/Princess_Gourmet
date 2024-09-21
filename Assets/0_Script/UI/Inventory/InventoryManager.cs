@@ -58,10 +58,7 @@ public class InventoryManager : MonoBehaviour
                 if (playerInventory.myInventory[i].numberHeld > 0 ||
                     playerInventory.myInventory[i].itemName == "Bottle")
                 {
-                    GameObject temp = 
-                        Instantiate(blankInventorySlot,
-                        inventoryPanel.transform.position, Quaternion.identity);
-
+                    GameObject temp = MakeNewInventorySlot();
                     temp.transform.SetParent(inventoryPanel.transform);
                     InventorySlot newSlot = temp.GetComponent<InventorySlot>();
                     if (newSlot)
@@ -71,6 +68,11 @@ public class InventoryManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public GameObject MakeNewInventorySlot()
+    {
+        return Instantiate(blankInventorySlot, inventoryPanel.transform.position, Quaternion.identity);
     }
 
     void OnEnable()
