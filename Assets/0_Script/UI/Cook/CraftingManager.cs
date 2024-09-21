@@ -15,10 +15,13 @@ public class CraftingManager : MonoBehaviour
     public InventoryItem[] recipeResults;
     public Slot resultSlot;
 
+    private Sprite defaultSlotSprite;
+
     private void Start()
     {
         itemSlotList = new List<InventorySlot>();
-        for(int i = 0; i < craftingSlots.Length; i++)
+        defaultSlotSprite = craftingSlots[0].GetComponent<Image>().sprite;
+        for (int i = 0; i < craftingSlots.Length; i++)
         {
             craftingSlots[i].index = i;
             itemSlotList.Add(null);
@@ -31,6 +34,13 @@ public class CraftingManager : MonoBehaviour
         {
             if(currentItemSlot != null)
             {
+                GameObject temp = currentItemSlot.thisManager.MakeNewInventorySlot();
+                InventorySlot newSlot = temp.GetComponent<InventorySlot>();
+                if (newSlot)
+                {
+                    newSlot.Setup(currentItemSlot.thisItem, currentItemSlot.thisManager, this);
+                }
+
                 customCursor.gameObject.SetActive(false);
                 Slot nearestSlot = null;
                 float shortestDistance = float.MaxValue;
@@ -46,9 +56,9 @@ public class CraftingManager : MonoBehaviour
                     }
                 }
                 nearestSlot.gameObject.SetActive(true);
-                nearestSlot.GetComponent<Image>().sprite = currentItemSlot.thisItem.itemImage;
-                nearestSlot.item = currentItemSlot.thisItem;
-                itemSlotList[nearestSlot.index] = currentItemSlot;
+                nearestSlot.GetComponent<Image>().sprite = newSlot.thisItem.itemImage;
+                nearestSlot.item = newSlot.thisItem;
+                itemSlotList[nearestSlot.index] = newSlot;
 
                 //아이템 사용시 횟수 감소
                 currentItemSlot.thisItem.DecreaseAmount(1);
@@ -69,7 +79,7 @@ public class CraftingManager : MonoBehaviour
             }
             itemSlotList[slotIndex] = null;
 
-            craftingSlots[slotIndex].GetComponent<Image>().sprite = null;
+            craftingSlots[slotIndex].GetComponent<Image>().sprite = defaultSlotSprite;
             craftingSlots[slotIndex].item = null;
         }
     }
@@ -117,8 +127,8 @@ public class CraftingManager : MonoBehaviour
         if(currentItemSlot == null)
         {
             currentItemSlot = itemSlot;
-            customCursor.gameObject.SetActive(true);
             customCursor.sprite = currentItemSlot.thisItem.itemImage;
+            customCursor.gameObject.SetActive(true);
         }
     }
 }

@@ -8,6 +8,10 @@ public class CustomCursor : MonoBehaviour
     {
         transform.position = Input.mousePosition;
     }
+    void OnEnable()
+    {
+        transform.position = Input.mousePosition;
+    }
 
     private void Update()
     {
