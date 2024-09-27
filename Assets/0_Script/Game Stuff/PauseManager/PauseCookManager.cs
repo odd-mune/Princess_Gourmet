@@ -12,6 +12,7 @@ public class PauseCookManager : IPauseManager
     {
         ButtonName = "cook";
     }
+
     protected override void onChange(bool isActive)
     {
         if (isActive)
