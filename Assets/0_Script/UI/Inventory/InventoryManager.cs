@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+public enum InventoryType
+{
+    Inventory,
+    Ingredients,
+    MagicCircle,
+}
 
 public class InventoryManager : MonoBehaviour
 {
@@ -15,6 +21,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject discardButton;
     public InventoryItem currentItem;
     public CraftingManager craftingManager;
+    public InventoryType inventoryType;
 
     public void SetTextAndButton(string description, bool buttonActive)
     {
@@ -55,9 +62,28 @@ public class InventoryManager : MonoBehaviour
         {
             for(int i = 0; i < playerInventory.myInventory.Count; i ++)
             {
-                if (playerInventory.myInventory[i].numberHeld > 0 ||
-                    playerInventory.myInventory[i].itemName == "Bottle")
+                if (playerInventory.myInventory[i].numberHeld > 0)
                 {
+                    switch (inventoryType)
+                    {
+                        case InventoryType.Inventory:
+                            break;
+                        case InventoryType.Ingredients:
+                            if (playerInventory.myInventory[i].itemType != ItemType.Ingredient)
+                            {
+                                continue;
+                            }
+                            break;
+                        case InventoryType.MagicCircle:
+                            if (playerInventory.myInventory[i].itemType != ItemType.MagicCircle)
+                            {
+                                continue;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+
                     GameObject temp = MakeNewInventorySlot();
                     temp.transform.SetParent(inventoryPanel.transform);
                     InventorySlot newSlot = temp.GetComponent<InventorySlot>();

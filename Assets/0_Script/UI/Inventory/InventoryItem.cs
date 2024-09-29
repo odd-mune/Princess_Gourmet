@@ -7,6 +7,7 @@ public enum ItemType
 {
     Ingredient,
     Tool,
+    MagicCircle,
 }
 
 public enum CookType
@@ -24,6 +25,8 @@ public class InventoryItem : ScriptableObject
     public string itemDescription;
     public ItemType itemType;
     public Sprite itemImage;
+    public Sprite magicCircleImageOrNull;
+    public int numIngredients;
     public List<CookType> cookTypes;
     public int numberHeld;
     public bool usable;
