@@ -11,6 +11,7 @@ public class PauseCookManager : IPauseManager
     void Start()
     {
         ButtonName = "cook";
+        craftingManager.enabled = false;
     }
 
     protected override void onChange(bool isActive)
