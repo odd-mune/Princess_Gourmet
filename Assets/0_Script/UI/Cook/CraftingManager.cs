@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,9 +6,15 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
-
 public class CraftingManager : MonoBehaviour
 {
+    [System.Serializable]
+    public class Recipe
+    {
+        public List<InventoryItem> ingredients = new List<InventoryItem>();
+        public InventoryItem result;
+    };
+
     private InventorySlot currentItemSlot;
     public Image customCursor;
 
@@ -17,19 +24,37 @@ public class CraftingManager : MonoBehaviour
 
     public List<InventorySlot> itemSlotList;
     private int numCurrentItemSlots = 0;
-    public string[] recipes;
-    public InventoryItem[] recipeResults;
+    public Recipe[] recipes;
     public Slot resultSlot;
+
+    public Transform InventoryCanvas;
+    public Transform CraftingCanvas;
 
     private InventorySlot magicCircleItemSlot;
 
     private List<GameObject> clonedInventorySlotGameObjects;
     private GameObject clonedMagicCircleSlotGameObject;
 
+    private class InternalRecipe
+    {
+        public int recipeIndex = 0;
+        public int hashcode = 0;
+    }
+
+    private Dictionary<int, InternalRecipe> internalRecipeData;
+
+    private struct HashCodeData
+    {
+        public int originalHashcode;
+        public int count;
+        public int hashcode;
+    }
+
     private void Start()
     {
         itemSlotList = new List<InventorySlot>();
         clonedInventorySlotGameObjects = new List<GameObject>();
+        internalRecipeData = new Dictionary<int, InternalRecipe>();
 
         int maxIngredients = 0;
         foreach (GameObject craftingMagicCircleTemplate in craftingMagicCircles)
@@ -53,6 +78,47 @@ public class CraftingManager : MonoBehaviour
             childSlot.index = i;
             itemSlotList.Add(null);
         }
+
+        for(int i = 0; i < recipes.Count(); i++)
+        {
+            Recipe recipe = recipes[i];
+            InternalRecipe internalRecipe = new InternalRecipe();
+            internalRecipe.recipeIndex = i;
+            Dictionary<string, HashCodeData> hashcodes = new Dictionary<string, HashCodeData>();
+            foreach (InventoryItem ingredient in recipe.ingredients)
+            {
+                int hashcode = ingredient.itemName.GetHashCode();
+                HashCodeData outHashcode;
+                bool result = hashcodes.TryGetValue(ingredient.itemName, out outHashcode);
+                if (result == true)
+                {
+                    ++outHashcode.count;
+                    outHashcode.hashcode = outHashcode.originalHashcode ^ outHashcode.count.GetHashCode();
+                    hashcodes[ingredient.itemName] = outHashcode;
+                }
+                else
+                {
+                    outHashcode.originalHashcode = hashcode;
+                    outHashcode.count = 1;
+                    outHashcode.hashcode = hashcode;
+                    hashcodes.Add(ingredient.itemName, outHashcode);
+                }
+            }
+
+            foreach (KeyValuePair<string, HashCodeData> pair in hashcodes)
+            {
+                HashCodeData data = pair.Value;
+                if (internalRecipe.hashcode == 0)
+                {
+                    internalRecipe.hashcode = data.hashcode;
+                }
+                else
+                {
+                    internalRecipe.hashcode ^= data.hashcode;
+                }
+            }
+            internalRecipeData.Add(internalRecipe.hashcode, internalRecipe);
+        }
     }
 
     private void Update()
@@ -63,33 +129,40 @@ public class CraftingManager : MonoBehaviour
             {
                 bool bIgnoreUpdate = false;
 
-                // 이미 MagicCircle이 설정된 상태에서 MagicCircle을 새로 설정해준다면, 현재 설정된 마법진과 재료들을 rollback 해줘야 한다
-                if (clonedMagicCircleSlotGameObject != null)
+                if (customCursor.GetComponent<RectTransform>().rect.Overlaps(CraftingCanvas.GetComponent<RectTransform>().rect) == true)
                 {
-                    InventorySlot clonedSlot = clonedMagicCircleSlotGameObject.GetComponent<InventorySlot>();
-                    // 이미 마법진 설정 되어 있나?
-                    if (magicCircleItemSlot != null)
+                    // 이미 MagicCircle이 설정된 상태에서 MagicCircle을 새로 설정해준다면, 현재 설정된 마법진과 재료들을 rollback 해줘야 한다
+                    if (clonedMagicCircleSlotGameObject != null)
                     {
-                        // 근데 지금 설정하려는 게 마법진이야?
-                        if (currentItemSlot.thisItem.itemType == ItemType.MagicCircle)
+                        InventorySlot clonedSlot = clonedMagicCircleSlotGameObject.GetComponent<InventorySlot>();
+                        // 이미 마법진 설정 되어 있나?
+                        if (magicCircleItemSlot != null)
                         {
-                            // 근데 이미 설정된 거랑 같은 마법진 아냐?
-                            if (magicCircleItemSlot.thisItem != currentItemSlot.thisItem)
+                            // 근데 지금 설정하려는 게 마법진이야?
+                            if (currentItemSlot.thisItem.itemType == ItemType.MagicCircle)
                             {
-                                // 다른 거야~
-                                OnClose();
-                            }
-                            else
-                            {
-                                // 앗 같은 거 맞네;; ㅈㅅ;;
-                                bIgnoreUpdate = true;
+                                // 근데 이미 설정된 거랑 같은 마법진 아냐?
+                                if (magicCircleItemSlot.thisItem != currentItemSlot.thisItem)
+                                {
+                                    // 다른 거야~
+                                    OnClose();
+                                }
+                                else
+                                {
+                                    // 앗 같은 거 맞네;; ㅈㅅ;;
+                                    bIgnoreUpdate = true;
+                                }
                             }
                         }
                     }
-                }
 
-                // 드래그 앤 드롭 끝. 이제 커서에 이미지 따라다니면 안됏!
-                customCursor.gameObject.SetActive(false);
+                    // 드래그 앤 드롭 끝. 이제 커서에 이미지 따라다니면 안됏!
+                    customCursor.gameObject.SetActive(false);
+                }
+                else
+                {
+                    bIgnoreUpdate = true;
+                }
 
                 if (bIgnoreUpdate == false)
                 {
@@ -201,6 +274,7 @@ public class CraftingManager : MonoBehaviour
                     if (bHasAddedItemToMagicCircle == true)
                     {
                         currentItemSlot.thisItem.DecreaseAmount(1);
+                        CheckForCreatedRecipes();
                     }
                 }
 
@@ -231,10 +305,7 @@ public class CraftingManager : MonoBehaviour
 
     void CheckForCreatedRecipes()
     {
-        resultSlot.gameObject.SetActive(false);
-        resultSlot.item = null;
-
-        string currentRecipeString = "";
+        Dictionary<string, HashCodeData> hashcodes = new Dictionary<string, HashCodeData>();
         foreach (InventorySlot itemSlot in itemSlotList)
         {
             if (itemSlot == null)
@@ -245,22 +316,69 @@ public class CraftingManager : MonoBehaviour
             InventoryItem item = itemSlot.thisItem;
             if(item != null)
             {
-                currentRecipeString += item.itemName;
+                int hashcode = item.itemName.GetHashCode();
+
+                HashCodeData outHashcode;
+                bool result = hashcodes.TryGetValue(item.itemName, out outHashcode);
+                if (result == true)
+                {
+                    ++outHashcode.count;
+                    outHashcode.hashcode = outHashcode.originalHashcode ^ outHashcode.count.GetHashCode();
+                    hashcodes[item.itemName] = outHashcode;
+                }
+                else
+                {
+                    outHashcode.originalHashcode = hashcode;
+                    outHashcode.count = 1;
+                    outHashcode.hashcode = hashcode;
+                    hashcodes.Add(item.itemName, outHashcode);
+                }
             }
             else
             {
-                currentRecipeString += "null";
+                Debug.Log($"Item slot에 있는 InventoryItem이 null입니다!!");
+                Debug.DebugBreak();
             }
         }
 
-        for (int i = 0; i < recipes.Length; i++)
+        int hashcodeToInsert = 0;
+        foreach (KeyValuePair<string, HashCodeData> pair in hashcodes)
         {
-            if(recipes[i] == currentRecipeString)
+            HashCodeData data = pair.Value;
+            if (hashcodeToInsert == 0)
             {
-                resultSlot.gameObject.SetActive(true);
-                //resultSlot.GetComponent<Image>().sprite = recipeResults[i].GetComponent<Image>().sprite;
-                resultSlot.item = recipeResults[i];
+                hashcodeToInsert = data.hashcode;
             }
+            else
+            {
+                hashcodeToInsert ^= data.hashcode;
+            }
+        }
+
+        InternalRecipe internalRecipe = null;
+        internalRecipeData.TryGetValue(hashcodeToInsert, out internalRecipe);
+        if (internalRecipe != null)
+        {
+            Recipe recipe = recipes[internalRecipe.recipeIndex];
+
+            resultSlot.GetComponent<Image>().sprite = recipe.result.itemImage;
+            resultSlot.gameObject.SetActive(true);
+            resultSlot.item = recipe.result;
+
+            // 종료할 땐 다시 alpha 값 0으로해서 안 보이도록
+            Color prevColor = resultSlot.GetComponent<Image>().color;
+            prevColor.a = 1.0f;
+            resultSlot.GetComponent<Image>().color = prevColor;
+        }
+        else
+        {
+            resultSlot.gameObject.SetActive(false);
+            resultSlot.item = null;
+
+            // 종료할 땐 다시 alpha 값 0으로해서 안 보이도록
+            Color prevColor = resultSlot.GetComponent<Image>().color;
+            prevColor.a = 0.0f;
+            resultSlot.GetComponent<Image>().color = prevColor;
         }
     }
 
