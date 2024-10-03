@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &57391309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2429302002465292670, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+  m_PrefabInstance: {fileID: 647388785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &219199549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9923,9 +9928,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2f9a6542bfcd95045bae1cd0ea3ace46, type: 2}
     - target: {fileID: 4726600137279161102, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: craftingMagicCircles.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726600137279161102, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: craftingMagicCircles.Array.data[0]
       value: 
-      objectReference: {fileID: 326160720}
+      objectReference: {fileID: 57391309}
     - target: {fileID: 4726600137279161102, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: recipes.Array.data[1].ingredients.Array.size
       value: 3
