@@ -121,6 +121,11 @@ public class CraftingManager : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        OnClose();
+    }
+
     private void Update()
     {
         if(Input.GetMouseButtonUp(0))
@@ -306,6 +311,7 @@ public class CraftingManager : MonoBehaviour
     void CheckForCreatedRecipes()
     {
         Dictionary<string, HashCodeData> hashcodes = new Dictionary<string, HashCodeData>();
+        int numItemsInSlot = 0;
         foreach (InventorySlot itemSlot in itemSlotList)
         {
             if (itemSlot == null)
@@ -313,6 +319,7 @@ public class CraftingManager : MonoBehaviour
                 continue;
             }
 
+            ++numItemsInSlot;
             InventoryItem item = itemSlot.thisItem;
             if(item != null)
             {
@@ -341,44 +348,47 @@ public class CraftingManager : MonoBehaviour
             }
         }
 
-        int hashcodeToInsert = 0;
-        foreach (KeyValuePair<string, HashCodeData> pair in hashcodes)
+        if (numItemsInSlot == magicCircleItemSlot.thisItem.numIngredients)
         {
-            HashCodeData data = pair.Value;
-            if (hashcodeToInsert == 0)
+            int hashcodeToInsert = 0;
+            foreach (KeyValuePair<string, HashCodeData> pair in hashcodes)
             {
-                hashcodeToInsert = data.hashcode;
+                HashCodeData data = pair.Value;
+                if (hashcodeToInsert == 0)
+                {
+                    hashcodeToInsert = data.hashcode;
+                }
+                else
+                {
+                    hashcodeToInsert ^= data.hashcode;
+                }
+            }
+
+            InternalRecipe internalRecipe = null;
+            internalRecipeData.TryGetValue(hashcodeToInsert, out internalRecipe);
+            if (internalRecipe != null)
+            {
+                Recipe recipe = recipes[internalRecipe.recipeIndex];
+
+                resultSlot.GetComponent<Image>().sprite = recipe.result.itemImage;
+                resultSlot.gameObject.SetActive(true);
+                resultSlot.item = recipe.result;
+
+                // 종료할 땐 다시 alpha 값 0으로해서 안 보이도록
+                Color prevColor = resultSlot.GetComponent<Image>().color;
+                prevColor.a = 1.0f;
+                resultSlot.GetComponent<Image>().color = prevColor;
             }
             else
             {
-                hashcodeToInsert ^= data.hashcode;
+                resultSlot.gameObject.SetActive(false);
+                resultSlot.item = null;
+
+                // 종료할 땐 다시 alpha 값 0으로해서 안 보이도록
+                Color prevColor = resultSlot.GetComponent<Image>().color;
+                prevColor.a = 0.0f;
+                resultSlot.GetComponent<Image>().color = prevColor;
             }
-        }
-
-        InternalRecipe internalRecipe = null;
-        internalRecipeData.TryGetValue(hashcodeToInsert, out internalRecipe);
-        if (internalRecipe != null)
-        {
-            Recipe recipe = recipes[internalRecipe.recipeIndex];
-
-            resultSlot.GetComponent<Image>().sprite = recipe.result.itemImage;
-            resultSlot.gameObject.SetActive(true);
-            resultSlot.item = recipe.result;
-
-            // 종료할 땐 다시 alpha 값 0으로해서 안 보이도록
-            Color prevColor = resultSlot.GetComponent<Image>().color;
-            prevColor.a = 1.0f;
-            resultSlot.GetComponent<Image>().color = prevColor;
-        }
-        else
-        {
-            resultSlot.gameObject.SetActive(false);
-            resultSlot.item = null;
-
-            // 종료할 땐 다시 alpha 값 0으로해서 안 보이도록
-            Color prevColor = resultSlot.GetComponent<Image>().color;
-            prevColor.a = 0.0f;
-            resultSlot.GetComponent<Image>().color = prevColor;
         }
     }
 
@@ -411,36 +421,38 @@ public class CraftingManager : MonoBehaviour
 
     private void rollback()
     {
-        for (int slotIndex = 0; slotIndex < itemSlotList.Count; slotIndex++)
+        if (craftingMagicCircle != null)
         {
-            // 아이템 다시 인벤토리로 돌려 보내야 해
-            if (itemSlotList[slotIndex] != null)
+            for (int slotIndex = 0; slotIndex < itemSlotList.Count; slotIndex++)
             {
-                itemSlotList[slotIndex].thisItem.numberHeld++;
+                // 아이템 다시 인벤토리로 돌려 보내야 해
+                if (itemSlotList[slotIndex] != null)
+                {
+                    itemSlotList[slotIndex].thisItem.numberHeld++;
+                }
+                itemSlotList[slotIndex] = null;
+
+                Transform childTransform = craftingMagicCircle.transform.GetChild(slotIndex);
+                Slot childSlot = childTransform.gameObject.GetComponent<Slot>();
+                if (childSlot == null)
+                {
+                    Debug.Log($"마법진의 {slotIndex} 번째 slot이 null입니다!!");
+                    Debug.Break();
+                }
+
+                childSlot.item = null;
+
+                // 종료할 땐 다시 alpha 값 0으로해서 안 보이도록
+                Color prevColor = childSlot.GetComponent<Image>().color;
+                prevColor.a = 0.0f;
+                childSlot.GetComponent<Image>().color = prevColor;
             }
-            itemSlotList[slotIndex] = null;
 
-            Transform childTransform = craftingMagicCircle.transform.GetChild(slotIndex);
-            Slot childSlot = childTransform.gameObject.GetComponent<Slot>();
-            if (childSlot == null)
-            {
-                Debug.Log($"마법진의 {slotIndex} 번째 slot이 null입니다!!");
-                Debug.Break();
-            }
-
-            childSlot.item = null;
-
-            // 종료할 땐 다시 alpha 값 0으로해서 안 보이도록
-            Color prevColor = childSlot.GetComponent<Image>().color;
-            prevColor.a = 0.0f;
-            childSlot.GetComponent<Image>().color = prevColor;
-        }
-        numCurrentItemSlots = 0;
-
-        if (magicCircleItemSlot != null)
-        {
             // 아이템 다시 인벤토리로 돌려 보내야 해
-            magicCircleItemSlot.thisItem.numberHeld++;
+            if (magicCircleItemSlot != null)
+            {
+                magicCircleItemSlot.thisItem.numberHeld++;
+            }
 
             // 종료할 땐 다시 alpha 값 0으로해서 안 보이도록
             Image magicCircle = craftingMagicCircle.GetComponent<Image>();
@@ -448,6 +460,7 @@ public class CraftingManager : MonoBehaviour
             prevMagicCircleColor.a = 0.0f;
             magicCircle.color = prevMagicCircleColor;
         }
+        numCurrentItemSlots = 0;
         magicCircleItemSlot = null;
         craftingMagicCircle = null;
     }
