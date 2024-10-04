@@ -255,7 +255,7 @@ public class CraftingManager : MonoBehaviour
 
                         if (craftingMagicCircle == null)
                         {
-                            Debug.Log($"사용하려는 마법진의 재료 개수는 {magicCircleItemSlot.thisItem.numIngredients} 개인데, 이에 해당하는 Magic Circle Template이 Crafting Manager에 등록되지 않았습니다!!");
+                            Debug.Log($"사용하려는 마법진의 재료 개수는 {magicCircleItemSlot.thisItem.numIngredients} 개인데, 이에 해당하는 Magic Circle Template이 Crafting Manager에 등록되지 않았습니다!! Template의 child game object에 있는 Slot의 개수가 원하는 ingredient 개수와 일치하는 지 확인해주세요!!");
                             Debug.Break();
                         }
 
