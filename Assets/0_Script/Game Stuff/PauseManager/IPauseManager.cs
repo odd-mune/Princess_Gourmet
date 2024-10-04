@@ -11,6 +11,7 @@ public class IPauseManager : MonoBehaviour
     public GameObject GameObjectToPause;
     protected string ButtonName;
     protected bool isInventoryPressed;
+    private static bool isPausable = true;
 
     //Start is called before the first frame update
     void Start()
@@ -42,6 +43,11 @@ public class IPauseManager : MonoBehaviour
 
     public void ChangePause(bool bOpeningSubGameObject)
     {
+        if (isPausable == false)
+        {
+            return;
+        }
+
         GameObject currentActiveGameObject = bOpeningSubGameObject ? mCurrentActiveSubGameObjectOrNull : mCurrentActiveGameObjectOrNull;
         GameObject currentSubGameObject = bOpeningSubGameObject == false ? mCurrentActiveSubGameObjectOrNull : mCurrentActiveGameObjectOrNull;
         if (currentActiveGameObject == null || (currentActiveGameObject == GameObjectToPause && (bOpeningSubGameObject || currentSubGameObject == null)))
@@ -78,5 +84,10 @@ public class IPauseManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public static void SetPausable(bool value)
+    {
+        isPausable = value;
     }
 }

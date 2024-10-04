@@ -257,6 +257,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1331664729742620227, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
   m_PrefabInstance: {fileID: 647388785}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &521024954 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6077651670590160390, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+  m_PrefabInstance: {fileID: 647388785}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10bd09de259caae41a252b0bdc4f8dbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &647388785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -419,6 +430,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6879044452817963033, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
       propertyPath: craftingManager
+      value: 
+      objectReference: {fileID: 1136178259}
+    - target: {fileID: 7535485444182797240, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1136178259}
     - target: {fileID: 7797968745923896840, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
@@ -9695,6 +9710,17 @@ Transform:
   - {fileID: 873271922}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1673575959 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7535485444182797240, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+  m_PrefabInstance: {fileID: 647388785}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1677978068
 GameObject:
   m_ObjectHideFlags: 0
@@ -9888,6 +9914,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 706063715}
     - target: {fileID: 4726600137279161102, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: cookingButton
+      value: 
+      objectReference: {fileID: 1673575959}
+    - target: {fileID: 4726600137279161102, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: CraftingCanvas
       value: 
       objectReference: {fileID: 409330096}
@@ -9896,9 +9926,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1958980171}
     - target: {fileID: 4726600137279161102, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
-      propertyPath: recipes.Array.size
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: pauseCookManager
+      value: 
+      objectReference: {fileID: 521024954}
     - target: {fileID: 4726600137279161102, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: craftingMagicCircle
       value: 
@@ -9924,33 +9954,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4726600137279161102, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
-      propertyPath: recipes.Array.data[1].result
-      value: 
-      objectReference: {fileID: 11400000, guid: 2f9a6542bfcd95045bae1cd0ea3ace46, type: 2}
-    - target: {fileID: 4726600137279161102, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
-      propertyPath: craftingMagicCircles.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726600137279161102, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: craftingMagicCircles.Array.data[0]
       value: 
       objectReference: {fileID: 57391309}
-    - target: {fileID: 4726600137279161102, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
-      propertyPath: recipes.Array.data[1].ingredients.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726600137279161102, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
-      propertyPath: recipes.Array.data[1].ingredients.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: cbd5a37b16af6314e83826696a4cfa02, type: 2}
-    - target: {fileID: 4726600137279161102, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
-      propertyPath: recipes.Array.data[1].ingredients.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: cbd5a37b16af6314e83826696a4cfa02, type: 2}
-    - target: {fileID: 4726600137279161102, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
-      propertyPath: recipes.Array.data[1].ingredients.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: cbd5a37b16af6314e83826696a4cfa02, type: 2}
     - target: {fileID: 5377259444424669668, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: talkText
       value: 

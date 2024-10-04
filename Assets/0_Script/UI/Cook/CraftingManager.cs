@@ -6,8 +6,12 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using static CraftingManager;
 public class CraftingManager : MonoBehaviour
 {
+    public PlayerInventory playerInventory;
+    public PauseCookManager pauseCookManager;
+
     [System.Serializable]
     public class Recipe
     {
@@ -29,6 +33,7 @@ public class CraftingManager : MonoBehaviour
 
     public Transform InventoryCanvas;
     public Transform CraftingCanvas;
+    public Button cookingButton;
 
     private InventorySlot magicCircleItemSlot;
 
@@ -123,7 +128,7 @@ public class CraftingManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        OnClose();
+        OnClose(false);
     }
 
     private void Update()
@@ -150,7 +155,7 @@ public class CraftingManager : MonoBehaviour
                                 if (magicCircleItemSlot.thisItem != currentItemSlot.thisItem)
                                 {
                                     // 다른 거야~
-                                    OnClose();
+                                    OnClose(false);
                                 }
                                 else
                                 {
@@ -276,7 +281,7 @@ public class CraftingManager : MonoBehaviour
                     }
 
                     //아이템 사용시 횟수 감소
-                    if (bHasAddedItemToMagicCircle == true)
+                    if (bHasAddedItemToMagicCircle == true && currentItemSlot.thisItem.itemType == ItemType.Ingredient)
                     {
                         currentItemSlot.thisItem.DecreaseAmount(1);
                         CheckForCreatedRecipes();
@@ -290,16 +295,23 @@ public class CraftingManager : MonoBehaviour
         }
     }
 
-    public void OnClose()
+    public void OnClose(bool removeItems)
     {
-        rollback();
+        if (cookingButton != null)
+        {
+            cookingButton.gameObject.SetActive(false);
+        }
+        rollback(removeItems);
 
         // 메모리 누수 막아야!
-        foreach (GameObject clonedInventorySlotGameObject in clonedInventorySlotGameObjects)
+        if (clonedInventorySlotGameObjects != null)
         {
-            Destroy(clonedInventorySlotGameObject);
+            foreach (GameObject clonedInventorySlotGameObject in clonedInventorySlotGameObjects)
+            {
+                Destroy(clonedInventorySlotGameObject);
+            }
+            clonedInventorySlotGameObjects.Clear();
         }
-        clonedInventorySlotGameObjects.Clear();
 
         if (clonedMagicCircleSlotGameObject != null)
         {
@@ -378,6 +390,8 @@ public class CraftingManager : MonoBehaviour
                 Color prevColor = resultSlot.GetComponent<Image>().color;
                 prevColor.a = 1.0f;
                 resultSlot.GetComponent<Image>().color = prevColor;
+
+                cookingButton.gameObject.SetActive(true);
             }
             else
             {
@@ -388,6 +402,8 @@ public class CraftingManager : MonoBehaviour
                 Color prevColor = resultSlot.GetComponent<Image>().color;
                 prevColor.a = 0.0f;
                 resultSlot.GetComponent<Image>().color = prevColor;
+
+                cookingButton.gameObject.SetActive(false);
             }
         }
     }
@@ -419,14 +435,14 @@ public class CraftingManager : MonoBehaviour
         }
     }
 
-    private void rollback()
+    private void rollback(bool removeItems)
     {
         if (craftingMagicCircle != null)
         {
             for (int slotIndex = 0; slotIndex < itemSlotList.Count; slotIndex++)
             {
                 // 아이템 다시 인벤토리로 돌려 보내야 해
-                if (itemSlotList[slotIndex] != null)
+                if (itemSlotList[slotIndex] != null && removeItems == false)
                 {
                     itemSlotList[slotIndex].thisItem.numberHeld++;
                 }
@@ -443,15 +459,9 @@ public class CraftingManager : MonoBehaviour
                 childSlot.item = null;
 
                 // 종료할 땐 다시 alpha 값 0으로해서 안 보이도록
-                Color prevColor = childSlot.GetComponent<Image>().color;
-                prevColor.a = 0.0f;
-                childSlot.GetComponent<Image>().color = prevColor;
-            }
-
-            // 아이템 다시 인벤토리로 돌려 보내야 해
-            if (magicCircleItemSlot != null)
-            {
-                magicCircleItemSlot.thisItem.numberHeld++;
+                Color prevChildSlotColor = childSlot.GetComponent<Image>().color;
+                prevChildSlotColor.a = 0.0f;
+                childSlot.GetComponent<Image>().color = prevChildSlotColor;
             }
 
             // 종료할 땐 다시 alpha 값 0으로해서 안 보이도록
@@ -459,9 +469,45 @@ public class CraftingManager : MonoBehaviour
             Color prevMagicCircleColor = magicCircle.color;
             prevMagicCircleColor.a = 0.0f;
             magicCircle.color = prevMagicCircleColor;
+
+            resultSlot.gameObject.SetActive(false);
+            resultSlot.item = null;
+
+            // 종료할 땐 다시 alpha 값 0으로해서 안 보이도록
+            Color prevColor = resultSlot.GetComponent<Image>().color;
+            prevColor.a = 0.0f;
+            resultSlot.GetComponent<Image>().color = prevColor;
+
+            cookingButton.gameObject.SetActive(false);
         }
         numCurrentItemSlots = 0;
         magicCircleItemSlot = null;
         craftingMagicCircle = null;
+    }
+
+    public void OnCook()
+    {
+        if (resultSlot != null && resultSlot.item != null)
+        {
+            if (playerInventory)
+            {
+                InventoryItem cookedItem = resultSlot.item;
+                OnClose(true);
+
+                if (playerInventory.myInventory.Contains(cookedItem))
+                {
+                    cookedItem.numberHeld += 1;
+                }
+                else
+                {
+                    playerInventory.myInventory.Add(cookedItem);
+                    cookedItem.numberHeld = 1;
+                }
+
+                IPauseManager.SetPausable(true);
+                pauseCookManager.ChangePause(false);
+                IPauseManager.SetPausable(false);
+            }
+        }
     }
 }
