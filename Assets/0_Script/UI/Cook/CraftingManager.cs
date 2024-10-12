@@ -155,13 +155,7 @@ public class CraftingManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        OnClose(false);
-
-        if (clonedMagicCircleCookTypeSlotGameObject != null)
-        {
-            Destroy(clonedMagicCircleCookTypeSlotGameObject);
-            clonedMagicCircleCookTypeSlotGameObject = null;
-        }
+        OnClose(false, true);
     }
 
     // Check if two RectTransforms overlap
@@ -201,6 +195,7 @@ public class CraftingManager : MonoBehaviour
                 if (isDraggingFromCraftingCanvas)
                 {
                     currentItemSlot.thisItem.numberHeld++;
+                    --numCurrentItemSlots;
                 }
 
                 bool bIgnoreUpdate = false;
@@ -229,7 +224,7 @@ public class CraftingManager : MonoBehaviour
                                     }
                                 }
 
-                                OnClose(false);
+                                OnClose(false, false);
                                 if (inventoryManager != null)
                                 {
                                     inventoryManager.ClearInventorySlots();
@@ -434,7 +429,7 @@ public class CraftingManager : MonoBehaviour
         }
     }
 
-    public void OnClose(bool removeItems)
+    public void OnClose(bool removeItems, bool closeCookType)
     {
         if (cookingButton != null)
         {
@@ -457,6 +452,22 @@ public class CraftingManager : MonoBehaviour
             Destroy(clonedMagicCircleIngredientsSlotGameObject);
             clonedMagicCircleIngredientsSlotGameObject = null;
         }
+
+        if (closeCookType)
+        {
+            if (clonedMagicCircleCookTypeSlotGameObject != null)
+            {
+                Destroy(clonedMagicCircleCookTypeSlotGameObject);
+                clonedMagicCircleCookTypeSlotGameObject = null;
+            }
+
+            if (currentCraftingCookType != null)
+            {
+                currentCraftingCookType.gameObject.SetActive(false);
+            }
+        }
+
+        customCursor.gameObject.SetActive(false);
     }
 
     void CheckForCreatedRecipes()
@@ -488,7 +499,7 @@ public class CraftingManager : MonoBehaviour
                     }
                     else
                     {
-                        outHashcode.originalHashcode = hashcode ^ clonedMagicCircleIngredientsSlotGameObject.GetComponent<InventorySlot>().thisItem.itemName.GetHashCode();
+                        outHashcode.originalHashcode = hashcode ^ clonedMagicCircleCookTypeSlotGameObject.GetComponent<InventorySlot>().thisItem.itemName.GetHashCode();
                         outHashcode.count = 1;
                         outHashcode.hashcode = hashcode;
                         hashcodes.Add(item.itemName, outHashcode);
@@ -644,7 +655,7 @@ public class CraftingManager : MonoBehaviour
             if (playerInventory)
             {
                 InventoryItem cookedItem = resultSlot.item;
-                OnClose(true);
+                OnClose(true, true);
 
                 if (playerInventory.myInventory.Contains(cookedItem))
                 {

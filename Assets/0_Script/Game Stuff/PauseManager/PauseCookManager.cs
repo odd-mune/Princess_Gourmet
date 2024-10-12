@@ -22,7 +22,7 @@ public class PauseCookManager : IPauseManager
         }
         else
         {
-            craftingManager.OnClose(false);
+            craftingManager.OnClose(false, true);
             craftingManager.enabled = false;
         }
     }
