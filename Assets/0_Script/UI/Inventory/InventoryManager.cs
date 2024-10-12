@@ -75,7 +75,8 @@ public class InventoryManager : MonoBehaviour
                             }
                             break;
                         case InventoryType.MagicCircle:
-                            if (playerInventory.myInventory[i].itemType != ItemType.MagicCircle)
+                            if (playerInventory.myInventory[i].itemType != ItemType.MagicCircleIngredients
+                                && playerInventory.myInventory[i].itemType != ItemType.MagicCircleCookType)
                             {
                                 continue;
                             }

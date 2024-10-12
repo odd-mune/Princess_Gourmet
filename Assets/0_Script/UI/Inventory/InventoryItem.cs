@@ -7,7 +7,8 @@ public enum ItemType
 {
     Ingredient,
     Tool,
-    MagicCircle,
+    MagicCircleIngredients,
+    MagicCircleCookType,
 }
 
 public enum CookType
