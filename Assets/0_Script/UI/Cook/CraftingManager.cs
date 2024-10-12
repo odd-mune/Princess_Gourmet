@@ -420,7 +420,7 @@ public class CraftingManager : MonoBehaviour
     {
         if(currentItemSlot == null)
         {
-            bool canAddItems = numCurrentItemSlots < 4 && magicCircleItemSlot != null;
+            bool canAddItems = magicCircleItemSlot != null && craftingMagicCircle != null && numCurrentItemSlots < craftingMagicCircle.transform.childCount;
             bool isIngredient = itemSlot.thisManager.inventoryType == InventoryType.Ingredients && itemSlot.thisItem.itemType == ItemType.Ingredient;
 
             bool canAddMagicCircle = magicCircleItemSlot != null && magicCircleItemSlot.thisItem != itemSlot.thisItem;
