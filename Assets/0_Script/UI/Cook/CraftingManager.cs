@@ -155,7 +155,19 @@ public class CraftingManager : MonoBehaviour
                                 if (magicCircleItemSlot.thisItem != currentItemSlot.thisItem)
                                 {
                                     // 다른 거야~
+                                    InventoryManager inventoryManager = null;
+                                    foreach (var itemSlot in itemSlotList)
+                                    {
+                                        if (itemSlot != null)
+                                        {
+                                            inventoryManager = itemSlot.thisManager;
+                                            break;
+                                        }
+                                    }
+
                                     OnClose(false);
+                                    inventoryManager.ClearInventorySlots();
+                                    inventoryManager.MakeInventorySlots();
                                 }
                                 else
                                 {
