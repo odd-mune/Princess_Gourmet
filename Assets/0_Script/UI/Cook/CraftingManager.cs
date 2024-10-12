@@ -418,7 +418,10 @@ public class CraftingManager : MonoBehaviour
                     if (bHasAddedItemToMagicCircle == true && 
                         (currentItemSlot.thisItem.itemType == ItemType.Ingredient || currentItemSlot.thisItem.itemType == ItemType.MagicCircleCookType))
                     {
-                        currentItemSlot.thisItem.DecreaseAmount(1);
+                        if (currentItemSlot.thisItem.itemType == ItemType.Ingredient)
+                        {
+                            currentItemSlot.thisItem.DecreaseAmount(1);
+                        }
                         CheckForCreatedRecipes();
                     }
                 }
