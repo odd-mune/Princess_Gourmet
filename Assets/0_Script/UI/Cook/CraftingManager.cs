@@ -439,7 +439,7 @@ public class CraftingManager : MonoBehaviour
     {
         if (craftingMagicCircle != null)
         {
-            for (int slotIndex = 0; slotIndex < itemSlotList.Count; slotIndex++)
+            for (int slotIndex = 0; slotIndex < craftingMagicCircle.transform.childCount; slotIndex++)
             {
                 // 아이템 다시 인벤토리로 돌려 보내야 해
                 if (itemSlotList[slotIndex] != null && removeItems == false)
