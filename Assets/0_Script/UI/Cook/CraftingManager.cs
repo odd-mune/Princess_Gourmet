@@ -55,6 +55,8 @@ public class CraftingManager : MonoBehaviour
         public int hashcode;
     }
 
+    private bool isDraggingFromCraftingCanvas;
+
     private void Start()
     {
         itemSlotList = new List<InventorySlot>();
@@ -66,6 +68,10 @@ public class CraftingManager : MonoBehaviour
         {
             if (craftingMagicCircleTemplate.transform.childCount > maxIngredients)
             {
+                if (craftingMagicCircle != null)
+                {
+                    craftingMagicCircle.SetActive(false);
+                }
                 craftingMagicCircle = craftingMagicCircleTemplate;
                 maxIngredients = craftingMagicCircleTemplate.transform.childCount;
             }
@@ -80,6 +86,7 @@ public class CraftingManager : MonoBehaviour
                 Debug.Log($"마법진의 {i} 번째 slot이 null입니다!!");
                 Debug.Break();
             }
+            childSlot.craftingManager = this;
             childSlot.index = i;
             itemSlotList.Add(null);
         }
@@ -131,15 +138,49 @@ public class CraftingManager : MonoBehaviour
         OnClose(false);
     }
 
+    // Check if two RectTransforms overlap
+    private static bool AreRectTransformsOverlapping(GameObject obj1, GameObject obj2)
+    {
+        RectTransform rect1 = obj1.GetComponent<RectTransform>();
+        RectTransform rect2 = obj2.GetComponent<RectTransform>();
+
+        if (rect1 == null || rect2 == null)
+        {
+            return false;
+        }
+
+        // Check if the RectTransform of obj1 contains the screen position of obj2's corners
+        Vector3[] corners1 = new Vector3[4];
+        rect1.GetWorldCorners(corners1);  // Get the corners of rect1 in world space
+
+        // Check each corner of rect2 against the bounds of rect1
+        for (int i = 0; i < 4; i++)
+        {
+            Vector3 corner = corners1[i];
+            if (RectTransformUtility.RectangleContainsScreenPoint(rect2, corner))
+            {
+                return true;  // Overlap detected
+            }
+        }
+
+        return false;  // No overlap detected
+    }
+
     private void Update()
     {
         if(Input.GetMouseButtonUp(0))
         {
             if(currentItemSlot != null)
             {
-                bool bIgnoreUpdate = false;
+                if (isDraggingFromCraftingCanvas)
+                {
+                    currentItemSlot.thisItem.numberHeld++;
+                }
 
-                if (customCursor.GetComponent<RectTransform>().rect.Overlaps(CraftingCanvas.GetComponent<RectTransform>().rect) == true)
+                bool bIgnoreUpdate = false;
+                bool isCursorOverlappingWithCraftingCanvas = AreRectTransformsOverlapping(customCursor.gameObject, CraftingCanvas.gameObject);
+                bool isCursorOverlappingWithInventory = AreRectTransformsOverlapping(customCursor.gameObject, InventoryCanvas.gameObject);
+                if (isCursorOverlappingWithCraftingCanvas == true)
                 {
                     // 이미 MagicCircle이 설정된 상태에서 MagicCircle을 새로 설정해준다면, 현재 설정된 마법진과 재료들을 rollback 해줘야 한다
                     if (clonedMagicCircleSlotGameObject != null)
@@ -166,8 +207,11 @@ public class CraftingManager : MonoBehaviour
                                     }
 
                                     OnClose(false);
-                                    inventoryManager.ClearInventorySlots();
-                                    inventoryManager.MakeInventorySlots();
+                                    if (inventoryManager != null)
+                                    {
+                                        inventoryManager.ClearInventorySlots();
+                                        inventoryManager.MakeInventorySlots();
+                                    }
                                 }
                                 else
                                 {
@@ -177,14 +221,14 @@ public class CraftingManager : MonoBehaviour
                             }
                         }
                     }
-
-                    // 드래그 앤 드롭 끝. 이제 커서에 이미지 따라다니면 안됏!
-                    customCursor.gameObject.SetActive(false);
                 }
                 else
                 {
                     bIgnoreUpdate = true;
                 }
+
+                // 드래그 앤 드롭 끝. 이제 커서에 이미지 따라다니면 안됏!
+                customCursor.gameObject.SetActive(false);
 
                 if (bIgnoreUpdate == false)
                 {
@@ -211,6 +255,7 @@ public class CraftingManager : MonoBehaviour
                                 Debug.Log($"마법진의 {i} 번째 slot이 null입니다!!");
                                 Debug.Break();
                             }
+                            childSlot.craftingManager = this;
 
                             if (childSlot.item != null)
                             {
@@ -237,6 +282,7 @@ public class CraftingManager : MonoBehaviour
                             nearestSlot.GetComponent<Image>().color = prevColor;
 
                             nearestSlot.item = newSlot.thisItem;
+                            nearestSlot.craftingManager = this;
                             itemSlotList[nearestSlot.index] = newSlot;
                             ++numCurrentItemSlots;
 
@@ -264,7 +310,11 @@ public class CraftingManager : MonoBehaviour
                         if (craftingMagicCircle == null || 
                             craftingMagicCircle.transform.childCount != magicCircleItemSlot.thisItem.numIngredients)
                         {
-                            craftingMagicCircle = null;
+                            if (craftingMagicCircle != null)
+                            {
+                                craftingMagicCircle.SetActive(false);
+                                craftingMagicCircle = null;
+                            }
                             foreach (GameObject craftingMagicCircleTemplate in craftingMagicCircles)
                             {
                                 if (craftingMagicCircleTemplate.transform.childCount == magicCircleItemSlot.thisItem.numIngredients)
@@ -281,6 +331,7 @@ public class CraftingManager : MonoBehaviour
                             Debug.Break();
                         }
 
+                        craftingMagicCircle.SetActive(true);
                         Image magicCircle = craftingMagicCircle.GetComponent<Image>();
                         magicCircle.sprite = magicCircleItemSlot.thisItem.magicCircleImageOrNull;
                         Color prevMagicCircleColor = magicCircle.color;
@@ -304,6 +355,7 @@ public class CraftingManager : MonoBehaviour
                 currentItemSlot.thisManager.MakeInventorySlots();
                 currentItemSlot = null;
             }
+            isDraggingFromCraftingCanvas = false;
         }
     }
 
@@ -422,22 +474,23 @@ public class CraftingManager : MonoBehaviour
 
     public void OnClickSlot(Slot slot)
     {
-        OnMouseDownItem(itemSlotList[slot.index]);
+        OnMouseDownItem(itemSlotList[slot.index], false);
         slot.item = null;
         slot.gameObject.SetActive(false);
         itemSlotList[slot.index] = null;
+        isDraggingFromCraftingCanvas = true;
     }
 
-    public void OnMouseDownItem(InventorySlot itemSlot)
+    public void OnMouseDownItem(InventorySlot itemSlot, bool isAdding = true)
     {
         if(currentItemSlot == null)
         {
-            bool canAddItems = magicCircleItemSlot != null && craftingMagicCircle != null && numCurrentItemSlots < craftingMagicCircle.transform.childCount;
+            bool canAddItems = isAdding && magicCircleItemSlot != null && craftingMagicCircle != null && numCurrentItemSlots < craftingMagicCircle.transform.childCount;
             bool isIngredient = itemSlot.thisManager.inventoryType == InventoryType.Ingredients && itemSlot.thisItem.itemType == ItemType.Ingredient;
 
             bool canAddMagicCircle = magicCircleItemSlot != null && magicCircleItemSlot.thisItem != itemSlot.thisItem;
             bool isMagicCircle = itemSlot.thisManager.inventoryType == InventoryType.MagicCircle && itemSlot.thisItem.itemType == ItemType.MagicCircle;
-            if ((canAddItems && isIngredient) || isMagicCircle)
+            if ((canAddItems && isIngredient) || isMagicCircle || (isAdding == false && itemSlot != null))
             {
                 currentItemSlot = itemSlot;
 
@@ -469,6 +522,7 @@ public class CraftingManager : MonoBehaviour
                 }
 
                 childSlot.item = null;
+                childSlot.craftingManager = this;
 
                 // 종료할 땐 다시 alpha 값 0으로해서 안 보이도록
                 Color prevChildSlotColor = childSlot.GetComponent<Image>().color;
@@ -494,6 +548,11 @@ public class CraftingManager : MonoBehaviour
         }
         numCurrentItemSlots = 0;
         magicCircleItemSlot = null;
+        if (craftingMagicCircle != null)
+        {
+            craftingMagicCircle.SetActive(false);
+            craftingMagicCircle = null;
+        }
         craftingMagicCircle = null;
     }
 
