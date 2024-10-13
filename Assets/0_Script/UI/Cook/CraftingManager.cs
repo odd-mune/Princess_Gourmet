@@ -467,7 +467,10 @@ public class CraftingManager : MonoBehaviour
             }
         }
 
-        customCursor.gameObject.SetActive(false);
+        if (customCursor != null)
+        {
+            customCursor.gameObject.SetActive(false);
+        }
     }
 
     void CheckForCreatedRecipes()
