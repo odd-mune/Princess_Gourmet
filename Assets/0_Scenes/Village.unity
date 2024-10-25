@@ -21432,6 +21432,89 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!1 &510416549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 510416550}
+  - component: {fileID: 510416552}
+  - component: {fileID: 510416551}
+  m_Layer: 0
+  m_Name: Forest (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &510416550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510416549}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -157.2, y: 1.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1132400111}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &510416551
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510416549}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 50
+--- !u!114 &510416552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510416549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a6b72d6b4bc3e4086cb4ea266ef144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioName: forest
+  enableAttenuation: 0
+  attenuationBeginRatio: 0.8
 --- !u!1 &515219648
 GameObject:
   m_ObjectHideFlags: 0
@@ -21913,6 +21996,89 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!1 &527321525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 527321526}
+  - component: {fileID: 527321528}
+  - component: {fileID: 527321527}
+  m_Layer: 0
+  m_Name: Forest (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &527321526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527321525}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -96.4, y: 69.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1132400111}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &527321527
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527321525}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 50
+--- !u!114 &527321528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527321525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a6b72d6b4bc3e4086cb4ea266ef144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioName: forest
+  enableAttenuation: 0
+  attenuationBeginRatio: 0.8
 --- !u!1 &531450532
 GameObject:
   m_ObjectHideFlags: 0
@@ -67139,9 +67305,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3651182078983843974, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4289624466796223010, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: graphManager
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459718451914852948, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: audioName
+      value: forest
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459718451914852948, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: attenuationBeginRatio
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4726600137279161102, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: resultSlot
@@ -67187,6 +67365,14 @@ PrefabInstance:
       propertyPath: craftingMagicCircles.Array.data[3]
       value: 
       objectReference: {fileID: 647388793}
+    - target: {fileID: 5069002163272049157, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -85.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069002163272049157, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5377259444424669668, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: talkText
       value: 
@@ -67199,6 +67385,26 @@ PrefabInstance:
       propertyPath: portraitImg
       value: 
       objectReference: {fileID: 647388788}
+    - target: {fileID: 6221316134159280124, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235877794695370139, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235877794695370139, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707583336864399092, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: m_Radius
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7652765634199337953, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: m_Radius
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8384161380897239843, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_Name
       value: Settings
@@ -67209,7 +67415,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3546607585288804867, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 527321526}
+    - targetCorrespondingSourceObject: {fileID: 3546607585288804867, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 510416550}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
 --- !u!114 &1132400110 stripped
@@ -67223,6 +67435,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62542c5feb0b82845b6130cc07ff7844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1132400111 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3546607585288804867, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+  m_PrefabInstance: {fileID: 1132400109}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1134392806
 GameObject:
   m_ObjectHideFlags: 0
@@ -124005,6 +124222,46 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 216961189}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: rockTilemaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: woodTilemaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: grassTilemaps.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: rockTilemaps.Array.data[0]
+      value: 
+      objectReference: {fileID: 1793208933}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: woodTilemaps.Array.data[0]
+      value: 
+      objectReference: {fileID: 1998980960}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: grassTilemaps.Array.data[0]
+      value: 
+      objectReference: {fileID: 1972402886}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: grassTilemaps.Array.data[1]
+      value: 
+      objectReference: {fileID: 1575053952}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: grassTilemaps.Array.data[2]
+      value: 
+      objectReference: {fileID: 1616197465}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: grassTilemaps.Array.data[3]
+      value: 
+      objectReference: {fileID: 1617853576}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: grassTilemaps.Array.data[4]
+      value: 
+      objectReference: {fileID: 1638476528}
     - target: {fileID: 3779406437340744730, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
       propertyPath: m_Name
       value: Player
