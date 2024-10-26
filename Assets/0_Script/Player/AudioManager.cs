@@ -21,13 +21,14 @@ public class Sound
         source.loop = loop;
     }
 
-    public void SetVolumn()
+    public void SetVolumn(float volume)
     {
         if (source != null)
         {
-            source.volume = Volumn;
+            source.volume = volume;
         }
     }
+
     public float GetVolume()
     {
         if (source != null)
@@ -36,6 +37,13 @@ public class Sound
         }
 
         return 0.0f;
+    }
+    public void ResetVolume()
+    {
+        if (source != null)
+        {
+            source.volume = Volumn;
+        }
     }
 
     public void Play()
@@ -94,7 +102,7 @@ public class AudioManager : MonoBehaviour
             sounds[i].SetSource(soundObject.AddComponent<AudioSource>());
             soundObject.transform.SetParent(this.transform);
 
-            sounds[i].SetVolumn();
+            sounds[i].ResetVolume();
             if (sounds[i].name == "background")
             {
                 sounds[i].Play();
@@ -156,8 +164,7 @@ public class AudioManager : MonoBehaviour
         {
             if(_name == sounds[i].name)
             {
-                sounds[i].Volumn = _Volumn;
-                sounds[i].SetVolumn();
+                sounds[i].SetVolumn(_Volumn);
                 return;
             }
         }
@@ -174,6 +181,18 @@ public class AudioManager : MonoBehaviour
         }
 
         return 0.0f;
+    }
+
+    public void ResetVolumn(string _name)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (_name == sounds[i].name)
+            {
+                sounds[i].ResetVolume();
+                return;
+            }
+        }
     }
 
     public bool IsPlaying(string _name)

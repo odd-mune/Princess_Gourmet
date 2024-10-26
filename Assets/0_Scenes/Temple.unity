@@ -563,7 +563,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2049,7 +2049,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3240,7 +3240,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4361,6 +4361,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1104822856}
     m_Modifications:
+    - target: {fileID: 860867149993424473, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 860867149993424473, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.32959414
+      objectReference: {fileID: 0}
+    - target: {fileID: 860867149993424473, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3021734761244768711, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 142.56001
@@ -4413,6 +4425,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a10915606dc8d7742a4c9858eb3d94ca, type: 2}
+    - target: {fileID: 8091262530149556444, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
+      propertyPath: isOffOnDay
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4486,6 +4502,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 48c15bec9d0e6b64ca49dafcb008004f, type: 2}
+    - target: {fileID: 8091262530149556444, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
+      propertyPath: isOffOnDay
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4544,7 +4564,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5185,6 +5205,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1104822856}
     m_Modifications:
+    - target: {fileID: 860867149993424473, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.037088156
+      objectReference: {fileID: 0}
+    - target: {fileID: 860867149993424473, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 860867149993424473, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2651445744409034378, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
       propertyPath: m_Size.x
       value: 0.5397396
@@ -5253,6 +5285,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: cf56790f0a83642429fd65e6d22dbcc6, type: 2}
+    - target: {fileID: 8091262530149556444, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
+      propertyPath: isOffOnDay
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5970,7 +6006,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7438,7 +7474,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7530,6 +7566,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1104822856}
     m_Modifications:
+    - target: {fileID: 860867149993424473, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.93475723
+      objectReference: {fileID: 0}
     - target: {fileID: 3021734761244768711, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 153.56001
@@ -7582,6 +7622,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d2fdfa84befd46341bff244e65dd124a, type: 2}
+    - target: {fileID: 8091262530149556444, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
+      propertyPath: isOffOnDay
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7600,6 +7644,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1821056140360466205, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: m_Intensity
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2471415414521708977, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7643,6 +7691,10 @@ PrefabInstance:
     - target: {fileID: 4289624466796223010, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: graphManager
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341132243491328480, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: controlGlobalLight
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4726600137279161102, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: resultSlot
@@ -7917,6 +7969,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1104822856}
     m_Modifications:
+    - target: {fileID: 860867149993424473, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7737669
+      objectReference: {fileID: 0}
+    - target: {fileID: 860867149993424473, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4690281
+      objectReference: {fileID: 0}
+    - target: {fileID: 860867149993424473, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9622642
+      objectReference: {fileID: 0}
     - target: {fileID: 2651445744409034378, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
       propertyPath: m_Size.x
       value: 0.59610367
@@ -7985,6 +8049,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: f4a8a80557238714885b73fe3b50335e, type: 2}
+    - target: {fileID: 8091262530149556444, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
+      propertyPath: isOffOnDay
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8256,7 +8324,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9458,7 +9526,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11014,7 +11082,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14612,7 +14680,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16041,6 +16109,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: torch_red
       objectReference: {fileID: 0}
+    - target: {fileID: 8091262530149556444, guid: bfb6c8b33b2bbe4469627f0c7a35b00b, type: 3}
+      propertyPath: isOffOnDay
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16104,7 +16176,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17407,7 +17479,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18451,7 +18523,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19179,7 +19251,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21839,6 +21911,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1104822856}
     m_Modifications:
+    - target: {fileID: 2911226999631173231, guid: 86f034c5493d7f44fb564a7d6bcaf1d6, type: 3}
+      propertyPath: isOffOnDay
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5184152593891018856, guid: 86f034c5493d7f44fb564a7d6bcaf1d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 148.1
@@ -21878,6 +21954,14 @@ PrefabInstance:
     - target: {fileID: 5184152593891018856, guid: 86f034c5493d7f44fb564a7d6bcaf1d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6043087371457380586, guid: 86f034c5493d7f44fb564a7d6bcaf1d6, type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6043087371457380586, guid: 86f034c5493d7f44fb564a7d6bcaf1d6, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6150735105478666369, guid: 86f034c5493d7f44fb564a7d6bcaf1d6, type: 3}
       propertyPath: m_Name
