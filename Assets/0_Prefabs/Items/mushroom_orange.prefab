@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1217811176721147568}
   - component: {fileID: 4497980690952832790}
   - component: {fileID: 5641852100240494216}
+  - component: {fileID: 3359833775678560053}
   m_Layer: 0
   m_Name: mushroom_orange
-  m_TagString: Untagged
+  m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,3 +131,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.6314697}
   m_EdgeRadius: 0
+--- !u!114 &3359833775678560053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983632786002562814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd8dbc54e75efb64596b61b0ac50616e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInventory: {fileID: 11400000, guid: bc14e62c4e215604e9cac227700a7e72, type: 2}
+  thisItem: {fileID: 11400000, guid: db610486fae87c84e9d8d314058f873d, type: 2}
+  pickUpText: {fileID: 0}
