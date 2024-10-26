@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class saltSnail : Animal
 {
@@ -16,6 +17,9 @@ public class saltSnail : Animal
     public float saltRegenerateTimer = 5.0f;
     private float mCurrentSaltRegenerateTimer;
     private bool mIsHidden;
+    private CheckToday mCheckToday;
+
+    private FlickeringLight mFlickeringLight;
 
     void Start()
     {
@@ -28,6 +32,10 @@ public class saltSnail : Animal
         mIsPickUpable = false;
         mIsHidden = true;
         anim.SetBool("isPickUpable", mIsPickUpable);
+
+        mFlickeringLight = GetComponentInChildren<FlickeringLight>();
+
+        mCheckToday = FindObjectOfType<CheckToday>();
     }
 
     void FixedUpdate()
@@ -42,6 +50,23 @@ public class saltSnail : Animal
         {
             mIsPickUpable = mIsHidden;
             anim.SetBool("isPickUpable", true);
+        }
+
+        if (mCheckToday.IsDay() == true)
+        {
+            mFlickeringLight.lightToControl.intensity = 0.0f;
+        }
+        else
+        {
+            if (anim.GetBool("isPickUpable") == true)
+            {
+                mFlickeringLight.UpdateIntensity();
+                mFlickeringLight.UpdateRadius();
+            }
+            else
+            {
+                mFlickeringLight.lightToControl.intensity = 0.0f;
+            }
         }
     }
 

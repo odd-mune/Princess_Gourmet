@@ -11,6 +11,7 @@ public class CheckToday : MonoBehaviour
     public float maxIntensity;
     public float minIntensity;
     public Light2D globalLight2D;
+    public bool controlGlobalLight;
 
     // Start is called before the first frame update
     void Start()
@@ -36,19 +37,22 @@ public class CheckToday : MonoBehaviour
     {
         elapsedSeconds += Time.fixedDeltaTime;
 
-        // Calculate the total cycle time
-        float totalCycleTime = numSecondsInSun + numSecondsInMoon;
-
-        // Ensure totalCycleTime is not zero to prevent division by zero
-        if (totalCycleTime > 0)
+        if (controlGlobalLight == true)
         {
-            // Normalize elapsed time to a range of 0 to 1
-            float normalizedTime = (elapsedSeconds % totalCycleTime) / totalCycleTime;
+            // Calculate the total cycle time
+            float totalCycleTime = numSecondsInSun + numSecondsInMoon;
 
-            // Get the brightness based on normalized time
-            float brightnessValue = GetBrightness(normalizedTime);
+            // Ensure totalCycleTime is not zero to prevent division by zero
+            if (totalCycleTime > 0)
+            {
+                // Normalize elapsed time to a range of 0 to 1
+                float normalizedTime = (elapsedSeconds % totalCycleTime) / totalCycleTime;
 
-            globalLight2D.intensity = brightnessValue * (maxIntensity - minIntensity) + minIntensity;
+                // Get the brightness based on normalized time
+                float brightnessValue = GetBrightness(normalizedTime);
+
+                globalLight2D.intensity = brightnessValue * (maxIntensity - minIntensity) + minIntensity;
+            }
         }
     }
 
@@ -59,7 +63,7 @@ public class CheckToday : MonoBehaviour
         float sunlight = getSunLight(normalizedTime);
 
         // Calculate moonlight contribution
-        float moonlight = 0.3f;
+        float moonlight = 0.15f;
 
         // Starlight: constant low brightness
         float starlight = 0.05f;
