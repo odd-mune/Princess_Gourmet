@@ -113,9 +113,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a6b72d6b4bc3e4086cb4ea266ef144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkToday: {fileID: 4341132243491328480}
   audioName: meadow
   enableAttenuation: 1
   attenuationBeginRatio: 1
+  playableTimeInfo:
+    Day: 1
+    Night: 0
 --- !u!58 &6707583336864399092
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -301,9 +305,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a6b72d6b4bc3e4086cb4ea266ef144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkToday: {fileID: 0}
   audioName: waterfall
   enableAttenuation: 1
   attenuationBeginRatio: 0.5
+  playableTimeInfo:
+    Day: 0
+    Night: 0
 --- !u!58 &4249886686165495513
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -384,9 +392,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a6b72d6b4bc3e4086cb4ea266ef144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkToday: {fileID: 0}
   audioName: 
   enableAttenuation: 0
   attenuationBeginRatio: 1
+  playableTimeInfo:
+    Day: 0
+    Night: 0
 --- !u!58 &4199888285742220805
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -467,9 +479,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a6b72d6b4bc3e4086cb4ea266ef144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkToday: {fileID: 0}
   audioName: 
   enableAttenuation: 0
   attenuationBeginRatio: 1
+  playableTimeInfo:
+    Day: 0
+    Night: 0
 --- !u!58 &7652765634199337953
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -600,6 +616,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d0bea850cdb1bb40a050bb59ac5f8d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numSecondsInSun: 90
+  numSecondsInMoon: 90
+  maxIntensity: 1
+  minIntensity: 0
+  globalLight2D: {fileID: 5718316427464826715}
 --- !u!1 &7530183057233765656
 GameObject:
   m_ObjectHideFlags: 0
