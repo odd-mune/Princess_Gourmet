@@ -7,6 +7,7 @@ using TMPro;
 using UnityEngine.Tilemaps;
 using Unity.VisualScripting;
 using UnityEngine.InputSystem.LowLevel;
+using UnityEditor;
 
 public enum PlayerState
 {
@@ -60,6 +61,36 @@ public class PlayerManager : MonoBehaviour
     private Vector3Int mPreviousTilePosition = Vector3Int.zero;
     private bool mbHasInitializedPreviousTilePosition = false;
     private bool mbHasHit = false;
+
+    // 공주 옷장
+    [System.Serializable]
+    public class DirectionalAnimationClips
+    {
+        public AnimationClip Down;
+        public AnimationClip Up;
+        public AnimationClip Left;
+        public AnimationClip Right;
+    };
+
+    [System.Serializable]
+    public class PrincessAnimationClips
+    {
+        public DirectionalAnimationClips Idle;
+        public DirectionalAnimationClips Walk;
+        public DirectionalAnimationClips Attack;
+    };
+
+    [System.Serializable]
+    public class ClothAnimationInfos
+    {
+        public string name;
+        public PrincessAnimationClips clothAnimationClips;
+    };
+
+    public string currentCloth;
+    public List<ClothAnimationInfos> clothAnimationInfos;
+    private ClothAnimationInfos currentAnimationInfo = null;
+
     void Start()
     {
         // Limit the framerate to 30
@@ -75,6 +106,8 @@ public class PlayerManager : MonoBehaviour
         mCurrentPickUpObjects = new List<GameObject>();
         hasConsumedSpaceKey = false;
         mIsKnockingBack = false;
+
+        SetCloth(currentCloth);
     }
 
     private void OnDestroy()
@@ -245,7 +278,7 @@ public class PlayerManager : MonoBehaviour
             hasConsumedSpaceKey = false;
         }
 
-        if (Input.GetButtonDown("attack") && currentState != PlayerState.attack
+        if (currentAnimationInfo.clothAnimationClips.Attack.Down != null && Input.GetButtonDown("attack") && currentState != PlayerState.attack
             && currentState != PlayerState.stagger)
         {
             StartCoroutine(AttackCo());
@@ -260,6 +293,72 @@ public class PlayerManager : MonoBehaviour
             || currentState == PlayerState.idle)
         {
             UpdateAnimationAndMove();
+        }
+    }
+
+    public void SetCloth(string cloth)
+    {
+        foreach (var clothTextureInfo in clothAnimationInfos)
+        {
+            if (clothTextureInfo.name == cloth)
+            {
+                currentAnimationInfo = clothTextureInfo;
+                AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+
+                for (int clipIndex = 0; clipIndex < clips.Length; clipIndex++)
+                {
+                    AnimationClip clip = clips[clipIndex];
+                    if (clip.name.Contains("idleDown"))
+                    {
+                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Idle.Down;
+                    }
+                    else if (clip.name.Contains("idleUp"))
+                    {
+                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Idle.Up;
+                    }
+                    else if (clip.name.Contains("idleLeft"))
+                    {
+                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Idle.Left;
+                    }
+                    else if (clip.name.Contains("idleRight"))
+                    {
+                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Idle.Right;
+                    }
+                    else if (clip.name.Contains("walkDown"))
+                    {
+                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Walk.Down;
+                    }
+                    else if (clip.name.Contains("walkUp"))
+                    {
+                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Walk.Up;
+                    }
+                    else if (clip.name.Contains("walkLeft"))
+                    {
+                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Walk.Left;
+                    }
+                    else if (clip.name.Contains("walkRight"))
+                    {
+                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Walk.Right;
+                    }
+                    else if (clip.name.Contains("attackDown"))
+                    {
+                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Attack.Down;
+                    }
+                    else if (clip.name.Contains("attackDown"))
+                    {
+                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Attack.Up;
+                    }
+                    else if (clip.name.Contains("attackDown"))
+                    {
+                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Attack.Left;
+                    }
+                    else if (clip.name.Contains("attackDown"))
+                    {
+                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Attack.Right;
+                    }
+                }
+                break;
+            }
         }
     }
 
