@@ -1,22 +1,29 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class FlickeringLight : MonoBehaviour
 {
+    [Tooltip("제어할 Light2D")]
     public Light2D lightToControl;
+    [Tooltip("True일 시 자동으로 배치된 Scene에서 깜빡인다.")]
     public bool isAutomated;
+    [Tooltip("True일 시 밤에만 켜진다.")]
     public bool isOffOnDay;
 
     private CheckToday mCheckToday;
 
     private float mBaseIntensity = 0.0f;
+    [Tooltip("밝기 깜빡임 정도. 크면 클 수록 깜빡이는 범위가 커진다.")]
     public float intensityVariation = 1.0f;
+    [Tooltip("밝기 깜빡임 속도. 값이 작을 수록 느려진다.")]
     public float frequency = 10.0f;
 
     private float mBaseRadius;
+    [Tooltip("빛 영향 반지름 깜빡임 정도. 크면 클 수록 깜빡이는 범위가 커진다.")]
     public float radiusVariation = 1.0f;
+    [Tooltip("반지름 깜빡임 속도. 값이 작을 수록 느려진다.")]
     public float radiusFrequency = 10.0f;
 
     private float mRandomOffset = 0.0f;

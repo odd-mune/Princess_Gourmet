@@ -87,7 +87,9 @@ public class PlayerManager : MonoBehaviour
         public PrincessAnimationClips clothAnimationClips;
     };
 
+    [Tooltip("현재 Scene에서 사용할 옷을 결정한다. Override하지 말 것.")]
     public string currentCloth;
+    [Tooltip("공주가 사용 가능한 cloth 정보를 기록한다. name이 겹치지 않도록 주의할 것. Prefab에 저장할 것.")]
     public List<ClothAnimationInfos> clothAnimationInfos;
     private ClothAnimationInfos currentAnimationInfo = null;
 
