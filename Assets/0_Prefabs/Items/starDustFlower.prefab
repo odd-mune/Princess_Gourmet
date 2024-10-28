@@ -31,7 +31,8 @@ Transform:
   m_LocalPosition: {x: -3.2, y: -30.3, z: 0.25668055}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5004576312688736504}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4038518884166445742
@@ -54,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5c0a7bc3b3dba804c8a8695260378ffd, type: 2}
+  - {fileID: 2100000, guid: e322536df582f9842a8e115c24885332, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,8 +100,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInventory: {fileID: 11400000, guid: bc14e62c4e215604e9cac227700a7e72, type: 2}
-  thisItem: {fileID: 11400000, guid: f26584fd55c24f9448b63f181e80ab3a, type: 2}
+  inventoryItem: {fileID: 11400000, guid: f26584fd55c24f9448b63f181e80ab3a, type: 2}
   pickUpText: {fileID: 0}
+  pickUpableInfo:
+    day: 0
+    night: 1
+  onPickUpableEnabled:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 13831435091703135}
+        m_TargetAssemblyTypeName: FlickeringLight, Assembly-CSharp
+        m_MethodName: SetAvailable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onPickUpableDisabled:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 13831435091703135}
+        m_TargetAssemblyTypeName: FlickeringLight, Assembly-CSharp
+        m_MethodName: SetUnavailable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   stages:
   - sprite: {fileID: -1908533278, guid: 92d296b6e2ee9b143af0a3d696c21453, type: 3}
     secondsInThisStage: 5
@@ -156,3 +190,100 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5768151, y: 0.5609851}
   m_EdgeRadius: 0
+--- !u!1001 &5503391722091544756
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7938526264626312961}
+    m_Modifications:
+    - target: {fileID: 660949669453690956, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.263
+      objectReference: {fileID: 0}
+    - target: {fileID: 660949669453690956, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.603
+      objectReference: {fileID: 0}
+    - target: {fileID: 660949669453690956, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 660949669453690956, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 660949669453690956, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 660949669453690956, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 660949669453690956, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 660949669453690956, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 660949669453690956, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 660949669453690956, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023192741291713390, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+      propertyPath: m_Color.b
+      value: 0.2392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023192741291713390, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023192741291713390, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023192741291713390, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 1.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206541121112325056, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206541121112325056, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.103
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351503643268814254, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+      propertyPath: m_Name
+      value: FlickeringLight
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+--- !u!114 &13831435091703135 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -3715792944699509269, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+  m_PrefabInstance: {fileID: 5503391722091544756}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8dbe8a9d5cebff4c92993b1dc4614e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &5004576312688736504 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 660949669453690956, guid: 448725f327dd03e448e117f8e6ccfd02, type: 3}
+  m_PrefabInstance: {fileID: 5503391722091544756}
+  m_PrefabAsset: {fileID: 0}

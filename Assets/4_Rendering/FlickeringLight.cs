@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -27,6 +28,55 @@ public class FlickeringLight : MonoBehaviour
     public float radiusFrequency = 10.0f;
 
     private float mRandomOffset = 0.0f;
+    private bool mIsAvailable = true;
+
+    private bool mbIsTurningOn = false;
+    private bool mbIsTurningOff = false;
+    private float mElapsedSeconds = 0.0f;
+
+    private float defaultIntensity;
+
+    public bool isAvailable
+    {
+        get { return mIsAvailable; }
+    }
+
+    public void SetAvailable()
+    {
+        mIsAvailable = true;
+        OnLightOn();
+    }
+
+    public void SetUnavailable()
+    {
+        OnLightOff();
+        mIsAvailable = false;
+    }
+
+    public void OnLightOn()
+    {
+        lightToControl.intensity = defaultIntensity;
+
+        mbIsTurningOn = true;
+        mbIsTurningOff = false;
+
+        if (mElapsedSeconds <= 0.0f)
+        {
+            mElapsedSeconds = 0.0f;
+        }
+    }
+
+    public void OnLightOff()
+    {
+        if (mElapsedSeconds >= 1.0f)
+        {
+            mElapsedSeconds = 1.0f;
+        }
+        mbIsTurningOn = false;
+        mbIsTurningOff = true;
+
+        lightToControl.intensity = 0.0f;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -37,29 +87,77 @@ public class FlickeringLight : MonoBehaviour
         mBaseRadius = lightToControl.pointLightOuterRadius;
 
         mRandomOffset = Random.Range(0.0f, 100.0f);
+
+        defaultIntensity = lightToControl.intensity;
+        lightToControl.intensity = mIsAvailable ? defaultIntensity : 0.0f;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isAutomated == true)
+        if (mIsAvailable == true)
         {
-            if (isOffOnDay == true && mCheckToday.IsDay() == true)
+            if (isAutomated == true)
             {
-                lightToControl.intensity = 0.0f;
+                if (isOffOnDay == true && mCheckToday.IsDay() == true)
+                {
+                    if (mbIsTurningOff == false && lightToControl.intensity > 0.0f)
+                    {
+                        OnLightOff();
+                    }
+                }
+                else
+                {
+                    if (mbIsTurningOn == false && lightToControl.intensity == 0.0f )
+                    {
+                        OnLightOn();
+                    }
+
+                    UpdateIntensity();
+                    UpdateRadius();
+                }
+
+                if (mbIsTurningOff == true)
+                {
+                    mElapsedSeconds -= Time.fixedDeltaTime;
+                    float factor = Mathf.Min(Mathf.Max(mElapsedSeconds * mElapsedSeconds, 0.0f), 1.0f);
+
+                    if (mElapsedSeconds <= 0.0f)
+                    {
+                        mElapsedSeconds = 0.0f;
+                        mbIsTurningOff = false;
+                        lightToControl.intensity = 0.0f;
+                    }
+                    else
+                    {
+                        lightToControl.intensity = Mathf.Clamp(factor * defaultIntensity, 0.0f, 1.0f);
+                    }
+                }
             }
-            else
-            {
-                UpdateIntensity();
-                UpdateRadius();
-            }
+        }
+        else
+        {
+            lightToControl.intensity = 0.0f;
         }
     }
 
     public void UpdateIntensity()
     {
-        lightToControl.intensity = 1.0f;
+        lightToControl.intensity = defaultIntensity;
         float newIntensity = mBaseIntensity + Mathf.PerlinNoise(Time.time * frequency + mRandomOffset, 0) * intensityVariation;
+        if (mbIsTurningOn == true)
+        {
+            mElapsedSeconds += Time.fixedDeltaTime;
+            float factor = Mathf.Min(Mathf.Max(mElapsedSeconds * mElapsedSeconds, 0.0f), 1.0f);
+
+            if (mElapsedSeconds >= 1.0f)
+            {
+                mbIsTurningOn = false;
+                lightToControl.intensity = defaultIntensity;
+            }
+            lightToControl.intensity = Mathf.Clamp(factor * defaultIntensity, 0.0f, 1.0f);
+        }
+        
         lightToControl.falloffIntensity = newIntensity;
     }
 

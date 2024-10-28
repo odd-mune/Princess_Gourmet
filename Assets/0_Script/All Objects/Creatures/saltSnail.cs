@@ -17,11 +17,10 @@ public class saltSnail : Animal
     public float saltRegenerateTimer = 5.0f;
     private float mCurrentSaltRegenerateTimer;
     private bool mIsHidden;
-    private CheckToday mCheckToday;
 
     private FlickeringLight mFlickeringLight;
 
-    void Start()
+    protected override void onStart()
     {
         currentState = AnimalState.idle;
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -29,13 +28,11 @@ public class saltSnail : Animal
         target = GameObject.FindWithTag("Player").transform;
         mCurrentWaitTimer = 5.0f;
         mCurrentSaltRegenerateTimer = saltRegenerateTimer;
-        mIsPickUpable = false;
+        isPickUpable = false;
         mIsHidden = true;
-        anim.SetBool("isPickUpable", mIsPickUpable);
+        anim.SetBool("isPickUpable", isPickUpable);
 
         mFlickeringLight = GetComponentInChildren<FlickeringLight>();
-
-        mCheckToday = FindObjectOfType<CheckToday>();
     }
 
     void FixedUpdate()
@@ -48,7 +45,7 @@ public class saltSnail : Animal
         }
         else
         {
-            mIsPickUpable = mIsHidden;
+            isPickUpable = mIsHidden;
             anim.SetBool("isPickUpable", true);
         }
 
@@ -188,9 +185,9 @@ public class saltSnail : Animal
 
     public override bool PickUp()
     {
-        if (mIsHidden == true && mIsPickUpable == true)
+        if (mIsHidden == true && isPickUpable == true)
         {
-            mIsPickUpable = false;
+            isPickUpable = false;
             anim.SetBool("isPickUpable", false);
             mCurrentSaltRegenerateTimer = saltRegenerateTimer;
             return base.PickUp();  // 인벤토리에 넣기
