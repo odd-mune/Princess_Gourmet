@@ -52,8 +52,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerDownHa
         {
             if (clickCount == 1)
             {
-                thisManager.SetupDescriptionAndButton(thisItem.itemDescription, thisItem.usable, thisItem);
-                thisManager.SetupNameAndButton(thisItem.itemName, thisItem.usable, thisItem);
+                thisManager.ToggleSelectedItem(this);
             }
 
             if (craftingManager == null)
