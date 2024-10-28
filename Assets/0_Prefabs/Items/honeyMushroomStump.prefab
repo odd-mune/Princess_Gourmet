@@ -100,11 +100,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInventory: {fileID: 11400000, guid: bc14e62c4e215604e9cac227700a7e72, type: 2}
-  inventoryItem: {fileID: 11400000, guid: b8f7867ff27d97041aec214f3fd1aaee, type: 2}
+  pickUpableItemInfo:
+  - InventoryItem: {fileID: 11400000, guid: b8f7867ff27d97041aec214f3fd1aaee, type: 2}
+    Weight: 1
   pickUpText: {fileID: 0}
+  physicalInventoryItemName: "\uAFC0 \uBC84\uC12F \uADF8\uB8E8\uD130\uAE30"
+  physicalInventoryItemDescription: "\uAFC0 \uBC84\uC12F \uADF8\uB8E8\uD130\uAE30"
   pickUpableInfo:
     day: 1
     night: 1
+  onPickUpableEnabled:
+    m_PersistentCalls:
+      m_Calls: []
+  onPickUpableDisabled:
+    m_PersistentCalls:
+      m_Calls: []
   stages:
   - sprite: {fileID: 1346708172, guid: 66f2de94783a82645ace8cae8d55afd9, type: 3}
     secondsInThisStage: 5
