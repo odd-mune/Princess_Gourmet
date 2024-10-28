@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Growable : PhysicalInventoryItem
 {
@@ -20,10 +21,12 @@ public class Growable : PhysicalInventoryItem
     
     public RuntimeAnimatorController controller;
     private Animator animator;
- 
+
     // Start is called before the first frame update
-    void Start()
+    protected override void onStart()
     {
+        isPickUpable = false;
+
         bool needsAnimator = false;
         foreach (StageInfo stageInfo in stages)
         {
@@ -64,17 +67,21 @@ public class Growable : PhysicalInventoryItem
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (mElapsedSeconds < CheckToday.elapsedSeconds)
+        bool isDay = mCheckToday.IsDay();
+        if ((isDay && pickUpableInfo.day) || (isDay == false && pickUpableInfo.night))
         {
-            seconds += CheckToday.elapsedSeconds - mElapsedSeconds;
-            mElapsedSeconds = CheckToday.elapsedSeconds;
-            growing_up();
+            if (mElapsedSeconds < CheckToday.elapsedSeconds)
+            {
+                seconds += CheckToday.elapsedSeconds - mElapsedSeconds;
+                mElapsedSeconds = CheckToday.elapsedSeconds;
+                growing_up();
+            }
         }
     }
 
     public override bool PickUp()
     {
-        if (mIsPickUpable == true)
+        if (isPickUpable == true)
         {
             base.PickUp();
             seconds = 0.0f;
@@ -102,7 +109,7 @@ public class Growable : PhysicalInventoryItem
     {
         StageInfo newStageInfo = stages[stageIndex];
         GetComponent<SpriteRenderer>().sprite = newStageInfo.sprite;
-        mIsPickUpable = newStageInfo.isPickUpable;
+        isPickUpable = newStageInfo.isPickUpable;
 
         if (animator != null)
         {

@@ -509,9 +509,34 @@ MonoBehaviour:
   walkSound: player_walk
   runSound: player_run
   pickUpSound: player_pickUp
-  grassTilemaps: []
-  rockTilemaps: []
+  grassTilemaps:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  rockTilemaps:
+  - {fileID: 0}
   woodTilemaps: []
+  currentCloth: dress
+  clothAnimationInfos:
+  - name: dress
+    clothAnimationClips:
+      Idle:
+        Down: {fileID: 7400000, guid: 08daa8931a8b1544d86cec1f31570c78, type: 2}
+        Up: {fileID: 7400000, guid: d5e5ec1c2c50bfe4e83e9cbbde420639, type: 2}
+        Left: {fileID: 7400000, guid: 02d245c60adaad54dbe9999b90b4a07a, type: 2}
+        Right: {fileID: 7400000, guid: 7ee35eafe3f80fd4ba0d86ca2a3303a4, type: 2}
+      Walk:
+        Down: {fileID: 7400000, guid: 12e5ee81ea90aa14ba0fa5b15d340e50, type: 2}
+        Up: {fileID: 7400000, guid: e89172b3e787d5b4bbbe286a1cf7d397, type: 2}
+        Left: {fileID: 7400000, guid: 101324de20b044b49884fad2cd8e5445, type: 2}
+        Right: {fileID: 7400000, guid: 41ceb869ebdb27944bf909c59e9d6917, type: 2}
+      Attack:
+        Down: {fileID: 0}
+        Up: {fileID: 0}
+        Left: {fileID: 0}
+        Right: {fileID: 0}
 --- !u!114 &3432495740290369041
 MonoBehaviour:
   m_ObjectHideFlags: 0

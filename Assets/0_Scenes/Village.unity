@@ -91690,7 +91690,7 @@ Transform:
   m_GameObject: {fileID: 1616197462}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -125224,16 +125224,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 216961189}
     - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
-      propertyPath: rockTilemaps.Array.size
+      propertyPath: clothes.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
-      propertyPath: woodTilemaps.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
-      propertyPath: grassTilemaps.Array.size
-      value: 5
+      propertyPath: clothes.Array.data[0].name
+      value: dress
       objectReference: {fileID: 0}
     - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
       propertyPath: rockTilemaps.Array.data[0]
@@ -125263,6 +125259,54 @@ PrefabInstance:
       propertyPath: grassTilemaps.Array.data[4]
       value: 
       objectReference: {fileID: 1638476528}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: clothTexturesInfos.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: clothTexturesInfos.Array.data[0].name
+      value: dress
+      objectReference: {fileID: 0}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: clothes.Array.data[0].clothSprites.Idle.Down
+      value: 
+      objectReference: {fileID: 668609847, guid: 80681d5b7adbb544cb16d0c51f80586b, type: 3}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: clothTexturesInfos.Array.data[0].clothTextures.Idle.Up
+      value: 
+      objectReference: {fileID: 2800000, guid: 862df06040d02c843863b85ec37469fb, type: 3}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: clothTexturesInfos.Array.data[0].clothTextures.Walk.Up
+      value: 
+      objectReference: {fileID: 2800000, guid: 41cd23dc686e554419bb7f527f7afb0d, type: 3}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: clothTexturesInfos.Array.data[0].clothTextures.Idle.Down
+      value: 
+      objectReference: {fileID: 2800000, guid: 80681d5b7adbb544cb16d0c51f80586b, type: 3}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: clothTexturesInfos.Array.data[0].clothTextures.Idle.Left
+      value: 
+      objectReference: {fileID: 2800000, guid: 249360039eb7c544abad638a94953650, type: 3}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: clothTexturesInfos.Array.data[0].clothTextures.Walk.Down
+      value: 
+      objectReference: {fileID: 2800000, guid: f395725506cda204489843763a2e9d25, type: 3}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: clothTexturesInfos.Array.data[0].clothTextures.Walk.Left
+      value: 
+      objectReference: {fileID: 2800000, guid: 0bb09170dcc0464498f3cdcdad2734d5, type: 3}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: clothTexturesInfos.Array.data[0].clothTextures.Idle.Right
+      value: 
+      objectReference: {fileID: 2800000, guid: 5ea8961b32b24fe46a8991417727bcab, type: 3}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: clothTexturesInfos.Array.data[0].clothTextures.Walk.Right
+      value: 
+      objectReference: {fileID: 2800000, guid: 5ae0e90d1d151c44bb777c3cda8f5e5a, type: 3}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: clothTexturesInfos.Array.data[0].clothTextures.Attack.Down
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3779406437340744730, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
       propertyPath: m_Name
       value: Player

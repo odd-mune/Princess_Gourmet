@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -6,11 +6,17 @@ using UnityEngine.Rendering.Universal;
 public class CheckToday : MonoBehaviour
 {
     public static float elapsedSeconds;
+    [Tooltip("해가 떠있는 시간 (초)")]
     public float numSecondsInSun;
+    [Tooltip("해가 져있는 시간 (초)")]
     public float numSecondsInMoon;
+    [Tooltip("태양 빛 최대값 (기본 1.0)")]
     public float maxIntensity;
+    [Tooltip("태양 빛 최소값 (기본 0.0)")]
     public float minIntensity;
+    [Tooltip("태양 역할을 할 Global Light 2D")]
     public Light2D globalLight2D;
+    [Tooltip("현재 Scene에서 태양빛 시뮬레이션을 적용할 지 여부")]
     public bool controlGlobalLight;
 
     // Start is called before the first frame update

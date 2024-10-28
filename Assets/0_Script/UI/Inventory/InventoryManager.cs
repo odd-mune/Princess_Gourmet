@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 public enum InventoryType
 {
     Inventory,
@@ -22,6 +23,30 @@ public class InventoryManager : MonoBehaviour
     public InventoryItem currentItem;
     public CraftingManager craftingManager;
     public InventoryType inventoryType;
+    private InventorySlot currentFocusedSlot;
+
+    public void ToggleSelectedItem(InventorySlot slot)
+    {
+        if (currentFocusedSlot == slot)
+        {
+            SetFocusOn(null);
+        }
+        else
+        {
+            SetFocusOn(slot);
+        }
+
+        if (currentItem != slot.thisItem)
+        {
+            SetupDescriptionAndButton(slot.thisItem.itemDescription, slot.thisItem.usable, slot.thisItem);
+            SetupNameAndButton(slot.thisItem.itemName, slot.thisItem.usable, slot.thisItem);
+        }
+        else
+        {
+            SetupDescriptionAndButton("", false, null);
+            SetupNameAndButton("", false, null);
+        }
+    }
 
     public void SetTextAndButton(string description, bool buttonActive)
     {
@@ -54,6 +79,25 @@ public class InventoryManager : MonoBehaviour
             }
         }
         
+    }
+
+    public void SetFocusOn(InventorySlot slot)
+    {
+        if (currentFocusedSlot != slot)
+        {
+            Transform highlighterTransform;
+            if (currentFocusedSlot != null)
+            {
+                highlighterTransform = currentFocusedSlot.transform.GetChild(0);
+                highlighterTransform.gameObject.SetActive(false);
+            }
+            currentFocusedSlot = slot;
+            if (currentFocusedSlot != null)
+            {
+                highlighterTransform = currentFocusedSlot.transform.GetChild(0);
+                highlighterTransform.gameObject.SetActive(true);
+            }
+        }
     }
 
     public void MakeInventorySlots()
