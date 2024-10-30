@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1821056140360466205, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_Intensity
-      value: 0.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2471415414521708977, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1911,7 +1911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &790327025
 Transform:
   m_ObjectHideFlags: 0
@@ -6376,6 +6376,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 635534923, guid: ffcd7b7ed518e0d4a924c5592a9fe3ec, type: 3}
+    - target: {fileID: 738168481616081, guid: a3ffbea4072678641961a37f84771e1e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e322536df582f9842a8e115c24885332, type: 2}
     - target: {fileID: 739700608215703369, guid: a3ffbea4072678641961a37f84771e1e, type: 3}
       propertyPath: sceneToLoad
       value: Temple
@@ -8123,7 +8127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3779406437340744730, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7483605681497280575, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
       propertyPath: m_LocalPosition.x

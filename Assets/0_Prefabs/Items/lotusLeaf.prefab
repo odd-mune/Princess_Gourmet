@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2357307112447567679}
   - component: {fileID: 4154052208626952469}
-  - component: {fileID: 1707017105179529045}
   - component: {fileID: -3559373124820715130}
+  - component: {fileID: 6024712605592470980}
   m_Layer: 0
   m_Name: lotusLeaf
   m_TagString: item
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 885861223
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 60194479, guid: b894d0e283b7fc944b22771cebaaa960, type: 3}
+  m_Sprite: {fileID: -1486710501, guid: a77128648d5edbb4fb55ed6b0b484b8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,8 +86,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!61 &1707017105179529045
-BoxCollider2D:
+--- !u!114 &-3559373124820715130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7787382738795461298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd8dbc54e75efb64596b61b0ac50616e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInventory: {fileID: 11400000, guid: bc14e62c4e215604e9cac227700a7e72, type: 2}
+  thisItem: {fileID: 11400000, guid: 45b01a0bc2698504b9cff84b1ee02a50, type: 2}
+  pickUpText: {fileID: 0}
+--- !u!60 &6024712605592470980
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -118,16 +133,17 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.03125}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 2.5, y: 2.0625}
+    oldSize: {x: 2.0625, y: 1.875}
     newSize: {x: 4, y: 4.875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
+<<<<<<< Updated upstream
   serializedVersion: 2
   m_Size: {x: 2.5, y: 2.0625}
   m_EdgeRadius: 0
@@ -159,3 +175,20 @@ MonoBehaviour:
   onPickUpableDisabled:
     m_PersistentCalls:
       m_Calls: []
+=======
+  m_Points:
+    m_Paths:
+    - - {x: 1.03125, y: 1.5}
+      - {x: 0.71875, y: 1.8125}
+      - {x: 0.53125, y: 1.875}
+      - {x: -0.53125, y: 1.875}
+      - {x: -0.71875, y: 1.8125}
+      - {x: -1.03125, y: 1.5}
+      - {x: -1.03125, y: 0.4375}
+      - {x: -0.65625, y: 0.0625}
+      - {x: -0.53125, y: 0}
+      - {x: 0.53125, y: 0}
+      - {x: 0.71875, y: 0.0625}
+      - {x: 1.03125, y: 0.4375}
+  m_UseDelaunayMesh: 0
+>>>>>>> Stashed changes
