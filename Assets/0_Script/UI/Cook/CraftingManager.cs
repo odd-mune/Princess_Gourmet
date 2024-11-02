@@ -15,15 +15,22 @@ public class CraftingManager : MonoBehaviour
     [System.Serializable]
     public class Recipe
     {
+        [Tooltip("레시피의 이름")]
+        public string name;
+        [Tooltip("레시피에 들어가는 재료들")]
         public List<InventoryItem> ingredients = new List<InventoryItem>();
+        [Tooltip("요리 방법")]
         public InventoryItem cookType;
+        [Tooltip("요리")]
         public InventoryItem result;
     };
 
     [System.Serializable]
     public class CookTypeInfo
     {
+        [Tooltip("조리 방법")]
         public string name;
+        [Tooltip("조리 마법진")]
         public InventoryItem magicCircle;
     };
 
