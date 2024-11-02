@@ -18,11 +18,10 @@ MonoBehaviour:
   itemImage: {fileID: -567422892, guid: 78e3baee36e10e047a307c825bfa2822, type: 3}
   magicCircleImageOrNull: {fileID: 0}
   numIngredients: 0
-  cookTypes: 
   numberHeld: 0
   usable: 1
   unique: 0
-  thisEvent:
+  eventOnUse:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4690124559267511771, guid: 6333ade0b6440944685b01a629e4936d, type: 3}
@@ -32,19 +31,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000}
-        m_TargetAssemblyTypeName: InventoryItem, Assembly-CSharp
-        m_MethodName: DecreaseAmount
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

@@ -48,6 +48,7 @@ public class InventoryItem : ScriptableObject
         if (numberHeld > 0)
         {
             eventOnUse.Invoke();
+            DecreaseAmount(1);
         }
     }
 
