@@ -22,12 +22,14 @@ public class AttackingAnimal : Animal
     [Tooltip("공격 시 이동속도 배율")]
     public float AttackingSpeedFactor;
     private float mDefaultSpeed;
+    private float mDefaultMoveSpeed;
 
     protected override void onStart()
     {
         base.onStart();
 
         mDefaultSpeed = anim.speed;
+        mDefaultMoveSpeed = moveSpeed;
     }
 
     protected override void onTargetInRadius()
@@ -91,6 +93,7 @@ public class AttackingAnimal : Animal
             anim.SetBool("preAttack", false);
             mCurrentRoamDirection = Vector3.zero;
             anim.speed = mDefaultSpeed;
+            moveSpeed = mDefaultMoveSpeed;
 
             mCurrentAttackPreparationTimer = 0.0f;
         }
@@ -135,6 +138,7 @@ public class AttackingAnimal : Animal
 
         anim.SetBool("attack", false);
         anim.speed = mDefaultSpeed;
+        moveSpeed = mDefaultMoveSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -158,6 +162,7 @@ public class AttackingAnimal : Animal
             anim.SetBool("attack", true);
             anim.SetBool("preAttack", false);
             anim.speed = mDefaultSpeed * AttackingSpeedFactor;
+            moveSpeed *= AttackingSpeedFactor;
         }
         else
         {
