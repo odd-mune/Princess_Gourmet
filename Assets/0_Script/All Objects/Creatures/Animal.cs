@@ -11,6 +11,8 @@ public enum AnimalState
     stop,
     preAttack,
     attack,
+    dying,
+    death,
 }
 
 public class Animal : PhysicalInventoryItem
@@ -20,6 +22,8 @@ public class Animal : PhysicalInventoryItem
     public float targetRadius;
     public string AnimalName;
     public float moveSpeed;
+    public float health;
+    private float mCurrentHealth;
 
 
     protected Rigidbody2D myRigidbody;
@@ -116,13 +120,28 @@ public class Animal : PhysicalInventoryItem
 
     void FixedUpdate()
     {
-        CheckDistance();
-
-        onFixedUpdate();
-
-        if (mIsAbleToRoam == true)
+        if (currentState != AnimalState.death && currentState != AnimalState.dying)
         {
-            UpdateRoaming();
+            CheckDistance();
+
+            onFixedUpdate();
+
+            if (mIsAbleToRoam == true)
+            {
+                UpdateRoaming();
+            }
+        }
+
+        if (currentState == AnimalState.death)
+        {
+            Color prevColor = GetComponent<SpriteRenderer>().color;
+            float prevAlpha = prevColor.a;
+            prevColor.a = prevAlpha - Time.fixedDeltaTime; 
+            GetComponent<SpriteRenderer>().color = prevColor;
+            if (prevColor.a <= 0.0f)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 
@@ -164,5 +183,30 @@ public class Animal : PhysicalInventoryItem
         {
             transform.localScale = new Vector2(-1.0f, 1.0f);
         }
+    }
+
+    public void OnHit(float damage)
+    {
+        mCurrentHealth -= damage;
+        if (mCurrentHealth <= 0.0f)
+        {
+            OnDying();
+        }
+    }
+
+    public void OnDying()
+    {
+        onDying();
+
+        ChangeState(AnimalState.dying);
+        anim.SetBool("isMoving", false);
+        anim.SetBool("isDying", true);
+    }
+
+    protected virtual void onDying() { }
+
+    public void OnDeath()
+    {
+        ChangeState(AnimalState.death);
     }
 }

@@ -119,7 +119,7 @@ public class AttackingAnimal : Animal
             mIsAbleToRoam = true;
         }
 
-        if (mCurrentAttackCooltime > 0.0f)
+        if (mCurrentAttackCooltime > 0.0f && currentState != AnimalState.dying)
         {
             mCurrentAttackCooltime -= Time.fixedDeltaTime;
         }
@@ -143,12 +143,16 @@ public class AttackingAnimal : Animal
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.transform == target)
+        if (currentState == AnimalState.attack)
         {
-            PlayerManager playerManager = target.GetComponent<PlayerManager>();
-            playerManager.Knock(KnockbackTime, Damage);
+            if (collision.gameObject.transform == target)
+            {
+                PlayerManager playerManager = target.GetComponent<PlayerManager>();
+                playerManager.Knock(KnockbackTime, Damage);
 
-            onRoamingEnd();
+                onRoamingEnd();
+                OnHit(100.0f);
+            }
         }
     }
 
@@ -168,5 +172,16 @@ public class AttackingAnimal : Animal
         {
             onTargetNotInRadius();
         }
+    }
+
+    protected override void onDying()
+    {
+        anim.SetBool("attack", false);
+        anim.SetBool("preAttack", false);
+        mCurrentRoamDirection = Vector3.zero;
+        anim.speed = mDefaultSpeed;
+        moveSpeed = mDefaultMoveSpeed;
+        mCurrentAttackCooltime = 1.0f;
+        mCurrentAttackPreparationTimer = 0.0f;
     }
 }
