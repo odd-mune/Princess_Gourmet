@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1286670750765078235}
   - component: {fileID: 2644206057761221874}
   - component: {fileID: 2641128052349246732}
+  - component: {fileID: 472466790441167457}
   m_Layer: 0
   m_Name: Ginkboar
   m_TagString: PickUp Object
@@ -224,3 +225,16 @@ MonoBehaviour:
   AttackPreparationTimer: 5
   AttackCooltime: 0
   AttackingSpeedFactor: 3
+--- !u!114 &472466790441167457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3046893758375521041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2096c9df97bd4a4e9d2820cfb8d8420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSound: player_walk

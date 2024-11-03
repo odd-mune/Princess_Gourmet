@@ -48,18 +48,10 @@ public class PlayerManager : MonoBehaviour
     private bool hasConsumedSpaceKey;
     private bool mIsKnockingBack;
 
-    //AudioManager 인스펙터 창에 추가
-    public string walkSound;
-    public string runSound;
+    [Tooltip("뛰는 소리")]
     public string pickUpSound;
-    public List<Tilemap> grassTilemaps;
-    public List<Tilemap> rockTilemaps;
-    public List<Tilemap> woodTilemaps;
-    private Tilemap currentTilemapOrNull;
-    private string currentWalkSound;
+
     private AudioManager theAudio;
-    private Vector3Int mPreviousTilePosition = Vector3Int.zero;
-    private bool mbHasInitializedPreviousTilePosition = false;
     private bool mbHasHit = false;
 
     // 공주 옷장
@@ -150,68 +142,6 @@ public class PlayerManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        bool bHasFoundTile = false;
-
-        if (grassTilemaps.Count > 0)
-        {
-            foreach (var grassTilemap in grassTilemaps)
-            {
-                Vector3Int grassTilePosition = grassTilemap.WorldToCell(transform.position);
-                if (mbHasInitializedPreviousTilePosition == false || mPreviousTilePosition != grassTilePosition)
-                {
-                    if (grassTilemap.HasTile(grassTilePosition))
-                    {
-                        mPreviousTilePosition = grassTilePosition;
-                        mbHasInitializedPreviousTilePosition = true;
-                        currentTilemapOrNull = grassTilemap;
-                        currentWalkSound = walkSound + "_grass";
-                        bHasFoundTile = true;
-                        break;
-                    }
-                }
-            }
-        }
-
-        if (rockTilemaps.Count > 0 && bHasFoundTile == false)
-        {
-            foreach (var rockTilemap in rockTilemaps)
-            {
-                Vector3Int rockTilePosition = rockTilemap.WorldToCell(transform.position);
-                if (mbHasInitializedPreviousTilePosition == false || mPreviousTilePosition != rockTilePosition)
-                {
-                    if (rockTilemap.HasTile(rockTilePosition))
-                    {
-                        mPreviousTilePosition = rockTilePosition;
-                        mbHasInitializedPreviousTilePosition = true;
-                        currentTilemapOrNull = rockTilemap;
-                        currentWalkSound = walkSound + "_rock";
-                        bHasFoundTile = true;
-                        break;
-                    }
-                }
-            }
-        }
-
-        if (woodTilemaps.Count > 0 && bHasFoundTile == false)
-        {
-            foreach (var woodTilemap in woodTilemaps)
-            {
-                Vector3Int woodTilePosition = woodTilemap.WorldToCell(transform.position);
-                if (mbHasInitializedPreviousTilePosition == false || mPreviousTilePosition != woodTilePosition)
-                {
-                    if (woodTilemap.HasTile(woodTilePosition))
-                    {
-                        mPreviousTilePosition = woodTilePosition;
-                        mbHasInitializedPreviousTilePosition = true;
-                        currentTilemapOrNull = woodTilemap;
-                        currentWalkSound = walkSound + "_rock";
-                        bHasFoundTile = true;
-                        break;
-                    }
-                }
-            }
-        }
-
         // 오브젝트 조사
         //Ray 
         Debug.DrawRay(myRigidbody.position, dirVec * 2.0f, new Color(0, 1, 0));
@@ -552,12 +482,6 @@ public class PlayerManager : MonoBehaviour
     public List<GameObject> GetCurrentPickUpObjects()
     {
         return mCurrentPickUpObjects;
-    }
-
-    public void OnFootStep()
-    {
-        theAudio = FindObjectOfType<AudioManager>();
-        theAudio.Play(currentWalkSound);
     }
 
     public void OnFriedPanWhoosh()

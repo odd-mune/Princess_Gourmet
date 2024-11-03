@@ -38,6 +38,11 @@ public class Sound
 
         return 0.0f;
     }
+
+    public float GetDefaultVolume()
+    {
+        return Volumn;
+    }
     public void ResetVolume()
     {
         if (source != null)
@@ -177,6 +182,19 @@ public class AudioManager : MonoBehaviour
             if (_name == sounds[i].name)
             {
                 return sounds[i].GetVolume();
+            }
+        }
+
+        return 0.0f;
+    }
+
+    public float GetDefaultVolume(string _name)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (_name == sounds[i].name)
+            {
+                return sounds[i].GetDefaultVolume();
             }
         }
 

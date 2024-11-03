@@ -314,6 +314,7 @@ GameObject:
   - component: {fileID: 3432495740290369041}
   - component: {fileID: 764049338581396059}
   - component: {fileID: 8356931480612304007}
+  - component: {fileID: 3374306019679762955}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -340,6 +341,7 @@ Transform:
   - {fileID: 1567638790217203666}
   - {fileID: 285899831717990450}
   - {fileID: 8636589045828508637}
+  - {fileID: 2549632010577675147}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &131424245945253979
@@ -506,18 +508,7 @@ MonoBehaviour:
   currentHealth: {fileID: 11400000, guid: 195d3e5625593b643a2624059557e183, type: 2}
   playerHealthSignal: {fileID: 11400000, guid: 896ed944bd464ea42baa8ac77d3b6910, type: 2}
   startingPosition: {fileID: 11400000, guid: 4b1f1f46674368e4c866c3bcbc3e3b45, type: 2}
-  walkSound: player_walk
-  runSound: player_run
   pickUpSound: player_pickUp
-  grassTilemaps:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  rockTilemaps:
-  - {fileID: 0}
-  woodTilemaps: []
   currentCloth: dress
   clothAnimationInfos:
   - name: dress
@@ -606,6 +597,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3374306019679762955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3779406437340744730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2096c9df97bd4a4e9d2820cfb8d8420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSound: player_walk
 --- !u!1 &4484106593798340540
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,3 +885,83 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8121276905067243389}
   m_Enabled: 1
+--- !u!1 &8336963101635848076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2549632010577675147}
+  - component: {fileID: 7933228321780559074}
+  - component: {fileID: 4735178430517572633}
+  m_Layer: 0
+  m_Name: AudioListenerVolume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2549632010577675147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8336963101635848076}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7483605681497280575}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7933228321780559074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8336963101635848076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21db6218ba53294eb7d7f0c78e36931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &4735178430517572633
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8336963101635848076}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 15
