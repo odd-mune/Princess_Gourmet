@@ -204,8 +204,8 @@ MonoBehaviour:
   physicalInventoryItemName: "\uC740\uD589 \uBA67\uB3FC\uC9C0"
   physicalInventoryItemDescription: "\uC740\uD589 \uBA67\uB3FC\uC9C0"
   pickUpableInfo:
-    day: 0
-    night: 0
+    day: 1
+    night: 1
   onPickUpableEnabled:
     m_PersistentCalls:
       m_Calls: []
@@ -221,10 +221,10 @@ MonoBehaviour:
   anim: {fileID: 2946549194559771319}
   KnockbackTime: 1
   Damage: 1
-  FollowTimer: 10
-  AttackPreparationTimer: 5
+  FollowTimer: 3
+  AttackPreparationTimer: 3
   AttackCooltime: 0
-  AttackingSpeedFactor: 3
+  AttackingSpeedFactor: 2
 --- !u!114 &472466790441167457
 MonoBehaviour:
   m_ObjectHideFlags: 0
