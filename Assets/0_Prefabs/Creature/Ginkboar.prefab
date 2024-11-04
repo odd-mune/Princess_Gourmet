@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 472466790441167457}
   m_Layer: 0
   m_Name: Ginkboar
-  m_TagString: PickUp Object
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,9 +217,11 @@ MonoBehaviour:
   targetRadius: 5
   AnimalName: Ginkboar
   moveSpeed: 3
+  health: 5
   homePosition: {fileID: 0}
   anim: {fileID: 2946549194559771319}
   KnockbackTime: 1
+  PlayerKnockbackTime: 0
   Damage: 1
   FollowTimer: 3
   AttackPreparationTimer: 3

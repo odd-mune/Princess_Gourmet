@@ -39,6 +39,7 @@ public class PlayerManager : MonoBehaviour
     private Rigidbody2D myRigidbody;
     private Vector3 change;
     private Animator animator;
+    private AnimatorOverrideController animatorOverrideController;
     public FloatValue currentHealth;
     public Signal playerHealthSignal;
     public VectorValue startingPosition;
@@ -92,6 +93,8 @@ public class PlayerManager : MonoBehaviour
 
         SetCurrentState(PlayerState.idle);
         animator = GetComponent<Animator>();
+        animatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
+        animator.runtimeAnimatorController = animatorOverrideController;
         myRigidbody = GetComponent<Rigidbody2D>();
         animator.SetFloat("moveX", 0);
         animator.SetFloat("moveY", -1);
@@ -235,60 +238,20 @@ public class PlayerManager : MonoBehaviour
             if (clothTextureInfo.name == cloth)
             {
                 currentAnimationInfo = clothTextureInfo;
-                AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
-
-                for (int clipIndex = 0; clipIndex < clips.Length; clipIndex++)
-                {
-                    AnimationClip clip = clips[clipIndex];
-                    if (clip.name.Contains("idleDown"))
-                    {
-                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Idle.Down;
-                    }
-                    else if (clip.name.Contains("idleUp"))
-                    {
-                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Idle.Up;
-                    }
-                    else if (clip.name.Contains("idleLeft"))
-                    {
-                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Idle.Left;
-                    }
-                    else if (clip.name.Contains("idleRight"))
-                    {
-                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Idle.Right;
-                    }
-                    else if (clip.name.Contains("walkDown"))
-                    {
-                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Walk.Down;
-                    }
-                    else if (clip.name.Contains("walkUp"))
-                    {
-                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Walk.Up;
-                    }
-                    else if (clip.name.Contains("walkLeft"))
-                    {
-                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Walk.Left;
-                    }
-                    else if (clip.name.Contains("walkRight"))
-                    {
-                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Walk.Right;
-                    }
-                    else if (clip.name.Contains("attackDown"))
-                    {
-                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Attack.Down;
-                    }
-                    else if (clip.name.Contains("attackDown"))
-                    {
-                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Attack.Up;
-                    }
-                    else if (clip.name.Contains("attackDown"))
-                    {
-                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Attack.Left;
-                    }
-                    else if (clip.name.Contains("attackDown"))
-                    {
-                        clips[clipIndex] = clothTextureInfo.clothAnimationClips.Attack.Right;
-                    }
-                }
+                animatorOverrideController["idleDown"] =    clothTextureInfo.clothAnimationClips.Idle.Down;
+                animatorOverrideController["idleUp"] =      clothTextureInfo.clothAnimationClips.Idle.Up;
+                animatorOverrideController["idleLeft"] =    clothTextureInfo.clothAnimationClips.Idle.Left;
+                animatorOverrideController["idleRight"] =   clothTextureInfo.clothAnimationClips.Idle.Right;
+                
+                animatorOverrideController["walkDown"] =    clothTextureInfo.clothAnimationClips.Walk.Down;
+                animatorOverrideController["walkUp"] =      clothTextureInfo.clothAnimationClips.Walk.Up;
+                animatorOverrideController["walkLeft"] =    clothTextureInfo.clothAnimationClips.Walk.Left;
+                animatorOverrideController["walkRight"] =   clothTextureInfo.clothAnimationClips.Walk.Right;
+                
+                animatorOverrideController["attackDown"] =    clothTextureInfo.clothAnimationClips.Attack.Down;
+                animatorOverrideController["attackUp"] =      clothTextureInfo.clothAnimationClips.Attack.Up;
+                animatorOverrideController["attackLeft"] =    clothTextureInfo.clothAnimationClips.Attack.Left;
+                animatorOverrideController["attackRight"] =   clothTextureInfo.clothAnimationClips.Attack.Right;
                 break;
             }
         }

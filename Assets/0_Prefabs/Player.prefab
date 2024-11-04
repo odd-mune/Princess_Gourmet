@@ -77,12 +77,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.124210924, y: 0.41926947}
-      - {x: 0.1616678, y: -0.27571097}
-      - {x: 0.17398876, y: -0.78194743}
-      - {x: 0.9498182, y: -0.9103519}
-      - {x: 1.3758185, y: -0.09292443}
-      - {x: 0.70633614, y: 0.5688472}
+    - - {x: 1.3462682, y: 1.2947998}
+      - {x: 0.12411314, y: 1.3412261}
+      - {x: 0.1572709, y: 0.010915935}
+      - {x: 1.3590262, y: 0.0086703}
   m_UseDelaunayMesh: 0
 --- !u!114 &3174159526246093103
 MonoBehaviour:
@@ -176,12 +174,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.9599702, y: -1.0182326}
-      - {x: -0.2529078, y: -1.1218851}
-      - {x: -0.02670002, y: -0.5131426}
-      - {x: -0.30534625, y: 0.3780883}
-      - {x: -1.1048281, y: 0.528188}
-      - {x: -1.5372994, y: -0.3276751}
+    - - {x: -1.6804307, y: 1.3416537}
+      - {x: -1.6664994, y: 0.011850178}
+      - {x: -0.14061019, y: 0.014399976}
+      - {x: -0.15697435, y: 1.3515474}
   m_UseDelaunayMesh: 0
 --- !u!114 &3627129273221698595
 MonoBehaviour:
@@ -275,12 +271,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.21674857, y: 0.48573914}
-      - {x: 0.250983, y: -0.32036856}
-      - {x: 0.75206625, y: -0.878601}
-      - {x: 1.3314748, y: 0.2713675}
-      - {x: 0.67248356, y: 1.0128155}
-      - {x: -0.31133908, y: 0.8312216}
+    - - {x: -0.4558506, y: 0.82254964}
+      - {x: -1.297658, y: 1.7453977}
+      - {x: -0.08416405, y: 2.7409885}
+      - {x: 1.1532044, y: 1.7440732}
+      - {x: 0.30329078, y: 0.8717149}
   m_UseDelaunayMesh: 0
 --- !u!114 &3634400649924931538
 MonoBehaviour:
@@ -509,7 +504,7 @@ MonoBehaviour:
   playerHealthSignal: {fileID: 11400000, guid: 896ed944bd464ea42baa8ac77d3b6910, type: 2}
   startingPosition: {fileID: 11400000, guid: 4b1f1f46674368e4c866c3bcbc3e3b45, type: 2}
   pickUpSound: player_pickUp
-  currentCloth: dress
+  currentCloth: adventure
   clothAnimationInfos:
   - name: dress
     clothAnimationClips:
@@ -528,6 +523,23 @@ MonoBehaviour:
         Up: {fileID: 0}
         Left: {fileID: 0}
         Right: {fileID: 0}
+  - name: adventure
+    clothAnimationClips:
+      Idle:
+        Down: {fileID: 7400000, guid: 416e86231c98c5c4e9b877250ef24b4b, type: 2}
+        Up: {fileID: 7400000, guid: 48c5172b367100d4599d523f09e25d7f, type: 2}
+        Left: {fileID: 7400000, guid: 21e0a6402fe96c24b9c1688e4721b055, type: 2}
+        Right: {fileID: 7400000, guid: 97c9a290ca3d87546918e5879d15221c, type: 2}
+      Walk:
+        Down: {fileID: 7400000, guid: 1784af95bb3654343a031d34a9f2a6df, type: 2}
+        Up: {fileID: 7400000, guid: e0ea084b50e49e143aa8f4c62f91566c, type: 2}
+        Left: {fileID: 7400000, guid: c6b536d3183ee154f995181db99b4b94, type: 2}
+        Right: {fileID: 7400000, guid: 84bfbd2c86e35934fb2eca50b7fb0555, type: 2}
+      Attack:
+        Down: {fileID: 7400000, guid: 34c22f625545daf47931f9a9d8f3a05f, type: 2}
+        Up: {fileID: 7400000, guid: 248254225f38b2249ae650f51281303c, type: 2}
+        Left: {fileID: 7400000, guid: 08773e3a807b4084da6248d4a61009fc, type: 2}
+        Right: {fileID: 7400000, guid: 1be3822c4c6869845b93ad5ae65ebd0a, type: 2}
 --- !u!114 &3432495740290369041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -771,12 +783,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.09021881, y: -0.3701981}
-      - {x: -0.57890403, y: -0.108245015}
-      - {x: -1.0523359, y: -0.5703405}
-      - {x: -0.5410824, y: -1.0793679}
-      - {x: 0.36373663, y: -1.3287286}
-      - {x: 0.37591168, y: -0.4691201}
+    - - {x: 0.7254802, y: 0.57226497}
+      - {x: 0.7531609, y: -0.5882089}
+      - {x: -0.8925741, y: -0.62642634}
+      - {x: -0.83444333, y: 0.60771096}
   m_UseDelaunayMesh: 0
 --- !u!114 &5130580319600307217
 MonoBehaviour:

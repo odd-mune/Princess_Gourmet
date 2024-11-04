@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttackingAnimal : Animal
 {
     [Tooltip("플레이어 넉백 시간")]
-    public float KnockbackTime;
+    public float PlayerKnockbackTime;
     [Tooltip("공격력")]
     public float Damage;
     [Tooltip("따라가는 시간")]
@@ -54,6 +54,8 @@ public class AttackingAnimal : Animal
                     break;
                 case AnimalState.attack:
                     mCurrentRoamTimer = FollowTimer;
+                    break;
+                case AnimalState.stagger:
                     break;
                 case AnimalState.hide:
                 // intentional fallthrough
@@ -148,10 +150,9 @@ public class AttackingAnimal : Animal
             if (collision.gameObject.transform == target)
             {
                 PlayerManager playerManager = target.GetComponent<PlayerManager>();
-                playerManager.Knock(KnockbackTime, Damage);
+                playerManager.Knock(PlayerKnockbackTime, Damage);
 
                 onRoamingEnd();
-                OnHit(100.0f);
             }
         }
     }
