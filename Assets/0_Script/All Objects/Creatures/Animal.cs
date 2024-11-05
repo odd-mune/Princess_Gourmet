@@ -13,6 +13,7 @@ public enum AnimalState
     attack,
     dying,
     death,
+    stagger,
 }
 
 public class Animal : PhysicalInventoryItem
@@ -34,6 +35,10 @@ public class Animal : PhysicalInventoryItem
     protected float mCurrentRoamTimer;
     protected bool mIsAbleToRoam;
 
+    [Tooltip("피격 시 넉백 시간")]
+    public float KnockbackTime;
+    private bool mIsKnockingBack;
+
     protected override void onStart()
     {
         currentState = AnimalState.idle;
@@ -41,6 +46,8 @@ public class Animal : PhysicalInventoryItem
         target = GameObject.FindWithTag("Player").transform;
         anim = GetComponent<Animator>();
         isPickUpable = false;
+        mCurrentHealth = health;
+        mIsKnockingBack = false;
     }
 
     void CheckDistance()
@@ -120,6 +127,11 @@ public class Animal : PhysicalInventoryItem
 
     void FixedUpdate()
     {
+        if (mIsKnockingBack == false)
+        {
+            myRigidbody.velocity = Vector2.zero;
+        }
+
         if (currentState != AnimalState.death && currentState != AnimalState.dying)
         {
             CheckDistance();
@@ -169,6 +181,10 @@ public class Animal : PhysicalInventoryItem
             {
                 ChangeRoamingDirection(Random.insideUnitCircle.normalized);
             }
+            else if (currentState == AnimalState.dying)
+            {
+                GetComponent<BoxCollider2D>().enabled = false;
+            }
         }
     }
 
@@ -191,6 +207,31 @@ public class Animal : PhysicalInventoryItem
         if (mCurrentHealth <= 0.0f)
         {
             OnDying();
+        }
+        else
+        {
+            Knock(KnockbackTime);
+        }
+    }
+
+    public void Knock(float knockTime)
+    {
+        mIsKnockingBack = true;
+        StartCoroutine(KnockCo(knockTime));
+    }
+
+    private IEnumerator KnockCo(float knockTime)
+    {
+        if (myRigidbody != null && currentState != AnimalState.dying && currentState != AnimalState.death)
+        {
+            AnimalState prevState = currentState;
+            ChangeState(AnimalState.stagger);
+            yield return new WaitForSeconds(knockTime);
+            myRigidbody.velocity = Vector2.zero;
+            ChangeState(prevState);
+            //넉백을 받으면 공주가 자꾸 가만히 멈춰서서 idle 에서 walk로 고쳐봤음
+            myRigidbody.velocity = Vector2.zero;
+            mIsKnockingBack = false;
         }
     }
 
