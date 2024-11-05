@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class saltSnail : Animal
+public class saltSnail : PickUpableAnimal
 {
     //private Rigidbody2D myRigidbody;
     //public Transform target; 
@@ -14,8 +14,6 @@ public class saltSnail : Animal
     //private float mRoamTimer;
     //private float mCurrentRoamTimer;
     private float mCurrentWaitTimer;
-    public float saltRegenerateTimer = 5.0f;
-    private float mCurrentSaltRegenerateTimer;
     private bool mIsHidden;
 
     private FlickeringLight mFlickeringLight;
@@ -24,30 +22,21 @@ public class saltSnail : Animal
     {
         base.onStart();
 
-        //currentState = AnimalState.idle;
-        //myRigidbody = GetComponent<Rigidbody2D>();
-        //anim = GetComponent<Animator>();
-        //target = GameObject.FindWithTag("Player").transform;
         mCurrentWaitTimer = 5.0f;
-        mCurrentSaltRegenerateTimer = saltRegenerateTimer;
-        isPickUpable = false;
         mIsHidden = true;
-        anim.SetBool("isPickUpable", isPickUpable);
 
         mFlickeringLight = GetComponentInChildren<FlickeringLight>();
     }
 
+    protected override void onRegenerateTimerOff()
+    {
+        isPickUpable = mIsHidden;
+        anim.SetBool("isPickUpable", true);
+    }
+
     protected override void onFixedUpdate()
     {
-        if (mCurrentSaltRegenerateTimer > 0.0f)
-        {
-            mCurrentSaltRegenerateTimer -= Time.deltaTime;
-        }
-        else
-        {
-            isPickUpable = mIsHidden;
-            anim.SetBool("isPickUpable", true);
-        }
+        base.onFixedUpdate();
 
         if (mCheckToday.IsDay() == true)
         {
@@ -103,17 +92,8 @@ public class saltSnail : Animal
             mCurrentWaitTimer = 5.0f;
         }
     }
-
-    public override bool PickUp()
+    protected override bool checkIfPickUpable()
     {
-        if (mIsHidden == true && isPickUpable == true)
-        {
-            isPickUpable = false;
-            anim.SetBool("isPickUpable", false);
-            mCurrentSaltRegenerateTimer = saltRegenerateTimer;
-            return base.PickUp();  // 인벤토리에 넣기
-        }
-
-        return false;
+        return mIsHidden == true && isPickUpable == true;
     }
 }

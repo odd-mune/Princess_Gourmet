@@ -100,7 +100,7 @@ public class Animal : PhysicalInventoryItem
         if (mCurrentRoamTimer > 0.0f)
         {
             // 움직여
-            if (mCurrentRoamDirection != Vector3.zero)
+            if (currentState == AnimalState.walk && mCurrentRoamDirection != Vector3.zero)
             {
                 Vector2 moveVelocity = new Vector2(mCurrentRoamDirection.x * moveSpeed, mCurrentRoamDirection.y * moveSpeed);
                 changeAnim(new Vector2(mCurrentRoamDirection.x, mCurrentRoamDirection.y));
@@ -177,12 +177,17 @@ public class Animal : PhysicalInventoryItem
         if (currentState != newState)
         {
             currentState = newState;
-            if (currentState == AnimalState.walk)
+            if (currentState == AnimalState.idle)
+            {
+                myRigidbody.velocity = Vector2.zero;
+            }
+            else  if (currentState == AnimalState.walk)
             {
                 ChangeRoamingDirection(Random.insideUnitCircle.normalized);
             }
             else if (currentState == AnimalState.dying)
             {
+                myRigidbody.velocity = Vector2.zero;
                 GetComponent<BoxCollider2D>().enabled = false;
             }
         }
