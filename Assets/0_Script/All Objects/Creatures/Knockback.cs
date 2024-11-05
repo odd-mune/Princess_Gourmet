@@ -15,7 +15,7 @@ public class Knockback : MonoBehaviour
         {
             other.GetComponent<pot>().Smash();
         }
-        else if (other.gameObject.CompareTag("enemy") || other.gameObject.CompareTag("Player"))
+        else if (other.gameObject.CompareTag("Player"))
         {
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
             if (hit != null)
@@ -23,12 +23,6 @@ public class Knockback : MonoBehaviour
                 Vector2 difference = hit.transform.position - transform.position;
                 difference = difference.normalized * thrust;
                 hit.AddForce(difference, ForceMode2D.Impulse);
-
-                if (other.gameObject.CompareTag("enemy") && other.isTrigger)
-                {
-                    hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
-                    other.GetComponent<Enemy>().Knock(hit, knockTime, damage);
-                }
 
                 if (other.gameObject.CompareTag("Player"))
                 {
@@ -49,6 +43,13 @@ public class Knockback : MonoBehaviour
         if (animal != null && animal.currentState != AnimalState.dying && animal.currentState != AnimalState.death)
         {
             GetComponentInParent<PlayerManager>().OnKnockback();
+            Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
+            if (hit != null)
+            {
+                Vector2 difference = hit.transform.position - transform.position;
+                difference = difference.normalized * thrust;
+                hit.AddForce(difference, ForceMode2D.Impulse);
+            }
             animal.OnHit(damage);
         }
     }
