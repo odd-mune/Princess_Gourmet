@@ -145,6 +145,13 @@ public class PlayerManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (GameStateManager.GetState() != GameState.IDLE)
+        {
+            animator.enabled = false;
+            return;
+        }
+        animator.enabled = true;
+
         // 오브젝트 조사
         //Ray 
         Debug.DrawRay(myRigidbody.position, dirVec * 2.0f, new Color(0, 1, 0));

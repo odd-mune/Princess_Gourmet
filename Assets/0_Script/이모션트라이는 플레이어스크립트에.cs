@@ -13,6 +13,10 @@ public class 이모션트라이는플레이어스크립트에 : MonoBehaviour
     // FixedUpdate is called once per frame
     void FixedUpdate()
     {
-        
+
+        if (GameStateManager.GetState() != GameState.IDLE)
+        {
+            return;
+        }
     }
 }

@@ -127,6 +127,13 @@ public class Animal : PhysicalInventoryItem
 
     void FixedUpdate()
     {
+        if (GameStateManager.GetState() != GameState.IDLE)
+        {
+            anim.enabled = false;
+            return;
+        }
+        anim.enabled = true;
+
         if (mIsKnockingBack == false)
         {
             myRigidbody.velocity = Vector2.zero;

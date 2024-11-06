@@ -15,7 +15,12 @@ public class Sign : Interactable
 
     void FixedUpdate()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && playerInRange)
+        if (GameStateManager.GetState() != GameState.IDLE)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && playerInRange)
         {
             if(dialogBox.activeInHierarchy)
             {

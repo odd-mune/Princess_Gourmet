@@ -12,6 +12,10 @@ public class pot : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (GameStateManager.GetState() != GameState.IDLE)
+        {
+            return;
+        }
     }
 
     public void Smash()
