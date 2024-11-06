@@ -13,6 +13,11 @@ public class DoorInteraction : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (GameStateManager.GetState() != GameState.IDLE)
+        {
+            return;
+        }
+
         if (isOpen && Input.GetKeyDown(KeyCode.Space))
             Open();
     }

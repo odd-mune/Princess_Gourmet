@@ -47,7 +47,8 @@ public class CraftingManager : MonoBehaviour
     public List<InventorySlot> itemSlotList;
     private int numCurrentItemSlots = 0;
     public Recipe[] recipes;
-    public Slot resultSlot;
+    //public Slot resultSlot;
+    private InventoryItem mResultItem;
 
     public Transform InventoryCanvas;
     public Transform CraftingCanvas;
@@ -546,26 +547,28 @@ public class CraftingManager : MonoBehaviour
                 {
                     Recipe recipe = recipes[internalRecipe.recipeIndex];
 
-                    resultSlot.GetComponent<Image>().sprite = recipe.result.itemImage;
-                    resultSlot.gameObject.SetActive(true);
-                    resultSlot.item = recipe.result;
+                    //resultSlot.GetComponent<Image>().sprite = recipe.result.itemImage;
+                    //resultSlot.gameObject.SetActive(true);
+                    //resultSlot.item = recipe.result;
+                    mResultItem = recipe.result;
 
                     // 종료할 땐 다시 alpha 값 0으로해서 안 보이도록
-                    Color prevColor = resultSlot.GetComponent<Image>().color;
-                    prevColor.a = 1.0f;
-                    resultSlot.GetComponent<Image>().color = prevColor;
+                    //Color prevColor = resultSlot.GetComponent<Image>().color;
+                    //prevColor.a = 1.0f;
+                    //resultSlot.GetComponent<Image>().color = prevColor;
 
                     cookingButton.gameObject.SetActive(true);
                 }
                 else
                 {
-                    resultSlot.gameObject.SetActive(false);
-                    resultSlot.item = null;
+                    //resultSlot.gameObject.SetActive(false);
+                    //resultSlot.item = null;
+                    mResultItem = null;
 
                     // 종료할 땐 다시 alpha 값 0으로해서 안 보이도록
-                    Color prevColor = resultSlot.GetComponent<Image>().color;
-                    prevColor.a = 0.0f;
-                    resultSlot.GetComponent<Image>().color = prevColor;
+                    //Color prevColor = resultSlot.GetComponent<Image>().color;
+                    //prevColor.a = 0.0f;
+                    //resultSlot.GetComponent<Image>().color = prevColor;
 
                     cookingButton.gameObject.SetActive(false);
                 }
@@ -642,13 +645,14 @@ public class CraftingManager : MonoBehaviour
             prevMagicCircleColor.a = 0.0f;
             magicCircle.color = prevMagicCircleColor;
 
-            resultSlot.gameObject.SetActive(false);
-            resultSlot.item = null;
+            //resultSlot.gameObject.SetActive(false);
+            //resultSlot.item = null;
+            mResultItem = null;
 
             // 종료할 땐 다시 alpha 값 0으로해서 안 보이도록
-            Color prevColor = resultSlot.GetComponent<Image>().color;
-            prevColor.a = 0.0f;
-            resultSlot.GetComponent<Image>().color = prevColor;
+            //Color prevColor = resultSlot.GetComponent<Image>().color;
+            //prevColor.a = 0.0f;
+            //resultSlot.GetComponent<Image>().color = prevColor;
 
             cookingButton.gameObject.SetActive(false);
         }
@@ -664,11 +668,13 @@ public class CraftingManager : MonoBehaviour
 
     public void OnCook()
     {
-        if (resultSlot != null && resultSlot.item != null)
+        //if (resultSlot != null && resultSlot.item != null)
+        if (mResultItem != null)
         {
             if (playerInventory)
             {
-                InventoryItem cookedItem = resultSlot.item;
+                //InventoryItem cookedItem = resultSlot.item;
+                InventoryItem cookedItem = mResultItem;
                 OnClose(true, true);
 
                 if (playerInventory.myInventory.Contains(cookedItem))

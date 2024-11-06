@@ -95,6 +95,11 @@ public class FlickeringLight : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (GameStateManager.GetState() != GameState.IDLE)
+        {
+            return;
+        }
+
         if (mIsAvailable == true)
         {
             if (isAutomated == true)

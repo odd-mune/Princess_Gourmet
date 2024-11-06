@@ -31,6 +31,11 @@ public class AmbienceBoxVolume : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (GameStateManager.GetState() != GameState.IDLE)
+        {
+            return;
+        }
+
         if (mbIsPlaying == true)
         {
             bool isDay = checkToday != null ? checkToday.IsDay() : true;

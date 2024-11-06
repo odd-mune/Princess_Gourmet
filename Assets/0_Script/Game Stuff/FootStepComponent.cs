@@ -53,6 +53,11 @@ public class FootStepComponent : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (GameStateManager.GetState() != GameState.IDLE)
+        {
+            return;
+        }
+
         bool bHasFoundTile = false;
 
         if (mTileMapManager.grassTilemaps.Count > 0)

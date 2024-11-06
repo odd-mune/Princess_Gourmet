@@ -41,6 +41,11 @@ public class CheckToday : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (GameStateManager.GetState() != GameState.IDLE)
+        {
+            return;
+        }
+
         elapsedSeconds += Time.fixedDeltaTime;
 
         if (controlGlobalLight == true)

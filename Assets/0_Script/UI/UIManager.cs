@@ -21,6 +21,11 @@ public class UIManager : MonoBehaviour
     // FixedUpdate is called once per frame
     void FixedUpdate()
     {
+        if (GameStateManager.GetState() != GameState.IDLE)
+        {
+            return;
+        }
+
         List<GameObject> currentCollidingItems = Player.GetComponent<PlayerManager>().GetCurrentCollidingItems();
         List<GameObject> currentPickUpObjects = Player.GetComponent<PlayerManager>().GetCurrentPickUpObjects();
         if (currentCollidingItems.Count > 0)

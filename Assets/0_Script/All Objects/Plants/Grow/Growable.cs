@@ -67,6 +67,13 @@ public class Growable : PhysicalInventoryItem
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (GameStateManager.GetState() != GameState.IDLE)
+        {
+            animator.enabled = false;
+            return;
+        }
+        animator.enabled = true;
+
         bool isDay = mCheckToday.IsDay();
         if ((isDay && pickUpableInfo.day) || (isDay == false && pickUpableInfo.night))
         {
