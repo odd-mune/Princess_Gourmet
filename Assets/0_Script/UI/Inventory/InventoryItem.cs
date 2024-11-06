@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -43,10 +44,23 @@ public class InventoryItem : ScriptableObject
     [Tooltip("소비 시 호출할 이벤트.")]
     public UnityEvent eventOnUse;
 
+    [Tooltip("사용 시 재생할 사운드.")]
+    public string SoundOnUse;
+
+    private AudioManager mAudioManager = null;
+
     public void Use()
     {
         if (numberHeld > 0)
         {
+            if (SoundOnUse.Length > 0)
+            {
+                if (mAudioManager == null)
+                {
+                    mAudioManager = FindObjectOfType<AudioManager>();
+                }
+                mAudioManager.Play(SoundOnUse);
+            }
             eventOnUse.Invoke();
             DecreaseAmount(1);
         }
