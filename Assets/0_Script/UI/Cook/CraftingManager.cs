@@ -61,6 +61,9 @@ public class CraftingManager : MonoBehaviour
     private GameObject clonedMagicCircleIngredientsSlotGameObject;
     private GameObject clonedMagicCircleCookTypeSlotGameObject;
 
+    [Tooltip("실패 시 나올 요리")]
+    public InventoryItem FailedDish;
+
     private class InternalRecipe
     {
         public int recipeIndex = 0;
@@ -427,6 +430,14 @@ public class CraftingManager : MonoBehaviour
                         {
                             currentItemSlot.thisItem.DecreaseAmount(1);
                         }
+                    }
+
+                    if (magicCircleCookTypeItemSlot != null && magicCircleIngredientsItemSlot != null && numCurrentItemSlots == magicCircleIngredientsItemSlot.thisItem.numIngredients)
+                    {
+                        if (numCurrentItemSlots > 0 && cookingButton.gameObject.activeSelf == false)
+                        {
+                            cookingButton.gameObject.SetActive(true);
+                        }
                         CheckForCreatedRecipes();
                     }
                 }
@@ -557,7 +568,7 @@ public class CraftingManager : MonoBehaviour
                     //prevColor.a = 1.0f;
                     //resultSlot.GetComponent<Image>().color = prevColor;
 
-                    cookingButton.gameObject.SetActive(true);
+                    //cookingButton.gameObject.SetActive(true);
                 }
                 else
                 {
@@ -570,7 +581,7 @@ public class CraftingManager : MonoBehaviour
                     //prevColor.a = 0.0f;
                     //resultSlot.GetComponent<Image>().color = prevColor;
 
-                    cookingButton.gameObject.SetActive(false);
+                    //cookingButton.gameObject.SetActive(false);
                 }
             }
         }
@@ -668,6 +679,11 @@ public class CraftingManager : MonoBehaviour
 
     public void OnCook()
     {
+        if (mResultItem == null)
+        {
+            mResultItem = FailedDish;
+        }
+
         //if (resultSlot != null && resultSlot.item != null)
         if (mResultItem != null)
         {
@@ -687,6 +703,8 @@ public class CraftingManager : MonoBehaviour
                     cookedItem.numberHeld = 1;
                 }
 
+                pauseCookManager.CookingScene.gameObject.SetActive(true);
+                pauseCookManager.CookingScene.CookScene.gameObject.SetActive(false);
                 IPauseManager.SetPausable(true);
                 pauseCookManager.ChangePause(false);
                 IPauseManager.SetPausable(false);
