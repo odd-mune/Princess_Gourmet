@@ -7,8 +7,12 @@ public class DialogueData : MonoBehaviour
     [System.Serializable]
     public class Dialogue
     {
-        [Tooltip("노출시킬 초상화")]
-        public Sprite sprite;
+        [Tooltip("노출시킬 상대 초상화")]
+        public Sprite talkerSprite;
+        [Tooltip("노출시킬 공주 초상화")]
+        public Sprite princessSprite;
+        [Tooltip("화자가 공주인지?")]
+        public bool isPrincessSpeaking;
         [Tooltip("대사")]
         public string dialogue;
     };
