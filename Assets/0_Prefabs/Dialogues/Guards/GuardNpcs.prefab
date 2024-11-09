@@ -46,6 +46,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 1000
   DialogueOnInteraction:
-  - dialogue: "\"\uC548\uB155\uD558\uC2ED\uB2C8\uAE4C! \uACF5\uC8FC\uB2D8:0\""
-  - dialogue: "\"\uC9C0\uAE08\uC740 \uC54C\uD604\uC2E4\uC5D0 \uB4E4\uC5B4\uAC00\uC2E4
+  - talkerSprite: {fileID: -219728980, guid: 4764697a3a9a8a640b0f9a4bcad102fb, type: 3}
+    princessSprite: {fileID: 28235472, guid: 0a12d33068d857843b36345c347d16d8, type: 3}
+    isPrincessSpeaking: 0
+    dialogue: "\"\uC548\uB155\uD558\uC2ED\uB2C8\uAE4C! \uACF5\uC8FC\uB2D8:0\""
+  - talkerSprite: {fileID: 258679043, guid: 4764697a3a9a8a640b0f9a4bcad102fb, type: 3}
+    princessSprite: {fileID: 423343817, guid: aa8eeb4767d2a444483efd12fb0cbe9c, type: 3}
+    isPrincessSpeaking: 1
+    dialogue: "\uC88B\uC740 \uD558\uB8E8\uB124\uC694, \uC544\uBC14\uB9C8\uB9C8\uB97C
+      \uBD48\uB7EC \uC654\uC2B5\uB2C8\uB2E4. \uC5F4\uC5B4\uC8FC\uC138\uC694."
+  - talkerSprite: {fileID: 727915337, guid: 4764697a3a9a8a640b0f9a4bcad102fb, type: 3}
+    princessSprite: {fileID: -700349343, guid: 34e75958dd4a94347b79201cdbc6403d, type: 3}
+    isPrincessSpeaking: 0
+    dialogue: "\"\uC9C0\uAE08\uC740 \uC54C\uD604\uC2E4\uC5D0 \uB4E4\uC5B4\uAC00\uC2E4
       \uC218 \uC5C6\uC73C\uC2ED\uB2C8\uB2E4.:2\""
+  OnDialogueEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
