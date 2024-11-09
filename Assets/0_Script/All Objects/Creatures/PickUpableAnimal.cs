@@ -43,10 +43,11 @@ public class PickUpableAnimal : Animal
     {
         if (checkIfPickUpable() == true)
         {
+            bool result = base.PickUp();  // 인벤토리에 넣기
             isPickUpable = false;
             anim.SetBool("isPickUpable", false);
             mCurrentRegenerateTimer = regenerateTimer;
-            return base.PickUp();  // 인벤토리에 넣기
+            return result;
         }
 
         return false;
