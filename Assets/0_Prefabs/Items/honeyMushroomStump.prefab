@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4105071794951759890}
   - component: {fileID: 648379985464796408}
   - component: {fileID: 2320403371304600894}
-  - component: {fileID: 2346865265516009254}
+  - component: {fileID: 997260001133710586}
   m_Layer: 0
   m_Name: honeyMushroomStump
   m_TagString: PickUp Object
@@ -127,7 +127,7 @@ MonoBehaviour:
     secondsInThisStage: 0
     isPickUpable: 1
     runAnimation: 1
-  controller: {fileID: 0}
+  controller: {fileID: 9100000, guid: d5abe3f08a4354847ab4a6045fb81261, type: 2}
 --- !u!61 &2320403371304600894
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -173,7 +173,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.3283577, y: 1.013933}
   m_EdgeRadius: 0
---- !u!95 &2346865265516009254
+--- !u!95 &997260001133710586
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ Animator:
   m_GameObject: {fileID: 5097795976773550619}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d5abe3f08a4354847ab4a6045fb81261, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0937cd51f708cf841a56655821b839cf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -704,6 +704,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2337435411718379578}
     m_Modifications:
+    - target: {fileID: 2905321415526128527, guid: 465c9caa933505348b24115244625cd6, type: 3}
+      propertyPath: stages.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905321415526128527, guid: 465c9caa933505348b24115244625cd6, type: 3}
+      propertyPath: stages.Array.data[1].sprite
+      value: 
+      objectReference: {fileID: 64307906, guid: 1e60e6a832dccd34994d3dd66895cf1e, type: 3}
+    - target: {fileID: 2905321415526128527, guid: 465c9caa933505348b24115244625cd6, type: 3}
+      propertyPath: stages.Array.data[0].isPickUpable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905321415526128527, guid: 465c9caa933505348b24115244625cd6, type: 3}
+      propertyPath: stages.Array.data[1].isPickUpable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905321415526128527, guid: 465c9caa933505348b24115244625cd6, type: 3}
+      propertyPath: stages.Array.data[1].runAnimation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905321415526128527, guid: 465c9caa933505348b24115244625cd6, type: 3}
+      propertyPath: stages.Array.data[1].secondsInThisStage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3706970320567815071, guid: 465c9caa933505348b24115244625cd6, type: 3}
       propertyPath: m_Name
       value: cow
@@ -764,7 +788,16 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6059165010814895403, guid: 465c9caa933505348b24115244625cd6, type: 3}
+      propertyPath: m_Size.y
+      value: 4.427502
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059165010814895403, guid: 465c9caa933505348b24115244625cd6, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.18871093
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6318767097472067116, guid: 465c9caa933505348b24115244625cd6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
