@@ -1,8 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEditorInternal.Profiling.Memory.Experimental;
+using System;
 public enum InventoryType
 {
     Inventory,
@@ -23,11 +24,13 @@ public class InventoryManager : MonoBehaviour
     public InventoryItem currentItem;
     public CraftingManager craftingManager;
     public InventoryType inventoryType;
-    private InventorySlot currentFocusedSlot;
+    private InventorySlot mCurrentFocusedSlot;
+    private uint mCurrentFocusedSlotIndex = uint.MaxValue;
+    private Dictionary<string, uint> mItemNameToIndex = new Dictionary<string, uint>();
 
     public void ToggleSelectedItem(InventorySlot slot)
     {
-        if (currentFocusedSlot == slot)
+        if (mCurrentFocusedSlot == slot)
         {
             SetFocusOn(null);
         }
@@ -83,18 +86,34 @@ public class InventoryManager : MonoBehaviour
 
     public void SetFocusOn(InventorySlot slot)
     {
-        if (currentFocusedSlot != slot)
+        if (mCurrentFocusedSlot != slot)
         {
-            Transform highlighterTransform;
-            if (currentFocusedSlot != null)
+            if (slot != null)
             {
-                highlighterTransform = currentFocusedSlot.transform.GetChild(0);
+                uint index = uint.MaxValue;
+                bool result = mItemNameToIndex.TryGetValue(slot.thisItem.itemName, out index);
+                if (result == false)
+                {
+                    Debug.LogError($"Inventory에 item {slot.thisItem.itemName}이 없습니다!!");
+                    Debug.Break();
+                }
+                mCurrentFocusedSlotIndex = index;
+            }
+            else
+            {
+                mCurrentFocusedSlotIndex = uint.MaxValue;
+            }
+
+            Transform highlighterTransform;
+            if (mCurrentFocusedSlot != null)
+            {
+                highlighterTransform = mCurrentFocusedSlot.transform.GetChild(0);
                 highlighterTransform.gameObject.SetActive(false);
             }
-            currentFocusedSlot = slot;
-            if (currentFocusedSlot != null)
+            mCurrentFocusedSlot = slot;
+            if (mCurrentFocusedSlot != null)
             {
-                highlighterTransform = currentFocusedSlot.transform.GetChild(0);
+                highlighterTransform = mCurrentFocusedSlot.transform.GetChild(0);
                 highlighterTransform.gameObject.SetActive(true);
             }
         }
@@ -104,6 +123,7 @@ public class InventoryManager : MonoBehaviour
     {
         if(playerInventory)
         {
+            uint index = 0;
             for(int i = 0; i < playerInventory.myInventory.Count; i ++)
             {
                 if (playerInventory.myInventory[i].numberHeld > 0)
@@ -136,6 +156,12 @@ public class InventoryManager : MonoBehaviour
                     {
                         newSlot.Setup(playerInventory.myInventory[i], this, craftingManager);
                     }
+                    mItemNameToIndex.Add(playerInventory.myInventory[i].itemName, index);
+                    if (index == mCurrentFocusedSlotIndex)
+                    {
+                        SetFocusOn(newSlot);
+                    }
+                    ++index;
                 }
             }
         }
@@ -180,6 +206,7 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(inventoryPanel.transform.GetChild(i).gameObject);
         }
+        mItemNameToIndex.Clear();
     }
 
     public void useButtonPressed()
@@ -187,15 +214,15 @@ public class InventoryManager : MonoBehaviour
         if(currentItem)
         {
             currentItem.Use();
-            //clear all of the inventory slots
-            ClearInventorySlots();
-            //refill all slots with new numbers
-            MakeInventorySlots();
             if (currentItem.numberHeld == 0)
             {
                 SetTextAndButton("", false);
                 SetNameAndButton("", false);
             }
+            //clear all of the inventory slots
+            ClearInventorySlots();
+            //refill all slots with new numbers
+            MakeInventorySlots();
         }
     }
 }

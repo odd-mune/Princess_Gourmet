@@ -69,10 +69,17 @@ public class Growable : PhysicalInventoryItem
     {
         if (GameStateManager.GetState() != GameState.IDLE)
         {
-            animator.enabled = false;
+            if (animator != null)
+            {
+                animator.enabled = false;
+            }
             return;
         }
-        animator.enabled = true;
+
+        if (animator != null)
+        {
+            animator.enabled = true;
+        }
 
         bool isDay = mCheckToday.IsDay();
         if ((isDay && pickUpableInfo.day) || (isDay == false && pickUpableInfo.night))
