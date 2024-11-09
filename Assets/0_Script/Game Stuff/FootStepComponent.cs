@@ -8,6 +8,8 @@ public class FootStepComponent : MonoBehaviour
     //AudioManager 인스펙터 창에 추가
     [Tooltip("걷는 소리")]
     public string walkSound;
+    [Tooltip("타일맵 적용 여부")]
+    public bool IsAffectByTileMap = true;
 
     private Tilemap currentTilemapOrNull;
     private string currentWalkSound;
@@ -48,6 +50,8 @@ public class FootStepComponent : MonoBehaviour
             Debug.LogError("Settings에 AudioManager가 없습니다!!");
             Debug.Break();
         }
+
+        currentWalkSound = walkSound;
     }
 
     // Update is called once per frame
@@ -58,63 +62,66 @@ public class FootStepComponent : MonoBehaviour
             return;
         }
 
-        bool bHasFoundTile = false;
-
-        if (mTileMapManager.grassTilemaps.Count > 0)
+        if (IsAffectByTileMap == true)
         {
-            foreach (var grassTilemap in mTileMapManager.grassTilemaps)
+            bool bHasFoundTile = false;
+
+            if (mTileMapManager.grassTilemaps.Count > 0)
             {
-                Vector3Int grassTilePosition = grassTilemap.WorldToCell(transform.position);
-                if (mbHasInitializedPreviousTilePosition == false || mPreviousTilePosition != grassTilePosition)
+                foreach (var grassTilemap in mTileMapManager.grassTilemaps)
                 {
-                    if (grassTilemap.HasTile(grassTilePosition))
+                    Vector3Int grassTilePosition = grassTilemap.WorldToCell(transform.position);
+                    if (mbHasInitializedPreviousTilePosition == false || mPreviousTilePosition != grassTilePosition)
                     {
-                        mPreviousTilePosition = grassTilePosition;
-                        mbHasInitializedPreviousTilePosition = true;
-                        currentTilemapOrNull = grassTilemap;
-                        currentWalkSound = walkSound + "_grass";
-                        bHasFoundTile = true;
-                        break;
+                        if (grassTilemap.HasTile(grassTilePosition))
+                        {
+                            mPreviousTilePosition = grassTilePosition;
+                            mbHasInitializedPreviousTilePosition = true;
+                            currentTilemapOrNull = grassTilemap;
+                            currentWalkSound = walkSound + "_grass";
+                            bHasFoundTile = true;
+                            break;
+                        }
                     }
                 }
             }
-        }
 
-        if (mTileMapManager.rockTilemaps.Count > 0 && bHasFoundTile == false)
-        {
-            foreach (var rockTilemap in mTileMapManager.rockTilemaps)
+            if (mTileMapManager.rockTilemaps.Count > 0 && bHasFoundTile == false)
             {
-                Vector3Int rockTilePosition = rockTilemap.WorldToCell(transform.position);
-                if (mbHasInitializedPreviousTilePosition == false || mPreviousTilePosition != rockTilePosition)
+                foreach (var rockTilemap in mTileMapManager.rockTilemaps)
                 {
-                    if (rockTilemap.HasTile(rockTilePosition))
+                    Vector3Int rockTilePosition = rockTilemap.WorldToCell(transform.position);
+                    if (mbHasInitializedPreviousTilePosition == false || mPreviousTilePosition != rockTilePosition)
                     {
-                        mPreviousTilePosition = rockTilePosition;
-                        mbHasInitializedPreviousTilePosition = true;
-                        currentTilemapOrNull = rockTilemap;
-                        currentWalkSound = walkSound + "_rock";
-                        bHasFoundTile = true;
-                        break;
+                        if (rockTilemap.HasTile(rockTilePosition))
+                        {
+                            mPreviousTilePosition = rockTilePosition;
+                            mbHasInitializedPreviousTilePosition = true;
+                            currentTilemapOrNull = rockTilemap;
+                            currentWalkSound = walkSound + "_rock";
+                            bHasFoundTile = true;
+                            break;
+                        }
                     }
                 }
             }
-        }
 
-        if (mTileMapManager.woodTilemaps.Count > 0 && bHasFoundTile == false)
-        {
-            foreach (var woodTilemap in mTileMapManager.woodTilemaps)
+            if (mTileMapManager.woodTilemaps.Count > 0 && bHasFoundTile == false)
             {
-                Vector3Int woodTilePosition = woodTilemap.WorldToCell(transform.position);
-                if (mbHasInitializedPreviousTilePosition == false || mPreviousTilePosition != woodTilePosition)
+                foreach (var woodTilemap in mTileMapManager.woodTilemaps)
                 {
-                    if (woodTilemap.HasTile(woodTilePosition))
+                    Vector3Int woodTilePosition = woodTilemap.WorldToCell(transform.position);
+                    if (mbHasInitializedPreviousTilePosition == false || mPreviousTilePosition != woodTilePosition)
                     {
-                        mPreviousTilePosition = woodTilePosition;
-                        mbHasInitializedPreviousTilePosition = true;
-                        currentTilemapOrNull = woodTilemap;
-                        currentWalkSound = walkSound + "_rock";
-                        bHasFoundTile = true;
-                        break;
+                        if (woodTilemap.HasTile(woodTilePosition))
+                        {
+                            mPreviousTilePosition = woodTilePosition;
+                            mbHasInitializedPreviousTilePosition = true;
+                            currentTilemapOrNull = woodTilemap;
+                            currentWalkSound = walkSound + "_rock";
+                            bHasFoundTile = true;
+                            break;
+                        }
                     }
                 }
             }
