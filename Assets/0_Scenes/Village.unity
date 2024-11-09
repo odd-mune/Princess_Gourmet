@@ -12104,7 +12104,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -74125,6 +74125,10 @@ PrefabInstance:
       value: -8.3
       objectReference: {fileID: 0}
     - target: {fileID: 5315397608286528217, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: rockTilemaps.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315397608286528217, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: woodTilemaps.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -74132,6 +74136,14 @@ PrefabInstance:
       propertyPath: grassTilemaps.Array.size
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5315397608286528217, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: rockTilemaps.Array.data[0]
+      value: 
+      objectReference: {fileID: 1614535880}
+    - target: {fileID: 5315397608286528217, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: rockTilemaps.Array.data[1]
+      value: 
+      objectReference: {fileID: 2046251659}
     - target: {fileID: 5315397608286528217, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: woodTilemaps.Array.data[0]
       value: 

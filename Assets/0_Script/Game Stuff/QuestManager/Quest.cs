@@ -21,6 +21,8 @@ public class ItemInfo
 
 public class Quest : MonoBehaviour
 {
+    [Tooltip("퀘스트 수락 대사")]
+    [SerializeField] private DialogueData QuestAcceptDialogue;
     [Tooltip("퀘스트 이름")]
     [SerializeField] private string Name;
 
@@ -42,7 +44,9 @@ public class Quest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (QuestAcceptDialogue != null)
+        {
+        }
     }
 
     public void OnQuestTaken()

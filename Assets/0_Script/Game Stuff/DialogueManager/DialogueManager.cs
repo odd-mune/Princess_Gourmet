@@ -14,6 +14,8 @@ public class DialogueManager : MonoBehaviour
     public bool isAction;
     public int talkIndex;
 
+    private DialogueData mCurrentDialogueDataOrNull;
+
     public void Action(GameObject scanObj)
     {
         scanObject = scanObj;
@@ -25,10 +27,26 @@ public class DialogueManager : MonoBehaviour
 
     void Talk(int id, bool isNpc)
     {
-        string talkData = talkManager.GetTalk(id, talkIndex);
+        DialogueData dialogueDataOrNull = talkManager.GetDialogueDataOrNull(id);
 
-        if (talkData == null)
+        if (mCurrentDialogueDataOrNull != dialogueDataOrNull)
         {
+            mCurrentDialogueDataOrNull.OnDialogueEnd();
+        }
+
+        DialogueData.Dialogue dialogueOrNull = null;
+        if (dialogueDataOrNull.DialogueOnInteraction.Count < talkIndex)
+        {
+            dialogueOrNull = dialogueDataOrNull.DialogueOnInteraction[talkIndex];
+        }
+
+        if (dialogueOrNull == null)
+        {
+            if (isAction == true)
+            {
+                mCurrentDialogueDataOrNull.OnDialogueEnd();
+            }
+
             isAction = false;
             talkIndex = 0;
             return;
@@ -36,14 +54,14 @@ public class DialogueManager : MonoBehaviour
 
         if (isNpc)
         {
-            talkText.text = talkData.Split(':')[0];
+            talkText.text = dialogueOrNull.dialogue.Split(':')[0];
 
             //초상화잠시지움portraitImg.sprite = talkManager.GetPortrait(id, int.Parse(talkData.Split(':')[1]));
             portraitImg.color = new Color(1, 1, 1, 1);
         }
         else
         {
-            talkText.text = talkData;
+            talkText.text = dialogueOrNull.dialogue;
             
             portraitImg.color = new Color(1, 1, 1, 0);
         }
