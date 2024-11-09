@@ -1612,7 +1612,7 @@ GameObject:
   - component: {fileID: 7394734149683286363}
   - component: {fileID: 7868212672685293875}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Inventory Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5352,6 +5352,7 @@ GameObject:
   - component: {fileID: 6331543858112402363}
   - component: {fileID: 293805066571357114}
   - component: {fileID: 7207449329240982154}
+  - component: {fileID: 2244251939471288956}
   m_Layer: 5
   m_Name: dish
   m_TagString: Untagged
@@ -5421,19 +5422,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7207449329240982154}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7868212672685293875}
-        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
-        m_MethodName: useButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!222 &293805066571357114
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5472,6 +5461,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2244251939471288956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5122992991088324536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1bb8e55e7d7c7e46b456b8ae7444325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryType: 3
+  InventoryManager: {fileID: 7868212672685293875}
 --- !u!1 &5242121626959166711
 GameObject:
   m_ObjectHideFlags: 0
@@ -6100,6 +6103,7 @@ GameObject:
   - component: {fileID: 2355691200281474395}
   - component: {fileID: 1328334160570128620}
   - component: {fileID: 4544333196087196899}
+  - component: {fileID: 1437429685904179305}
   m_Layer: 5
   m_Name: ingredient
   m_TagString: Untagged
@@ -6169,19 +6173,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4544333196087196899}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7868212672685293875}
-        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
-        m_MethodName: useButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!222 &1328334160570128620
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6220,6 +6212,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1437429685904179305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5767527452530916156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1bb8e55e7d7c7e46b456b8ae7444325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryType: 1
+  InventoryManager: {fileID: 7868212672685293875}
 --- !u!1 &5817316342155912799
 GameObject:
   m_ObjectHideFlags: 0
@@ -6690,6 +6696,7 @@ GameObject:
   - component: {fileID: 8692665680033501559}
   - component: {fileID: 5718219911582290401}
   - component: {fileID: 3034667444149864728}
+  - component: {fileID: 4227613906740308215}
   m_Layer: 5
   m_Name: tool
   m_TagString: Untagged
@@ -6759,19 +6766,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3034667444149864728}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7868212672685293875}
-        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
-        m_MethodName: useButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!222 &5718219911582290401
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6810,6 +6805,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4227613906740308215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255468994171644645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1bb8e55e7d7c7e46b456b8ae7444325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryType: 4
+  InventoryManager: {fileID: 7868212672685293875}
 --- !u!1 &6328982802290600863
 GameObject:
   m_ObjectHideFlags: 0
@@ -8290,6 +8299,7 @@ GameObject:
   - component: {fileID: 3222186277355981371}
   - component: {fileID: 6248532062503596993}
   - component: {fileID: 1263136539240759076}
+  - component: {fileID: 1434547877684030317}
   m_Layer: 5
   m_Name: magicCircle
   m_TagString: Untagged
@@ -8359,19 +8369,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1263136539240759076}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7868212672685293875}
-        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
-        m_MethodName: useButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!222 &6248532062503596993
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8410,6 +8408,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1434547877684030317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8390720209732565356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1bb8e55e7d7c7e46b456b8ae7444325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryType: 2
+  InventoryManager: {fileID: 7868212672685293875}
 --- !u!1 &8395416546327469081
 GameObject:
   m_ObjectHideFlags: 0
