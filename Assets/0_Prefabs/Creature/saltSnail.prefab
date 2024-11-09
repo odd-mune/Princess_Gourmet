@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1286670750765078235}
   - component: {fileID: 4873933112538381558}
   - component: {fileID: 2644206057761221874}
-  - component: {fileID: 7119818478516268388}
   m_Layer: 0
   m_Name: saltSnail
   m_TagString: PickUp Object
@@ -174,7 +173,8 @@ MonoBehaviour:
   health: 0
   homePosition: {fileID: 0}
   anim: {fileID: 2946549194559771319}
-  saltRegenerateTimer: 5
+  KnockbackTime: 0
+  regenerateTimer: 5
 --- !u!61 &2644206057761221874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -220,42 +220,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1072397, y: 0.5182651}
   m_EdgeRadius: 0
---- !u!114 &7119818478516268388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3046893758375521041}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 075ea6d0a9def1f4489e11af9c8c1d46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInventory: {fileID: 11400000, guid: bc14e62c4e215604e9cac227700a7e72, type: 2}
-  pickUpableItemInfo: []
-  pickUpText: {fileID: 0}
-  physicalInventoryItemName: 
-  physicalInventoryItemDescription: 
-  pickUpableInfo:
-    day: 0
-    night: 0
-  onPickUpableEnabled:
-    m_PersistentCalls:
-      m_Calls: []
-  onPickUpableDisabled:
-    m_PersistentCalls:
-      m_Calls: []
-  stages:
-  - sprite: {fileID: 1694447063, guid: 5fdb02ff1c1f3264fb5834e4f56f6b61, type: 3}
-    secondsInThisStage: 5
-    isPickUpable: 0
-    runAnimation: 1
-  - sprite: {fileID: -10945881, guid: 5a354e4bba3d97d48a0de341ea791964, type: 3}
-    secondsInThisStage: 0
-    isPickUpable: 1
-    runAnimation: 1
-  controller: {fileID: 0}
 --- !u!1001 &3571639116228638499
 PrefabInstance:
   m_ObjectHideFlags: 0
