@@ -10,6 +10,7 @@ public enum InventoryType
     Ingredients,
     MagicCircle,
     Dish,
+    Tool,
 }
 
 public class InventoryManager : MonoBehaviour
@@ -152,6 +153,12 @@ public class InventoryManager : MonoBehaviour
                                 continue;
                             }
                             break;
+                        case InventoryType.Tool:
+                            if (playerInventory.myInventory[i].itemType != ItemType.Tool)
+                            {
+                                continue;
+                            }
+                            break;
                         default:
                             break;
                     }
@@ -231,5 +238,17 @@ public class InventoryManager : MonoBehaviour
             //refill all slots with new numbers
             MakeInventorySlots();
         }
+    }
+
+    public void SetInventoryType(InventoryType inventoryType)
+    {
+        if (this.inventoryType == inventoryType)
+        {
+            inventoryType = InventoryType.Inventory;
+        }
+
+        ClearInventorySlots();
+        this.inventoryType = inventoryType;
+        MakeInventorySlots();
     }
 }
