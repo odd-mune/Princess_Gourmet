@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 546459973284404657}
   - component: {fileID: 3468329416529290818}
   - component: {fileID: 7568802460601392259}
+  - component: {fileID: 7889476183032625485}
   m_Layer: 10
   m_Name: NPC_Guard
   m_TagString: NPC
@@ -167,3 +168,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6422958, y: 0.42204094}
   m_EdgeRadius: 0
+--- !u!114 &7889476183032625485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910273652457683992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c284c087ef50d488720588916a629f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Quests: []
