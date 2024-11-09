@@ -100,7 +100,7 @@ public class Animal : PhysicalInventoryItem
         if (mCurrentRoamTimer > 0.0f)
         {
             // 움직여
-            if (currentState == AnimalState.walk && mCurrentRoamDirection != Vector3.zero)
+            if ((currentState == AnimalState.walk || currentState == AnimalState.attack) && mCurrentRoamDirection != Vector3.zero)
             {
                 Vector2 moveVelocity = new Vector2(mCurrentRoamDirection.x * moveSpeed, mCurrentRoamDirection.y * moveSpeed);
                 changeAnim(new Vector2(mCurrentRoamDirection.x, mCurrentRoamDirection.y));
@@ -197,6 +197,10 @@ public class Animal : PhysicalInventoryItem
                 myRigidbody.velocity = Vector2.zero;
                 GetComponent<BoxCollider2D>().enabled = false;
             }
+            else if (currentState == AnimalState.stagger)
+            {
+                anim.SetBool("onHit", true);
+            }
         }
     }
 
@@ -215,14 +219,17 @@ public class Animal : PhysicalInventoryItem
 
     public void OnHit(float damage)
     {
-        mCurrentHealth -= damage;
-        if (mCurrentHealth <= 0.0f)
+        if (mCurrentHealth > 0.0f && currentState != AnimalState.dying && currentState != AnimalState.stagger)
         {
-            OnDying();
-        }
-        else
-        {
-            Knock(KnockbackTime);
+            mCurrentHealth -= damage;
+            if (mCurrentHealth <= 0.0f)
+            {
+                OnDying();
+            }
+            else
+            {
+                Knock(KnockbackTime);
+            }
         }
     }
 
@@ -231,6 +238,8 @@ public class Animal : PhysicalInventoryItem
         mIsKnockingBack = true;
         StartCoroutine(KnockCo(knockTime));
     }
+
+    protected virtual void postKnock(AnimalState prevState) { }
 
     private IEnumerator KnockCo(float knockTime)
     {
@@ -241,9 +250,11 @@ public class Animal : PhysicalInventoryItem
             yield return new WaitForSeconds(knockTime);
             myRigidbody.velocity = Vector2.zero;
             ChangeState(prevState);
+            postKnock(prevState);
             //넉백을 받으면 공주가 자꾸 가만히 멈춰서서 idle 에서 walk로 고쳐봤음
             myRigidbody.velocity = Vector2.zero;
             mIsKnockingBack = false;
+            anim.SetBool("onHit", false);
         }
     }
 
