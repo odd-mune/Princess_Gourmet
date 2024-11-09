@@ -9,6 +9,7 @@ public enum InventoryType
     Inventory,
     Ingredients,
     MagicCircle,
+    Dish,
 }
 
 public class InventoryManager : MonoBehaviour
@@ -141,6 +142,12 @@ public class InventoryManager : MonoBehaviour
                         case InventoryType.MagicCircle:
                             if (playerInventory.myInventory[i].itemType != ItemType.MagicCircleIngredients
                                 && playerInventory.myInventory[i].itemType != ItemType.MagicCircleCookType)
+                            {
+                                continue;
+                            }
+                            break;
+                        case InventoryType.Dish:
+                            if (playerInventory.myInventory[i].itemType != ItemType.Dish)
                             {
                                 continue;
                             }
