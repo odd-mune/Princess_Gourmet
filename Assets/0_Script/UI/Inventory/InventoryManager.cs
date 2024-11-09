@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using UnityEditorInternal.Profiling.Memory.Experimental;
 using System;
@@ -29,6 +30,18 @@ public class InventoryManager : MonoBehaviour
     private InventorySlot mCurrentFocusedSlot;
     private uint mCurrentFocusedSlotIndex = uint.MaxValue;
     private Dictionary<string, uint> mItemNameToIndex = new Dictionary<string, uint>();
+
+    [Tooltip("현재 Inventory Image 컴포넌트를 연결")]
+    public Image InventoryImage;
+
+    [Tooltip("요리 도구 카테고리용 인벤토리 스프라이트")]
+    public Sprite ToolInventoryImage;
+    [Tooltip("요리 재료 카테고리용 인벤토리 스프라이트")]
+    public Sprite IngredientInventoryImage;
+    [Tooltip("요리 카테고리용 인벤토리 스프라이트")]
+    public Sprite DishInventoryImage;
+    [Tooltip("마법진 카테고리용 인벤토리 스프라이트")]
+    public Sprite MagicCircleInventoryImage;
 
     public void ToggleSelectedItem(InventorySlot slot)
     {
@@ -244,11 +257,36 @@ public class InventoryManager : MonoBehaviour
     {
         if (this.inventoryType == inventoryType)
         {
-            inventoryType = InventoryType.Inventory;
+            //inventoryType = InventoryType.Inventory;
         }
+        else
+        {
+            ClearInventorySlots();
+            this.inventoryType = inventoryType;
+            if (InventoryImage != null)
+            {
+                switch (inventoryType)
+                {
+                    case InventoryType.Inventory:
+                        break;
+                    case InventoryType.Ingredients:
+                        InventoryImage.sprite = IngredientInventoryImage;
+                        break;
+                    case InventoryType.MagicCircle:
+                        InventoryImage.sprite = MagicCircleInventoryImage;
+                        break;
+                    case InventoryType.Dish:
+                        InventoryImage.sprite = DishInventoryImage;
+                        break;
+                    case InventoryType.Tool:
+                        InventoryImage.sprite = ToolInventoryImage;
+                        break;
+                    default:
+                        break;
+                }
+            }
 
-        ClearInventorySlots();
-        this.inventoryType = inventoryType;
-        MakeInventorySlots();
+            MakeInventorySlots();
+        }
     }
 }

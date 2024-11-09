@@ -1766,7 +1766,12 @@ MonoBehaviour:
   discardButton: {fileID: 3381356027130893390}
   currentItem: {fileID: 0}
   craftingManager: {fileID: 0}
-  inventoryType: 0
+  inventoryType: 4
+  InventoryImage: {fileID: 4897148861675000547}
+  ToolInventoryImage: {fileID: 1327739704, guid: 897ddf10342f3a7478eff1a6c17b732d, type: 3}
+  IngredientInventoryImage: {fileID: 613626398, guid: 897ddf10342f3a7478eff1a6c17b732d, type: 3}
+  DishInventoryImage: {fileID: -61062909, guid: 897ddf10342f3a7478eff1a6c17b732d, type: 3}
+  MagicCircleInventoryImage: {fileID: -1330175297, guid: 897ddf10342f3a7478eff1a6c17b732d, type: 3}
 --- !u!1 &1551904044987127583
 GameObject:
   m_ObjectHideFlags: 0
@@ -2534,6 +2539,11 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   craftingManager: {fileID: 0}
   inventoryType: 2
+  InventoryImage: {fileID: 0}
+  ToolInventoryImage: {fileID: 0}
+  IngredientInventoryImage: {fileID: 0}
+  DishInventoryImage: {fileID: 0}
+  MagicCircleInventoryImage: {fileID: 0}
 --- !u!1 &2392607752639963064
 GameObject:
   m_ObjectHideFlags: 0
@@ -2901,7 +2911,7 @@ GameObject:
   - component: {fileID: 1473344946253152641}
   - component: {fileID: 387850065738227596}
   m_Layer: 5
-  m_Name: Scroll View
+  m_Name: Inventory Scroll View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2956,7 +2966,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 613626398, guid: 897ddf10342f3a7478eff1a6c17b732d, type: 3}
+  m_Sprite: {fileID: 1327739704, guid: 897ddf10342f3a7478eff1a6c17b732d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6161,6 +6171,11 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   craftingManager: {fileID: 0}
   inventoryType: 1
+  InventoryImage: {fileID: 0}
+  ToolInventoryImage: {fileID: 0}
+  IngredientInventoryImage: {fileID: 0}
+  DishInventoryImage: {fileID: 0}
+  MagicCircleInventoryImage: {fileID: 0}
 --- !u!1 &5767527452530916156
 GameObject:
   m_ObjectHideFlags: 0
