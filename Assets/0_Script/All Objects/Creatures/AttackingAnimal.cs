@@ -24,12 +24,15 @@ public class AttackingAnimal : Animal
     private float mDefaultSpeed;
     private float mDefaultMoveSpeed;
 
+    private float mDefaultTargetRadius;
+
     protected override void onStart()
     {
         base.onStart();
 
         mDefaultSpeed = anim.speed;
         mDefaultMoveSpeed = moveSpeed;
+        mDefaultTargetRadius = targetRadius;
     }
 
     protected override void onTargetInRadius()
@@ -141,6 +144,7 @@ public class AttackingAnimal : Animal
         anim.SetBool("attack", false);
         anim.speed = mDefaultSpeed;
         moveSpeed = mDefaultMoveSpeed;
+        targetRadius = mDefaultTargetRadius;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -184,5 +188,15 @@ public class AttackingAnimal : Animal
         moveSpeed = mDefaultMoveSpeed;
         mCurrentAttackCooltime = 1.0f;
         mCurrentAttackPreparationTimer = 0.0f;
+    }
+
+    protected override void postKnock(AnimalState prevState) 
+    {
+        ChangeState(AnimalState.preAttack);
+        anim.SetBool("preAttack", true);
+        anim.SetBool("isMoving", false);
+        mCurrentAttackPreparationTimer = -1.0f;
+        mIsAbleToRoam = false;
+        targetRadius = mDefaultTargetRadius * 3.0f;
     }
 }
