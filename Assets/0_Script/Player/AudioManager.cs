@@ -96,6 +96,8 @@ public class Sound
 
 public class AudioManager : MonoBehaviour
 {
+    public string BackgroundName = "background";
+
     [SerializeField]
     public Sound[] sounds;
 
@@ -108,7 +110,7 @@ public class AudioManager : MonoBehaviour
             soundObject.transform.SetParent(this.transform);
 
             sounds[i].ResetVolume();
-            if (sounds[i].name == "background")
+            if (sounds[i].name == BackgroundName)
             {
                 sounds[i].Play();
             }
