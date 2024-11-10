@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9014452514128167284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 586276497442116870}
+  - component: {fileID: 6147857216822851372}
+  m_Layer: 0
+  m_Name: Lord_GinkgoQuest_Complete
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &586276497442116870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9014452514128167284}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6147857216822851372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9014452514128167284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0185f521b5dfe4ba7f5180db417f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 2003
+  DialogueOnInteraction:
+  - talkerSprite: {fileID: 227537382, guid: 9ee43c0dddb78954a953076721d10a2c, type: 3}
+    princessSprite: {fileID: 28235472, guid: 0a12d33068d857843b36345c347d16d8, type: 3}
+    isPrincessSpeaking: 0
+    dialogue: "\uC740\uD589 \uBA67\uB3FC\uC9C0\uB97C \uC804\uBD80 \uD1A0\uBC8C\uD574\uC624\uC168\uAD70\uC694
+      \uACF5\uC8FC\uB2D8!!"
+  - talkerSprite: {fileID: 1494300898, guid: 9ee43c0dddb78954a953076721d10a2c, type: 3}
+    princessSprite: {fileID: -700349343, guid: 34e75958dd4a94347b79201cdbc6403d, type: 3}
+    isPrincessSpeaking: 0
+    dialogue: "\uB4DC\uB514\uC5B4 \uC544\uBB88\uC988 \uB9C8\uC744\uC5D0\uC11C \uB2E4\uC2DC
+      \uBCBC \uB18D\uC0AC\uB97C \uC81C\uB300\uB85C \uD560 \uC218 \uC788\uAC8C \uB418\uC5C8\uC5B4\uC694!!"
+  - talkerSprite: {fileID: 1494300898, guid: 9ee43c0dddb78954a953076721d10a2c, type: 3}
+    princessSprite: {fileID: -700349343, guid: 34e75958dd4a94347b79201cdbc6403d, type: 3}
+    isPrincessSpeaking: 0
+    dialogue: "\uACF5\uC8FC\uB2D8 \uC815\uB9D0\uB85C \uAC10\uC0AC\uD569\uB2C8\uB2E4!!"
+  OnDialogueEndEvent:
+    m_PersistentCalls:
+      m_Calls: []

@@ -10,6 +10,13 @@ public enum QuestState
     Count,
 }
 
+public enum QuestType
+{
+    Collection,
+    Hunting,
+    Count,
+}
+
 [System.Serializable]
 public class ItemInfo
 {
@@ -23,6 +30,10 @@ public class Quest : MonoBehaviour
 {
     [Tooltip("퀘스트 수락 대사")]
     [SerializeField] private DialogueData QuestAcceptDialogue;
+    [Tooltip("퀘스트 수행 중 대사")]
+    [SerializeField] private DialogueData QuestOnProgressDialogue;
+    [Tooltip("퀘스트 수행 완료 대사")]
+    [SerializeField] private DialogueData QuestCompletionDialogueOrNull;
     [Tooltip("퀘스트 이름")]
     [SerializeField] private string Name;
 
@@ -40,18 +51,32 @@ public class Quest : MonoBehaviour
 
     public QuestState currentState { get { return mCurrentState; } }
 
+    private DialogueData mCurrentDialogueOrNull;
+
+    public DialogueData currentDialogueOrNull { get { return mCurrentDialogueOrNull; } }
+
+    public virtual QuestType GetQuestType() { return QuestType.Count; }
 
     // Start is called before the first frame update
     void Start()
     {
-        if (QuestAcceptDialogue != null)
-        {
-        }
+    }
+
+    public void Init()
+    {
+        mCurrentDialogueOrNull = QuestAcceptDialogue;
     }
 
     public void OnQuestTaken()
     {
         mCurrentState = QuestState.OnProgress;
+        mCurrentDialogueOrNull = QuestOnProgressDialogue;
+    }
+
+    public void OnQuestCompleted()
+    {
+        mCurrentState = QuestState.Completed;
+        mCurrentDialogueOrNull = QuestCompletionDialogueOrNull;
     }
 
     // Update is called once per frame

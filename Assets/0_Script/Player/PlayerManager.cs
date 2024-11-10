@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -19,7 +20,7 @@ public enum PlayerState
 public class PlayerManager : MonoBehaviour
 {
     // 다이얼로그 매니저 
-    public DialogueManager manager;
+    private DialogueManager mDialogueManager;
     // 오브젝트 조사
     float h;
     float v;
@@ -85,6 +86,36 @@ public class PlayerManager : MonoBehaviour
     private int mCurrentClothIndex;
     private bool mIsCollidingWithClothChanger = false;
 
+    private QuestManager mQuestManager;
+    private DialogueData mCurrentDialogueDataOrNull = null;
+    private PlayerInventory mPlayerInventory;
+
+    private struct KillHistory
+    {
+        public int TotalKills;
+        public int LatestKills;
+    }
+
+    private Dictionary<string, KillHistory> mKillHistories = new Dictionary<string, KillHistory>();
+
+    public void OnAnimalDeath(string name)
+    {
+        KillHistory killHistory;
+        bool result = mKillHistories.TryGetValue(name, out killHistory);
+        if (result == false)
+        {
+
+            killHistory.TotalKills = 1;
+            killHistory.LatestKills = 1;
+            mKillHistories.TryAdd(name, killHistory);
+        }
+        else
+        {
+            killHistory.TotalKills += 1;
+            killHistory.LatestKills += 1;
+        }
+    }
+
     void Start()
     {
         // Limit the framerate to 30
@@ -104,6 +135,10 @@ public class PlayerManager : MonoBehaviour
         mIsKnockingBack = false;
 
         SetCloth(currentCloth);
+
+        mQuestManager = FindObjectOfType<QuestManager>();
+        mDialogueManager = FindObjectOfType<DialogueManager>();
+        mPlayerInventory = FindObjectOfType<PlayerInventory>();
     }
 
     private void OnDestroy()
@@ -118,14 +153,14 @@ public class PlayerManager : MonoBehaviour
         if (mbIsControllable == true)
         {
             //Move Value
-            h = manager.isAction ? 0 : Input.GetAxisRaw("Horizontal");
-            v = manager.isAction ? 0 : Input.GetAxisRaw("Vertical");
+            h = mDialogueManager.isAction ? 0 : Input.GetAxisRaw("Horizontal");
+            v = mDialogueManager.isAction ? 0 : Input.GetAxisRaw("Vertical");
 
             //Check Button Down & Up
-            bool hDown = manager.isAction ? false : Input.GetButtonDown("Horizontal");
-            bool vDown = manager.isAction ? false : Input.GetButtonDown("Vertical");
-            bool hUp = manager.isAction ? false : Input.GetButtonUp("Horizontal");
-            bool vUp = manager.isAction ? false : Input.GetButtonUp("Vertical");
+            bool hDown = mDialogueManager.isAction ? false : Input.GetButtonDown("Horizontal");
+            bool vDown = mDialogueManager.isAction ? false : Input.GetButtonDown("Vertical");
+            bool hUp = mDialogueManager.isAction ? false : Input.GetButtonUp("Horizontal");
+            bool vUp = mDialogueManager.isAction ? false : Input.GetButtonUp("Vertical");
 
             //Direction 
             if (vDown && v == 1)
@@ -140,7 +175,156 @@ public class PlayerManager : MonoBehaviour
             //scan object & Action
             if (Input.GetKeyDown(KeyCode.Space) && scanObject != null)
             {
-                manager.Action(scanObject);
+                Npc npc = scanObject.GetComponent<Npc>();
+                if (npc != null)
+                {
+                    if (mCurrentDialogueDataOrNull == null)
+                    {
+                        DialogueData dialogueDataOrNull = null;
+                        Quest availableFirstQuestOrNull = null;
+                        List<Quest> completedQuests = new List<Quest>();
+                        foreach (string questName in npc.QuestNames)
+                        {
+                            Quest quest = mQuestManager.GetQuestOrNull(questName);
+                            if (availableFirstQuestOrNull == null && quest.currentState == QuestState.Undiscovered)
+                            {
+                                availableFirstQuestOrNull = quest;
+                            }
+                            else if (quest.currentState == QuestState.OnProgress)
+                            {
+                                dialogueDataOrNull = quest.currentDialogueOrNull;
+                                switch (quest.GetQuestType())
+                                {
+                                    case QuestType.Collection:
+                                        {
+                                            CollectionQuest collectionQuest = (CollectionQuest)quest;
+
+                                            List<InventoryItem> completedItems = new List<InventoryItem>();
+                                            foreach (var itemToCollect in collectionQuest.ItemToCollectInfos)
+                                            {
+                                                bool isComplete = true;
+                                                InventoryItem foundItemOrNull = null;
+                                                foreach (var item in mPlayerInventory.myInventory)
+                                                {
+                                                    if (item.itemName == itemToCollect.Item.itemName)
+                                                    {
+                                                        foundItemOrNull = item;
+                                                        if (item.numberHeld >= itemToCollect.Count)
+                                                        {
+                                                            completedItems.Add(item);
+                                                        }
+                                                        else
+                                                        {
+                                                            isComplete = false;
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+
+                                                if (isComplete == false || foundItemOrNull == null)
+                                                {
+                                                    break;
+                                                }
+                                            }
+
+                                            if (completedItems.Count == collectionQuest.ItemToCollectInfos.Count)
+                                            {
+                                                foreach (var item in completedItems)
+                                                {
+                                                    foreach (var itemToCollect in collectionQuest.ItemToCollectInfos)
+                                                    {
+                                                        if (item.itemName == itemToCollect.Item.itemName)
+                                                        {
+                                                            item.numberHeld -= itemToCollect.Count;
+                                                        }
+                                                    }
+                                                }
+                                                collectionQuest.OnQuestCompleted();
+                                                dialogueDataOrNull = collectionQuest.currentDialogueOrNull;
+                                            }
+                                        }
+                                        break;
+                                    case QuestType.Hunting:
+                                        {
+                                            HuntingQuest huntingQuest = (HuntingQuest)quest;
+
+                                            List<string> completedAnimals = new List<string>();
+                                            foreach (var animalToHunt in huntingQuest.AnimalsToHunt)
+                                            {
+                                                KillHistory killHistory;
+                                                bool result = mKillHistories.TryGetValue(animalToHunt.AnimalToHunt, out killHistory);
+                                                if (result == true)
+                                                {
+                                                    if (killHistory.LatestKills >= animalToHunt.Count)
+                                                    {
+                                                        completedAnimals.Add(animalToHunt.AnimalToHunt);
+                                                    }
+                                                    else
+                                                    {
+                                                        break;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    break;
+                                                }
+                                            }
+
+                                            if (completedAnimals.Count == huntingQuest.AnimalsToHunt.Count)
+                                            {
+                                                foreach (var completeAnimal in completedAnimals)
+                                                {
+                                                    KillHistory killHistory;
+                                                    mKillHistories.TryGetValue(completeAnimal, out killHistory);
+                                                    killHistory.LatestKills = 0;
+                                                }
+                                                huntingQuest.OnQuestCompleted();
+                                                dialogueDataOrNull = huntingQuest.currentDialogueOrNull;
+                                            }
+                                        }
+                                        break;
+                                    case QuestType.Count:
+                                        // intentional fallthrough
+                                    default:
+                                        Debug.LogError($"Invalid quest type {quest.GetQuestType()}");
+                                        Debug.Break();
+                                        break;
+                                }
+                                break;
+                            }
+                            else if (quest.currentState == QuestState.Completed)
+                            {
+                                completedQuests.Add(quest);
+                            }
+                        }
+
+                        if (dialogueDataOrNull == null && availableFirstQuestOrNull != null)
+                        {
+                            dialogueDataOrNull = availableFirstQuestOrNull.currentDialogueOrNull;
+                        }
+
+                        if (dialogueDataOrNull == null && completedQuests.Count > 0)
+                        {
+                            int randomIndex = UnityEngine.Random.Range(0, completedQuests.Count);
+                            dialogueDataOrNull = completedQuests[randomIndex].currentDialogueOrNull;
+                        }
+
+                        mCurrentDialogueDataOrNull = dialogueDataOrNull;
+                    }
+
+                    if (mCurrentDialogueDataOrNull != null)
+                    {
+                        bool isDialogueComplete = mDialogueManager.Action(mCurrentDialogueDataOrNull, true);
+                        if (isDialogueComplete == true)
+                        {
+                            mCurrentDialogueDataOrNull = null;
+                        }
+                    }
+                }
+                else
+                {
+                    mDialogueManager.Action(scanObject);
+                }
             }
         }
     }

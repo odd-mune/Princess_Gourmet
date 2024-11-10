@@ -4727,6 +4727,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 299786260890254493, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: DialogueDatas.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 299786260890254493, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: DialogueDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 6147857216822851372, guid: 2c6966f73d8e0914199cb49c05cac2c3, type: 3}
+    - target: {fileID: 299786260890254493, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: DialogueDatas.Array.data[2]
+      value: 
+      objectReference: {fileID: 6147857216822851372, guid: 8c616e9e5f6bc514a8afe03dc99b3e18, type: 3}
     - target: {fileID: 963528407758256759, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size
       value: 4
@@ -4935,6 +4947,14 @@ PrefabInstance:
       propertyPath: placeName
       value: "\uC601\uC8FC\uC758 \uC9D1\uBB34\uC2E4"
       objectReference: {fileID: 0}
+    - target: {fileID: 6392271759503448363, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: Quests.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392271759503448363, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: Quests.Array.data[0]
+      value: 
+      objectReference: {fileID: -5581284540035114170, guid: 0086e73ffe7fbc54fb1c33ecbbf0f6f1, type: 3}
     - target: {fileID: 6985904202528973858, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_Follow
       value: 
@@ -6530,6 +6550,7 @@ Transform:
   m_Children:
   - {fileID: 7184024840469314010}
   - {fileID: 817914732}
+  - {fileID: 1965879317}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1577582609 stripped
@@ -7976,6 +7997,92 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4129704859726590110, guid: 13a5481e1619885409ac47c409d620f9, type: 3}
   m_PrefabInstance: {fileID: 1879780426}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1965879316
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1541665279}
+    m_Modifications:
+    - target: {fileID: 1768923403129968221, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      propertyPath: id
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768923403129968221, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      propertyPath: isNpc
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975326991459794731, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      propertyPath: m_Name
+      value: NPC_lord
+      objectReference: {fileID: 0}
+    - target: {fileID: 2183690226176759822, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      propertyPath: Quests.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2183690226176759822, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      propertyPath: Quests.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2183690226176759822, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      propertyPath: QuestNames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2183690226176759822, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      propertyPath: QuestNames.Array.data[0]
+      value: GinkgoQuest
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501966987825635724, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.3672104
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501966987825635724, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.620709
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501966987825635724, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.3514468
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501966987825635724, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501966987825635724, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501966987825635724, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501966987825635724, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501966987825635724, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501966987825635724, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501966987825635724, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+--- !u!4 &1965879317 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7501966987825635724, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+  m_PrefabInstance: {fileID: 1965879316}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1975976244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9115,6 +9222,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
       propertyPath: manager
+      value: 
+      objectReference: {fileID: 1314060311}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: currentCloth
+      value: adventure
+      objectReference: {fileID: 0}
+    - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+      propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 1314060311}
     - target: {fileID: 109991935415391094, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}

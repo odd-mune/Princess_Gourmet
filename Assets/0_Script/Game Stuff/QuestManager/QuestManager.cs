@@ -21,6 +21,7 @@ public class QuestManager : MonoBehaviour
 
         foreach (var quest in Quests)
         {
+            quest.Init();
             mQuests[(int)QuestState.Undiscovered].Add(quest);
         }
     }

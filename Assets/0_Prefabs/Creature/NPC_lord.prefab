@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7501966987825635724}
   - component: {fileID: 2817591001312670009}
   - component: {fileID: 7582689540979528412}
-  - component: {fileID: 219250204595264071}
   - component: {fileID: 8115619727140299934}
-  m_Layer: 0
+  - component: {fileID: 1768923403129968221}
+  - component: {fileID: 2183690226176759822}
+  m_Layer: 10
   m_Name: NPC_lord
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,21 +109,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!111 &219250204595264071
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975326991459794731}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!61 &8115619727140299934
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -155,7 +141,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0020964146, y: 0.7359133}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -166,5 +152,33 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 1.0274444, y: 0.6248913}
   m_EdgeRadius: 0
+--- !u!114 &1768923403129968221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975326991459794731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87deee2356bdd148aef58e36f5b394e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  DialogueDataOrNull: {fileID: 0}
+  isNpc: 0
+--- !u!114 &2183690226176759822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975326991459794731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c284c087ef50d488720588916a629f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestNames: []

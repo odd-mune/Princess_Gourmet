@@ -6,7 +6,7 @@ using UnityEngine;
 public class AnimalHuntInfo
 {
     [Tooltip("사냥할 동물")]
-    public Animal AnimalToHunt;
+    public string AnimalToHunt;
     [Tooltip("사냥할 개체 수")]
     public int Count;
 };
@@ -14,17 +14,7 @@ public class AnimalHuntInfo
 public class HuntingQuest : Quest
 {
     [Tooltip("모을 아이템 목록")]
-    [SerializeField] private List<AnimalHuntInfo> AnimalsToHunt;
+    public List<AnimalHuntInfo> AnimalsToHunt;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public override QuestType GetQuestType() { return QuestType.Hunting; }
 }

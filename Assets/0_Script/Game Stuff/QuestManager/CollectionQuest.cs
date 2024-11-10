@@ -5,7 +5,9 @@ using UnityEngine;
 public class CollectionQuest : Quest
 {
     [Tooltip("모을 아이템 목록")]
-    [SerializeField] private List<ItemInfo> ItemToCollectInfos;
+    public List<ItemInfo> ItemToCollectInfos;
+
+    public override QuestType GetQuestType() { return QuestType.Collection; }
 
     // Start is called before the first frame update
     void Start()
