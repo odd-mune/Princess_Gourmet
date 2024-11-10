@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         mTooltipRootPosition = Tooltip.transform.position;
-        mPlayerCamera = Player.gameObject.transform.GetChild(0).GetComponent<Camera>();
+        mPlayerCamera = Camera.main;
     }
 
     // FixedUpdate is called once per frame
