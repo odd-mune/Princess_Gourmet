@@ -56,7 +56,14 @@ public class DialogueManager : MonoBehaviour
     {
         scanObject = scanObj;
         ObjData objData = scanObject.GetComponent<ObjData>();
-        Talk(objData.id, objData.isNpc);
+        if (objData.id == -1)
+        {
+            Talk(objData.DialogueDataOrNull, objData.isNpc);
+        }
+        else
+        {
+            Talk(objData.id, objData.isNpc);
+        }
         
         talkPanel.SetActive(isAction);
     }
@@ -64,7 +71,11 @@ public class DialogueManager : MonoBehaviour
     void Talk(int id, bool isNpc)
     {
         DialogueData dialogueDataOrNull = talkManager.GetDialogueDataOrNull(id);
+        Talk(dialogueDataOrNull, isNpc);
+    }
 
+    void Talk(DialogueData dialogueDataOrNull, bool isNpc)
+    {
         if (mCurrentDialogueDataOrNull != null && mCurrentDialogueDataOrNull != dialogueDataOrNull)
         {
             mCurrentDialogueDataOrNull.OnDialogueEnd();
