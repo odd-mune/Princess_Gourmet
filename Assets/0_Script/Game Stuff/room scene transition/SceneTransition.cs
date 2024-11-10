@@ -26,8 +26,13 @@ public class SceneTransition : MonoBehaviour
     {
         if (other.CompareTag("Player") && !other.isTrigger)
         {
-            playerStorage.initialValue = playerPosition;
-            SceneManager.LoadScene(sceneToLoad);
+            Transition();
         }
+    }
+
+    public void Transition()
+    {
+        playerStorage.initialValue = playerPosition;
+        SceneManager.LoadScene(sceneToLoad);
     }
 }
