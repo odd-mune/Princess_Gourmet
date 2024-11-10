@@ -52,29 +52,44 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void Action(GameObject scanObj)
+    public bool Action(GameObject scanObj)
     {
+        bool isDialogueComplete = true;
         scanObject = scanObj;
         ObjData objData = scanObject.GetComponent<ObjData>();
         if (objData.id == -1)
         {
-            Talk(objData.DialogueDataOrNull, objData.isNpc);
+            isDialogueComplete = Talk(objData.DialogueDataOrNull, objData.isNpc);
         }
         else
         {
-            Talk(objData.id, objData.isNpc);
+            isDialogueComplete = Talk(objData.id, objData.isNpc);
         }
         
         talkPanel.SetActive(isAction);
+        return isDialogueComplete;
     }
 
-    void Talk(int id, bool isNpc)
+    public bool Action(DialogueData dialogueDataOrNull, bool isNpc)
+    {
+        bool isDialogueComplete = true;
+        if (dialogueDataOrNull != null)
+        {
+            isDialogueComplete = Talk(dialogueDataOrNull, isNpc);
+
+            talkPanel.SetActive(isAction);
+        }
+
+        return isDialogueComplete;
+    }
+
+    bool Talk(int id, bool isNpc)
     {
         DialogueData dialogueDataOrNull = talkManager.GetDialogueDataOrNull(id);
-        Talk(dialogueDataOrNull, isNpc);
+        return Talk(dialogueDataOrNull, isNpc);
     }
 
-    void Talk(DialogueData dialogueDataOrNull, bool isNpc)
+    bool Talk(DialogueData dialogueDataOrNull, bool isNpc)
     {
         if (mCurrentDialogueDataOrNull != null && mCurrentDialogueDataOrNull != dialogueDataOrNull)
         {
@@ -98,7 +113,7 @@ public class DialogueManager : MonoBehaviour
 
             isAction = false;
             talkIndex = 0;
-            return;
+            return true;
         }
 
         talkText.text = dialogueOrNull.dialogue.Split(':')[0];
@@ -129,5 +144,7 @@ public class DialogueManager : MonoBehaviour
 
         isAction = true;
         talkIndex++;
+
+        return false;
     }
 }

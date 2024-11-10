@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 958097699745083519}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0746855, y: -1.7214792, z: 0.03998375}
+  m_LocalPosition: {x: -3.4753141, y: 4.848521, z: 0.03998375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -611,6 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e923c4d07af234244a9f7e725417d08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BackgroundName: background
   sounds:
   - name: player_pickUp
     clip: {fileID: 8300000, guid: 920069d121644464886852dcfe1704db, type: 3}
@@ -1090,6 +1091,51 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!1 &6248056014606418014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 890102570936983570}
+  - component: {fileID: 6392271759503448363}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &890102570936983570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6248056014606418014}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2471415414521708977}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6392271759503448363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6248056014606418014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c0bf5a2c74ffb46a0e0720dbf3a1f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Quests: []
 --- !u!1 &6454370040049424550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1562,6 +1608,7 @@ Transform:
   - {fileID: 6586523825370215548}
   - {fileID: 8386851070802260362}
   - {fileID: 5468292744206894999}
+  - {fileID: 890102570936983570}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8750538901165166700

@@ -39,6 +39,8 @@ public class Animal : PhysicalInventoryItem
     public float KnockbackTime;
     private bool mIsKnockingBack;
 
+    private PlayerManager mPlayerManager;
+
     protected override void onStart()
     {
         currentState = AnimalState.idle;
@@ -48,6 +50,7 @@ public class Animal : PhysicalInventoryItem
         isPickUpable = false;
         mCurrentHealth = health;
         mIsKnockingBack = false;
+        mPlayerManager = FindObjectOfType<PlayerManager>();
     }
 
     void CheckDistance()
@@ -265,6 +268,8 @@ public class Animal : PhysicalInventoryItem
         ChangeState(AnimalState.dying);
         anim.SetBool("isMoving", false);
         anim.SetBool("isDying", true);
+
+        mPlayerManager.OnAnimalDeath(AnimalName);
     }
 
     protected virtual void onDying() { }
