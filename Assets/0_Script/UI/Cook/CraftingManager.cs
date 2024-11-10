@@ -705,6 +705,7 @@ public class CraftingManager : MonoBehaviour
 
                 pauseCookManager.CookingScene.gameObject.SetActive(true);
                 pauseCookManager.CookingScene.CookScene.gameObject.SetActive(false);
+                pauseCookManager.CookingScene.InitCooking(cookedItem, cookedItem == FailedDish);
                 IPauseManager.SetPausable(true);
                 pauseCookManager.ChangePause(false);
                 IPauseManager.SetPausable(false);
