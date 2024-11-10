@@ -457,6 +457,12 @@ PlayableDirector:
     value: {fileID: 2802515064512756195}
   - key: {fileID: -8175641504309019577, guid: 4821506af51fb0349865fc2d707d1d18, type: 2}
     value: {fileID: 8410950928934177011}
+  - key: {fileID: -910054989517169221, guid: 4821506af51fb0349865fc2d707d1d18, type: 2}
+    value: {fileID: 2304493038436138767}
+  - key: {fileID: 1535997147451998679, guid: 4821506af51fb0349865fc2d707d1d18, type: 2}
+    value: {fileID: 2898737642642055405}
+  - key: {fileID: 2699141309027158440, guid: 4821506af51fb0349865fc2d707d1d18, type: 2}
+    value: {fileID: 2802515064512756195}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &600040828209180606
@@ -1626,7 +1632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2384038417067338961
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4729,7 +4735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4783661444678929631
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7389,7 +7395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1682144886431691311
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8529,7 +8535,7 @@ PlayableDirector:
   m_GameObject: {fileID: 7777044091289728414}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: b3b96de4787ea4e43bdb972a12536022, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 98d7a5ad72ffa994dbccd0e521022e2a, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -8581,6 +8587,28 @@ PlayableDirector:
     value: {fileID: 7630280249117806798}
   - key: {fileID: -2452633932991636623, guid: b3b96de4787ea4e43bdb972a12536022, type: 2}
     value: {fileID: 3143949636215346031}
+  - key: {fileID: -8175641504309019577, guid: 98d7a5ad72ffa994dbccd0e521022e2a, type: 2}
+    value: {fileID: 8410950928934177011}
+  - key: {fileID: -4420517032142233226, guid: 98d7a5ad72ffa994dbccd0e521022e2a, type: 2}
+    value: {fileID: 2898737642642055405}
+  - key: {fileID: -3003069326451161210, guid: 98d7a5ad72ffa994dbccd0e521022e2a, type: 2}
+    value: {fileID: 2304493038436138767}
+  - key: {fileID: -4495930321854263665, guid: 98d7a5ad72ffa994dbccd0e521022e2a, type: 2}
+    value: {fileID: 2802515064512756195}
+  - key: {fileID: -4828957843554862469, guid: 98d7a5ad72ffa994dbccd0e521022e2a, type: 2}
+    value: {fileID: 2304493038436138767}
+  - key: {fileID: -7299489960638650756, guid: 98d7a5ad72ffa994dbccd0e521022e2a, type: 2}
+    value: {fileID: 2898737642642055405}
+  - key: {fileID: -8822888284610839982, guid: 98d7a5ad72ffa994dbccd0e521022e2a, type: 2}
+    value: {fileID: 2802515064512756195}
+  - key: {fileID: 9068629147453142916, guid: 98d7a5ad72ffa994dbccd0e521022e2a, type: 2}
+    value: {fileID: 7630280249117806798}
+  - key: {fileID: -2452633932991636623, guid: 98d7a5ad72ffa994dbccd0e521022e2a, type: 2}
+    value: {fileID: 3143949636215346031}
+  - key: {fileID: 8747052716255236772, guid: 98d7a5ad72ffa994dbccd0e521022e2a, type: 2}
+    value: {fileID: 5713419085764365216}
+  - key: {fileID: 6965934261123041010, guid: 98d7a5ad72ffa994dbccd0e521022e2a, type: 2}
+    value: {fileID: 7887096725364908347}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &7953746065165950035
@@ -8668,6 +8696,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2602899309174790322}
   - component: {fileID: 5713419085764365216}
+  - component: {fileID: 7887096725364908347}
   m_Layer: 5
   m_Name: Audio Source
   m_TagString: Untagged
@@ -8790,6 +8819,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &7887096725364908347
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7968149408967314646}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7982836579454382305
 GameObject:
   m_ObjectHideFlags: 0
