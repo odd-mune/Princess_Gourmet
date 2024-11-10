@@ -4736,6 +4736,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1667059533103247537, guid: b2d7851f1e2524f45831be12839ce5a7, type: 3}
   m_PrefabInstance: {fileID: 910841354}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &957401423 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7613256890671206376, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+  m_PrefabInstance: {fileID: 647388785}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1016873292
 GameObject:
   m_ObjectHideFlags: 0
@@ -10210,6 +10221,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.7214792
       objectReference: {fileID: 0}
+    - target: {fileID: 5877498480032667715, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: PlaceText
+      value: 
+      objectReference: {fileID: 957401423}
+    - target: {fileID: 5877498480032667715, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: placeName
+      value: "\uC544\uBB88\uC988 \uB9C8\uC744\uC758 \uC2E0\uC804"
+      objectReference: {fileID: 0}
     - target: {fileID: 6985904202528973858, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_Follow
       value: 
@@ -14751,6 +14770,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1841442615}
     m_Modifications:
+    - target: {fileID: 135914126557789930, guid: 509585d59c6b7004ebd523a638097152, type: 3}
+      propertyPath: needText
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 135914126557789930, guid: 509585d59c6b7004ebd523a638097152, type: 3}
+      propertyPath: PlaceText
+      value: 
+      objectReference: {fileID: 957401423}
+    - target: {fileID: 135914126557789930, guid: 509585d59c6b7004ebd523a638097152, type: 3}
+      propertyPath: placeName
+      value: "\uB9C8\uC744"
+      objectReference: {fileID: 0}
     - target: {fileID: 135914126557789930, guid: 509585d59c6b7004ebd523a638097152, type: 3}
       propertyPath: sceneToLoad
       value: Village

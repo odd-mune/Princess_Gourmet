@@ -2143,6 +2143,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1004636461 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7613256890671206376, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+  m_PrefabInstance: {fileID: 5281149586384045153}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1010403292
 GameObject:
   m_ObjectHideFlags: 0
@@ -3243,11 +3254,19 @@ PrefabInstance:
       objectReference: {fileID: 5281149586384045157}
     - target: {fileID: 5504548743550370574, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.852463
+      value: 3.5746856
       objectReference: {fileID: 0}
     - target: {fileID: 5504548743550370574, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.721478
+      value: -3.2114794
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877498480032667715, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: PlaceText
+      value: 
+      objectReference: {fileID: 1004636461}
+    - target: {fileID: 5877498480032667715, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: placeName
+      value: "\uC9D1"
       objectReference: {fileID: 0}
     - target: {fileID: 6985904202528973858, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_Follow
@@ -6350,10 +6369,6 @@ MonoBehaviour:
   sceneToLoad: Village
   playerPosition: {x: -108.78, y: -7.51}
   playerStorage: {fileID: 11400000, guid: 4b1f1f46674368e4c866c3bcbc3e3b45, type: 2}
-  needText: 0
-  placeName: 
-  text: {fileID: 0}
-  placeText: {fileID: 0}
 --- !u!1001 &4501000455781868121
 PrefabInstance:
   m_ObjectHideFlags: 0

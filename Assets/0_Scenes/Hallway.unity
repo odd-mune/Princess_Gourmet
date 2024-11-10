@@ -2072,6 +2072,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 21.978521
       objectReference: {fileID: 0}
+    - target: {fileID: 5877498480032667715, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: PlaceText
+      value: 
+      objectReference: {fileID: 5281149586384045154}
+    - target: {fileID: 5877498480032667715, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: placeName
+      value: "\uAD81\uC815 \uBCF5\uB3C4"
+      objectReference: {fileID: 0}
     - target: {fileID: 5939568288594301120, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 58.874683
@@ -42031,10 +42039,6 @@ MonoBehaviour:
   sceneToLoad: PrincessGarden
   playerPosition: {x: 8.5, y: -0.5}
   playerStorage: {fileID: 11400000, guid: 4b1f1f46674368e4c866c3bcbc3e3b45, type: 2}
-  needText: 1
-  placeName: "\uACF5\uC8FC \uC815\uC6D0"
-  text: {fileID: 5281149586384045154}
-  placeText: {fileID: 0}
 --- !u!1001 &2764015191602933377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42299,11 +42303,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
---- !u!1 &5281149586384045154 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8597185350597085832, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+--- !u!114 &5281149586384045154 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7613256890671206376, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
   m_PrefabInstance: {fileID: 5281149586384045153}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5281149586384045155 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1331664729742620227, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
