@@ -20,6 +20,8 @@ public enum PlayerState
 }
 
 
+
+
 public class PlayerManager : MonoBehaviour
 {
     // 다이얼로그 매니저 
@@ -54,6 +56,7 @@ public class PlayerManager : MonoBehaviour
 
     private AudioManager theAudio;
     private bool mbHasHit = false;
+    private bool mbIsControllable = true;
 
     // 공주 옷장
     [System.Serializable]
@@ -117,7 +120,9 @@ public class PlayerManager : MonoBehaviour
     // 다이얼로그 매니저, 오브젝트 조사 
     void Update() 
     {
-        // 오브젝트 조사 
+        // 오브젝트 조사
+        if (mbIsControllable == true)
+        {
             //Move Value
             h = manager.isAction ? 0 : Input.GetAxisRaw("Horizontal");
             v = manager.isAction ? 0 : Input.GetAxisRaw("Vertical");
@@ -143,6 +148,7 @@ public class PlayerManager : MonoBehaviour
             {
                 manager.Action(scanObject);
             }
+        }
     }
 
     void FixedUpdate()
@@ -169,86 +175,89 @@ public class PlayerManager : MonoBehaviour
         }
 
         change = Vector3.zero;
-        change.x = Input.GetAxisRaw("Horizontal");
-        change.y = Input.GetAxisRaw("Vertical");
-
-        // 아이템 줍기 
-        //당근 줍기
-        if (mCurrentCollidingItems.Count > 0)
+        if (mbIsControllable == true)
         {
-            if (!hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
+            change.x = Input.GetAxisRaw("Horizontal");
+            change.y = Input.GetAxisRaw("Vertical");
+
+            // 아이템 줍기 
+            //당근 줍기
+            if (mCurrentCollidingItems.Count > 0)
             {
-                GameObject itemGameObjectToPickUp = mCurrentCollidingItems[0];
-                PhysicalInventoryItem physicalInventoryItem = itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>();
-                bool hasPickedUpObject = physicalInventoryItem.PickUp();
-
-                mCurrentCollidingItems.RemoveAt(0);
-                Destroy(itemGameObjectToPickUp);
-                hasConsumedSpaceKey = true;
-
-                if (hasPickedUpObject)
+                if (!hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
                 {
-                    //AudioManager 추가 
-                    theAudio = FindObjectOfType<AudioManager>();
-                    //AudioManager pickUp sound
-                    theAudio.Play(pickUpSound);
+                    GameObject itemGameObjectToPickUp = mCurrentCollidingItems[0];
+                    PhysicalInventoryItem physicalInventoryItem = itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>();
+                    bool hasPickedUpObject = physicalInventoryItem.PickUp();
+
+                    mCurrentCollidingItems.RemoveAt(0);
+                    Destroy(itemGameObjectToPickUp);
+                    hasConsumedSpaceKey = true;
+
+                    if (hasPickedUpObject)
+                    {
+                        //AudioManager 추가 
+                        theAudio = FindObjectOfType<AudioManager>();
+                        //AudioManager pickUp sound
+                        theAudio.Play(pickUpSound);
+                    }
                 }
             }
-        }
 
-        //시럽나무 줍기
-        if (mCurrentPickUpObjects.Count > 0)
-        {
-            if (!hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
+            //시럽나무 줍기
+            if (mCurrentPickUpObjects.Count > 0)
             {
-                GameObject itemGameObjectToPickUp = mCurrentPickUpObjects[0];
-                bool hasPickedUpObject = itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>().PickUp();
-
-                hasConsumedSpaceKey = true;
-
-                if (hasPickedUpObject)
+                if (!hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
                 {
-                    //AudioManager 추가 
-                    theAudio = FindObjectOfType<AudioManager>();
-                    //AudioManager pickUp sound
-                    theAudio.Play(pickUpSound);
+                    GameObject itemGameObjectToPickUp = mCurrentPickUpObjects[0];
+                    bool hasPickedUpObject = itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>().PickUp();
+
+                    hasConsumedSpaceKey = true;
+
+                    if (hasPickedUpObject)
+                    {
+                        //AudioManager 추가 
+                        theAudio = FindObjectOfType<AudioManager>();
+                        //AudioManager pickUp sound
+                        theAudio.Play(pickUpSound);
+                    }
                 }
             }
-        }
 
-        // Cloth Changer
-        if (mIsCollidingWithClothChanger == true)
-        {
-            if (!hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
+            // Cloth Changer
+            if (mIsCollidingWithClothChanger == true)
             {
-                mCurrentClothIndex = (mCurrentClothIndex + 1) % clothAnimationInfos.Count;
-                SetCloth(mCurrentClothIndex);
+                if (!hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
+                {
+                    mCurrentClothIndex = (mCurrentClothIndex + 1) % clothAnimationInfos.Count;
+                    SetCloth(mCurrentClothIndex);
 
-                hasConsumedSpaceKey = true;
+                    hasConsumedSpaceKey = true;
+                }
             }
-        }
 
-        // 젤다 튜토리얼 - 플레이어 기본 움직임 셋팅 
-        if (hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space) == false)
-        {
-            hasConsumedSpaceKey = false;
-        }
+            // 젤다 튜토리얼 - 플레이어 기본 움직임 셋팅 
+            if (hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space) == false)
+            {
+                hasConsumedSpaceKey = false;
+            }
 
-        if (currentAnimationInfo.clothAnimationClips.Attack.Down != null && Input.GetButtonDown("attack") && currentState != PlayerState.attack
-            && currentState != PlayerState.stagger)
-        {
-            StartCoroutine(AttackCo());
-        }
+            if (currentAnimationInfo.clothAnimationClips.Attack.Down != null && Input.GetButtonDown("attack") && currentState != PlayerState.attack
+                && currentState != PlayerState.stagger)
+            {
+                StartCoroutine(AttackCo());
+            }
 
-        if (mIsKnockingBack == false)
-        {
-            myRigidbody.velocity = Vector2.zero;
-        }
+            if (mIsKnockingBack == false)
+            {
+                myRigidbody.velocity = Vector2.zero;
+            }
 
-        if (currentState == PlayerState.walk || currentState == PlayerState.run
-            || currentState == PlayerState.idle)
-        {
-            UpdateAnimationAndMove();
+            if (currentState == PlayerState.walk || currentState == PlayerState.run
+                || currentState == PlayerState.idle)
+            {
+                UpdateAnimationAndMove();
+            }
         }
     }
 
@@ -503,5 +512,17 @@ public class PlayerManager : MonoBehaviour
     public void OnKnockback()
     {
         mbHasHit = true;
+    }
+
+    //컷씬 
+    public void EnableControls()
+    {
+        mbIsControllable = true;
+    }
+
+    public void DisableControls()
+    {
+        mbIsControllable = false;
+        myRigidbody.velocity = Vector2.zero;
     }
 }
