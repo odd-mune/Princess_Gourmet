@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +11,8 @@ public enum GameState
 
 public class GameStateManager : MonoBehaviour
 {
+    [Tooltip("게임 세이브 데이터")]
+    public GameSaveData GameSaveData;
     private static GameState CurrentGameState = GameState.IDLE;
 
     public static void ChangeState(GameState state)
@@ -33,5 +35,10 @@ public class GameStateManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void InitializeSaveData()
+    {
+        GameSaveData.Initialize();
     }
 }

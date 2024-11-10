@@ -10,6 +10,20 @@ public class PlayerInventory : ScriptableObject
 
     public void Clear()
     {
-        myInventory.Clear();
+        //myInventory.Clear();
+        for (int i = 0; i < myInventory.Count;)
+        {
+            InventoryItem item = myInventory[i];
+
+            if (item.itemType != ItemType.MagicCircleIngredients && item.itemType != ItemType.MagicCircleCookType)
+            {
+                item.numberHeld = 0;
+                myInventory.RemoveAt(i);
+            }
+            else
+            {
+                ++i;
+            }
+        }
     }
 }
