@@ -24112,8 +24112,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 135914126557789930, guid: 509585d59c6b7004ebd523a638097152, type: 3}
-      propertyPath: placeName
+      propertyPath: PlaceText
       value: 
+      objectReference: {fileID: 1234424915}
+    - target: {fileID: 135914126557789930, guid: 509585d59c6b7004ebd523a638097152, type: 3}
+      propertyPath: placeName
+      value: "\uB9C8\uC744"
       objectReference: {fileID: 0}
     - target: {fileID: 135914126557789930, guid: 509585d59c6b7004ebd523a638097152, type: 3}
       propertyPath: sceneToLoad
@@ -24206,8 +24210,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 135914126557789930, guid: 509585d59c6b7004ebd523a638097152, type: 3}
-      propertyPath: placeName
+      propertyPath: PlaceText
       value: 
+      objectReference: {fileID: 1234424915}
+    - target: {fileID: 135914126557789930, guid: 509585d59c6b7004ebd523a638097152, type: 3}
+      propertyPath: placeName
+      value: "\uAE4A\uC740 \uC232"
       objectReference: {fileID: 0}
     - target: {fileID: 135914126557789930, guid: 509585d59c6b7004ebd523a638097152, type: 3}
       propertyPath: sceneToLoad
@@ -43539,7 +43547,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5504548743550370574, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.721479
+      value: 3.2785208
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877498480032667715, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: PlaceText
+      value: 
+      objectReference: {fileID: 1234424915}
+    - target: {fileID: 5877498480032667715, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: placeName
+      value: "\uAE4A\uC740 \uC232"
       objectReference: {fileID: 0}
     - target: {fileID: 6985904202528973858, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_Follow
@@ -44103,6 +44119,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1234424915 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7613256890671206376, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+  m_PrefabInstance: {fileID: 647388785}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1286120374
 PrefabInstance:
   m_ObjectHideFlags: 0

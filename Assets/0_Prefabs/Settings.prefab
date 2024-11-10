@@ -387,6 +387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3826913571161518398}
   - component: {fileID: 963528407758256759}
+  - component: {fileID: 5877498480032667715}
   m_Layer: 0
   m_Name: MapBoundary
   m_TagString: Untagged
@@ -458,6 +459,23 @@ PolygonCollider2D:
       - {x: -48, y: -16}
       - {x: 24, y: -16}
   m_UseDelaunayMesh: 0
+--- !u!114 &5877498480032667715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3627799806107595851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12f87d1edf965f49be70f03ab719d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeName: 
+  PlaceText: {fileID: 0}
+  TextShowTimer: 5
+  TextFadeInTimer: 1.5
+  TextFadeOutTimer: 1.5
 --- !u!1 &3651182078983843974
 GameObject:
   m_ObjectHideFlags: 0

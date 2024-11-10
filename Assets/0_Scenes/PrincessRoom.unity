@@ -7560,6 +7560,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.7214782
       objectReference: {fileID: 0}
+    - target: {fileID: 5877498480032667715, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: PlaceText
+      value: 
+      objectReference: {fileID: 1829752335}
+    - target: {fileID: 5877498480032667715, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: placeName
+      value: "\uACF5\uC8FC\uC758 \uBC29"
+      objectReference: {fileID: 0}
     - target: {fileID: 6985904202528973858, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_Follow
       value: 
@@ -12783,6 +12791,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1829752335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7613256890671206376, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+  m_PrefabInstance: {fileID: 5281149586384045153}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1883710080
 GameObject:
   m_ObjectHideFlags: 0
@@ -12975,10 +12994,6 @@ MonoBehaviour:
   sceneToLoad: Hallway
   playerPosition: {x: -0.5, y: 2.5}
   playerStorage: {fileID: 11400000, guid: 4b1f1f46674368e4c866c3bcbc3e3b45, type: 2}
-  needText: 1
-  placeName: "\uAD81\uC804 \uBCF5\uB3C4"
-  text: {fileID: 0}
-  placeText: {fileID: 0}
 --- !u!212 &449720963606129861
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13749,6 +13764,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 561391313506218983, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1113287804513780616, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
       propertyPath: craftingManager
       value: 
@@ -13817,6 +13836,30 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 4501000455781868122}
+    - target: {fileID: 8956650309362914228, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956650309362914228, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956650309362914228, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956650309362914228, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956650309362914228, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956650309362914228, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13934,6 +13977,7 @@ GameObject:
   - component: {fileID: 5995044651416247268}
   - component: {fileID: 4104601609647804758}
   - component: {fileID: 1450597295208431948}
+  - component: {fileID: 5995044651416247269}
   m_Layer: 0
   m_Name: closet
   m_TagString: Untagged
