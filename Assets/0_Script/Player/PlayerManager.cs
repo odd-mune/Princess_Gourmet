@@ -90,6 +90,16 @@ public class PlayerManager : MonoBehaviour
     private DialogueData mCurrentDialogueDataOrNull = null;
     private PlayerInventory mPlayerInventory;
 
+    [System.Serializable]
+    public class TransitionInfo
+    {
+        public string Name;
+        public bool IsTransitionable = true;
+    };
+
+    [Tooltip("갈 수 있는 Scene 목록")]
+    public List<TransitionInfo> TransitionableScenes;
+
     private struct KillHistory
     {
         public int TotalKills;
@@ -97,6 +107,18 @@ public class PlayerManager : MonoBehaviour
     }
 
     private Dictionary<string, KillHistory> mKillHistories = new Dictionary<string, KillHistory>();
+
+    public void AllowTransitionToScene(string sceneName)
+    {
+        foreach (var sceneInfo in TransitionableScenes)
+        {
+            if (sceneInfo.Name == sceneName)
+            {
+                sceneInfo.IsTransitionable = true;
+                break;
+            }
+        }
+    }
 
     public void OnAnimalDeath(string name)
     {

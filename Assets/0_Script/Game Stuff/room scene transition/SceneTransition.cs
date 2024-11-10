@@ -26,7 +26,15 @@ public class SceneTransition : MonoBehaviour
     {
         if (other.CompareTag("Player") && !other.isTrigger)
         {
-            Transition();
+            PlayerManager player = other.GetComponent<PlayerManager>();
+            foreach (var info in player.TransitionableScenes)
+            {
+                if (info.Name == sceneToLoad && info.IsTransitionable)
+                {
+                    Transition();
+                    break;
+                }
+            }
         }
     }
 

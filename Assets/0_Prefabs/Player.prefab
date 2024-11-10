@@ -495,7 +495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79c5fa846621594597ed8c4a97814db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
   walkSpeed: 5
   runSpeed: 8
   currentState: 0
@@ -539,6 +538,45 @@ MonoBehaviour:
         Up: {fileID: 7400000, guid: 6c2f20a527ac04348917c441bed8eebb, type: 2}
         Left: {fileID: 7400000, guid: 5c4a83a9d3d50024d9044cf094ea841d, type: 2}
         Right: {fileID: 7400000, guid: 0372fc77027f89645a17d29aadb06ba0, type: 2}
+  TransitionableScenes:
+  - Name: StartMenu
+    IsTransitionable: 1
+  - Name: EndingCredit
+    IsTransitionable: 1
+  - Name: Bridge
+    IsTransitionable: 1
+  - Name: ChiefCastle_office
+    IsTransitionable: 1
+  - Name: DeepForest
+    IsTransitionable: 1
+  - Name: Forest
+    IsTransitionable: 1
+  - Name: Hallway
+    IsTransitionable: 1
+  - Name: Hidden
+    IsTransitionable: 1
+  - Name: Path
+    IsTransitionable: 1
+  - Name: PrincessGarden
+    IsTransitionable: 1
+  - Name: PrincessRoom
+    IsTransitionable: 1
+  - Name: Room_House
+    IsTransitionable: 1
+  - Name: Room_House_1
+    IsTransitionable: 1
+  - Name: Room_House_2
+    IsTransitionable: 1
+  - Name: Room_House_3
+    IsTransitionable: 1
+  - Name: Temple
+    IsTransitionable: 1
+  - Name: TempleHallway
+    IsTransitionable: 1
+  - Name: Village
+    IsTransitionable: 1
+  - Name: VillageTemple
+    IsTransitionable: 1
 --- !u!114 &3432495740290369041
 MonoBehaviour:
   m_ObjectHideFlags: 0
