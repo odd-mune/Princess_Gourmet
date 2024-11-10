@@ -2,8 +2,6 @@
 using TMPro;
 using UnityEngine.Events;
 using System.Collections.Generic;
-using static UnityEditor.Progress;
-using System.Linq;
 
 public class PhysicalInventoryItem : MonoBehaviour
 {
