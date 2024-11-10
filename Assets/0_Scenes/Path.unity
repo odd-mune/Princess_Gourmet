@@ -1719,6 +1719,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3779406437340744730, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
   m_PrefabInstance: {fileID: 293499069}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &293499071 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7483605681497280575, guid: 344e61ea27af27044b4794bc18b4c419, type: 3}
+  m_PrefabInstance: {fileID: 293499069}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &313356443
 GameObject:
   m_ObjectHideFlags: 0
@@ -118607,6 +118612,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 963528407758256759, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 963528407758256759, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 963528407758256759, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: -48
+      objectReference: {fileID: 0}
+    - target: {fileID: 963528407758256759, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 963528407758256759, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: -48
+      objectReference: {fileID: 0}
+    - target: {fileID: 963528407758256759, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 963528407758256759, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 963528407758256759, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: -9
+      objectReference: {fileID: 0}
     - target: {fileID: 1521786592691522942, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: attenuationBeginRatio
       value: 0.2
@@ -118751,6 +118788,10 @@ PrefabInstance:
       propertyPath: grassTilemaps.Array.data[2]
       value: 
       objectReference: {fileID: 1052941852}
+    - target: {fileID: 6985904202528973858, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: m_Follow
+      value: 
+      objectReference: {fileID: 293499071}
     - target: {fileID: 7296031574476299243, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.3
