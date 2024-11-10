@@ -85,6 +85,8 @@ public class PlayerManager : MonoBehaviour
     [Tooltip("공주가 사용 가능한 cloth 정보를 기록한다. name이 겹치지 않도록 주의할 것. Prefab에 저장할 것.")]
     public List<ClothAnimationInfos> clothAnimationInfos;
     private ClothAnimationInfos currentAnimationInfo = null;
+    private int mCurrentClothIndex;
+    private bool mIsCollidingWithClothChanger = false;
 
     void Start()
     {
@@ -214,6 +216,18 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
+        // Cloth Changer
+        if (mIsCollidingWithClothChanger == true)
+        {
+            if (!hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
+            {
+                mCurrentClothIndex = (mCurrentClothIndex + 1) % clothAnimationInfos.Count;
+                SetCloth(mCurrentClothIndex);
+
+                hasConsumedSpaceKey = true;
+            }
+        }
+
         // 젤다 튜토리얼 - 플레이어 기본 움직임 셋팅 
         if (hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space) == false)
         {
@@ -240,28 +254,36 @@ public class PlayerManager : MonoBehaviour
 
     public void SetCloth(string cloth)
     {
-        foreach (var clothTextureInfo in clothAnimationInfos)
+        for (int i = 0; i < clothAnimationInfos.Count; i++)
         {
+            ClothAnimationInfos clothTextureInfo = clothAnimationInfos[i];
             if (clothTextureInfo.name == cloth)
             {
-                currentAnimationInfo = clothTextureInfo;
-                animatorOverrideController["idleDown"] =    clothTextureInfo.clothAnimationClips.Idle.Down;
-                animatorOverrideController["idleUp"] =      clothTextureInfo.clothAnimationClips.Idle.Up;
-                animatorOverrideController["idleLeft"] =    clothTextureInfo.clothAnimationClips.Idle.Left;
-                animatorOverrideController["idleRight"] =   clothTextureInfo.clothAnimationClips.Idle.Right;
-                
-                animatorOverrideController["walkDown"] =    clothTextureInfo.clothAnimationClips.Walk.Down;
-                animatorOverrideController["walkUp"] =      clothTextureInfo.clothAnimationClips.Walk.Up;
-                animatorOverrideController["walkLeft"] =    clothTextureInfo.clothAnimationClips.Walk.Left;
-                animatorOverrideController["walkRight"] =   clothTextureInfo.clothAnimationClips.Walk.Right;
-                
-                animatorOverrideController["attackDown"] =    clothTextureInfo.clothAnimationClips.Attack.Down;
-                animatorOverrideController["attackUp"] =      clothTextureInfo.clothAnimationClips.Attack.Up;
-                animatorOverrideController["attackLeft"] =    clothTextureInfo.clothAnimationClips.Attack.Left;
-                animatorOverrideController["attackRight"] =   clothTextureInfo.clothAnimationClips.Attack.Right;
+                SetCloth(i);
                 break;
             }
         }
+    }
+
+    private void SetCloth(int index)
+    {
+        ClothAnimationInfos clothTextureInfo = clothAnimationInfos[index];
+        currentAnimationInfo = clothTextureInfo;
+        mCurrentClothIndex = index;
+        animatorOverrideController["idleDown"] = clothTextureInfo.clothAnimationClips.Idle.Down;
+        animatorOverrideController["idleUp"] = clothTextureInfo.clothAnimationClips.Idle.Up;
+        animatorOverrideController["idleLeft"] = clothTextureInfo.clothAnimationClips.Idle.Left;
+        animatorOverrideController["idleRight"] = clothTextureInfo.clothAnimationClips.Idle.Right;
+
+        animatorOverrideController["walkDown"] = clothTextureInfo.clothAnimationClips.Walk.Down;
+        animatorOverrideController["walkUp"] = clothTextureInfo.clothAnimationClips.Walk.Up;
+        animatorOverrideController["walkLeft"] = clothTextureInfo.clothAnimationClips.Walk.Left;
+        animatorOverrideController["walkRight"] = clothTextureInfo.clothAnimationClips.Walk.Right;
+
+        animatorOverrideController["attackDown"] = clothTextureInfo.clothAnimationClips.Attack.Down;
+        animatorOverrideController["attackUp"] = clothTextureInfo.clothAnimationClips.Attack.Up;
+        animatorOverrideController["attackLeft"] = clothTextureInfo.clothAnimationClips.Attack.Left;
+        animatorOverrideController["attackRight"] = clothTextureInfo.clothAnimationClips.Attack.Right;
     }
 
     private IEnumerator AttackCo()
@@ -306,6 +328,10 @@ public class PlayerManager : MonoBehaviour
                 GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
             }
         }
+        else if (other.gameObject.GetComponent<ClothChanger>() != null)
+        {
+            mIsCollidingWithClothChanger = true;
+        }
     }
     private void OnCollisionExit2D(Collision2D other)
     {
@@ -329,6 +355,10 @@ public class PlayerManager : MonoBehaviour
             {
                 GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             }
+        }
+        else if (other.gameObject.GetComponent<ClothChanger>() != null)
+        {
+            mIsCollidingWithClothChanger = false;
         }
     }
 
