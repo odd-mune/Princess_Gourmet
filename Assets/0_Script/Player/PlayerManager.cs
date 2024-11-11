@@ -628,7 +628,8 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
-            this.gameObject.SetActive(false);
+            Debug.Log("플레이어 사망 ㅠㅠ");
+            GetComponentInChildren<SceneTransition>().Transition();
         }
     }
 
