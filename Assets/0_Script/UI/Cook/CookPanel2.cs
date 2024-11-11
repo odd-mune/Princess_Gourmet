@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UI;
@@ -17,12 +18,25 @@ public class CookPanel2 : MonoBehaviour
     [Tooltip("요리 이미지")]
     public TMPro.TextMeshProUGUI ResultText;
 
+    [Tooltip("요리 PlayableDirector")]
     public PlayableDirector CookingPlayableDirector;
+    [Tooltip("요리 성공 PlayableDirector")]
     public PlayableDirector SuccessPlayableDirector;
+    [Tooltip("요리 실패 PlayableDirector")]
     public PlayableDirector FailurePlayableDirector;
+
+    [Tooltip("요리 결과 이펙트 prefab")]
+    private CookResultEffect[] mEffects;
+
+    [Tooltip("요리 결과 이펙트가 나오기 시작할 최소 반지름. 이 반지름보다 작은 구역에서는 이펙트가 나오지 않음.")]
+    public float EffectInnerRadius = 0.0f;
+    [Tooltip("요리 결과 이펙트가 나오기 시작할 최대 반지름. 이 반지름보다 큰 구역에서는 이펙트가 나오지 않음.")]
+    public float EffectOutRadius = 0.0f;
 
     private InventoryItem mResultItem;
     private bool mbHasFaileDish;
+
+    public bool hasDishFailed { get { return mbHasFaileDish; } }
 
     public void InitCooking(InventoryItem resultItem, bool hasFailedDish)
     {
@@ -42,6 +56,8 @@ public class CookPanel2 : MonoBehaviour
                 Debug.Break();
             }
         }
+
+        mEffects = GetComponentsInChildren<CookResultEffect>();
     }
 
     private void OnEnable()
@@ -102,6 +118,11 @@ public class CookPanel2 : MonoBehaviour
 
     public void EndShowingCookingResult()
     {
+        foreach (var effect in mEffects)
+        {
+            effect.gameObject.SetActive(false);
+        }
+
         ResultImage.gameObject.SetActive(false);
         ResultText.gameObject.SetActive(false);
         gameObject.SetActive(false);
@@ -111,5 +132,21 @@ public class CookPanel2 : MonoBehaviour
 
         CookScene.SetActive(true);
         PauseCookManager.ChangePause(true);
+    }
+
+    public void OnResultReveal(bool isSuccess)
+    {
+        foreach (var effect in mEffects)
+        {
+            effect.bIsSuccess = isSuccess;
+
+            float randomValueForRadius = Random.value;
+            float randomRadius = (EffectOutRadius - EffectInnerRadius) * randomValueForRadius + EffectInnerRadius;
+
+            float randomValueForRadian = Random.value;
+            float randomRadian = randomValueForRadian * 2.0f * Mathf.PI - Mathf.PI;
+
+            effect.Position = new Vector2(randomRadius * Mathf.Cos(randomRadian), randomRadius * Mathf.Sin(randomRadian));
+        }
     }
 }
