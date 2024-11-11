@@ -9,6 +9,6 @@ public class TextBubblePosition : MonoBehaviour
 
     void Update() 
     {
-        transform.position = player.position + offset;
+        transform.localPosition = player.position + offset;
     }
 }
