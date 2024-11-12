@@ -816,7 +816,7 @@ MonoBehaviour:
   OnVideoEndEvents:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1513403130}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
         m_MethodName: InitializeSaveData
         m_Mode: 1
@@ -2366,74 +2366,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 450969828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1513403129
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2623366491103948835, guid: 92025f99d49265248951de4a2ce66710, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2623366491103948835, guid: 92025f99d49265248951de4a2ce66710, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2623366491103948835, guid: 92025f99d49265248951de4a2ce66710, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2623366491103948835, guid: 92025f99d49265248951de4a2ce66710, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2623366491103948835, guid: 92025f99d49265248951de4a2ce66710, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2623366491103948835, guid: 92025f99d49265248951de4a2ce66710, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2623366491103948835, guid: 92025f99d49265248951de4a2ce66710, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2623366491103948835, guid: 92025f99d49265248951de4a2ce66710, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2623366491103948835, guid: 92025f99d49265248951de4a2ce66710, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2623366491103948835, guid: 92025f99d49265248951de4a2ce66710, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4535952157552168193, guid: 92025f99d49265248951de4a2ce66710, type: 3}
-      propertyPath: m_Name
-      value: GameStateManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 92025f99d49265248951de4a2ce66710, type: 3}
---- !u!114 &1513403130 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 707171183479661412, guid: 92025f99d49265248951de4a2ce66710, type: 3}
-  m_PrefabInstance: {fileID: 1513403129}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3df90d9e9c95dd54aa98469a4bb10d0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1815424735
 GameObject:
   m_ObjectHideFlags: 0
@@ -2578,7 +2510,6 @@ SceneRoots:
   - {fileID: 1815424738}
   - {fileID: 655628756}
   - {fileID: 1299008643}
-  - {fileID: 1513403129}
   - {fileID: 450969828}
   - {fileID: 242337051}
   - {fileID: 309025532}
