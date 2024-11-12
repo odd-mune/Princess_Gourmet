@@ -7568,38 +7568,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1018227279
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1018227280}
-  m_Layer: 0
-  m_Name: Cinema_1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1018227280
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1018227279}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7231425, y: 1.3353934, z: -0.10183008}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8225070874299596677}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1049211822
 GameObject:
   m_ObjectHideFlags: 0
@@ -17563,46 +17531,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!320 &5808254814497092266
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7760960958569691933}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 07899996737f5ba4885fad4268c3468b, type: 2}
-  m_InitialState: 0
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 818932936321102755, guid: cf9cdd3b17866c743ab8928db516ab0d, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 7851996098259008762, guid: cf9cdd3b17866c743ab8928db516ab0d, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 4138197951196275608, guid: cf9cdd3b17866c743ab8928db516ab0d, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 8946804134552835162, guid: cf9cdd3b17866c743ab8928db516ab0d, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 7189746426036439064, guid: cf9cdd3b17866c743ab8928db516ab0d, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: -1920277384449080818, guid: cf9cdd3b17866c743ab8928db516ab0d, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: -8907768242980113535, guid: 07899996737f5ba4885fad4268c3468b, type: 2}
-    value: {fileID: 2083521576}
-  - key: {fileID: 5431738666300913234, guid: 07899996737f5ba4885fad4268c3468b, type: 2}
-    value: {fileID: 2083521569}
-  - key: {fileID: 6581304099693662444, guid: 07899996737f5ba4885fad4268c3468b, type: 2}
-    value: {fileID: 1812037336}
-  - key: {fileID: -5129533876340152581, guid: 07899996737f5ba4885fad4268c3468b, type: 2}
-    value: {fileID: 1812037329}
-  m_ExposedReferences:
-    m_References:
-    - cad23bd67f988aa41a31daa0f4ef529c: {fileID: 0}
-    - a12700dff7104bf46b7246d88358ca68: {fileID: 0}
-    - cb93745fd934951419ddeca5e102cf1d: {fileID: 0}
 --- !u!1 &5897659152134220035
 GameObject:
   m_ObjectHideFlags: 0
@@ -17933,24 +17861,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &7760960958569691933
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8225070874299596677}
-  - component: {fileID: 5808254814497092266}
-  - component: {fileID: 8380008349149328103}
-  m_Layer: 0
-  m_Name: Timeline
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!4 &7928051180899352195
 Transform:
   m_ObjectHideFlags: 0
@@ -17971,21 +17881,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2245602535217444451, guid: ff511129e648c054ab8b160c5c975172, type: 3}
   m_PrefabInstance: {fileID: 2396249221096710165}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8225070874299596677
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7760960958569691933}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 61.881016, y: 29.229393, z: -0.45002687}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1018227280}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8300507189135979774
 Transform:
   m_ObjectHideFlags: 0
@@ -18001,51 +17896,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1224477137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8380008349149328103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7760960958569691933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: eeed11a9209c5a5478450ee86e2e9991, type: 2}
-    - {fileID: 11400000, guid: 2b6217a3029969c41bb98340a05499f3, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4501000455781868128}
-          m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
-          m_MethodName: DisableControls
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4501000455781868128}
-          m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
-          m_MethodName: DisableControls
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!61 &8597975020551100096
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18185,6 +18035,5 @@ SceneRoots:
   - {fileID: 1541665279}
   - {fileID: 809204185}
   - {fileID: 4967211435040291556}
-  - {fileID: 1018227280}
   - {fileID: 734528822}
   - {fileID: 1066881366}

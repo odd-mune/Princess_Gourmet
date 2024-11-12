@@ -4519,6 +4519,60 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &972696285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 972696286}
+  - component: {fileID: 972696287}
+  m_Layer: 10
+  m_Name: Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &972696286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972696285}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 79.82613, y: 10.505702, z: 0.20912445}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1965879317}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &972696287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972696285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0185f521b5dfe4ba7f5180db417f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: -1
+  DialogueOnInteraction:
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: "\uC601\uC8FC : \uB2F9\uC2E0\uC740 \uB204\uAD6C\uC2E0\uB370 \uC808
+      \uCC3E\uC544\uC624\uC2E0\uAC74\uAC00\uC694?"
+  OnDialogueEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &978897505 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4129704859726590110, guid: 13a5481e1619885409ac47c409d620f9, type: 3}
@@ -8011,12 +8065,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1768923403129968221, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
       propertyPath: id
-      value: 2000
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1768923403129968221, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
       propertyPath: isNpc
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1768923403129968221, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      propertyPath: DialogueDataOrNull
+      value: 
+      objectReference: {fileID: 972696287}
     - target: {fileID: 1975326991459794731, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
       propertyPath: m_Name
       value: NPC_lord
@@ -8079,7 +8137,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7501966987825635724, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 972696286}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de3e52c8c48330c4693e87295d0f25dd, type: 3}
 --- !u!4 &1965879317 stripped
