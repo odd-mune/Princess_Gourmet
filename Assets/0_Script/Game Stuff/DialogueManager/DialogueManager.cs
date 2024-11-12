@@ -119,7 +119,7 @@ public class DialogueManager : MonoBehaviour
             return true;
         }
 
-        talkText.text = dialogueOrNull.dialogue.Split(':')[0];
+        talkText.text = dialogueOrNull.dialogue;
 
         //초상화잠시지움portraitImg.sprite = talkManager.GetPortrait(id, int.Parse(talkData.Split(':')[1]));
         mTalkerPortrait.sprite = dialogueOrNull.talkerSprite;
