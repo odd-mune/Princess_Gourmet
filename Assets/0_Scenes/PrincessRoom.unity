@@ -9389,6 +9389,10 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 4501000455781868123}
+    - target: {fileID: 7378283066556282004, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: BackgroundName
+      value: bgm_castle
+      objectReference: {fileID: 0}
     - target: {fileID: 7425127390179193794, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -10511,7 +10515,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -943, y: 573}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 461.76, y: 152.01001}
   m_Pivot: {x: 1, y: 0}
 --- !u!95 &1433967076
 Animator:
@@ -10644,10 +10648,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1433967075}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 230.88, y: -61.005}
+  m_SizeDelta: {x: 411.76, y: 72.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1447812523
 MonoBehaviour:
