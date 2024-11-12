@@ -8215,77 +8215,6 @@ Transform:
   - {fileID: 1016652768679408881}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &760702949
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2275386508709631096, guid: d61ee468a95724f49a6bb59870ba5a83, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 2275386508709631096, guid: d61ee468a95724f49a6bb59870ba5a83, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 12.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 2275386508709631096, guid: d61ee468a95724f49a6bb59870ba5a83, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2275386508709631096, guid: d61ee468a95724f49a6bb59870ba5a83, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2275386508709631096, guid: d61ee468a95724f49a6bb59870ba5a83, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2275386508709631096, guid: d61ee468a95724f49a6bb59870ba5a83, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2275386508709631096, guid: d61ee468a95724f49a6bb59870ba5a83, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2275386508709631096, guid: d61ee468a95724f49a6bb59870ba5a83, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2275386508709631096, guid: d61ee468a95724f49a6bb59870ba5a83, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2275386508709631096, guid: d61ee468a95724f49a6bb59870ba5a83, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4640207543537703531, guid: d61ee468a95724f49a6bb59870ba5a83, type: 3}
-      propertyPath: m_Name
-      value: Flambe
-      objectReference: {fileID: 0}
-    - target: {fileID: 4640207543537703531, guid: d61ee468a95724f49a6bb59870ba5a83, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d61ee468a95724f49a6bb59870ba5a83, type: 3}
---- !u!95 &760702950 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5695106125845426598, guid: d61ee468a95724f49a6bb59870ba5a83, type: 3}
-  m_PrefabInstance: {fileID: 760702949}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &760702951 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4640207543537703531, guid: d61ee468a95724f49a6bb59870ba5a83, type: 3}
-  m_PrefabInstance: {fileID: 760702949}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &795467714 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7613256890671206376, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
@@ -23717,9 +23646,9 @@ PlayableDirector:
   - key: {fileID: -5179654572291178800, guid: f0d35873e2bd5c64fa0bb6a87d4e0ea3, type: 2}
     value: {fileID: 1803703570}
   - key: {fileID: 6138124812392969852, guid: f0d35873e2bd5c64fa0bb6a87d4e0ea3, type: 2}
-    value: {fileID: 760702950}
+    value: {fileID: 0}
   - key: {fileID: -268245546609884460, guid: f0d35873e2bd5c64fa0bb6a87d4e0ea3, type: 2}
-    value: {fileID: 760702951}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - cad23bd67f988aa41a31daa0f4ef529c: {fileID: 0}
@@ -24042,6 +23971,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 4501000455781868129}
+          m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+          m_MethodName: ShowFlambe
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &8297927639406900843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24201,5 +24142,4 @@ SceneRoots:
   - {fileID: 939409171}
   - {fileID: 1030451496}
   - {fileID: 1104822856}
-  - {fileID: 760702949}
   - {fileID: 719984585}

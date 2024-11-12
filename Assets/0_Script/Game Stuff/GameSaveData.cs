@@ -13,7 +13,8 @@ public class GameSaveData : ScriptableObject
     public string CurrentCloth = "dress";
     [Tooltip("이미 겪은 시네마 목록")]
     public Dictionary<string, bool> CinemasAlreadyWatched = new Dictionary<string, bool>();
-
+    [Tooltip("이미 겪은 시네마 목록")]
+    public bool isFlambeActivated = false;
     public void Initialize()
     {
         PlayerInventory.Clear();

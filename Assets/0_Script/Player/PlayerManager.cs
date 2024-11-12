@@ -107,6 +107,16 @@ public class PlayerManager : MonoBehaviour
     private Dictionary<string, KillHistory> mKillHistories = new Dictionary<string, KillHistory>();
     private GameSaveData mSaveData;
 
+    [Tooltip("Flambe 프리팹")]
+    public GameObject Flambe;
+
+    public void ShowFlambe()
+    {
+        mSaveData.isFlambeActivated = true;
+        GameObject newObject = Instantiate(Flambe, transform.position, transform.rotation);
+        newObject.name = "Flambe";
+    }
+
     public void AllowTransitionToScene(string sceneName)
     {
         foreach (var sceneInfo in TransitionableScenes)
@@ -163,6 +173,11 @@ public class PlayerManager : MonoBehaviour
         mQuestManager = FindObjectOfType<QuestManager>();
         mDialogueManager = FindObjectOfType<DialogueManager>();
         mPlayerInventory = FindObjectOfType<PlayerInventory>();
+
+        if (mSaveData.isFlambeActivated)
+        {
+            ShowFlambe();
+        }
     }
 
     private void OnDestroy()
