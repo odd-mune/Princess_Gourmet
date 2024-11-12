@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 958097699745083519}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0746855, y: -1.7214792, z: 0.03998375}
+  m_LocalPosition: {x: -1.1475369, y: -1.7214792, z: 0.03998375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -611,7 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e923c4d07af234244a9f7e725417d08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BackgroundName: background
+  BackgroundName: path_bgm
   sounds:
   - name: player_pickUp
     clip: {fileID: 8300000, guid: 920069d121644464886852dcfe1704db, type: 3}
@@ -695,6 +695,18 @@ MonoBehaviour:
     loop: 1
   - name: adventure_bgm
     clip: {fileID: 8300000, guid: d4b76a18e737e144fa75f5f45daab9a1, type: 3}
+    Volumn: 0.5
+    loop: 1
+  - name: fate_bgm
+    clip: {fileID: 8300000, guid: ea016789ab58efe468f01ff8037571ff, type: 3}
+    Volumn: 0.5
+    loop: 1
+  - name: ending_bgm
+    clip: {fileID: 8300000, guid: d1de58dd1f245844f8db46bfa303c101, type: 3}
+    Volumn: 0.5
+    loop: 1
+  - name: path_bgm
+    clip: {fileID: 8300000, guid: c9744366c638b8744ab515292706c883, type: 3}
     Volumn: 0.5
     loop: 1
 --- !u!1 &3869060138930908196
