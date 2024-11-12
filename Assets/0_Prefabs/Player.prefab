@@ -661,7 +661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSound: player_walk
-  IsAffectByTileMap: 0
+  IsAffectByTileMap: 1
 --- !u!1 &4484106593798340540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,7 +1015,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3936823944014635699, guid: bd09eaeb83d66164aa7377f7702572dc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -61,6 +61,7 @@ public class StartMenu : MonoBehaviour
             playableDirector.Stop();
         }
 
+        AudioManager.Stop("intro");
         VideoPlayer videoPlayer = GetComponentInChildren<VideoPlayer>();
         videoPlayer.Play();
         TargetRawImage.gameObject.SetActive(true);
