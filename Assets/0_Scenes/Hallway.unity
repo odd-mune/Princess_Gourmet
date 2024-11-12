@@ -135,6 +135,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3468329416529290818, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
+      propertyPath: id
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3468329416529290818, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
+      propertyPath: DialogueDataOrNull
+      value: 
+      objectReference: {fileID: 1230581000}
     - target: {fileID: 6360555160748121100, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
       propertyPath: m_LocalPosition.x
       value: 61.300003
@@ -181,7 +189,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6360555160748121100, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1230580999}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
 --- !u!4 &1098621 stripped
@@ -341,6 +352,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3468329416529290818, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
+      propertyPath: id
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3468329416529290818, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
+      propertyPath: DialogueDataOrNull
+      value: 
+      objectReference: {fileID: 917019458}
     - target: {fileID: 6360555160748121100, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
       propertyPath: m_LocalPosition.x
       value: 75.89
@@ -387,7 +406,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6360555160748121100, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 917019457}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
 --- !u!4 &55424416 stripped
@@ -2173,6 +2195,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230708668}
   m_CullTransparentMesh: 1
+--- !u!1 &268507682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 268507683}
+  - component: {fileID: 268507684}
+  m_Layer: 10
+  m_Name: Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &268507683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268507682}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 51.4235, y: 13.520703, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1390640826}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &268507684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268507682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0185f521b5dfe4ba7f5180db417f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: -1
+  DialogueOnInteraction:
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: "\uC557! \uC548\uB155\uD558\uC138\uC694 \uACF5\uC8FC\uB2D8!"
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: "\uC800\uB294 \uC8FC\uBC29\uC5D0 \uAE09\uD55C \uBCFC \uC77C\uC774 \uC788\uC5B4...
+      \uC774\uB9CC."
+  OnDialogueEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &271940685
 GameObject:
   m_ObjectHideFlags: 0
@@ -3393,6 +3473,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3468329416529290818, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
+      propertyPath: id
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3468329416529290818, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
+      propertyPath: DialogueDataOrNull
+      value: 
+      objectReference: {fileID: 1326883116}
     - target: {fileID: 6360555160748121100, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
       propertyPath: m_LocalPosition.x
       value: 56.24
@@ -3439,7 +3527,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6360555160748121100, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1326883115}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
 --- !u!4 &504742335 stripped
@@ -13654,6 +13745,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782643288}
   m_CullTransparentMesh: 1
+--- !u!1 &786450365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 786450366}
+  - component: {fileID: 786450367}
+  m_Layer: 10
+  m_Name: Dialogue (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &786450366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786450365}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 34.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2108668144}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &786450367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786450365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0185f521b5dfe4ba7f5180db417f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: -1
+  DialogueOnInteraction:
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: "\uC5F0\uD68C\uC7A5\uC740 \uD604\uC7AC \uD589\uC0AC \uC900\uBE44 \uC911\uC73C\uB85C
+      \uB4E4\uC5B4\uAC00\uC2E4 \uC218 \uC5C6\uC73C\uC2ED\uB2C8\uB2E4."
+  OnDialogueEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &795872436
 GameObject:
   m_ObjectHideFlags: 0
@@ -13969,6 +14114,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3604943858720355705, guid: 16308741b6f052a4e853f5aa30831d96, type: 3}
   m_PrefabInstance: {fileID: 843279162}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &917019456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 917019457}
+  - component: {fileID: 917019458}
+  m_Layer: 10
+  m_Name: Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &917019457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917019456}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 55424416}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &917019458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917019456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0185f521b5dfe4ba7f5180db417f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: -1
+  DialogueOnInteraction:
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: "\uC5F0\uD68C\uC7A5\uC740 \uD604\uC7AC \uD589\uC0AC \uC900\uBE44 \uC911\uC73C\uB85C
+      \uB4E4\uC5B4\uAC00\uC2E4 \uC218 \uC5C6\uC73C\uC2ED\uB2C8\uB2E4."
+  OnDialogueEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!224 &921781560 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3459535081458946928, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
@@ -15060,6 +15259,68 @@ MonoBehaviour:
   - {x: 0.4157348, y: -0.27778515, z: 0}
   - {x: 0.46193978, y: -0.19134171, z: 0}
   - {x: 0.49039266, y: -0.09754512, z: 0}
+--- !u!1 &1230580998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1230580999}
+  - component: {fileID: 1230581000}
+  m_Layer: 10
+  m_Name: Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1230580999
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230580998}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.589996, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1098621}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1230581000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230580998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0185f521b5dfe4ba7f5180db417f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: -1
+  DialogueOnInteraction:
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: ...
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: "\uD604\uC7AC \uC9D1\uBB34\uC2E4 \uB0B4\uBD80 \uC0C1\uD669\uC740 \uB9D0\uC500\uB4DC\uB9B4
+      \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: "... \uC8C4\uC1A1\uD569\uB2C8\uB2E4."
+  OnDialogueEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1282896539
 GameObject:
   m_ObjectHideFlags: 0
@@ -30448,6 +30709,63 @@ Transform:
   - {fileID: 1149226755}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1326883114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1326883115}
+  - component: {fileID: 1326883116}
+  m_Layer: 10
+  m_Name: Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1326883115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326883114}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 19.649998, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 504742335}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1326883116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326883114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0185f521b5dfe4ba7f5180db417f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: -1
+  DialogueOnInteraction:
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: "\uC548\uB155\uD558\uC2ED\uB2C8\uAE4C \uACF5\uC8FC\uB2D8!"
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: "\uC624\uB298\uB3C4 \uC88B\uC740 \uD558\uB8E8 \uBCF4\uB0B4\uC2ED\uC2DC\uC624."
+  OnDialogueEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1382923432
 GameObject:
   m_ObjectHideFlags: 0
@@ -30538,9 +30856,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Maid (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8014275710242142651, guid: de9b972b49c745c49918defced1e2bc3, type: 3}
+      propertyPath: id
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014275710242142651, guid: de9b972b49c745c49918defced1e2bc3, type: 3}
+      propertyPath: DialogueDataOrNull
+      value: 
+      objectReference: {fileID: 268507684}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7523240913931197052, guid: de9b972b49c745c49918defced1e2bc3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 268507683}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de9b972b49c745c49918defced1e2bc3, type: 3}
 --- !u!4 &1390640826 stripped
@@ -37448,6 +37777,59 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1525384283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1525384284}
+  - component: {fileID: 1525384285}
+  m_Layer: 10
+  m_Name: Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1525384284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525384283}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -17.456505, y: 0.87070274, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5047160493190304965}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1525384285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525384283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0185f521b5dfe4ba7f5180db417f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: -1
+  DialogueOnInteraction:
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: "\uC548\uB155\uD558\uC138\uC694 \uACF5\uC8FC\uB2D8!"
+  OnDialogueEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1534331540
 GameObject:
   m_ObjectHideFlags: 0
@@ -38354,6 +38736,63 @@ Transform:
   - {fileID: 1390640826}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1666224582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1666224583}
+  - component: {fileID: 1666224584}
+  m_Layer: 10
+  m_Name: Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1666224583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666224582}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 46.493504, y: 23.210705, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1779155219}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1666224584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666224582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0185f521b5dfe4ba7f5180db417f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: -1
+  DialogueOnInteraction:
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: "\uACF5\uC8FC\uB2D8 \uC548\uB155\uD558\uC138\uC694."
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: "\uC800\uB294 \uBCF5\uB3C4\uB97C \uCCAD\uC18C \uC911\uC774\uC5C8\uB2F5\uB2C8\uB2E4."
+  OnDialogueEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1710232585
 GameObject:
   m_ObjectHideFlags: 0
@@ -38699,9 +39138,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Maid (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8014275710242142651, guid: de9b972b49c745c49918defced1e2bc3, type: 3}
+      propertyPath: id
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014275710242142651, guid: de9b972b49c745c49918defced1e2bc3, type: 3}
+      propertyPath: DialogueDataOrNull
+      value: 
+      objectReference: {fileID: 1666224584}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7523240913931197052, guid: de9b972b49c745c49918defced1e2bc3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1666224583}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de9b972b49c745c49918defced1e2bc3, type: 3}
 --- !u!4 &1779155219 stripped
@@ -46997,6 +47447,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3468329416529290818, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
+      propertyPath: id
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3468329416529290818, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
+      propertyPath: DialogueDataOrNull
+      value: 
+      objectReference: {fileID: 786450367}
     - target: {fileID: 6360555160748121100, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
       propertyPath: m_LocalPosition.x
       value: 41.88
@@ -47043,7 +47501,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6360555160748121100, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 786450366}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daea9443f9235dc43bfcb93602a41844, type: 3}
 --- !u!4 &2108668144 stripped
@@ -48063,9 +48524,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Maid
       objectReference: {fileID: 0}
+    - target: {fileID: 8014275710242142651, guid: de9b972b49c745c49918defced1e2bc3, type: 3}
+      propertyPath: id
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014275710242142651, guid: de9b972b49c745c49918defced1e2bc3, type: 3}
+      propertyPath: DialogueDataOrNull
+      value: 
+      objectReference: {fileID: 1525384285}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7523240913931197052, guid: de9b972b49c745c49918defced1e2bc3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1525384284}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de9b972b49c745c49918defced1e2bc3, type: 3}
 --- !u!4 &5047160493190304965 stripped
