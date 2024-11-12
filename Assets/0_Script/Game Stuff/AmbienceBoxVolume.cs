@@ -46,6 +46,8 @@ public class AmbienceBoxVolume : MonoBehaviour
                 {
                     mbIsTurningOff = true;
                     mbIsTurningOn = false;
+                    Debug.Log($"mbIsTurningOff: {mbIsTurningOff}");
+                    Debug.Log($"mbIsTurningOn: {mbIsTurningOn}");
                 }
             }
             else
@@ -122,7 +124,7 @@ public class AmbienceBoxVolume : MonoBehaviour
                         mAudioManager.Play(audioName);
                         isPlaying = true;
                     }
-                    float deltaVolume = (Time.fixedDeltaTime / 1.5f) * mCurrentVolume;
+                    float deltaVolume = (Time.fixedDeltaTime / 1.5f) * mAudioManager.GetDefaultVolume(audioName);
                     mCurrentVolume += deltaVolume;
                 }
 
@@ -136,6 +138,7 @@ public class AmbienceBoxVolume : MonoBehaviour
                 {
                     mAudioManager.Play(audioName);
                 }
+
                 mAudioManager.SetVolumn(audioName, nextVolume);
             }
         }
