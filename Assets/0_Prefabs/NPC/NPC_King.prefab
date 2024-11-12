@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4587277862501300871}
   - component: {fileID: 1714653716522016516}
   - component: {fileID: 1884644989567314344}
-  - component: {fileID: 8327407151541492198}
   m_Layer: 10
   m_Name: NPC_King
   m_TagString: NPC
@@ -122,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1000
+  DialogueDataOrNull: {fileID: 0}
   isNpc: 1
 --- !u!114 &1884644989567314344
 MonoBehaviour:
@@ -135,19 +135,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c284c087ef50d488720588916a629f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Quests: []
---- !u!111 &8327407151541492198
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6232709444113556556}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: b80fa92256748f845a89b37c2707a124, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  QuestNames: []
