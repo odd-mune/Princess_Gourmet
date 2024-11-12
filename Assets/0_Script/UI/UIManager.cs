@@ -94,4 +94,9 @@ public class UIManager : MonoBehaviour
             break;
         }
     }
+
+    public void SetPausability(bool value)
+    {
+        IPauseManager.SetPausable(value);
+    }
 }
