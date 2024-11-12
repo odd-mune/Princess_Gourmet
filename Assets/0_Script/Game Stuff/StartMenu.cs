@@ -12,6 +12,8 @@ public class StartMenu : MonoBehaviour
     public RawImage TargetRawImage;
     [Tooltip("영상 종료 시 수행할 이벤트")]
     public UnityEvent OnVideoEndEvents;
+    [Tooltip("영상 플레이 시 나올 음악 이름")]
+    public string AudioNameOnVideo;
     private VideoPlayer mVideoPlayer;
     private bool mbIsPlayingTimeline = true;
 
@@ -30,6 +32,10 @@ public class StartMenu : MonoBehaviour
 
     void OnVideoEnd(VideoPlayer vp)
     {
+        if (AudioNameOnVideo.Length > 0)
+        {
+            AudioManager.Stop(AudioNameOnVideo);
+        }
         OnVideoEndEvents.Invoke();
     }
 
@@ -64,6 +70,10 @@ public class StartMenu : MonoBehaviour
         AudioManager.Stop("intro");
         VideoPlayer videoPlayer = GetComponentInChildren<VideoPlayer>();
         videoPlayer.Play();
+        if (AudioNameOnVideo.Length > 0)
+        {
+            AudioManager.Play(AudioNameOnVideo);
+        }
         TargetRawImage.gameObject.SetActive(true);
     }
 }
