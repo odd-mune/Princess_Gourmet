@@ -57,16 +57,19 @@ public class DialogueManager : MonoBehaviour
         bool isDialogueComplete = true;
         scanObject = scanObj;
         ObjData objData = scanObject.GetComponent<ObjData>();
-        if (objData.id == -1)
+        if (objData != null)
         {
-            isDialogueComplete = Talk(objData.DialogueDataOrNull, objData.isNpc);
+            if (objData.id == -1 || (objData.DialogueDataOrNull != null && objData.id != objData.DialogueDataOrNull.Id))
+            {
+                isDialogueComplete = Talk(objData.DialogueDataOrNull, objData.isNpc);
+            }
+            else
+            {
+                isDialogueComplete = Talk(objData.id, objData.isNpc);
+            }
+
+            talkPanel.SetActive(isAction);
         }
-        else
-        {
-            isDialogueComplete = Talk(objData.id, objData.isNpc);
-        }
-        
-        talkPanel.SetActive(isAction);
         return isDialogueComplete;
     }
 
