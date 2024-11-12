@@ -118,7 +118,7 @@ public class FootStepComponent : MonoBehaviour
                             mPreviousTilePosition = woodTilePosition;
                             mbHasInitializedPreviousTilePosition = true;
                             currentTilemapOrNull = woodTilemap;
-                            currentWalkSound = walkSound + "_rock";
+                            currentWalkSound = walkSound + "_wood";
                             bHasFoundTile = true;
                             break;
                         }
