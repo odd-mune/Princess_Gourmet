@@ -130,6 +130,13 @@ public class FootStepComponent : MonoBehaviour
 
     public void OnFootStep()
     {
+        if (gameObject == null
+            || mPlayerManager == null
+            || mPlayerManager.gameObject == null)
+        {
+            return;
+        }
+
         if (gameObject != mPlayerManager.gameObject)
         {
             bool isFootStepListenable = mAudioListener.IsListenable(this);
