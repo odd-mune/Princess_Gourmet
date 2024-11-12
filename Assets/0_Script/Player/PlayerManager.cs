@@ -344,6 +344,10 @@ public class PlayerManager : MonoBehaviour
                             mCurrentDialogueDataOrNull = null;
                         }
                     }
+                    else
+                    {
+                        mDialogueManager.Action(scanObject);
+                    }
                 }
                 else
                 {
