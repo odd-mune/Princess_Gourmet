@@ -114,9 +114,9 @@ public class DialogueManager : MonoBehaviour
         
         if (mCurrentDialogueDataOrNull != null && mCurrentDialogueDataOrNull != dialogueDataOrNull)
         {
-            mCurrentDialogueDataOrNull.OnDialogueEnd();
             mTalkerPortrait.gameObject.SetActive(false);
             mPrincessPortrait.gameObject.SetActive(false);
+            mCurrentDialogueDataOrNull.OnDialogueEnd();
         }
 
         mCurrentDialogueDataOrNull = dialogueDataOrNull;
@@ -131,6 +131,8 @@ public class DialogueManager : MonoBehaviour
         {
             if (isAction == true)
             {
+                mTalkerPortrait.gameObject.SetActive(false);
+                mPrincessPortrait.gameObject.SetActive(false);
                 mCurrentDialogueDataOrNull.OnDialogueEnd();
                 mCurrentDialogueDataOrNull = null;
             }
