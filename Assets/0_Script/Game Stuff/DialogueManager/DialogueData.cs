@@ -25,8 +25,16 @@ public class DialogueData : MonoBehaviour
     [Tooltip("대사 종료 시 이벤트")]
     public UnityEvent OnDialogueEndEvent;
 
+    [Tooltip("단발성 대사인지 여부")]
+    public bool IsPlayedOnce;
+
+    private bool mHasBeenPlayed = false;
+
+    public bool hasBeenPlayed { get { return mHasBeenPlayed; } }
+
     public void OnDialogueEnd() 
     {
         OnDialogueEndEvent.Invoke();
+        mHasBeenPlayed = true;
     }
 }

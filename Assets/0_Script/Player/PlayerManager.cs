@@ -201,28 +201,31 @@ public class PlayerManager : MonoBehaviour
         // 오브젝트 조사
         if (mbIsControllable == true)
         {
-            //Move Value
-            h = mDialogueManager.isAction ? 0 : Input.GetAxisRaw("Horizontal");
-            v = mDialogueManager.isAction ? 0 : Input.GetAxisRaw("Vertical");
+            if (mCurrentDialogueDataOrNull == null)
+            {
+                //Move Value
+                h = mDialogueManager.isAction ? 0 : Input.GetAxisRaw("Horizontal");
+                v = mDialogueManager.isAction ? 0 : Input.GetAxisRaw("Vertical");
 
-            //Check Button Down & Up
-            bool hDown = mDialogueManager.isAction ? false : Input.GetButtonDown("Horizontal");
-            bool vDown = mDialogueManager.isAction ? false : Input.GetButtonDown("Vertical");
-            bool hUp = mDialogueManager.isAction ? false : Input.GetButtonUp("Horizontal");
-            bool vUp = mDialogueManager.isAction ? false : Input.GetButtonUp("Vertical");
+                //Check Button Down & Up
+                bool hDown = mDialogueManager.isAction ? false : Input.GetButtonDown("Horizontal");
+                bool vDown = mDialogueManager.isAction ? false : Input.GetButtonDown("Vertical");
+                bool hUp = mDialogueManager.isAction ? false : Input.GetButtonUp("Horizontal");
+                bool vUp = mDialogueManager.isAction ? false : Input.GetButtonUp("Vertical");
 
-            //Direction 
-            if (vDown && v == 1)
-                dirVec = Vector3.up;
-            else if (vDown && v == -1)
-                dirVec = Vector3.down;
-            else if (hDown && v == -1)
-                dirVec = Vector3.left;
-            else if (hDown && h == 1)
-                dirVec = Vector3.right;
+                //Direction 
+                if (vDown && v == 1)
+                    dirVec = Vector3.up;
+                else if (vDown && v == -1)
+                    dirVec = Vector3.down;
+                else if (hDown && v == -1)
+                    dirVec = Vector3.left;
+                else if (hDown && h == 1)
+                    dirVec = Vector3.right;
+            }
 
             //scan object & Action
-            if (Input.GetKeyDown(KeyCode.Space) && scanObject != null)
+            if (Input.GetKeyDown(KeyCode.Space) && (mCurrentDialogueDataOrNull != null || scanObject != null))
             {
                 Npc npc = scanObject.GetComponent<Npc>();
                 if (npc != null)
@@ -371,12 +374,12 @@ public class PlayerManager : MonoBehaviour
                     }
                     else
                     {
-                        mDialogueManager.Action(scanObject);
+                        mDialogueManager.Action(scanObject, out mCurrentDialogueDataOrNull);
                     }
                 }
                 else
                 {
-                    mDialogueManager.Action(scanObject);
+                    mDialogueManager.Action(scanObject, out mCurrentDialogueDataOrNull);
                 }
             }
         }
@@ -406,7 +409,7 @@ public class PlayerManager : MonoBehaviour
         }
 
         change = Vector3.zero;
-        if (mbIsControllable == true)
+        if (mbIsControllable == true && mCurrentDialogueDataOrNull == null)
         {
             change.x = Input.GetAxisRaw("Horizontal");
             change.y = Input.GetAxisRaw("Vertical");

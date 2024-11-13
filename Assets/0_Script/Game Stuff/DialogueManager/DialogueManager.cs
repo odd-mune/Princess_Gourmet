@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Security.Principal;
+using System.Runtime.Serialization.Json;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -52,8 +53,9 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public bool Action(GameObject scanObj)
+    public bool Action(GameObject scanObj, out DialogueData currentDialogueDataOrNull)
     {
+        currentDialogueDataOrNull = null;
         bool isDialogueComplete = true;
         scanObject = scanObj;
         ObjData objData = scanObject.GetComponent<ObjData>();
@@ -62,10 +64,14 @@ public class DialogueManager : MonoBehaviour
             if (objData.id == -1 || (objData.DialogueDataOrNull != null && objData.id != objData.DialogueDataOrNull.Id))
             {
                 isDialogueComplete = Talk(objData.DialogueDataOrNull, objData.isNpc);
+                if (isDialogueComplete == false)
+                {
+                    currentDialogueDataOrNull = objData.DialogueDataOrNull;
+                }
             }
             else
             {
-                isDialogueComplete = Talk(objData.id, objData.isNpc);
+                isDialogueComplete = Talk(objData.id, objData.isNpc, out currentDialogueDataOrNull);
             }
 
             talkPanel.SetActive(isAction);
@@ -86,14 +92,26 @@ public class DialogueManager : MonoBehaviour
         return isDialogueComplete;
     }
 
-    bool Talk(int id, bool isNpc)
+    bool Talk(int id, bool isNpc, out DialogueData currentDialogueDataOrNull)
     {
+        currentDialogueDataOrNull = null;
         DialogueData dialogueDataOrNull = talkManager.GetDialogueDataOrNull(id);
-        return Talk(dialogueDataOrNull, isNpc);
+        bool result = Talk(dialogueDataOrNull, isNpc);
+        if (result == false)
+        {
+            currentDialogueDataOrNull = dialogueDataOrNull;
+        }
+
+        return result;
     }
 
     bool Talk(DialogueData dialogueDataOrNull, bool isNpc)
     {
+        if (dialogueDataOrNull.hasBeenPlayed == true && dialogueDataOrNull.IsPlayedOnce == true)
+        {
+            return true;
+        }
+        
         if (mCurrentDialogueDataOrNull != null && mCurrentDialogueDataOrNull != dialogueDataOrNull)
         {
             mCurrentDialogueDataOrNull.OnDialogueEnd();
@@ -112,6 +130,7 @@ public class DialogueManager : MonoBehaviour
             if (isAction == true)
             {
                 mCurrentDialogueDataOrNull.OnDialogueEnd();
+                mCurrentDialogueDataOrNull = null;
             }
 
             isAction = false;
