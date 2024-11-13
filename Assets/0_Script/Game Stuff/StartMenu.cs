@@ -37,6 +37,7 @@ public class StartMenu : MonoBehaviour
             AudioManager.Stop(AudioNameOnVideo);
         }
         OnVideoEndEvents.Invoke();
+        FindObjectOfType<GameStateManager>().InitializeSaveData();
     }
 
     void OnDestroy()
