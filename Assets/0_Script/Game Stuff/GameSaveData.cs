@@ -20,5 +20,6 @@ public class GameSaveData : ScriptableObject
         PlayerInventory.Clear();
         CurrentCloth = "dress";
         CinemasAlreadyWatched.Clear();
+        isFlambeActivated = false;
     }
 }
