@@ -586,42 +586,6 @@ PrefabInstance:
       propertyPath: BackgroundName
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 7378283066556282004, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
-      propertyPath: sounds.Array.size
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 7378283066556282004, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
-      propertyPath: sounds.Array.data[21].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: ea016789ab58efe468f01ff8037571ff, type: 3}
-    - target: {fileID: 7378283066556282004, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
-      propertyPath: sounds.Array.data[21].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7378283066556282004, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
-      propertyPath: sounds.Array.data[21].name
-      value: fate_bgm
-      objectReference: {fileID: 0}
-    - target: {fileID: 7378283066556282004, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
-      propertyPath: sounds.Array.data[22].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: d1de58dd1f245844f8db46bfa303c101, type: 3}
-    - target: {fileID: 7378283066556282004, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
-      propertyPath: sounds.Array.data[22].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7378283066556282004, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
-      propertyPath: sounds.Array.data[22].name
-      value: ending_bgm
-      objectReference: {fileID: 0}
-    - target: {fileID: 7378283066556282004, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
-      propertyPath: sounds.Array.data[21].Volumn
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7378283066556282004, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
-      propertyPath: sounds.Array.data[22].Volumn
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7425127390179193794, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -876,7 +840,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  AudioNameOnVideo: 
+  AudioNameOnVideo: bgm_GourmetofFire
 --- !u!114 &450969831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -975,7 +939,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478241509}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 5c168f445954b53468ad077fd1b798a4, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: b7b6f85f54c4427438e88d2503f6703c, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
