@@ -303,7 +303,7 @@ public class CraftingManager : MonoBehaviour
 
                     // 마법진이 가득 찼거나 하면 마법진에 아이템 못 넣을 수도 있으니 bHasAddedItemToMagicCircle 불리언 변수 추가
                     bool bHasAddedItemToMagicCircle = false;
-                    if (newSlot.thisItem.itemType == ItemType.Ingredient)
+                    if (newSlot.thisItem.itemType == ItemType.Ingredient || newSlot.thisItem.itemType == ItemType.Dish)
                     {
                         Slot nearestSlot = null;
                         float shortestDistance = float.MaxValue;
@@ -424,9 +424,9 @@ public class CraftingManager : MonoBehaviour
 
                     //아이템 사용시 횟수 감소
                     if (bHasAddedItemToMagicCircle == true && 
-                        (currentItemSlot.thisItem.itemType == ItemType.Ingredient || currentItemSlot.thisItem.itemType == ItemType.MagicCircleCookType))
+                        (currentItemSlot.thisItem.itemType == ItemType.Ingredient || currentItemSlot.thisItem.itemType == ItemType.Dish || currentItemSlot.thisItem.itemType == ItemType.MagicCircleCookType))
                     {
-                        if (currentItemSlot.thisItem.itemType == ItemType.Ingredient)
+                        if (currentItemSlot.thisItem.itemType == ItemType.Ingredient || currentItemSlot.thisItem.itemType == ItemType.Dish)
                         {
                             currentItemSlot.thisItem.DecreaseAmount(1);
                         }
@@ -601,14 +601,14 @@ public class CraftingManager : MonoBehaviour
         if(currentItemSlot == null)
         {
             bool canAddItems = isAdding && magicCircleIngredientsItemSlot != null && craftingMagicCircle != null && numCurrentItemSlots < craftingMagicCircle.transform.childCount;
-            bool isIngredient = itemSlot.thisManager.inventoryType == InventoryType.Ingredients && itemSlot.thisItem.itemType == ItemType.Ingredient;
+            bool isIngredientOrDish = itemSlot.thisManager.inventoryType == InventoryType.Ingredients && (itemSlot.thisItem.itemType == ItemType.Ingredient || itemSlot.thisItem.itemType == ItemType.Dish);
 
             bool canAddMagicCircleIngredients = magicCircleIngredientsItemSlot != null && magicCircleIngredientsItemSlot.thisItem != itemSlot.thisItem;
             bool isMagicCircleIngredients = itemSlot.thisManager.inventoryType == InventoryType.MagicCircle && itemSlot.thisItem.itemType == ItemType.MagicCircleIngredients;
 
             bool canAddMagicCircleCookType = magicCircleCookTypeItemSlot != null && magicCircleCookTypeItemSlot.thisItem != itemSlot.thisItem;
             bool isMagicCircleCookType = itemSlot.thisManager.inventoryType == InventoryType.MagicCircle && itemSlot.thisItem.itemType == ItemType.MagicCircleCookType;
-            if ((canAddItems && isIngredient) || isMagicCircleIngredients || isMagicCircleCookType || (isAdding == false && itemSlot != null))
+            if ((canAddItems && isIngredientOrDish) || isMagicCircleIngredients || isMagicCircleCookType || (isAdding == false && itemSlot != null))
             {
                 currentItemSlot = itemSlot;
 

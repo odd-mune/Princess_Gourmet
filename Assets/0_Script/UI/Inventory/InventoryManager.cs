@@ -145,7 +145,8 @@ public class InventoryManager : MonoBehaviour
                         case InventoryType.Inventory:
                             break;
                         case InventoryType.Ingredients:
-                            if (playerInventory.myInventory[i].itemType != ItemType.Ingredient)
+                            if (playerInventory.myInventory[i].itemType != ItemType.Ingredient
+                                && playerInventory.myInventory[i].itemType != ItemType.Dish)
                             {
                                 continue;
                             }
