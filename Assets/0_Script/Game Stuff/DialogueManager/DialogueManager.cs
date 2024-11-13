@@ -115,6 +115,8 @@ public class DialogueManager : MonoBehaviour
         if (mCurrentDialogueDataOrNull != null && mCurrentDialogueDataOrNull != dialogueDataOrNull)
         {
             mCurrentDialogueDataOrNull.OnDialogueEnd();
+            mTalkerPortrait.gameObject.SetActive(false);
+            mPrincessPortrait.gameObject.SetActive(false);
         }
 
         mCurrentDialogueDataOrNull = dialogueDataOrNull;
