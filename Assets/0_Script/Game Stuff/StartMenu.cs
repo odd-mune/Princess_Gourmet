@@ -28,6 +28,7 @@ public class StartMenu : MonoBehaviour
         }
 
         mVideoPlayer.loopPointReached += OnVideoEnd;
+        GameStateManager.ChangeState(GameState.COOKING);
     }
 
     void OnVideoEnd(VideoPlayer vp)
@@ -37,6 +38,8 @@ public class StartMenu : MonoBehaviour
             AudioManager.Stop(AudioNameOnVideo);
         }
         OnVideoEndEvents.Invoke();
+        FindObjectOfType<GameStateManager>().InitializeSaveData();
+        GameStateManager.ChangeState(GameState.IDLE);
     }
 
     void OnDestroy()
