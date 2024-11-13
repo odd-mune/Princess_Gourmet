@@ -110,11 +110,14 @@ public class PlayerManager : MonoBehaviour
     [Tooltip("Flambe 프리팹")]
     public GameObject Flambe;
 
+    private GameObject mCurrentFlambeOrNull = null;
+
     public void ShowFlambe()
     {
         mSaveData.isFlambeActivated = true;
         GameObject newObject = Instantiate(Flambe, transform.position, transform.rotation);
         newObject.name = "Flambe";
+        mCurrentFlambeOrNull = newObject;
     }
 
     public void AllowTransitionToScene(string sceneName)
@@ -177,6 +180,13 @@ public class PlayerManager : MonoBehaviour
         if (mSaveData.isFlambeActivated)
         {
             ShowFlambe();
+        }
+        else
+        {
+            if (mCurrentFlambeOrNull != null)
+            {
+                Destroy(mCurrentFlambeOrNull);
+            }
         }
     }
 
