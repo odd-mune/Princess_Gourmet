@@ -9,6 +9,9 @@ public class CookResultEffect : MonoBehaviour
     public float AngleMinInRadian;
     public float AngleMaxInRadian;
 
+    public RuntimeAnimatorController SuccessController;
+    public RuntimeAnimatorController FailController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +45,14 @@ public class CookResultEffect : MonoBehaviour
             Debug.Break();
         }
 
-        mAnimator.SetBool("isSuccess", cookPanel.hasDishFailed == false);
+        if (cookPanel.hasDishFailed == true)
+        {
+            mAnimator.runtimeAnimatorController = FailController;
+        }
+        else
+        {
+            mAnimator.runtimeAnimatorController = SuccessController;
+        }
 
         float randomValueForRadius = Random.value;
         float randomRadius = (cookPanel.EffectOutRadius - cookPanel.EffectInnerRadius) * randomValueForRadius + cookPanel.EffectInnerRadius;
