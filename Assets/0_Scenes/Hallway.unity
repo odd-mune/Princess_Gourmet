@@ -1959,10 +1959,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1800568239}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 302.88, y: -43.004997}
+  m_SizeDelta: {x: 555.76, y: 36.009995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &179477324
 MonoBehaviour:
@@ -39519,7 +39519,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 944, y: 573}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 605.76, y: 116.009995}
   m_Pivot: {x: 0, y: 0}
 --- !u!95 &1800568240
 Animator:
@@ -48833,6 +48833,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4466650859548546522}
+  - component: {fileID: 7032378458270043671}
   m_Layer: 0
   m_Name: Cinema
   m_TagString: Untagged
@@ -48840,6 +48841,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7032378458270043671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7032378458270043670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d817f69bfd46a44910936aaa2d8049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Intro_1_Hallway
+  IsPlayedOnce: 1
 --- !u!4 &7184024841746048913
 Transform:
   m_ObjectHideFlags: 0
