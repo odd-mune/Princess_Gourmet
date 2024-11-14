@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4589354585632581710}
   - component: {fileID: 2148945621607654974}
   - component: {fileID: 8883643254208098183}
-  - component: {fileID: 6318767097472067116}
   - component: {fileID: 6059165010814895403}
   - component: {fileID: 2905321415526128527}
   m_Layer: 0
@@ -109,33 +108,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!50 &6318767097472067116
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3706970320567815071}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 200
-  m_LinearDrag: 2
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: 16950c60f9e2dd142a9b5f106d42e97e, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 0
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!61 &6059165010814895403
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -168,7 +140,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.2486875, y: 1.2009062}
+  m_Offset: {x: -0.4985094, y: 0.20757318}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -179,7 +151,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.8418846, y: 2.4031122}
+  m_Size: {x: 4.336279, y: 4.3897786}
   m_EdgeRadius: 0
 --- !u!114 &2905321415526128527
 MonoBehaviour:
@@ -202,7 +174,7 @@ MonoBehaviour:
   physicalInventoryItemDescription: "\uACE0\uC18C\uD558\uB2E4"
   pickUpableInfo:
     day: 1
-    night: 0
+    night: 1
   onPickUpableEnabled:
     m_PersistentCalls:
       m_Calls: []
