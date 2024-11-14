@@ -8591,7 +8591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5504548743550370574, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.038522
+      value: 5.1385202
       objectReference: {fileID: 0}
     - target: {fileID: 5877498480032667715, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: PlaceText
@@ -8603,11 +8603,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5939568288594301120, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.4546854
+      value: 1.3746855
       objectReference: {fileID: 0}
     - target: {fileID: 5939568288594301120, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.038521
+      value: -1.0514791
       objectReference: {fileID: 0}
     - target: {fileID: 6985904202528973858, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_Follow
@@ -25081,7 +25081,19 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 2b6217a3029969c41bb98340a05499f3, type: 2}
     m_Events:
     - m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 4501000455781868129}
+          m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+          m_MethodName: DisableControls
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 2134201430}
