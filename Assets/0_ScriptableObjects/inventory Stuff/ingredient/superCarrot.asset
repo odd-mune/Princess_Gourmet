@@ -19,7 +19,7 @@ MonoBehaviour:
   itemImage: {fileID: -446914542, guid: d5c1c2dce4dede34db9d7ff09f3c6de7, type: 3}
   magicCircleImageOrNull: {fileID: 0}
   numIngredients: 0
-  numberHeld: 0
+  numberHeld: 1
   usable: 1
   unique: 0
   eventOnUse:
@@ -32,8 +32,9 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  SoundOnUse: eat

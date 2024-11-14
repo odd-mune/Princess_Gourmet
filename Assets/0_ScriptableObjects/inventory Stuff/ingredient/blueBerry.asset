@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: blueBerry
   m_EditorClassIdentifier: 
   itemName: "\uBE14\uB8E8\uBCA0\uB9AC"
-  itemDescription: "\uC57C\uC0DD\uC5D0\uC11C \uC790\uB77C\uB294 \uBE14\uB8E8\uBCA0\uB9AC
-    \uC5F4\uB9E4\uC774\uB2E4. \uB2EC\uCF64\uD558\uB2E4."
+  itemDescription: "\uBE14\uB8E8\uBCA0\uB9AC\uC640 \uC124\uD0D5\uC744 \uD568\uAED8
+    \uB123\uACE0 \uC878\uC5EC \uB9CC\uB4E0 \uBE14\uB8E8\uBCA0\uB9AC \uC7BC. \uC0C8\uCF64\uB2EC\uCF64\uD558\uB2E4."
   itemType: 0
   itemImage: {fileID: 2106234050, guid: 78e3baee36e10e047a307c825bfa2822, type: 3}
   magicCircleImageOrNull: {fileID: 0}
@@ -24,5 +24,17 @@ MonoBehaviour:
   unique: 0
   eventOnUse:
     m_PersistentCalls:
-      m_Calls: []
-  SoundOnUse: 
+      m_Calls:
+      - m_Target: {fileID: 4690124559267511771, guid: 6333ade0b6440944685b01a629e4936d, type: 3}
+        m_TargetAssemblyTypeName: HealthReaction, Assembly-CSharp
+        m_MethodName: Use
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  SoundOnUse: eat

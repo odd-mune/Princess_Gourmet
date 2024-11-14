@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: carrot
   m_EditorClassIdentifier: 
   itemName: "\uB2F9\uADFC"
-  itemDescription: "\uB2F9\uADFC\uC774\uB2E4. \uB2F9\uADFC\uB2F9\uADFC"
+  itemDescription: "\uB2F9\uADFC\uB2F9\uADFC. \uC8FC\uD64D\uBE5B\uC744 \uC798 \uC775\uC740
+    \uB9DB \uC88B\uC740 \uB2F9\uADFC\uC774\uB2E4. \uC5B4\uB514\uC11C\uB098 \uC27D\uAC8C
+    \uAD6C\uD560 \uC218 \uC788\uC5B4 \uB2E4\uC591\uD55C \uC694\uB9AC\uC5D0 \uC0AC\uC6A9\uB41C\uB2E4."
   itemType: 0
   itemImage: {fileID: -283790061, guid: 0556ab971af31ac4ab13e8e286e26dc8, type: 3}
   magicCircleImageOrNull: {fileID: 0}
   numIngredients: 0
-  numberHeld: 0
+  numberHeld: 6
   usable: 1
   unique: 0
   eventOnUse:
@@ -31,8 +33,9 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  SoundOnUse: eat
