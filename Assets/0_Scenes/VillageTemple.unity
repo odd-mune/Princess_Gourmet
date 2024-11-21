@@ -1896,6 +1896,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &164621730 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3234847679845515377, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+  m_PrefabInstance: {fileID: 647388785}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &216961189 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5377259444424669668, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
@@ -2653,10 +2664,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1068146383401712670, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068146383401712670, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068146383401712670, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068146383401712670, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068146383401712670, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1113287804513780616, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
       propertyPath: craftingManager
       value: 
       objectReference: {fileID: 1132400110}
+    - target: {fileID: 1706665839795083908, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4357749333808221136, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2713,6 +2748,10 @@ PrefabInstance:
       propertyPath: craftingManager
       value: 
       objectReference: {fileID: 1132400110}
+    - target: {fileID: 6242725881067554095, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+      propertyPath: m_ChildControlWidth
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6462540665556825446, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 46.55632
@@ -10292,6 +10331,10 @@ PrefabInstance:
       propertyPath: placeName
       value: "\uC544\uBB88\uC988 \uB9C8\uC744\uC758 \uC2E0\uC804"
       objectReference: {fileID: 0}
+    - target: {fileID: 5877498480032667715, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: PlaceTextHolderImage
+      value: 
+      objectReference: {fileID: 164621730}
     - target: {fileID: 6985904202528973858, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: m_Follow
       value: 

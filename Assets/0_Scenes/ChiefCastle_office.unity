@@ -4573,6 +4573,7 @@ MonoBehaviour:
   OnDialogueEndEvent:
     m_PersistentCalls:
       m_Calls: []
+  IsPlayedOnce: 0
 --- !u!4 &978897505 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4129704859726590110, guid: 13a5481e1619885409ac47c409d620f9, type: 3}
@@ -5001,6 +5002,10 @@ PrefabInstance:
       propertyPath: placeName
       value: "\uC601\uC8FC\uC758 \uC9D1\uBB34\uC2E4"
       objectReference: {fileID: 0}
+    - target: {fileID: 5877498480032667715, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
+      propertyPath: PlaceTextHolderImage
+      value: 
+      objectReference: {fileID: 1467770782}
     - target: {fileID: 6392271759503448363, guid: 1c65a3be1dbeec347b21112caa1ed8e8, type: 3}
       propertyPath: Quests.Array.size
       value: 1
@@ -5149,6 +5154,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1651092700496343264, guid: 76234b5ef0e3cea47a7614dee71d553c, type: 3}
   m_PrefabInstance: {fileID: 2212390251728374367}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1467770782 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3234847679845515377, guid: 1075877b6b12a774a812a7da7876ded8, type: 3}
+  m_PrefabInstance: {fileID: 5281149586384045153}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1475028635 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5395574572907184368, guid: 5b0ba2b1f9d83524eb9c0cf52084d0bd, type: 3}

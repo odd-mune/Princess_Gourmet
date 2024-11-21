@@ -1,15 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MapBoundary : MonoBehaviour
 {
     [Tooltip("표기할 씬 이름")]
     public string placeName;
 
-    [Tooltip("UI 상에 씬 이름을 표기할 TextMeshPro")]
-    public TMP_Text PlaceText;
+    [Tooltip("UI 상에 씬 이름을 표기할 이미지")]
+    public Image PlaceTextHolderImage;
+    private TMP_Text PlaceText;
 
     [Tooltip("UI 상에 씬 이름을 명확히 표기할 시간 (fade-in, fade-out 시간 제외)")]
     public float TextShowTimer = 5.0f;
@@ -24,17 +24,21 @@ public class MapBoundary : MonoBehaviour
 
     private TextShowState mCurrentState = TextShowState.Hidden;
     private Color mDefaultColor;
+    private Color mDefaultImageColor;
 
     // Start is called before the first frame update
     void Start()
     {
+        PlaceText = PlaceTextHolderImage.GetComponentInChildren<TMP_Text>();
         mDefaultColor = PlaceText.color;
+        mDefaultImageColor = PlaceTextHolderImage.color;
 
-        PlaceText.gameObject.SetActive(true);
+        PlaceTextHolderImage.gameObject.SetActive(true);
         PlaceText.text = placeName;
         mCurrentFadeInTimer = TextFadeInTimer;
         mCurrentState = TextShowState.FadeIn;
         PlaceText.color = new Color(mDefaultColor.r, mDefaultColor.g, mDefaultColor.b, 0.0f);
+        PlaceTextHolderImage.color = new Color(mDefaultImageColor.r, mDefaultImageColor.g, mDefaultImageColor.b, 0.0f);
     }
 
     public void FixedUpdate()
@@ -47,13 +51,16 @@ public class MapBoundary : MonoBehaviour
                 {
                     mCurrentFadeInTimer -= Time.fixedDeltaTime;
                     float x = (TextFadeInTimer - mCurrentFadeInTimer);
-                    PlaceText.color = new Color(mDefaultColor.r, mDefaultColor.g, mDefaultColor.b, x * x / (TextFadeInTimer * TextFadeInTimer));
+                    float alpha = x * x / (TextFadeInTimer * TextFadeInTimer);
+                    PlaceText.color = new Color(mDefaultColor.r, mDefaultColor.g, mDefaultColor.b, alpha);
+                    PlaceTextHolderImage.color = new Color(mDefaultImageColor.r, mDefaultImageColor.g, mDefaultImageColor.b, alpha);
 
                     if (mCurrentFadeInTimer <= 0.0f)
                     {
                         mCurrentState = TextShowState.Show;
                         mCurrentTextShowTimer = TextShowTimer;
                         PlaceText.color = new Color(mDefaultColor.r, mDefaultColor.g, mDefaultColor.b, 1.0f);
+                        PlaceTextHolderImage.color = new Color(mDefaultImageColor.r, mDefaultImageColor.g, mDefaultImageColor.b, 1.0f);
                     }
                 }
                 break;
@@ -71,13 +78,16 @@ public class MapBoundary : MonoBehaviour
             case TextShowState.FadeOut:
                 {
                     mCurrentFadeOutTimer -= Time.fixedDeltaTime;
-                    PlaceText.color = new Color(mDefaultColor.r, mDefaultColor.g, mDefaultColor.b, mCurrentFadeOutTimer * mCurrentFadeOutTimer / (TextFadeOutTimer * TextFadeOutTimer));
+                    float alpha = mCurrentFadeOutTimer * mCurrentFadeOutTimer / (TextFadeOutTimer * TextFadeOutTimer);
+                    PlaceText.color = new Color(mDefaultColor.r, mDefaultColor.g, mDefaultColor.b, alpha);
+                    PlaceTextHolderImage.color = new Color(mDefaultImageColor.r, mDefaultImageColor.g, mDefaultImageColor.b, alpha);
 
                     if (mCurrentFadeOutTimer <= 0.0f)
                     {
                         mCurrentState = TextShowState.Hidden;
                         PlaceText.color = new Color(mDefaultColor.r, mDefaultColor.g, mDefaultColor.b, 0.0f);
-                        PlaceText.gameObject.SetActive(false);
+                        PlaceTextHolderImage.color = new Color(mDefaultImageColor.r, mDefaultImageColor.g, mDefaultImageColor.b, 0.0f);
+                        PlaceTextHolderImage.gameObject.SetActive(false);
                     }
                 }
                 break;
