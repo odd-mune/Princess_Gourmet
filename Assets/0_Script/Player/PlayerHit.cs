@@ -10,6 +10,10 @@ public class PlayerHit : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (GameStateManager.GetState() != GameState.IDLE)
+        {
+            return;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

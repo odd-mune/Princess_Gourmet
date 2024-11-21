@@ -1,7 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
+public enum InventoryType
+{
+    Inventory,
+    Ingredients,
+    MagicCircle,
+    Dish,
+    Tool,
+}
 
 public class InventoryManager : MonoBehaviour
 {
@@ -14,32 +22,112 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject useButton;
     [SerializeField] private GameObject discardButton;
     public InventoryItem currentItem;
+    public CraftingManager craftingManager;
+    public InventoryType inventoryType;
+    private InventorySlot mCurrentFocusedSlot;
+    private uint mCurrentFocusedSlotIndex = uint.MaxValue;
+    private Dictionary<string, uint> mItemNameToIndex = new Dictionary<string, uint>();
 
-    public CookManager cookManager;
+    [Tooltip("현재 Inventory Image 컴포넌트를 연결")]
+    public Image InventoryImage;
+
+    [Tooltip("요리 도구 카테고리용 인벤토리 스프라이트")]
+    public Sprite ToolInventoryImage;
+    [Tooltip("요리 재료 카테고리용 인벤토리 스프라이트")]
+    public Sprite IngredientInventoryImage;
+    [Tooltip("요리 카테고리용 인벤토리 스프라이트")]
+    public Sprite DishInventoryImage;
+    [Tooltip("마법진 카테고리용 인벤토리 스프라이트")]
+    public Sprite MagicCircleInventoryImage;
+
+    public void ToggleSelectedItem(InventorySlot slot)
+    {
+        if (mCurrentFocusedSlot == slot)
+        {
+            SetFocusOn(null);
+        }
+        else
+        {
+            SetFocusOn(slot);
+        }
+
+        if (currentItem != slot.thisItem)
+        {
+            SetupDescriptionAndButton(slot.thisItem.itemDescription, slot.thisItem.usable, slot.thisItem);
+            SetupNameAndButton(slot.thisItem.itemName, slot.thisItem.usable, slot.thisItem);
+        }
+        else
+        {
+            SetupDescriptionAndButton("", false, null);
+            SetupNameAndButton("", false, null);
+        }
+    }
 
     public void SetTextAndButton(string description, bool buttonActive)
     {
         descriptionText.text = description;
-        if (buttonActive)
+        if (useButton != null)
         {
-            useButton.SetActive(true);
-        }
-        else
-        {
-            useButton.SetActive(false);
+            if (buttonActive)
+            {   
+                useButton.SetActive(true);
+            }
+            else
+            {
+                useButton.SetActive(false);
+            }
         }
     }
 
     public void SetNameAndButton(string name, bool buttonActive)
     {
         nameText.text = name;
-        if (buttonActive)
+        if (useButton != null)
         {
-            useButton.SetActive(true);
+            if (buttonActive)
+            {
+                useButton.SetActive(true);
+            }
+            else
+            {
+                useButton.SetActive(false);
+            }
         }
-        else
+        
+    }
+
+    public void SetFocusOn(InventorySlot slot)
+    {
+        if (mCurrentFocusedSlot != slot)
         {
-            useButton.SetActive(false);
+            if (slot != null)
+            {
+                uint index = uint.MaxValue;
+                bool result = mItemNameToIndex.TryGetValue(slot.thisItem.itemName, out index);
+                if (result == false)
+                {
+                    Debug.LogError($"Inventory에 item {slot.thisItem.itemName}이 없습니다!!");
+                    Debug.Break();
+                }
+                mCurrentFocusedSlotIndex = index;
+            }
+            else
+            {
+                mCurrentFocusedSlotIndex = uint.MaxValue;
+            }
+
+            Transform highlighterTransform;
+            if (mCurrentFocusedSlot != null)
+            {
+                highlighterTransform = mCurrentFocusedSlot.transform.GetChild(0);
+                highlighterTransform.gameObject.SetActive(false);
+            }
+            mCurrentFocusedSlot = slot;
+            if (mCurrentFocusedSlot != null)
+            {
+                highlighterTransform = mCurrentFocusedSlot.transform.GetChild(0);
+                highlighterTransform.gameObject.SetActive(true);
+            }
         }
     }
 
@@ -47,24 +135,66 @@ public class InventoryManager : MonoBehaviour
     {
         if(playerInventory)
         {
+            uint index = 0;
             for(int i = 0; i < playerInventory.myInventory.Count; i ++)
             {
-                if (playerInventory.myInventory[i].numberHeld > 0 ||
-                    playerInventory.myInventory[i].itemName == "Bottle")
+                if (playerInventory.myInventory[i].numberHeld > 0)
                 {
-                    GameObject temp = 
-                        Instantiate(blankInventorySlot,
-                        inventoryPanel.transform.position, Quaternion.identity);
+                    switch (inventoryType)
+                    {
+                        case InventoryType.Inventory:
+                            break;
+                        case InventoryType.Ingredients:
+                            if (playerInventory.myInventory[i].itemType != ItemType.Ingredient
+                                && playerInventory.myInventory[i].itemType != ItemType.Dish)
+                            {
+                                continue;
+                            }
+                            break;
+                        case InventoryType.MagicCircle:
+                            if (playerInventory.myInventory[i].itemType != ItemType.MagicCircleIngredients
+                                && playerInventory.myInventory[i].itemType != ItemType.MagicCircleCookType)
+                            {
+                                continue;
+                            }
+                            break;
+                        case InventoryType.Dish:
+                            if (playerInventory.myInventory[i].itemType != ItemType.Dish)
+                            {
+                                continue;
+                            }
+                            break;
+                        case InventoryType.Tool:
+                            if (playerInventory.myInventory[i].itemType != ItemType.Tool)
+                            {
+                                continue;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
 
+                    GameObject temp = MakeNewInventorySlot();
                     temp.transform.SetParent(inventoryPanel.transform);
                     InventorySlot newSlot = temp.GetComponent<InventorySlot>();
                     if (newSlot)
                     {
-                        newSlot.Setup(playerInventory.myInventory[i], this);
+                        newSlot.Setup(playerInventory.myInventory[i], this, craftingManager);
                     }
+                    mItemNameToIndex.Add(playerInventory.myInventory[i].itemName, index);
+                    if (index == mCurrentFocusedSlotIndex)
+                    {
+                        SetFocusOn(newSlot);
+                    }
+                    ++index;
                 }
             }
         }
+    }
+
+    public GameObject MakeNewInventorySlot()
+    {
+        return Instantiate(blankInventorySlot, inventoryPanel.transform.position, Quaternion.identity);
     }
 
     void OnEnable()
@@ -79,14 +209,20 @@ public class InventoryManager : MonoBehaviour
     {
         currentItem = newItem;
         descriptionText.text = newDescriptionString;
-        useButton.SetActive(isButtonUsable);
+        if (useButton != null)
+        {
+            useButton.SetActive(isButtonUsable);
+        }
     }
 
     public void SetupNameAndButton(string newNameString, bool isButtonUsable, InventoryItem newItem)
     {
         currentItem = newItem;
         nameText.text = newNameString;
-        useButton.SetActive(isButtonUsable);
+        if (useButton != null)
+        {
+            useButton.SetActive(isButtonUsable);
+        }
     }
 
     public void ClearInventorySlots()
@@ -95,6 +231,7 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(inventoryPanel.transform.GetChild(i).gameObject);
         }
+        mItemNameToIndex.Clear();
     }
 
     public void useButtonPressed()
@@ -102,15 +239,52 @@ public class InventoryManager : MonoBehaviour
         if(currentItem)
         {
             currentItem.Use();
-            //clear all of the inventory slots
-            ClearInventorySlots();
-            //refill all slots with new numbers
-            MakeInventorySlots();
             if (currentItem.numberHeld == 0)
             {
                 SetTextAndButton("", false);
                 SetNameAndButton("", false);
             }
+            //clear all of the inventory slots
+            ClearInventorySlots();
+            //refill all slots with new numbers
+            MakeInventorySlots();
+        }
+    }
+
+    public void SetInventoryType(InventoryType inventoryType)
+    {
+        if (this.inventoryType == inventoryType)
+        {
+            //inventoryType = InventoryType.Inventory;
+        }
+        else
+        {
+            ClearInventorySlots();
+            this.inventoryType = inventoryType;
+            if (InventoryImage != null)
+            {
+                switch (inventoryType)
+                {
+                    case InventoryType.Inventory:
+                        break;
+                    case InventoryType.Ingredients:
+                        InventoryImage.sprite = IngredientInventoryImage;
+                        break;
+                    case InventoryType.MagicCircle:
+                        InventoryImage.sprite = MagicCircleInventoryImage;
+                        break;
+                    case InventoryType.Dish:
+                        InventoryImage.sprite = DishInventoryImage;
+                        break;
+                    case InventoryType.Tool:
+                        InventoryImage.sprite = ToolInventoryImage;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            MakeInventorySlots();
         }
     }
 }

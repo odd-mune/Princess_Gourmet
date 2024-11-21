@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4325595d9a4444bf9347eaaf5e0bc, type: 3}
+  m_Name: superCarrot
+  m_EditorClassIdentifier: 
+  itemName: "\uC288\uD37C \uB2F9\uADFC"
+  itemDescription: "\uC12D\uCDE8 \uC2DC \uC77C\uBC18 \uB2F9\uADFC\uBCF4\uB2E4 \uD6E8\uC52C
+    \uD2B9\uBCC4\uD55C \uD798\uC744 \uC900\uB2E4."
+  itemType: 0
+  itemImage: {fileID: -446914542, guid: d5c1c2dce4dede34db9d7ff09f3c6de7, type: 3}
+  magicCircleImageOrNull: {fileID: 0}
+  numIngredients: 0
+  numberHeld: 0
+  usable: 1
+  unique: 0
+  eventOnUse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4690124559267511771, guid: 6333ade0b6440944685b01a629e4936d, type: 3}
+        m_TargetAssemblyTypeName: HealthReaction, Assembly-CSharp
+        m_MethodName: Use
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -11,6 +11,9 @@ public class IPauseManager : MonoBehaviour
     public GameObject GameObjectToPause;
     protected string ButtonName;
     protected bool isInventoryPressed;
+    private static bool isPausable = true;
+
+    private AudioManager mAudioManager = null;
 
     //Start is called before the first frame update
     void Start()
@@ -36,17 +39,32 @@ public class IPauseManager : MonoBehaviour
         }
     }
 
+    protected virtual void onChange(bool isActive)
+    {
+    }
+
     public void ChangePause(bool bOpeningSubGameObject)
     {
+        if (isPausable == false)
+        {
+            return;
+        }
+
         GameObject currentActiveGameObject = bOpeningSubGameObject ? mCurrentActiveSubGameObjectOrNull : mCurrentActiveGameObjectOrNull;
         GameObject currentSubGameObject = bOpeningSubGameObject == false ? mCurrentActiveSubGameObjectOrNull : mCurrentActiveGameObjectOrNull;
         if (currentActiveGameObject == null || (currentActiveGameObject == GameObjectToPause && (bOpeningSubGameObject || currentSubGameObject == null)))
         {
             isPaused = !isPaused;
-            if(isPaused)
+            if (mAudioManager == null)
+            {
+                mAudioManager = FindObjectOfType<AudioManager>();
+            }
+            mAudioManager.Play("page turn");
+            if (isPaused)
             {
                 isPaused = true;
                 GameObjectToPause.SetActive(true);
+                onChange(true);
                 Time.timeScale = 0f;
                 if (bOpeningSubGameObject == true)
                 {
@@ -60,6 +78,7 @@ public class IPauseManager : MonoBehaviour
             else
             {
                 GameObjectToPause.SetActive(false);
+                onChange(false);
                 Time.timeScale = 1f;
                 currentActiveGameObject = null;
                 if (bOpeningSubGameObject == true)
@@ -72,5 +91,15 @@ public class IPauseManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public static void SetPausable(bool value)
+    {
+        isPausable = value;
+    }
+
+    public AudioManager GetAudioManager()
+    {
+        return mAudioManager;
     }
 }

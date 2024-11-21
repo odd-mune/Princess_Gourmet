@@ -1,9 +1,20 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+public enum TextShowState
+{
+    Hidden,
+    FadeIn,
+    Show,
+    FadeOut,
+    Count,
+}
 
 public class SceneTransition : MonoBehaviour
 {
@@ -11,37 +22,25 @@ public class SceneTransition : MonoBehaviour
     public Vector2 playerPosition;
     public VectorValue playerStorage;
 
-    // place text
-    public bool needText;
-    public string placeName;
-    public GameObject text;
-    public Text placeText;
-
-
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !other.isTrigger)
         {
-            playerStorage.initialValue = playerPosition;
-            SceneManager.LoadScene(sceneToLoad);
-        }
-
-
-        // place text
-        if(needText)
-        {
-            StartCoroutine(placeNameCO());
+            PlayerManager player = other.GetComponent<PlayerManager>();
+            foreach (var info in player.TransitionableScenes)
+            {
+                if (info.Name == sceneToLoad && info.IsTransitionable)
+                {
+                    Transition();
+                    break;
+                }
+            }
         }
     }
 
-
-
-    // place text
-    private IEnumerator placeNameCO()
+    public void Transition()
     {
-        text.SetActive(true);
-        placeText.text = placeName;
-        yield return new WaitForSeconds(5f);
-        text.SetActive(false);
+        playerStorage.initialValue = playerPosition;
+        SceneManager.LoadScene(sceneToLoad);
     }
 }

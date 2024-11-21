@@ -15,12 +15,17 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         mTooltipRootPosition = Tooltip.transform.position;
-        mPlayerCamera = Player.gameObject.transform.GetChild(0).GetComponent<Camera>();
+        mPlayerCamera = Camera.main;
     }
 
     // FixedUpdate is called once per frame
     void FixedUpdate()
     {
+        if (GameStateManager.GetState() != GameState.IDLE)
+        {
+            return;
+        }
+
         List<GameObject> currentCollidingItems = Player.GetComponent<PlayerManager>().GetCurrentCollidingItems();
         List<GameObject> currentPickUpObjects = Player.GetComponent<PlayerManager>().GetCurrentPickUpObjects();
         if (currentCollidingItems.Count > 0)
@@ -88,5 +93,10 @@ public class UIManager : MonoBehaviour
             }
             break;
         }
+    }
+
+    public void SetPausability(bool value)
+    {
+        IPauseManager.SetPausable(value);
     }
 }

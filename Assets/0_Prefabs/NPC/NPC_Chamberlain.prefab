@@ -1,0 +1,258 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1301017975409481903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5492769852712862669}
+  - component: {fileID: 6676139224210827547}
+  - component: {fileID: 3453188714099342413}
+  - component: {fileID: 1856863673109589566}
+  - component: {fileID: 9125069547807337701}
+  m_Layer: 10
+  m_Name: NPC_Chamberlain
+  m_TagString: NPC
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5492769852712862669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301017975409481903}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 57.5, y: 27.47, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1847055363690587010}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &6676139224210827547
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301017975409481903}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 885861223
+  m_SortingLayer: 7
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -388868238, guid: c1e0bfa809955674cbaa6015e348fb72, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2, y: 2}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 1
+--- !u!61 &3453188714099342413
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301017975409481903}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0029640198, y: 0.7259655}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 2, y: 3}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0311966, y: 0.48994064}
+  m_EdgeRadius: 0
+--- !u!114 &1856863673109589566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301017975409481903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87deee2356bdd148aef58e36f5b394e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: -1
+  DialogueDataOrNull: {fileID: 8410357882843855275}
+  isNpc: 1
+--- !u!114 &9125069547807337701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301017975409481903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c284c087ef50d488720588916a629f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestNames: []
+--- !u!1 &1793189043656645728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1847055363690587010}
+  - component: {fileID: 8410357882843855275}
+  m_Layer: 10
+  m_Name: Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1847055363690587010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793189043656645728}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5492769852712862669}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8410357882843855275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793189043656645728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0185f521b5dfe4ba7f5180db417f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  DialogueOnInteraction:
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: -474343676, guid: 8e162da9297f6404da8a227040bcf06f, type: 3}
+    isPrincessSpeaking: 1
+    dialogue: "\uBCA0\uC544\uB974\uB124\uC988 : \uBB34\uC2A8 \uC77C\uC774 \uC0DD\uACBC\uB098\uC694
+      \uC7AC\uC0C1\uB2D8?"
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: -474343676, guid: 8e162da9297f6404da8a227040bcf06f, type: 3}
+    isPrincessSpeaking: 0
+    dialogue: "\uC7AC\uC0C1 : \uC1A1\uAD6C\uD569\uB2C8\uB2E4\uB9CC, \uAD6D\uAC00
+      \uAE30\uBC00 \uC0AC\uD56D\uC774\uB77C \uB9D0\uC500 \uB4DC\uB9B4 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4
+      \uACF5\uC8FC\uB2D8."
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: -474343676, guid: 8e162da9297f6404da8a227040bcf06f, type: 3}
+    isPrincessSpeaking: 0
+    dialogue: "\uC758\uBB38\uC758 \uBAA9\uC18C\uB9AC : \uB0A0... \uB3C4\uC640\uC918"
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: -42596146, guid: 8e162da9297f6404da8a227040bcf06f, type: 3}
+    isPrincessSpeaking: 1
+    dialogue: "\uBCA0\uC544\uB974\uB124\uC988 : \uC9C0\uAE08... \uC774\uAC8C \uBB34\uC2A8
+      \uC18C\uB9AC\uC778\uAC00\uC694?"
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: -42596146, guid: 8e162da9297f6404da8a227040bcf06f, type: 3}
+    isPrincessSpeaking: 0
+    dialogue: "\uC7AC\uC0C1 : \uC5B4\uB5A4 \uC18C\uB9AC\uB97C \uB9D0\uC500\uD558\uC2DC\uB294
+      \uAC81\uB2C8\uAE4C \uACF5\uC8FC\uB2D8?"
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: -42596146, guid: 8e162da9297f6404da8a227040bcf06f, type: 3}
+    isPrincessSpeaking: 1
+    dialogue: "\uBCA0\uC544\uB974\uB124\uC988 : \uBC29\uAE08 \uB3C4\uC640\uB2EC\uB77C\uB294
+      \uBAA9\uC18C\uB9AC\uC694...!"
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: -42596146, guid: 8e162da9297f6404da8a227040bcf06f, type: 3}
+    isPrincessSpeaking: 0
+    dialogue: "\uC7AC\uC0C1 : \uBB34\uC2A8 \uB9D0\uC500\uC744 \uD558\uC2DC\uB294
+      \uAC74\uC9C0 \uBAA8\uB974\uACA0\uC2B5\uB2C8\uB2E4 \uACF5\uC8FC\uB2D8."
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: -42596146, guid: 8e162da9297f6404da8a227040bcf06f, type: 3}
+    isPrincessSpeaking: 0
+    dialogue: "\uC7AC\uC0C1 : \uB354 \uC774\uC0C1 \uC54C\uB824\uB4DC\uB9B4 \uC21C
+      \uC5C6\uC2B5\uB2C8\uB2E4. \uC5B4\uC11C \uB3CC\uC544\uAC00\uC2DC\uC9C0\uC694."
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: -873737801, guid: 8e162da9297f6404da8a227040bcf06f, type: 3}
+    isPrincessSpeaking: 1
+    dialogue: "\uBCA0\uC544\uB974\uB124\uC988 : \uC54C\uACA0\uC5B4\uC694. \uC774\uB9CC
+      \uBB3C\uB7EC\uAC00\uBCF4\uACA0\uC2B5\uB2C8\uB2E4..."
+  OnDialogueEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  IsPlayedOnce: 1

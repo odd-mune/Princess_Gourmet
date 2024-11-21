@@ -1,0 +1,196 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &998122452513106037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3347596518186254414}
+  - component: {fileID: 6380652080635878182}
+  - component: {fileID: 4777127753392891490}
+  - component: {fileID: 7911299347682882865}
+  - component: {fileID: 1287276514418605137}
+  m_Layer: 0
+  m_Name: canterbury
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3347596518186254414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998122452513106037}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -27.1566, y: 10.113552, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &6380652080635878182
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998122452513106037}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 885861223
+  m_SortingLayer: 7
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 1106792395, guid: 15d0f9741fe51524e8de1202623d0372, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.6875, y: 2.4375}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 1
+--- !u!61 &4777127753392891490
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998122452513106037}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.034799665, y: 0.28495884}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1.6875, y: 2.4375}
+    newSize: {x: 1.6875, y: 2.4375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.92190784, y: 0.5699177}
+  m_EdgeRadius: 0
+--- !u!114 &7911299347682882865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998122452513106037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87deee2356bdd148aef58e36f5b394e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: -1
+  DialogueDataOrNull: {fileID: 1287276514418605137}
+  isNpc: 1
+--- !u!114 &1287276514418605137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998122452513106037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0185f521b5dfe4ba7f5180db417f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: -1
+  DialogueOnInteraction:
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: "\uC608\uB85C\uBD80\uD130 \uC774 \uC138\uC0C1\uC740 \uC694\uB9AC\uC758
+      \uC2E0 \uAD6C\uD750\uBA54\uC758 \uC740\uCD1D\uC73C\uB85C \uD0C4\uC0DD\uD588\uB2E4"
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: "\uADF8 \uC911 \uC544\uBB88\uC988 \uC5EC\uC2E0\uC758 \uBE75\uC758 \uC740\uCD1D\uC740
+      \uC774 \uC138\uC0C1\uC758 \uADFC\uAC04\uC774 \uB418\uC5C8\uB2E4"
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: "\uC774 \uB545\uC740 \uC544\uBB88\uC988 \uC5EC\uC2E0\uC758 \uC190\uAE38\uC774
+      \uCC98\uC74C\uC73C\uB85C \uB2FF\uC740 \uACF3..."
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: "\uADF8\uB140\uC758 \uC190\uAE38\uC5D0\uC11C \uBCBC\uAC00, \uADF8\uB140\uC758
+      \uC785\uC220\uC5D0\uC11C \uC18C\uAC00 \uC774 \uB545\uC5D0 \uC0DD\uACBC\uB2E4"
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: "\uADF8 \uC740\uCD1D\uC740 \uBE75\uC774\uB77C\uB294 \uC694\uB9AC\uAC00
+      \uB418\uC5B4 \uC778\uAC04\uB4E4\uC744 \uC720\uC775\uD558\uAC8C \uB9CC\uB4E4\uC5C8\uB2E4"
+  - talkerSprite: {fileID: 0}
+    princessSprite: {fileID: 0}
+    isPrincessSpeaking: 0
+    dialogue: "\uC544\uBB88\uC988 \uC5EC\uC2E0\uC740 \uC774\uB97C \uAE30\uB824 \uC2E0\uC804\uC744
+      \uB9CC\uB4E4\uB77C \uBA85\uD558\uC600\uB2E4"
+  OnDialogueEndEvent:
+    m_PersistentCalls:
+      m_Calls: []

@@ -1,28 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.UI;
-using TMPro;
 
 public enum PlayerState
 {
     walk,
     run,
     attack,
-    interact,
+    // interact,
     stagger,
     idle
 }
 
 
+
+
 public class PlayerManager : MonoBehaviour
 {
     // 다이얼로그 매니저 
-    public DialogueManager manager;
+    private DialogueManager mDialogueManager;
     // 오브젝트 조사
     float h;
-    float v; 
+    float v;
     Vector3 dirVec;
     GameObject scanObject;
 
@@ -31,10 +32,11 @@ public class PlayerManager : MonoBehaviour
     public float runSpeed;
 
     private float speed;
-    public PlayerState currentState;
+    public PlayerState currentState = PlayerState.idle;
     private Rigidbody2D myRigidbody;
     private Vector3 change;
     private Animator animator;
+    private AnimatorOverrideController animatorOverrideController;
     public FloatValue currentHealth;
     public Signal playerHealthSignal;
     public VectorValue startingPosition;
@@ -44,13 +46,119 @@ public class PlayerManager : MonoBehaviour
     private bool hasConsumedSpaceKey;
     private bool mIsKnockingBack;
 
+    [Tooltip("뛰는 소리")]
+    public string pickUpSound;
+
+    private AudioManager theAudio;
+    private bool mbHasHit = false;
+    private bool mbIsControllable = true;
+
+    // 공주 옷장
+    [System.Serializable]
+    public class DirectionalAnimationClips
+    {
+        public AnimationClip Down;
+        public AnimationClip Up;
+        public AnimationClip Left;
+        public AnimationClip Right;
+    };
+
+    [System.Serializable]
+    public class PrincessAnimationClips
+    {
+        public DirectionalAnimationClips Idle;
+        public DirectionalAnimationClips Walk;
+        public DirectionalAnimationClips Attack;
+    };
+
+    [System.Serializable]
+    public class ClothAnimationInfos
+    {
+        public string name;
+        public PrincessAnimationClips clothAnimationClips;
+    };
+
+    [Tooltip("공주가 사용 가능한 cloth 정보를 기록한다. name이 겹치지 않도록 주의할 것. Prefab에 저장할 것.")]
+    public List<ClothAnimationInfos> clothAnimationInfos;
+    private ClothAnimationInfos currentAnimationInfo = null;
+    private int mCurrentClothIndex;
+    private bool mIsCollidingWithClothChanger = false;
+
+    private QuestManager mQuestManager;
+    private DialogueData mCurrentDialogueDataOrNull = null;
+    private PlayerInventory mPlayerInventory;
+
+    [System.Serializable]
+    public class TransitionInfo
+    {
+        public string Name;
+        public bool IsTransitionable = true;
+    };
+
+    [Tooltip("갈 수 있는 Scene 목록")]
+    public List<TransitionInfo> TransitionableScenes;
+
+    private struct KillHistory
+    {
+        public int TotalKills;
+        public int LatestKills;
+    }
+
+    private Dictionary<string, KillHistory> mKillHistories = new Dictionary<string, KillHistory>();
+    private GameSaveData mSaveData;
+
+    [Tooltip("Flambe 프리팹")]
+    public GameObject Flambe;
+
+    private GameObject mCurrentFlambeOrNull = null;
+
+    public void ShowFlambe()
+    {
+        mSaveData.isFlambeActivated = true;
+        GameObject newObject = Instantiate(Flambe, transform.position, transform.rotation);
+        newObject.name = "Flambe";
+        mCurrentFlambeOrNull = newObject;
+    }
+
+    public void AllowTransitionToScene(string sceneName)
+    {
+        foreach (var sceneInfo in TransitionableScenes)
+        {
+            if (sceneInfo.Name == sceneName)
+            {
+                sceneInfo.IsTransitionable = true;
+                break;
+            }
+        }
+    }
+
+    public void OnAnimalDeath(string name)
+    {
+        KillHistory killHistory;
+        bool result = mKillHistories.TryGetValue(name, out killHistory);
+        if (result == false)
+        {
+
+            killHistory.TotalKills = 1;
+            killHistory.LatestKills = 1;
+            mKillHistories.TryAdd(name, killHistory);
+        }
+        else
+        {
+            killHistory.TotalKills += 1;
+            killHistory.LatestKills += 1;
+        }
+    }
+
     void Start()
     {
         // Limit the framerate to 30
         Application.targetFrameRate = 30;
 
-        SetCurrentState(PlayerState.walk);
+        SetCurrentState(PlayerState.idle);
         animator = GetComponent<Animator>();
+        animatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
+        animator.runtimeAnimatorController = animatorOverrideController;
         myRigidbody = GetComponent<Rigidbody2D>();
         animator.SetFloat("moveX", 0);
         animator.SetFloat("moveY", -1);
@@ -59,6 +167,27 @@ public class PlayerManager : MonoBehaviour
         mCurrentPickUpObjects = new List<GameObject>();
         hasConsumedSpaceKey = false;
         mIsKnockingBack = false;
+
+
+        GameStateManager gameStateManager = FindObjectOfType<GameStateManager>();
+        mSaveData = gameStateManager.GameSaveData;
+        SetCloth(mSaveData.CurrentCloth);
+
+        mQuestManager = FindObjectOfType<QuestManager>();
+        mDialogueManager = FindObjectOfType<DialogueManager>();
+        mPlayerInventory = FindObjectOfType<PlayerInventory>();
+
+        if (mSaveData.isFlambeActivated)
+        {
+            ShowFlambe();
+        }
+        else
+        {
+            if (mCurrentFlambeOrNull != null)
+            {
+                Destroy(mCurrentFlambeOrNull);
+            }
+        }
     }
 
     private void OnDestroy()
@@ -69,55 +198,223 @@ public class PlayerManager : MonoBehaviour
     // 다이얼로그 매니저, 오브젝트 조사 
     void Update() 
     {
-        // 오브젝트 조사 
-            //Move Value
-            h = manager.isAction ? 0 : Input.GetAxisRaw("Horizontal");
-            v = manager.isAction ? 0 : Input.GetAxisRaw("Vertical");
+        // 오브젝트 조사
+        if (mbIsControllable == true)
+        {
+            if (mCurrentDialogueDataOrNull == null)
+            {
+                //Move Value
+                h = mDialogueManager.isAction ? 0 : Input.GetAxisRaw("Horizontal");
+                v = mDialogueManager.isAction ? 0 : Input.GetAxisRaw("Vertical");
 
-            //Check Button Down & Up
-            bool hDown = manager.isAction ? false : Input.GetButtonDown("Horizontal");
-            bool vDown = manager.isAction ? false : Input.GetButtonDown("Vertical");
-            bool hUp = manager.isAction ? false : Input.GetButtonUp("Horizontal");
-            bool vUp = manager.isAction ? false : Input.GetButtonUp("Vertical");
+                //Check Button Down & Up
+                bool hDown = mDialogueManager.isAction ? false : Input.GetButtonDown("Horizontal");
+                bool vDown = mDialogueManager.isAction ? false : Input.GetButtonDown("Vertical");
+                bool hUp = mDialogueManager.isAction ? false : Input.GetButtonUp("Horizontal");
+                bool vUp = mDialogueManager.isAction ? false : Input.GetButtonUp("Vertical");
 
-            //Direction 
-            if (vDown && v == 1)
-                dirVec = Vector3.up;
-            else if (vDown && v == -1)
-                dirVec = Vector3.down;
-            else if (hDown && v == -1)
-                dirVec = Vector3.left;
-            else if (hDown && h == 1)
-                dirVec = Vector3.right;
+                //Direction 
+                if (vDown && v == 1)
+                    dirVec = Vector3.up;
+                else if (vDown && v == -1)
+                    dirVec = Vector3.down;
+                else if (hDown && v == -1)
+                    dirVec = Vector3.left;
+                else if (hDown && h == 1)
+                    dirVec = Vector3.right;
+            }
 
             //scan object & Action
-            if (Input.GetKeyDown(KeyCode.Space) && scanObject != null)
+            if (Input.GetKeyDown(KeyCode.Space) && (mCurrentDialogueDataOrNull != null || scanObject != null))
             {
-                manager.Action(scanObject);
+                Npc npc = scanObject.GetComponent<Npc>();
+                if (npc != null)
+                {
+                    if (mCurrentDialogueDataOrNull == null)
+                    {
+                        DialogueData dialogueDataOrNull = null;
+                        Quest availableFirstQuestOrNull = null;
+                        List<Quest> completedQuests = new List<Quest>();
+                        foreach (string questName in npc.QuestNames)
+                        {
+                            Quest quest = mQuestManager.GetQuestOrNull(questName);
+                            if (availableFirstQuestOrNull == null && quest.currentState == QuestState.Undiscovered)
+                            {
+                                availableFirstQuestOrNull = quest;
+                            }
+                            else if (quest.currentState == QuestState.OnProgress)
+                            {
+                                dialogueDataOrNull = quest.currentDialogueOrNull;
+                                switch (quest.GetQuestType())
+                                {
+                                    case QuestType.Collection:
+                                        {
+                                            CollectionQuest collectionQuest = (CollectionQuest)quest;
+
+                                            List<InventoryItem> completedItems = new List<InventoryItem>();
+                                            foreach (var itemToCollect in collectionQuest.ItemToCollectInfos)
+                                            {
+                                                bool isComplete = true;
+                                                InventoryItem foundItemOrNull = null;
+                                                foreach (var item in mPlayerInventory.myInventory)
+                                                {
+                                                    if (item.itemName == itemToCollect.Item.itemName)
+                                                    {
+                                                        foundItemOrNull = item;
+                                                        if (item.numberHeld >= itemToCollect.Count)
+                                                        {
+                                                            completedItems.Add(item);
+                                                        }
+                                                        else
+                                                        {
+                                                            isComplete = false;
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+
+                                                if (isComplete == false || foundItemOrNull == null)
+                                                {
+                                                    break;
+                                                }
+                                            }
+
+                                            if (completedItems.Count == collectionQuest.ItemToCollectInfos.Count)
+                                            {
+                                                foreach (var item in completedItems)
+                                                {
+                                                    foreach (var itemToCollect in collectionQuest.ItemToCollectInfos)
+                                                    {
+                                                        if (item.itemName == itemToCollect.Item.itemName)
+                                                        {
+                                                            item.numberHeld -= itemToCollect.Count;
+                                                        }
+                                                    }
+                                                }
+                                                collectionQuest.OnQuestCompleted();
+                                                dialogueDataOrNull = collectionQuest.currentDialogueOrNull;
+                                            }
+                                        }
+                                        break;
+                                    case QuestType.Hunting:
+                                        {
+                                            HuntingQuest huntingQuest = (HuntingQuest)quest;
+
+                                            List<string> completedAnimals = new List<string>();
+                                            foreach (var animalToHunt in huntingQuest.AnimalsToHunt)
+                                            {
+                                                KillHistory killHistory;
+                                                bool result = mKillHistories.TryGetValue(animalToHunt.AnimalToHunt, out killHistory);
+                                                if (result == true)
+                                                {
+                                                    if (killHistory.LatestKills >= animalToHunt.Count)
+                                                    {
+                                                        completedAnimals.Add(animalToHunt.AnimalToHunt);
+                                                    }
+                                                    else
+                                                    {
+                                                        break;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    break;
+                                                }
+                                            }
+
+                                            if (completedAnimals.Count == huntingQuest.AnimalsToHunt.Count)
+                                            {
+                                                foreach (var completeAnimal in completedAnimals)
+                                                {
+                                                    KillHistory killHistory;
+                                                    mKillHistories.TryGetValue(completeAnimal, out killHistory);
+                                                    killHistory.LatestKills = 0;
+                                                }
+                                                huntingQuest.OnQuestCompleted();
+                                                dialogueDataOrNull = huntingQuest.currentDialogueOrNull;
+                                            }
+                                        }
+                                        break;
+                                    case QuestType.Count:
+                                        // intentional fallthrough
+                                    default:
+                                        Debug.LogError($"Invalid quest type {quest.GetQuestType()}");
+                                        Debug.Break();
+                                        break;
+                                }
+                                break;
+                            }
+                            else if (quest.currentState == QuestState.Completed)
+                            {
+                                completedQuests.Add(quest);
+                            }
+                        }
+
+                        if (dialogueDataOrNull == null && availableFirstQuestOrNull != null)
+                        {
+                            dialogueDataOrNull = availableFirstQuestOrNull.currentDialogueOrNull;
+                        }
+
+                        if (dialogueDataOrNull == null && completedQuests.Count > 0)
+                        {
+                            int randomIndex = UnityEngine.Random.Range(0, completedQuests.Count);
+                            dialogueDataOrNull = completedQuests[randomIndex].currentDialogueOrNull;
+                        }
+
+                        mCurrentDialogueDataOrNull = dialogueDataOrNull;
+                    }
+
+                    if (mCurrentDialogueDataOrNull != null)
+                    {
+                        bool isDialogueComplete = mDialogueManager.Action(mCurrentDialogueDataOrNull, true);
+                        if (isDialogueComplete == true)
+                        {
+                            mCurrentDialogueDataOrNull = null;
+                        }
+                    }
+                    else
+                    {
+                        mDialogueManager.Action(scanObject, out mCurrentDialogueDataOrNull);
+                    }
+                }
+                else
+                {
+                    mDialogueManager.Action(scanObject, out mCurrentDialogueDataOrNull);
+                }
             }
+        }
     }
 
     void FixedUpdate()
     {
-        // 오브젝트 조사
-            //Ray 
-            Debug.DrawRay(myRigidbody.position, dirVec * 2.0f, new Color(0,1,0));
-            RaycastHit2D rayHit = Physics2D.Raycast(myRigidbody.position, dirVec, 2.0f, LayerMask.GetMask("Object_goldmetal"));
+        if (GameStateManager.GetState() != GameState.IDLE)
+        {
+            animator.enabled = false;
+            return;
+        }
+        animator.enabled = true;
 
-            if(rayHit.collider != null)
-            {
-                scanObject = rayHit.collider.gameObject;
-            }
-            else
-            {
-                scanObject = null;
-            }
+        // 오브젝트 조사
+        //Ray 
+        Debug.DrawRay(myRigidbody.position, dirVec * 2.0f, new Color(0, 1, 0));
+        RaycastHit2D rayHit = Physics2D.Raycast(myRigidbody.position, dirVec, 2.0f, LayerMask.GetMask("Object_goldmetal"));
+
+        if (rayHit.collider != null)
+        {
+            scanObject = rayHit.collider.gameObject;
+        }
+        else
+        {
+            scanObject = null;
+        }
 
         change = Vector3.zero;
-        change.x = Input.GetAxisRaw ("Horizontal");
-        change.y = Input.GetAxisRaw ("Vertical"); 
+        if (mbIsControllable == true && mCurrentDialogueDataOrNull == null)
+        {
+            change.x = Input.GetAxisRaw("Horizontal");
+            change.y = Input.GetAxisRaw("Vertical");
 
-        // 아이템 줍기 
+            // 아이템 줍기 
             //당근 줍기
             if (mCurrentCollidingItems.Count > 0)
             {
@@ -125,56 +422,112 @@ public class PlayerManager : MonoBehaviour
                 {
                     GameObject itemGameObjectToPickUp = mCurrentCollidingItems[0];
                     PhysicalInventoryItem physicalInventoryItem = itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>();
-                    physicalInventoryItem.PickUp();
-                    
+                    bool hasPickedUpObject = physicalInventoryItem.PickUp();
+
                     mCurrentCollidingItems.RemoveAt(0);
                     Destroy(itemGameObjectToPickUp);
                     hasConsumedSpaceKey = true;
+
+                    if (hasPickedUpObject)
+                    {
+                        //AudioManager 추가 
+                        theAudio = FindObjectOfType<AudioManager>();
+                        //AudioManager pickUp sound
+                        theAudio.Play(pickUpSound);
+                    }
                 }
             }
-            
+
             //시럽나무 줍기
-            if (mCurrentPickUpObjects.Count > 0) 
+            if (mCurrentPickUpObjects.Count > 0)
             {
                 if (!hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
                 {
                     GameObject itemGameObjectToPickUp = mCurrentPickUpObjects[0];
-                    itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>().PickUp();
-                    
+                    bool hasPickedUpObject = itemGameObjectToPickUp.GetComponent<PhysicalInventoryItem>().PickUp();
+
+                    hasConsumedSpaceKey = true;
+
+                    if (hasPickedUpObject)
+                    {
+                        //AudioManager 추가 
+                        theAudio = FindObjectOfType<AudioManager>();
+                        //AudioManager pickUp sound
+                        theAudio.Play(pickUpSound);
+                    }
+                }
+            }
+
+            // Cloth Changer
+            if (mIsCollidingWithClothChanger == true)
+            {
+                if (!hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space))
+                {
+                    mCurrentClothIndex = (mCurrentClothIndex + 1) % clothAnimationInfos.Count;
+                    SetCloth(mCurrentClothIndex);
+
                     hasConsumedSpaceKey = true;
                 }
             }
 
-        // 젤다 튜토리얼 - 플레이어 기본 움직임 셋팅 
+            // 젤다 튜토리얼 - 플레이어 기본 움직임 셋팅 
             if (hasConsumedSpaceKey && Input.GetKeyDown(KeyCode.Space) == false)
             {
                 hasConsumedSpaceKey = false;
             }
 
-            if(Input.GetButtonDown("attack") && currentState != PlayerState.attack
+            if (currentAnimationInfo.clothAnimationClips.Attack.Down != null && Input.GetButtonDown("attack") && currentState != PlayerState.attack
                 && currentState != PlayerState.stagger)
-            {   
+            {
                 StartCoroutine(AttackCo());
             }
-            else if(Input.GetButtonDown("run") && currentState == PlayerState.walk)
-            {
-                SetCurrentState(PlayerState.run);
-            }
-            else if(Input.GetButtonUp("run") && currentState == PlayerState.run)
-            {
-                SetCurrentState(PlayerState.walk);
-            }
-            
+
             if (mIsKnockingBack == false)
             {
                 myRigidbody.velocity = Vector2.zero;
             }
 
-            if(currentState == PlayerState.walk || currentState == PlayerState.run
+            if (currentState == PlayerState.walk || currentState == PlayerState.run
                 || currentState == PlayerState.idle)
             {
                 UpdateAnimationAndMove();
             }
+        }
+    }
+
+    public void SetCloth(string cloth)
+    {
+        for (int i = 0; i < clothAnimationInfos.Count; i++)
+        {
+            ClothAnimationInfos clothTextureInfo = clothAnimationInfos[i];
+            if (clothTextureInfo.name == cloth)
+            {
+                SetCloth(i);
+                break;
+            }
+        }
+    }
+
+    private void SetCloth(int index)
+    {
+        ClothAnimationInfos clothTextureInfo = clothAnimationInfos[index];
+        currentAnimationInfo = clothTextureInfo;
+        mSaveData.CurrentCloth = currentAnimationInfo.name;
+        mCurrentClothIndex = index;
+        animatorOverrideController["idleDown"] = clothTextureInfo.clothAnimationClips.Idle.Down;
+        animatorOverrideController["idleUp"] = clothTextureInfo.clothAnimationClips.Idle.Up;
+        animatorOverrideController["idleLeft"] = clothTextureInfo.clothAnimationClips.Idle.Left;
+        animatorOverrideController["idleRight"] = clothTextureInfo.clothAnimationClips.Idle.Right;
+
+        animatorOverrideController["walkDown"] = clothTextureInfo.clothAnimationClips.Walk.Down;
+        animatorOverrideController["walkUp"] = clothTextureInfo.clothAnimationClips.Walk.Up;
+        animatorOverrideController["walkLeft"] = clothTextureInfo.clothAnimationClips.Walk.Left;
+        animatorOverrideController["walkRight"] = clothTextureInfo.clothAnimationClips.Walk.Right;
+
+        animatorOverrideController["attackDown"] = clothTextureInfo.clothAnimationClips.Attack.Down;
+        animatorOverrideController["attackUp"] = clothTextureInfo.clothAnimationClips.Attack.Up;
+        animatorOverrideController["attackLeft"] = clothTextureInfo.clothAnimationClips.Attack.Left;
+        animatorOverrideController["attackRight"] = clothTextureInfo.clothAnimationClips.Attack.Right;
     }
 
     private IEnumerator AttackCo()
@@ -188,8 +541,8 @@ public class PlayerManager : MonoBehaviour
         SetCurrentState(prevState);
     }
 
-    // 아이템 줍기 OnTrigger
-    private void OnTriggerEnter2D(Collider2D other)
+    // 아이템 줍기 OnCollision (채집 가능 아이콘 표시)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         // 당근 줍기 
         Collider2D collider = GetComponent<Collider2D>();
@@ -202,7 +555,7 @@ public class PlayerManager : MonoBehaviour
 
             if (mCurrentCollidingItems.Count == 1)
             {
-                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.9f);
+                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
             }
         }
 
@@ -216,11 +569,15 @@ public class PlayerManager : MonoBehaviour
 
             if (mCurrentPickUpObjects.Count == 1)
             {
-                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.9f);
+                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
             }
         }
+        else if (other.gameObject.GetComponent<ClothChanger>() != null)
+        {
+            mIsCollidingWithClothChanger = true;
+        }
     }
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnCollisionExit2D(Collision2D other)
     {
         //당근 수집 
         if (other.gameObject.CompareTag("item"))
@@ -243,6 +600,10 @@ public class PlayerManager : MonoBehaviour
                 GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             }
         }
+        else if (other.gameObject.GetComponent<ClothChanger>() != null)
+        {
+            mIsCollidingWithClothChanger = false;
+        }
     }
 
     void UpdateAnimationAndMove()
@@ -253,9 +614,33 @@ public class PlayerManager : MonoBehaviour
             animator.SetFloat("moveX", change.x);
             animator.SetFloat("moveY", change.y);
             animator.SetBool("moving", true);
+            
+            if (Input.GetButton("run") == false)
+            {
+                if (currentState != PlayerState.walk)
+                {
+                    Debug.Log($"start walk {Input.GetButton("run")}");
+                    SetCurrentState(PlayerState.walk);
+                }
+            }
+            else
+            {
+                if (currentState != PlayerState.run && currentState != PlayerState.stagger && currentState != PlayerState.attack /*&& currentState != PlayerState.interact*/)
+                {
+                    SetCurrentState(PlayerState.run);
+                }
+            }
         }
         else
         {
+            if (currentState == PlayerState.walk)
+            {
+                SetCurrentState(PlayerState.idle);
+            }
+            if (currentState == PlayerState.run)
+            {
+                SetCurrentState(PlayerState.idle);
+            }
             animator.SetBool("moving", false);
         }
     }
@@ -264,10 +649,7 @@ public class PlayerManager : MonoBehaviour
     void MoveCharacter()
     {
         change.Normalize();
-        myRigidbody.MovePosition
-        (
-            transform.position + change * speed * Time.fixedDeltaTime
-        );
+        myRigidbody.velocity = change * speed;
     }
 
     public void Knock(float knockTime, float damage)
@@ -281,7 +663,8 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
-            this.gameObject.SetActive(false);
+            Debug.Log("플레이어 사망 ㅠㅠ");
+            GetComponentInChildren<SceneTransition>().Transition();
         }
     }
 
@@ -289,9 +672,10 @@ public class PlayerManager : MonoBehaviour
     {
         if(myRigidbody != null)
         {
+            SetCurrentState(PlayerState.stagger);
             yield return new WaitForSeconds(knockTime);
             myRigidbody.velocity = Vector2.zero;
-            currentState = PlayerState.walk;
+            SetCurrentState(PlayerState.idle);
                 //넉백을 받으면 공주가 자꾸 가만히 멈춰서서 idle 에서 walk로 고쳐봤음
             myRigidbody.velocity = Vector2.zero;
             mIsKnockingBack = false;
@@ -304,30 +688,32 @@ public class PlayerManager : MonoBehaviour
     //넉백 스크립트에서 자꾸 player.currentstate 프로텍션 레벨 때문에 접근을 못한다고 해서
     //위에 playerstate 선언한거 퍼블릭으로 바꾸고 밑에 리턴을 주니까 해결했음. 맞나??
     {
+
         switch (newState)
         {
             case PlayerState.walk:
-            speed = walkSpeed;
-            break;
+                speed = walkSpeed;
+                animator.speed = 1.0f;
+                break;
             case PlayerState.run:
-            speed = runSpeed;
-            break;
+                speed = runSpeed;
+                animator.speed = runSpeed / walkSpeed;
+                break;
             case PlayerState.attack:
-            speed = 0;
-            break;
-            case PlayerState.interact:
-            speed = 0;
-            break;
-            //상태 두개 stagger, idle 새롭게 추가했음..위에도 추가했기 때문에 
+                speed = 0;
+                break;
+            // case PlayerState.interact:
+            // speed = 0;
+            // break;
             case PlayerState.stagger:
-            speed = 0;
-            break;
+                speed = 0;
+                break;
             case PlayerState.idle:
-            speed = 0;
-            break;
+                speed = 0;
+                break;
             default:
-            Assert.IsTrue(false);
-            break;
+                Assert.IsTrue(false);
+                break;
         }
         currentState = newState;
         return currentState;
@@ -341,5 +727,38 @@ public class PlayerManager : MonoBehaviour
     public List<GameObject> GetCurrentPickUpObjects()
     {
         return mCurrentPickUpObjects;
+    }
+
+    public void OnFriedPanWhoosh()
+    {
+        theAudio = FindObjectOfType<AudioManager>();
+        theAudio.Play("whoosh");
+    }
+
+    public void OnFriedPanHit()
+    {
+        theAudio = FindObjectOfType<AudioManager>();
+        if (mbHasHit == true)
+        {
+            theAudio.Play("metal hit");
+            mbHasHit = false;
+        }
+    }
+
+    public void OnKnockback()
+    {
+        mbHasHit = true;
+    }
+
+    //컷씬 
+    public void EnableControls()
+    {
+        mbIsControllable = true;
+    }
+
+    public void DisableControls()
+    {
+        mbIsControllable = false;
+        myRigidbody.velocity = Vector2.zero;
     }
 }

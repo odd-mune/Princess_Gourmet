@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using static UnityEditor.Progress;
 
-public class InventorySlot : MonoBehaviour, IPointerClickHandler
+public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerDownHandler
 {
     [Header("UI Stuff to change")]
     [SerializeField] private TextMeshProUGUI itemNumberText;
@@ -15,15 +12,32 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     [Header("Variables from the item")]
     public InventoryItem thisItem;
     public InventoryManager thisManager;
+    public CraftingManager craftingManager;
+    private AudioManager mAudioManager = null;
 
-    public void Setup(InventoryItem newItem, InventoryManager newManager)
+    public void Setup(InventoryItem newItem, InventoryManager newManager, CraftingManager inCraftingManager)
     {
         thisItem = newItem;
         thisManager = newManager;
+        craftingManager = inCraftingManager;
         if (thisItem)
         {
             itemImage.sprite = thisItem.itemImage;
             itemNumberText.text = "" + thisItem.numberHeld;
+        }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (thisItem)
+        {
+            if (craftingManager != null)
+            {
+                if (craftingManager.isActiveAndEnabled)
+                {
+                    craftingManager.OnMouseDownItem(this);
+                }
+            }
         }
     }
 
@@ -35,35 +49,16 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         {
             if (clickCount == 1)
             {
-                thisManager.SetupDescriptionAndButton(thisItem.itemDescription, thisItem.usable, thisItem);
-                thisManager.SetupNameAndButton(thisItem.itemName, thisItem.usable, thisItem);
+                thisManager.ToggleSelectedItem(this);
             }
-            else if (clickCount == 2)
+
+            if (craftingManager == null)
             {
-                if (thisManager.cookManager.PauseCookManager != null && IPauseManager.mCurrentActiveGameObjectOrNull == thisManager.cookManager.PauseCookManager.GameObjectToPause)
+                if (mAudioManager == null)
                 {
-                    thisManager.currentItem = thisItem;
-                    //thisManager.useButtonPressed();
-                    
-                    //clear all of the inventory slots
-                    thisManager.ClearInventorySlots();
-                    //refill all slots with new numbers
-                    thisManager.MakeInventorySlots();    
-                    thisManager.SetTextAndButton("", false);
-                    thisManager.SetNameAndButton("", false);
-
-                    if (thisItem.unique == false)
-                    {
-                        thisItem.numberHeld -= 1;
-                    }
-
-                    if (thisItem.unique == true || thisItem.numberHeld == 0)
-                    {
-                        thisManager.playerInventory.myInventory.Remove(thisItem);
-                    }
-
-                    thisManager.cookManager.CreateNode(thisItem);
+                    mAudioManager = FindObjectOfType<AudioManager>();
                 }
+                mAudioManager.Play("cursor");
             }
         }
     }
