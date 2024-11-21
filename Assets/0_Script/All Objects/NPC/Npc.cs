@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Npc : MonoBehaviour
 {
+    [Tooltip("NPC 이름")]
+    public string Name;
     [Tooltip("줄 수 있는 퀘스트 목록")]
     public List<string> QuestNames;
 

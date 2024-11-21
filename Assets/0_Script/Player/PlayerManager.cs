@@ -364,6 +364,7 @@ public class PlayerManager : MonoBehaviour
                         mCurrentDialogueDataOrNull = dialogueDataOrNull;
                     }
 
+                    mDialogueManager.setName(npc.Name);
                     if (mCurrentDialogueDataOrNull != null)
                     {
                         bool isDialogueComplete = mDialogueManager.Action(mCurrentDialogueDataOrNull, true);

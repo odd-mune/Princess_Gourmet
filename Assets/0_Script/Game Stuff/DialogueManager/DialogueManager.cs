@@ -12,6 +12,11 @@ public class DialogueManager : MonoBehaviour
     public GameObject talkPanel;
     private Image mPrincessPortrait;
     private Image mTalkerPortrait;
+    private TMP_Text mPrincessName;
+    private TMP_Text mTalkerName;
+    private Color mPrincessNameColor;
+    private Color mTalkerNameColor;
+
     public TMP_Text talkText;
     public GameObject scanObject;
     public bool isAction;
@@ -39,8 +44,19 @@ public class DialogueManager : MonoBehaviour
             {
                 mTalkerPortrait = child.GetComponent<Image>();
             }
+            else if (child.gameObject.name == "PrincessName")
+            {
+                mPrincessName = child.GetComponent<TMP_Text>();
+                mPrincessName.SetText("베아르네즈");
+                mPrincessNameColor = mPrincessName.color;
+            }
+            else if (child.gameObject.name == "TalkerName")
+            {
+                mTalkerName = child.GetComponent<TMP_Text>();
+                mTalkerNameColor = mTalkerName.color;
+            }
 
-            if (mPrincessPortrait != null && mTalkerPortrait != null)
+            if (mPrincessPortrait != null && mTalkerPortrait != null && mPrincessName != null && mTalkerName != null)
             {
                 break;
             }
@@ -51,6 +67,11 @@ public class DialogueManager : MonoBehaviour
             Debug.LogError("Talk Panel 하위에 Image component를 가진 PrincessPortrait과 TalkerPortrait이 없습니다!!");
             Debug.Break();
         }
+    }
+
+    public void setName(string talkerName)
+    {
+        mTalkerName.SetText(talkerName);
     }
 
     public bool Action(GameObject scanObj, out DialogueData currentDialogueDataOrNull)
@@ -116,6 +137,8 @@ public class DialogueManager : MonoBehaviour
         {
             mTalkerPortrait.gameObject.SetActive(false);
             mPrincessPortrait.gameObject.SetActive(false);
+            mTalkerName.gameObject.SetActive(false);
+            mPrincessName.gameObject.SetActive(false);
             mCurrentDialogueDataOrNull.OnDialogueEnd();
         }
 
@@ -133,6 +156,8 @@ public class DialogueManager : MonoBehaviour
             {
                 mTalkerPortrait.gameObject.SetActive(false);
                 mPrincessPortrait.gameObject.SetActive(false);
+                mTalkerName.gameObject.SetActive(false);
+                mPrincessName.gameObject.SetActive(false);
                 mCurrentDialogueDataOrNull.OnDialogueEnd();
                 mCurrentDialogueDataOrNull = null;
             }
@@ -157,15 +182,22 @@ public class DialogueManager : MonoBehaviour
             mPrincessPortrait.gameObject.SetActive(true);
         }
 
+        mTalkerName.gameObject.SetActive(true);
+        mPrincessName.gameObject.SetActive(true);
+
         if (dialogueOrNull.isPrincessSpeaking)
         {
             mPrincessPortrait.color = new Color(1, 1, 1, 1);
             mTalkerPortrait.color = new Color(0.5f, 0.5f, 0.5f, 1);
+            mPrincessName.color = new Color(mPrincessNameColor.r, mPrincessNameColor.g, mPrincessNameColor.b, 1);
+            mTalkerName.color = new Color(mTalkerNameColor.r, mTalkerNameColor.g, mTalkerNameColor.b, 0.5f);
         }
         else
         {
             mPrincessPortrait.color = new Color(0.5f, 0.5f, 0.5f, 1);
             mTalkerPortrait.color = new Color(1, 1, 1, 1);
+            mPrincessName.color = new Color(mPrincessNameColor.r, mPrincessNameColor.g, mPrincessNameColor.b, 0.5f);
+            mTalkerName.color = new Color(mTalkerNameColor.r, mTalkerNameColor.g, mTalkerNameColor.b, 1);
         }
 
         isAction = true;
